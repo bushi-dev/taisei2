@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import { generateProblem } from '../util/problemGenerator'
 
 const BattleScreen = () => {
   const [problem, setProblem] = useState({
@@ -11,43 +12,6 @@ const BattleScreen = () => {
   const [life, setLife] = useState(3)
   const [enemyCount, setEnemyCount] = useState(1)
   const navigate = useNavigate()
-
-  const generateProblem = () => {
-    const num1 = Math.floor(Math.random() * 10) + 1
-    const num2 = Math.floor(Math.random() * 10) + 1
-    const operators = ['+', '-', '*', '/']
-    const operator = operators[Math.floor(Math.random() * operators.length)]
-
-    let answer
-    switch (operator) {
-      case '+':
-        answer = num1 + num2
-        break
-      case '-':
-        answer = num1 - num2
-        break
-      case '*':
-        answer = num1 * num2
-        break
-      case '/':
-        answer = Math.floor(num1 / num2)
-        break
-      default:
-        answer = 0
-    }
-
-    const options = [
-      answer,
-      answer + Math.floor(Math.random() * 5) + 1,
-      answer - Math.floor(Math.random() * 5) - 1,
-    ].sort(() => Math.random() - 0.5)
-
-    setProblem({
-      question: `${num1} ${operator} ${num2}`,
-      answer,
-      options,
-    })
-  }
 
   const handleAnswer = (selected: number) => {
     if (selected === problem.answer) {
@@ -71,11 +35,11 @@ const BattleScreen = () => {
         return prev - 1
       })
     }
-    generateProblem()
+    setProblem(generateProblem(enemyCount + 1))
   }
 
   useEffect(() => {
-    generateProblem()
+    setProblem(generateProblem(enemyCount))
     const bgm = new Audio(getPath('/sound/maou_bgm_fantasy08.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
