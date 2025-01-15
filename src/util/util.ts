@@ -2,11 +2,6 @@ import { RefObject } from 'react'
 
 export const getPath = (src: string) => {
   return '/taisei2' + src
-  const isProduction = process.env.NODE_ENV === 'production'
-  if (!isProduction) {
-    return '/taisei2' + src
-  }
-  return src
 }
 
 export const playSound = (
