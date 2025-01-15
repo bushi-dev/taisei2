@@ -80,3 +80,4 @@ TAISEI忍者
 ## 実装時の注意
 - 素材はpublic以下を使って
 - 画像やサウンドの指定にはgetPathメソッドを使って
+- vite.config.tsは変更しないで
