@@ -80,9 +80,9 @@ const BattleScreen = () => {
         />
       ) : (
         <img
-          src={getPath('/image/nin.png')}
-          alt="敵"
-          style={{ width: '100px', margin: '0 auto', display: 'block' }}
+          src={getPath(`/image/teki${Math.random() < 0.5 ? 1 : 2}.gif`)}
+          alt={`敵${Math.random() < 0.5 ? 1 : 2}`}
+          style={{ width: '100px', display: 'block' }}
         />
       )}
 
