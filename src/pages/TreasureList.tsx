@@ -11,7 +11,8 @@ const TreasureList = () => {
   useEffect(() => {
     // ローカルストレージから宝物データを取得し、画像ファイル名に変換
     const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
-    const formattedTreasures = savedTreasures.map(
+    const sortedTreasures = [...savedTreasures].sort((a, b) => a - b)
+    const formattedTreasures = sortedTreasures.map(
       (t: number) => `takara${t}.png`
     )
     setTreasures(formattedTreasures)

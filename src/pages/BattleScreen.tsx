@@ -40,11 +40,15 @@ const BattleScreen = () => {
           }
           setBossLife((prev) => {
             if (prev - 1 <= 0) {
+              //クリア時の処理
               setTimeout(() => {
                 const clearSound = new Audio(getPath('/sound/clear.mp3'))
                 clearSound.volume = 0.3
                 clearSound.play()
-                navigate('/taisei2/clear')
+                setTimeout(() => {
+                  navigate('/taisei2/clear')
+                  return // クリア時は問題更新しない
+                }, 2000)
               }, 500)
             }
             return prev - 1
@@ -62,7 +66,7 @@ const BattleScreen = () => {
           }
           return prev - 1
         })
-      }, 1000)
+      }, 2000)
     }
     setTimeout(() => {
       setProblem(generateProblem(gameType, gameDifficulty))

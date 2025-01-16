@@ -6,16 +6,16 @@ import './TreasureDetail.css'
 
 const TreasureDetail = () => {
   const { id } = useParams<{ id: string }>()
-  const [treasure, setTreasure] = useState<string | null>(null)
+  const [treasure, setTreasure] = useState<number | null>(null)
   const navigate = useNavigate()
 
   useEffect(() => {
     // ローカルストレージから宝物データを取得
     const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
-    if (id && savedTreasures[Number(id)]) {
-      setTreasure(savedTreasures[Number(id)])
+    if (id && savedTreasures[Number(id) - 1]) {
+      setTreasure(savedTreasures[Number(id) - 1])
     } else {
-      navigate('/treasure')
+      navigate('/taisei2/treasure')
     }
 
     // BGM再生
@@ -33,18 +33,18 @@ const TreasureDetail = () => {
 
   return (
     <div className="treasure-detail-container">
-      <h1 className="treasure-detail-heading">{treasure} の詳細</h1>
+      <h1 className="treasure-detail-heading">宝物{treasure} の詳細</h1>
 
       <div className="treasure-content">
         <img
-          src={getPath(`/image/takara${treasure}.png`)}
-          alt={treasure}
+          src={getPath(`/image/takara${String(treasure)}.png`)}
+          alt={`宝物${treasure}`}
           className="treasure-detail-image"
         />
 
         <div className="treasure-description">
           <p>
-            これは{treasure}
+            これは宝物{treasure}
             の詳細説明です。忍者たちが長年守り続けてきた貴重な宝物です。
             特別な力を持っていると言われています。
           </p>

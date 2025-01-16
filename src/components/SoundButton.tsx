@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { getPath } from '../util/util'
 
 // 最大ken数 (ken1からken100まで再生可能)
@@ -16,7 +17,14 @@ const SoundButton = ({
   className,
   isBattleMode,
 }: SoundButtonProps) => {
+  const lastClickTime = useRef(0)
+
   const handleClick = () => {
+    const now = Date.now()
+    if (now - lastClickTime.current < 500) {
+      return
+    }
+    lastClickTime.current = now
     if (isBattleMode) {
       // バトルモード時はken1からken100までランダム再生
       const randomKen = Math.floor(Math.random() * MAX_KEN_COUNT) + 1

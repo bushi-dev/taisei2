@@ -7,14 +7,41 @@
   align-items: center;
   color: white;
   text-shadow: 2px 2px 4px black;
-  padding: 40px;
   box-sizing: border-box;
   min-height: 100vh;
 }
 
 .clear-heading {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 2rem;
+  font-weight: bold;
+  color: #ffeb3b;
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #ffeb3b,
+    0 0 40px #ffeb3b,
+    0 0 80px #ffeb3b;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #ffeb3b,
+      0 0 40px #ffeb3b,
+      0 0 80px #ffeb3b;
+  }
+  to {
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #ffeb3b,
+      0 0 40px #ffeb3b,
+      0 0 80px #ffeb3b,
+      0 0 120px #ffeb3b;
+  }
 }
 
 .clear-subheading {

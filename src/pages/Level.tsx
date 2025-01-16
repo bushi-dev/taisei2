@@ -35,7 +35,7 @@ const Level = () => {
     localStorage.setItem('gameType', type)
     localStorage.setItem('gameDifficulty', difficulty)
     const clearSound = new Audio(getPath('/sound/battleStart.mp3'))
-    clearSound.volume = 0.5
+    clearSound.volume = 0.1
     clearSound.play()
     setTimeout(() => {
       navigate('/taisei2/battle')

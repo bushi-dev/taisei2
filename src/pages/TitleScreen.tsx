@@ -21,7 +21,7 @@ const TitleScreen = () => {
 
   return (
     <div className="title-screen">
-      <h1 className="title-screen__heading">TAISEI忍者</h1>
+      <h1 className="title-screen__heading">たいせい忍者</h1>
       <img
         src={getPath('/image/nin.png')}
         alt="ninja"
