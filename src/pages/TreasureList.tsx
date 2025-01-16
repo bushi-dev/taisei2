@@ -8,9 +8,12 @@ const TreasureList = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    // ローカルストレージから宝物データを取得
+    // ローカルストレージから宝物データを取得し、画像ファイル名に変換
     const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
-    setTreasures(savedTreasures)
+    const formattedTreasures = savedTreasures.map((t: number) =>
+      `takara${t}.png`.replace('宝物', '')
+    )
+    setTreasures(formattedTreasures)
 
     // BGM再生
     const bgm = new Audio(getPath('/sound/bgm1.mp3'))
