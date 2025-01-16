@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import SoundButton from '../components/SoundButton'
 import './Level.css'
 
 const Level = () => {
@@ -52,9 +53,9 @@ const Level = () => {
         </select>
       </div>
 
-      <button className="start-button" onClick={handleStart}>
+      <SoundButton className="start-button" onClick={handleStart}>
         スタート
-      </button>
+      </SoundButton>
     </div>
   )
 }

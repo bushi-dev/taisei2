@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import SoundButton from '../components/SoundButton'
 import './GameOver.css'
 
 const GameOver = () => {
@@ -23,19 +24,19 @@ const GameOver = () => {
       <h1 className="game-over-heading">ゲームオーバー</h1>
 
       <div className="game-over-buttons">
-        <button
+        <SoundButton
           onClick={() => navigate('/taisei2/')}
           className="game-over-button game-over-button--primary"
         >
-          タイトルに戻る
-        </button>
+          タイトル
+        </SoundButton>
 
-        <button
+        <SoundButton
           onClick={() => navigate('/taisei2/battle')}
           className="game-over-button game-over-button--secondary"
         >
           リトライ
-        </button>
+        </SoundButton>
       </div>
     </div>
   )

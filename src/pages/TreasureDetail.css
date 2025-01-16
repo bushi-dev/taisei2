@@ -14,14 +14,16 @@
 
 .treasure-content {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 2rem;
   margin-bottom: 2rem;
 }
 
-.treasure-image {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
+.treasure-detail-image {
+  width: 300px;
+  height: 400px;
+  object-fit: contain;
 }
 
 .treasure-description {

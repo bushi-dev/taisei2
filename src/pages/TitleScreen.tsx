@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import SoundButton from '../components/SoundButton'
 import './TitleScreen.css'
 
 const TitleScreen = () => {
@@ -21,20 +22,25 @@ const TitleScreen = () => {
   return (
     <div className="title-screen">
       <h1 className="title-screen__heading">TAISEI忍者</h1>
+      <img
+        src={getPath('/image/nin.png')}
+        alt="ninja"
+        className="title-screen__ninja"
+      />
 
-      <button
+      <SoundButton
         className="title-screen__button start"
         onClick={() => navigate('/taisei2/level')}
       >
         スタート
-      </button>
+      </SoundButton>
 
-      <button
+      <SoundButton
         className="title-screen__button treasure"
         onClick={() => navigate('/taisei2/treasure')}
       >
         宝物一覧
-      </button>
+      </SoundButton>
     </div>
   )
 }

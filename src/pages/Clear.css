@@ -25,6 +25,34 @@
   align-items: center;
   gap: 1rem;
   text-align: center;
+  position: relative;
+}
+
+.clear-get-text {
+  position: absolute;
+  top: 60%;
+  left: 70%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 6rem;
+  font-weight: bold;
+  color: #ffeb3b;
+  text-shadow:
+    2px 2px 0 #f44336,
+    4px 4px 0 #2196f3,
+    6px 6px 0 #4caf50;
+  animation: pop 1s ease-in-out infinite;
+}
+
+@keyframes pop {
+  0% {
+    transform: translate(-50%, -50%) rotate(-15deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(-15deg) scale(1.2);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(-15deg) scale(1);
+  }
 }
 
 .clear-treasure-image {

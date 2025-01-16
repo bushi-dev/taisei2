@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
 import { generateProblem } from '../util/problemGenerator'
+import SoundButton from '../components/SoundButton'
 import './BattleScreen.css'
 
 const BattleScreen = () => {
@@ -13,6 +14,14 @@ const BattleScreen = () => {
   const [life, setLife] = useState(3)
   const [enemyCount, setEnemyCount] = useState(1)
   const [bossLife, setBossLife] = useState(5)
+  const [bossImage, setBossImage] = useState(1)
+
+  // クリア時にボス画像をリセット
+  useEffect(() => {
+    if (enemyCount % 5 === 4 && bossLife <= 0) {
+      setBossImage(1)
+    }
+  }, [bossLife, enemyCount])
   const navigate = useNavigate()
 
   // ローカルストレージから設定を取得
@@ -25,6 +34,9 @@ const BattleScreen = () => {
 
       if (enemyCount % 5 === 4) {
         // ボス戦
+        if (bossImage === 0) {
+          setBossImage(Math.floor(Math.random() * 4) + 1)
+        }
         setBossLife((prev) => {
           if (prev - 1 <= 0) {
             navigate('/taisei2/clear')
@@ -48,7 +60,7 @@ const BattleScreen = () => {
 
   // BGM再生
   useEffect(() => {
-    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
+    const bgm = new Audio(getPath('/sound/bgm3.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
     bgm.play()
@@ -78,9 +90,7 @@ const BattleScreen = () => {
       {enemyCount % 5 === 4 ? (
         <>
           <img
-            src={getPath(
-              `/image/boss${(Math.floor(enemyCount / 5) % 4) + 1}.png`
-            )}
+            src={getPath(`/image/boss${bossImage}.png`)}
             alt="ボス"
             className="battle-boss"
           />
@@ -98,13 +108,13 @@ const BattleScreen = () => {
 
         <div className="battle-options">
           {problem.options.map((option, i) => (
-            <button
+            <SoundButton
               key={i}
               onClick={() => handleAnswer(option)}
               className="battle-button"
             >
               {option}
-            </button>
+            </SoundButton>
           ))}
         </div>
       </div>

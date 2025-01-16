@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import SoundButton from '../components/SoundButton'
 import './TreasureList.css'
 
 const TreasureList = () => {
@@ -10,8 +11,8 @@ const TreasureList = () => {
   useEffect(() => {
     // ローカルストレージから宝物データを取得し、画像ファイル名に変換
     const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
-    const formattedTreasures = savedTreasures.map((t: number) =>
-      `takara${t}.png`.replace('宝物', '')
+    const formattedTreasures = savedTreasures.map(
+      (t: number) => `takara${t}.png`
     )
     setTreasures(formattedTreasures)
 
@@ -35,21 +36,27 @@ const TreasureList = () => {
           <div
             key={index}
             className="treasure-item"
-            onClick={() => navigate(`/taisei2/treasure/${index}`)}
+            onClick={() => {
+              const treasureNumber = treasure.match(/\d+/)?.[0] || '0'
+              navigate(`/taisei2/treasure/${treasureNumber}`)
+            }}
           >
             <img
               src={getPath(`/image/${treasure}`)}
               alt={treasure}
-              className="treasure-image"
+              className="treasure-list-image"
             />
-            <h3>宝物 {treasure.replace('takara', '').replace('.png', '')}</h3>
+            <div>宝物 {treasure.replace('takara', '').replace('.png', '')}</div>
           </div>
         ))}
       </div>
 
-      <button onClick={() => navigate('/taisei2/')} className="back-button">
-        タイトルに戻る
-      </button>
+      <SoundButton
+        onClick={() => navigate('/taisei2/')}
+        className="back-button"
+      >
+        タイトル
+      </SoundButton>
     </div>
   )
 }

@@ -2,7 +2,7 @@
   background-image: url('/image/bg.webp');
   background-size: cover;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 0.5rem;
   color: white;
   text-shadow: 2px 2px 4px black;
 }
@@ -14,9 +14,8 @@
 
 .treasure-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  max-height: 70vh;
   overflow-y: auto;
   padding-right: 1rem;
 }
@@ -48,7 +47,7 @@
   text-align: center;
 }
 
-.treasure-image {
+.treasure-list-image {
   width: 100px;
   margin-bottom: 0.5rem;
 }

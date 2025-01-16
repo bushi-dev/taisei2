@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { getPath } from '../util/util'
+import SoundButton from '../components/SoundButton'
 import './TreasureDetail.css'
 
 const TreasureDetail = () => {
@@ -36,13 +37,12 @@ const TreasureDetail = () => {
 
       <div className="treasure-content">
         <img
-          src={getPath(`/image/${treasure}`)}
+          src={getPath(`/image/takara${treasure}.png`)}
           alt={treasure}
-          className="treasure-image"
+          className="treasure-detail-image"
         />
 
         <div className="treasure-description">
-          <h2>説明</h2>
           <p>
             これは{treasure}
             の詳細説明です。忍者たちが長年守り続けてきた貴重な宝物です。
@@ -51,12 +51,12 @@ const TreasureDetail = () => {
         </div>
       </div>
 
-      <button
+      <SoundButton
         onClick={() => navigate('/taisei2/treasure')}
         className="back-button"
       >
         一覧に戻る
-      </button>
+      </SoundButton>
     </div>
   )
 }

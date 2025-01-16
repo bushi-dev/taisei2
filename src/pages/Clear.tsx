@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import SoundButton from '../components/SoundButton'
 import './Clear.css'
 
 const Clear = () => {
@@ -36,28 +37,28 @@ const Clear = () => {
       <h3 className="clear-heading">ステージクリア！</h3>
 
       <div className="clear-subheading">
-        <h2>獲得した宝物:</h2>
         <img
           src={getPath(`/image/${treasure}`)}
           alt="獲得した宝物"
           className="clear-treasure-image"
         />
+        <div className="clear-get-text">GET!</div>
       </div>
 
       <div className="clear-buttons">
-        <button
+        <SoundButton
           onClick={() => navigate('/taisei2/')}
           className="clear-button clear-button--primary"
         >
-          タイトルに戻る
-        </button>
+          タイトル
+        </SoundButton>
 
-        <button
+        <SoundButton
           onClick={() => navigate('/taisei2/battle')}
           className="clear-button clear-button--secondary"
         >
-          次のステージへ
-        </button>
+          次へ
+        </SoundButton>
       </div>
     </div>
   )
