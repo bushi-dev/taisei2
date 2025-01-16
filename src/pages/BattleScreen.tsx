@@ -30,32 +30,43 @@ const BattleScreen = () => {
 
   const handleAnswer = (selected: number) => {
     if (selected === problem.answer) {
-      new Audio(getPath('/sound/seikai.mp3')).play()
+      setTimeout(() => {
+        new Audio(getPath('/sound/seikai.mp3')).play()
 
-      if (enemyCount % 5 === 4) {
-        // ボス戦
-        if (bossImage === 0) {
-          setBossImage(Math.floor(Math.random() * 4) + 1)
+        if (enemyCount % 5 === 4) {
+          // ボス戦
+          if (bossImage === 0) {
+            setBossImage(Math.floor(Math.random() * 4) + 1)
+          }
+          setBossLife((prev) => {
+            if (prev - 1 <= 0) {
+              setTimeout(() => {
+                const clearSound = new Audio(getPath('/sound/clear.mp3'))
+                clearSound.volume = 0.3
+                clearSound.play()
+                navigate('/taisei2/clear')
+              }, 500)
+            }
+            return prev - 1
+          })
+        } else {
+          setEnemyCount((prev) => prev + 1)
         }
-        setBossLife((prev) => {
+      }, 1000)
+    } else {
+      setTimeout(() => {
+        new Audio(getPath('/sound/sippai.mp3')).play()
+        setLife((prev) => {
           if (prev - 1 <= 0) {
-            navigate('/taisei2/clear')
+            navigate('/taisei2/gameover')
           }
           return prev - 1
         })
-      } else {
-        setEnemyCount((prev) => prev + 1)
-      }
-    } else {
-      new Audio(getPath('/sound/sippai.mp3')).play()
-      setLife((prev) => {
-        if (prev - 1 <= 0) {
-          navigate('/taisei2/gameover')
-        }
-        return prev - 1
-      })
+      }, 1000)
     }
-    setProblem(generateProblem(gameType, gameDifficulty))
+    setTimeout(() => {
+      setProblem(generateProblem(gameType, gameDifficulty))
+    }, 1000)
   }
 
   // BGM再生
@@ -112,6 +123,7 @@ const BattleScreen = () => {
               key={i}
               onClick={() => handleAnswer(option)}
               className="battle-button"
+              isBattleMode={true}
             >
               {option}
             </SoundButton>

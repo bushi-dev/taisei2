@@ -33,3 +33,32 @@
   border-radius: 5px;
   cursor: pointer;
 }
+
+.type-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.type-button {
+  padding: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.2s;
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.type-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.type-button.active {
+  border-color: #2196f3;
+  background: #2196f3;
+  color: white;
+}

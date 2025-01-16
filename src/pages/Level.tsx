@@ -34,19 +34,45 @@ const Level = () => {
   const handleStart = () => {
     localStorage.setItem('gameType', type)
     localStorage.setItem('gameDifficulty', difficulty)
-    navigate('/taisei2/battle')
+    const clearSound = new Audio(getPath('/sound/battleStart.mp3'))
+    clearSound.volume = 0.5
+    clearSound.play()
+    setTimeout(() => {
+      navigate('/taisei2/battle')
+    }, 1000)
   }
 
   return (
     <div className="level-container">
       <div className="setting-section">
-        <h2>種別</h2>
-        <select value={type} onChange={(e) => setType(e.target.value)}>
-          <option value="addition">たし算</option>
-          <option value="subtraction">ひき算</option>
-          <option value="multiplication">かけ算</option>
-          <option value="division">わり算</option>
-        </select>
+        <div className="type-buttons">
+          <button
+            className={`type-button ${type === 'addition' ? 'active' : ''}`}
+            onClick={() => setType('addition')}
+          >
+            たし算
+          </button>
+          <button
+            className={`type-button ${type === 'subtraction' ? 'active' : ''}`}
+            onClick={() => setType('subtraction')}
+          >
+            ひき算
+          </button>
+          <button
+            className={`type-button ${
+              type === 'multiplication' ? 'active' : ''
+            }`}
+            onClick={() => setType('multiplication')}
+          >
+            かけ算
+          </button>
+          <button
+            className={`type-button ${type === 'division' ? 'active' : ''}`}
+            onClick={() => setType('division')}
+          >
+            わり算
+          </button>
+        </div>
       </div>
 
       <div className="setting-section">

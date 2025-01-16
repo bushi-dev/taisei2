@@ -1,7 +1,6 @@
 .battle-container {
   background-image: url('/image/bg.webp');
   background-size: cover;
-  padding: 40px;
   color: white;
   text-shadow: 2px 2px 4px black;
   box-sizing: border-box;
@@ -16,6 +15,7 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+  padding: 20px;
 }
 
 .battle-boss {
