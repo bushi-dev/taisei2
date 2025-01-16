@@ -6,6 +6,10 @@
   text-shadow: 2px 2px 4px black;
   box-sizing: border-box;
   position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .battle-header {
@@ -28,10 +32,15 @@
 .battle-question {
   margin-top: 2rem;
   text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  width: 100%;
 }
 
 .battle-question h1 {
-  font-size: 3rem;
+  font-size: 4rem;
+  font-family: 'DIN Alternate', sans-serif;
+  font-weight: 700;
 }
 
 .battle-options {

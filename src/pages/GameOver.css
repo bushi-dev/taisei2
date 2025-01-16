@@ -7,6 +7,9 @@
   align-items: center;
   color: white;
   text-shadow: 2px 2px 4px black;
+  padding: 40px;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .game-over-heading {
