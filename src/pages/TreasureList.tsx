@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import './TreasureList.css'
 
 const TreasureList = () => {
   const [treasures, setTreasures] = useState<string[]>([])
@@ -22,62 +23,27 @@ const TreasureList = () => {
   }, [])
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${getPath('/image/bg.webp')})`,
-        backgroundSize: 'cover',
-        minHeight: '100vh',
-        padding: '2rem',
-        color: 'white',
-        textShadow: '2px 2px 4px black',
-      }}
-    >
-      <h1 style={{ fontSize: '3rem', marginBottom: '2rem' }}>宝物一覧</h1>
+    <div className="treasure-list-container">
+      <h1 className="treasure-list-heading">宝物一覧</h1>
 
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-          gap: '1rem',
-        }}
-      >
+      <div className="treasure-grid">
         {treasures.map((treasure, index) => (
           <div
             key={index}
-            style={{
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-              padding: '1rem',
-              borderRadius: '5px',
-              cursor: 'pointer',
-              textAlign: 'center',
-            }}
+            className="treasure-item"
             onClick={() => navigate(`/taisei2/treasure/${index}`)}
           >
             <img
               src={getPath('/image/treasure.png')}
               alt={treasure}
-              style={{ width: '100px', marginBottom: '0.5rem' }}
+              className="treasure-image"
             />
             <h3>{treasure}</h3>
           </div>
         ))}
       </div>
 
-      <button
-        onClick={() => navigate('/taisei2/')}
-        style={{
-          position: 'fixed',
-          bottom: '2rem',
-          right: '2rem',
-          padding: '1rem 2rem',
-          fontSize: '1.5rem',
-          backgroundColor: '#2196f3',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
-      >
+      <button onClick={() => navigate('/taisei2/')} className="back-button">
         タイトルに戻る
       </button>
     </div>

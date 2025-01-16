@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import TitleScreen from './pages/TitleScreen'
+import Level from './pages/Level'
 import BattleScreen from './pages/BattleScreen'
 import Clear from './pages/Clear'
 import GameOver from './pages/GameOver'
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/taisei2/" element={<TitleScreen />} />
+        <Route path="/taisei2/level" element={<Level />} />
         <Route path="/taisei2/battle" element={<BattleScreen />} />
         <Route path="/taisei2/clear" element={<Clear />} />
         <Route path="/taisei2/gameover" element={<GameOver />} />

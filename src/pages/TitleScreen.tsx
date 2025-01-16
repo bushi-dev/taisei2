@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
+import './TitleScreen.css'
 
 const TitleScreen = () => {
   const navigate = useNavigate()
@@ -17,56 +18,19 @@ const TitleScreen = () => {
   }, [])
 
   return (
-    <div
-      className="title-screen"
-      style={{
-        backgroundImage: `url(${getPath('/image/bg.webp')})`,
-        backgroundSize: 'cover',
-        height: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <h1
-        style={{
-          fontSize: '4rem',
-          color: 'white',
-          textShadow: '2px 2px 4px black',
-          marginBottom: '2rem',
-        }}
-      >
-        TAISEI忍者
-      </h1>
+    <div className="title-screen">
+      <h1 className="title-screen__heading">TAISEI忍者</h1>
 
       <button
-        onClick={() => navigate('/taisei2/battle')}
-        style={{
-          padding: '1rem 2rem',
-          fontSize: '1.5rem',
-          backgroundColor: '#ff5722',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-          marginBottom: '1rem',
-        }}
+        className="title-screen__button start"
+        onClick={() => navigate('/taisei2/level')}
       >
         スタート
       </button>
 
       <button
+        className="title-screen__button treasure"
         onClick={() => navigate('/taisei2/treasure')}
-        style={{
-          padding: '1rem 2rem',
-          fontSize: '1.5rem',
-          backgroundColor: '#4caf50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
       >
         宝物一覧
       </button>

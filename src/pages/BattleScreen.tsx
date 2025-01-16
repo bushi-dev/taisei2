@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
 import { generateProblem } from '../util/problemGenerator'
+import './BattleScreen.css'
 
 const BattleScreen = () => {
   const [problem, setProblem] = useState({
@@ -10,21 +11,28 @@ const BattleScreen = () => {
     options: [0, 0, 0],
   })
   const [life, setLife] = useState(3)
-  const [enemyCount, setEnemyCount] = useState(1)
+  const [enemyCount, setEnemyCount] = useState(0)
+  const [bossLife, setBossLife] = useState(5)
   const navigate = useNavigate()
+
+  // ローカルストレージから設定を取得
+  const gameType = localStorage.getItem('gameType') || 'addition'
+  const gameDifficulty = localStorage.getItem('gameDifficulty') || 'easy'
 
   const handleAnswer = (selected: number) => {
     if (selected === problem.answer) {
       new Audio(getPath('/sound/seikai.mp3')).play()
-      setEnemyCount((prev) => {
-        if (prev % 10 === 0) {
-          new Audio(getPath('/sound/maou_bgm_fantasy15.mp3')).play()
-        }
-        return prev + 1
-      })
 
-      if (enemyCount + 1 >= 50) {
-        navigate('/taisei2/clear')
+      if (enemyCount % 5 === 4) {
+        // ボス戦
+        setBossLife((prev) => {
+          if (prev - 1 <= 0) {
+            navigate('/taisei2/clear')
+          }
+          return prev - 1
+        })
+      } else {
+        setEnemyCount((prev) => prev + 1)
       }
     } else {
       new Audio(getPath('/sound/sippai.mp3')).play()
@@ -35,11 +43,11 @@ const BattleScreen = () => {
         return prev - 1
       })
     }
-    setProblem(generateProblem(enemyCount + 1))
+    setProblem(generateProblem(gameType, gameDifficulty))
   }
 
   useEffect(() => {
-    setProblem(generateProblem(enemyCount))
+    setProblem(generateProblem(gameType, gameDifficulty))
     const bgm = new Audio(getPath('/sound/maou_bgm_fantasy08.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
@@ -48,73 +56,54 @@ const BattleScreen = () => {
     return () => {
       bgm.pause()
     }
-  }, [])
+  }, [enemyCount, gameType, gameDifficulty])
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(${getPath('/image/bg.webp')})`,
-        backgroundSize: 'cover',
-        height: '100vh',
-        padding: '2rem',
-        color: 'white',
-        textShadow: '2px 2px 4px black',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginBottom: '2rem',
-        }}
-      >
-        <h2>敵: {enemyCount}体目</h2>
-        <h2>ライフ: {'❤️'.repeat(life)}</h2>
+    <div className="battle-container">
+      <div className="battle-header">
+        {enemyCount % 5 !== 4 && <h2>敵: {enemyCount}体目</h2>}
+        <div>
+          <h2>ライフ: {'❤️'.repeat(life)}</h2>
+          {enemyCount % 5 === 4 && (
+            <h2>ボスのライフ: {'💙'.repeat(bossLife)}</h2>
+          )}
+        </div>
       </div>
 
-      {enemyCount % 10 === 0 ? (
-        <img
-          src={getPath(`/image/boss${Math.floor(Math.random() * 4) + 1}.png`)}
-          alt="ボス"
-          style={{ width: '200px', margin: '0 auto', display: 'block' }}
-        />
+      {enemyCount % 5 === 4 ? (
+        <>
+          <img
+            src={getPath(
+              `/image/boss${(Math.floor(enemyCount / 5) % 4) + 1}.png`
+            )}
+            alt="ボス"
+            className="battle-boss"
+          />
+          {bossLife <= 2 && (
+            <audio
+              src={getPath('/sound/maou_bgm_fantasy15.mp3')}
+              autoPlay
+              loop
+            />
+          )}
+        </>
       ) : (
         <img
           src={getPath(`/image/teki${Math.random() < 0.5 ? 1 : 2}.gif`)}
           alt={`敵${Math.random() < 0.5 ? 1 : 2}`}
-          style={{ width: '100px', display: 'block' }}
+          className="battle-enemy"
         />
       )}
 
-      <div
-        style={{
-          marginTop: '2rem',
-          textAlign: 'center',
-        }}
-      >
-        <h1 style={{ fontSize: '3rem' }}>{problem.question}</h1>
+      <div className="battle-question">
+        <h1>{problem.question}</h1>
 
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: '1rem',
-            marginTop: '2rem',
-          }}
-        >
+        <div className="battle-options">
           {problem.options.map((option, i) => (
             <button
               key={i}
               onClick={() => handleAnswer(option)}
-              style={{
-                padding: '1rem 2rem',
-                fontSize: '1.5rem',
-                backgroundColor: '#2196f3',
-                color: 'white',
-                border: 'none',
-                borderRadius: '5px',
-                cursor: 'pointer',
-              }}
+              className="battle-button"
             >
               {option}
             </button>

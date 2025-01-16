@@ -1,0 +1,48 @@
+.treasure-detail-container {
+  background-image: url('/image/bg.webp');
+  background-size: cover;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.treasure-detail-heading {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.treasure-content {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.treasure-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.treasure-description {
+  flex: 1;
+}
+
+.treasure-description h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.treasure-description p {
+  font-size: 1.2rem;
+}
+
+.back-button {
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

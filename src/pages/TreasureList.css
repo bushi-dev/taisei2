@@ -1,0 +1,45 @@
+.treasure-list-container {
+  background-image: url('/image/bg.webp');
+  background-size: cover;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+}
+
+.treasure-list-heading {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.treasure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.treasure-item {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.treasure-image {
+  width: 100px;
+  margin-bottom: 0.5rem;
+}
+
+.back-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

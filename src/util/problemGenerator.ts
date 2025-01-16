@@ -4,47 +4,52 @@ export interface Problem {
   options: number[]
 }
 
-export const generateProblem = (enemyCount: number): Problem => {
-  // 敵の数に応じて問題の難易度を調整
-  let maxNum = 9 // デフォルト値
-  let operator = '+'
-
-  if (enemyCount <= 9 || (enemyCount >= 11 && enemyCount <= 19)) {
-    // 1-9体、11-19体: 1桁の足し算
-    maxNum = 9
-    operator = '+'
-  } else if (
-    enemyCount === 10 ||
-    enemyCount === 20 ||
-    enemyCount === 30 ||
-    (enemyCount >= 31 && enemyCount <= 39) ||
-    (enemyCount >= 41 && enemyCount <= 49)
-  ) {
-    // 10体目、20体目、30体目、31-39体、41-49体: 2桁の足し算
-    maxNum = 99
-    operator = '+'
-  } else if (enemyCount >= 21 && enemyCount <= 29) {
-    // 21-29体: 1桁の引き算
-    maxNum = 9
-    operator = '-'
-  } else if (enemyCount === 40 || enemyCount === 50) {
-    // 40体目、50体目: 2桁の引き算
-    maxNum = 99
-    operator = '-'
+export const generateProblem = (
+  gameType: string,
+  gameDifficulty: string
+): Problem => {
+  // 難易度に応じた数値範囲を設定
+  const difficultyRanges = {
+    easy: { min: 1, max: 9 },
+    medium: { min: 1, max: 99 },
+    normal: { min: 10, max: 99 },
+    hard: { min: 10, max: 999 },
+    'very-hard': { min: 100, max: 999 },
+    extreme: { min: 1000, max: 9999 },
   }
 
-  let num1 = Math.floor(Math.random() * maxNum) + 1
-  let num2 = Math.floor(Math.random() * maxNum) + 1
+  const range =
+    difficultyRanges[gameDifficulty as keyof typeof difficultyRanges] ||
+    difficultyRanges.easy
 
-  let answer
+  // 演算子を設定
+  const operators = {
+    addition: '+',
+    subtraction: '-',
+    multiplication: '×',
+    division: '÷',
+  } as const
+  const operator = operators[gameType as keyof typeof operators] || '+'
+
+  let num1 = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min
+  let num2 = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min
+
+  let answer = 0
   if (operator === '+') {
     answer = num1 + num2
-  } else {
+  } else if (operator === '-') {
     // 引き算の場合、num1 >= num2 になるように調整
     if (num1 < num2) {
       ;[num1, num2] = [num2, num1]
     }
     answer = num1 - num2
+  } else if (operator === '×') {
+    answer = num1 * num2
+  } else if (operator === '÷') {
+    // 割り算の場合、num1がnum2の倍数になるように調整
+    num2 = Math.floor(Math.random() * (range.max - range.min + 1)) + range.min
+    num1 = num2 * (Math.floor(Math.random() * 10) + 1)
+    answer = num1 / num2
   }
 
   const options = [
