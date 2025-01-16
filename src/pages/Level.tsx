@@ -1,11 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { getPath } from '../util/util'
 import './Level.css'
 
 const Level = () => {
   const [type, setType] = useState('addition')
   const [difficulty, setDifficulty] = useState('easy')
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
+    bgm.volume = 0.1
+    bgm.loop = true
+    bgm.play()
+
+    return () => {
+      bgm.pause()
+    }
+  }, [])
 
   const handleStart = () => {
     localStorage.setItem('gameType', type)
@@ -15,8 +27,6 @@ const Level = () => {
 
   return (
     <div className="level-container">
-      <h1>難易度設定</h1>
-
       <div className="setting-section">
         <h2>種別</h2>
         <select value={type} onChange={(e) => setType(e.target.value)}>

@@ -46,9 +46,9 @@ const BattleScreen = () => {
     setProblem(generateProblem(gameType, gameDifficulty))
   }
 
+  // BGM再生
   useEffect(() => {
-    setProblem(generateProblem(gameType, gameDifficulty))
-    const bgm = new Audio(getPath('/sound/maou_bgm_fantasy08.mp3'))
+    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
     bgm.play()
@@ -56,6 +56,11 @@ const BattleScreen = () => {
     return () => {
       bgm.pause()
     }
+  }, [])
+
+  // 問題生成
+  useEffect(() => {
+    setProblem(generateProblem(gameType, gameDifficulty))
   }, [enemyCount, gameType, gameDifficulty])
 
   return (
@@ -79,13 +84,6 @@ const BattleScreen = () => {
             alt="ボス"
             className="battle-boss"
           />
-          {bossLife <= 2 && (
-            <audio
-              src={getPath('/sound/maou_bgm_fantasy15.mp3')}
-              autoPlay
-              loop
-            />
-          )}
         </>
       ) : (
         <img
@@ -96,7 +94,7 @@ const BattleScreen = () => {
       )}
 
       <div className="battle-question">
-        <h1>{problem.question}</h1>
+        <div>{problem.question}</div>
 
         <div className="battle-options">
           {problem.options.map((option, i) => (

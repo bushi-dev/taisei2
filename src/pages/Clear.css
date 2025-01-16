@@ -13,13 +13,29 @@
 }
 
 .clear-heading {
-  font-size: 4rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
 }
 
 .clear-subheading {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.clear-treasure-image {
+  max-width: 90vw;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid white;
 }
 
 .clear-buttons {

@@ -13,7 +13,8 @@ const TreasureList = () => {
     setTreasures(savedTreasures)
 
     // BGM再生
-    const bgm = new Audio(getPath('/sound/maou_bgm_fantasy03.mp3'))
+    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
+    bgm.volume = 0.1
     bgm.loop = true
     bgm.play()
 
@@ -34,11 +35,11 @@ const TreasureList = () => {
             onClick={() => navigate(`/taisei2/treasure/${index}`)}
           >
             <img
-              src={getPath('/image/treasure.png')}
+              src={getPath(`/image/${treasure}`)}
               alt={treasure}
               className="treasure-image"
             />
-            <h3>{treasure}</h3>
+            <h3>宝物 {treasure.replace('takara', '').replace('.png', '')}</h3>
           </div>
         ))}
       </div>

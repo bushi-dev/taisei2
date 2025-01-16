@@ -8,11 +8,9 @@ const Clear = () => {
   const [treasure, setTreasure] = useState('')
 
   useEffect(() => {
-    // ランダムな宝物を選択
-    const treasures = ['宝物1', '宝物2', '宝物3', '宝物4', '宝物5']
-    const randomTreasure =
-      treasures[Math.floor(Math.random() * treasures.length)]
-    setTreasure(randomTreasure)
+    // ランダムな宝物を選択 (1〜5)
+    const randomTreasure = Math.floor(Math.random() * 5) + 1
+    setTreasure(`takara${randomTreasure}.png`)
 
     // ローカルストレージに保存
     const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
@@ -23,7 +21,8 @@ const Clear = () => {
     }
 
     // BGM再生
-    const bgm = new Audio(getPath('/sound/maou_bgm_fantasy15.mp3'))
+    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
+    bgm.volume = 0.1
     bgm.loop = true
     bgm.play()
 
@@ -34,9 +33,16 @@ const Clear = () => {
 
   return (
     <div className="clear-container">
-      <h1 className="clear-heading">ステージクリア！</h1>
+      <h3 className="clear-heading">ステージクリア！</h3>
 
-      <h2 className="clear-subheading">獲得した宝物: {treasure}</h2>
+      <div className="clear-subheading">
+        <h2>獲得した宝物:</h2>
+        <img
+          src={getPath(`/image/${treasure}`)}
+          alt="獲得した宝物"
+          className="clear-treasure-image"
+        />
+      </div>
 
       <div className="clear-buttons">
         <button

@@ -8,7 +8,8 @@ const GameOver = () => {
 
   useEffect(() => {
     // BGM再生
-    const bgm = new Audio(getPath('/sound/maou_bgm_fantasy03.mp3'))
+    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
+    bgm.volume = 0.1
     bgm.loop = true
     bgm.play()
 
