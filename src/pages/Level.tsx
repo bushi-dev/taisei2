@@ -5,9 +5,20 @@ import SoundButton from '../components/SoundButton'
 import './Level.css'
 
 const Level = () => {
-  const [type, setType] = useState('addition')
-  const [difficulty, setDifficulty] = useState('easy')
+  const [type, setType] = useState(
+    localStorage.getItem('gameType') || 'addition'
+  )
+  const [difficulty, setDifficulty] = useState(
+    localStorage.getItem('gameDifficulty') || 'easy'
+  )
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const savedType = localStorage.getItem('gameType')
+    const savedDifficulty = localStorage.getItem('gameDifficulty')
+    if (savedType) setType(savedType)
+    if (savedDifficulty) setDifficulty(savedDifficulty)
+  }, [])
 
   useEffect(() => {
     const bgm = new Audio(getPath('/sound/bgm1.mp3'))
