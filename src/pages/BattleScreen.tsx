@@ -15,6 +15,9 @@ const BattleScreen = () => {
   const [enemyCount, setEnemyCount] = useState(1)
   const [bossLife, setBossLife] = useState(5)
   const [bossImage] = useState(Math.floor(Math.random() * 4) + 1)
+  const [enemyImage, setEnemyImage] = useState(
+    Math.floor(Math.random() * 8) + 1
+  )
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null)
 
   useEffect(() => {
@@ -33,8 +36,11 @@ const BattleScreen = () => {
   const handleAnswer = (selected: number) => {
     if (selected === problem.answer) {
       setResult('correct')
+
       setTimeout(() => {
         new Audio(getPath('/sound/seikai.mp3')).play()
+        // 1秒後に別の敵に切り替え
+        setEnemyImage(Math.floor(Math.random() * 8) + 1)
 
         if (enemyCount % 5 === 4) {
           // ボス戦
@@ -116,8 +122,8 @@ const BattleScreen = () => {
         </>
       ) : (
         <img
-          src={getPath(`/image/teki${Math.random() < 0.5 ? 1 : 2}.gif`)}
-          alt={`敵${Math.random() < 0.5 ? 1 : 2}`}
+          src={getPath(`/image/teki${enemyImage}.gif`)}
+          alt={`敵${enemyImage}`}
           className="battle-enemy"
         />
       )}
