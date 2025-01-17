@@ -33,22 +33,19 @@ const TreasureDetail = () => {
 
   return (
     <div className="treasure-detail-container">
-      <h1 className="treasure-detail-heading">宝物{treasure} の詳細</h1>
-
       <div className="treasure-content">
         <img
           src={getPath(`/image/takara${id}.png`)}
           alt={`宝物${id}`}
           className="treasure-detail-image"
         />
+        <SoundButton
+          onClick={() => navigate('/taisei2/treasure')}
+          className="back-button"
+        >
+          一覧に戻る
+        </SoundButton>
       </div>
-
-      <SoundButton
-        onClick={() => navigate('/taisei2/treasure')}
-        className="back-button"
-      >
-        一覧に戻る
-      </SoundButton>
     </div>
   )
 }

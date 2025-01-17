@@ -15,6 +15,14 @@ const BattleScreen = () => {
   const [enemyCount, setEnemyCount] = useState(1)
   const [bossLife, setBossLife] = useState(5)
   const [bossImage] = useState(Math.floor(Math.random() * 4) + 1)
+  const [result, setResult] = useState<'correct' | 'wrong' | null>(null)
+
+  useEffect(() => {
+    if (result) {
+      const timer = setTimeout(() => setResult(null), 1000)
+      return () => clearTimeout(timer)
+    }
+  }, [result])
 
   const navigate = useNavigate()
 
@@ -24,6 +32,7 @@ const BattleScreen = () => {
 
   const handleAnswer = (selected: number) => {
     if (selected === problem.answer) {
+      setResult('correct')
       setTimeout(() => {
         new Audio(getPath('/sound/seikai.mp3')).play()
 
@@ -52,6 +61,7 @@ const BattleScreen = () => {
         }
       }, 1000)
     } else {
+      setResult('wrong')
       setTimeout(() => {
         new Audio(getPath('/sound/sippai.mp3')).play()
         setLife((prev) => {
@@ -89,10 +99,7 @@ const BattleScreen = () => {
       <div className="battle-header">
         {enemyCount % 5 !== 4 && <h2>敵: {enemyCount}体目</h2>}
         <div>
-          <h2>ライフ: {'❤️'.repeat(life)}</h2>
-          {enemyCount % 5 === 4 && (
-            <h2>ボスのライフ: {'💙'.repeat(bossLife)}</h2>
-          )}
+          <h2>HP {'❤️'.repeat(life)}</h2>
         </div>
       </div>
 
@@ -103,6 +110,9 @@ const BattleScreen = () => {
             alt="ボス"
             className="battle-boss"
           />
+          <div className="battle-header">
+            <h2>ボス {'💙'.repeat(bossLife)}</h2>
+          </div>
         </>
       ) : (
         <img
@@ -127,6 +137,15 @@ const BattleScreen = () => {
             </SoundButton>
           ))}
         </div>
+
+        {result && (
+          <div
+            className="result-marker"
+            style={{ color: result === 'correct' ? 'red' : 'blue' }}
+          >
+            {result === 'correct' ? '○' : '×'}
+          </div>
+        )}
       </div>
     </div>
   )

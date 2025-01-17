@@ -11,6 +11,12 @@ const Level = () => {
   const [difficulty, setDifficulty] = useState(
     localStorage.getItem('gameDifficulty') || 'easy'
   )
+  const progress = {
+    addition: localStorage.getItem('progress_addition') || '0%',
+    subtraction: localStorage.getItem('progress_subtraction') || '0%',
+    multiplication: localStorage.getItem('progress_multiplication') || '0%',
+    division: localStorage.getItem('progress_division') || '0%',
+  }
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -47,30 +53,38 @@ const Level = () => {
       <div className="setting-section">
         <div className="type-buttons">
           <button
+            id="addition"
             className={`type-button ${type === 'addition' ? 'active' : ''}`}
             onClick={() => setType('addition')}
           >
             たし算
+            <div className="progress">{progress.addition}</div>
           </button>
           <button
+            id="subtraction"
             className={`type-button ${type === 'subtraction' ? 'active' : ''}`}
             onClick={() => setType('subtraction')}
           >
             ひき算
+            <div className="progress">{progress.subtraction}</div>
           </button>
           <button
+            id="multiplication"
             className={`type-button ${
               type === 'multiplication' ? 'active' : ''
             }`}
             onClick={() => setType('multiplication')}
           >
             かけ算
+            <div className="progress">{progress.multiplication}</div>
           </button>
           <button
+            id="division"
             className={`type-button ${type === 'division' ? 'active' : ''}`}
             onClick={() => setType('division')}
           >
             わり算
+            <div className="progress">{progress.division}</div>
           </button>
         </div>
       </div>

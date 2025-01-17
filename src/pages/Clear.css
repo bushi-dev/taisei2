@@ -36,7 +36,7 @@
     0 0 20px #ffeb3b,
     0 0 40px #ffeb3b,
     0 0 80px #ffeb3b;
-  animation: glow 1.5s ease-in-out infinite alternate;
+  animation: glow 0.3s ease-in-out infinite alternate;
 }
 
 @keyframes glow {

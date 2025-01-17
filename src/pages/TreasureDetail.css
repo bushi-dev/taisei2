@@ -51,8 +51,5 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  transform: none;
+  margin-left: auto;
 }

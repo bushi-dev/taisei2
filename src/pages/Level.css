@@ -46,25 +46,66 @@
   padding: 16px;
   border: 2px solid #ccc;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   transition: all 0.2s;
   color: black;
   font-size: 2rem;
   font-weight: bold;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 4px;
   aspect-ratio: 1;
   width: 100%;
+}
+
+.progress {
+  font-size: 2rem;
+  color: #666;
+  font-weight: normal;
+}
+
+#addition {
+  background: rgba(76, 175, 80, 0.5);
+}
+
+#subtraction {
+  background: rgba(244, 67, 54, 0.5);
+}
+
+#multiplication {
+  background: rgba(255, 152, 0, 0.5);
+}
+
+#division {
+  background: rgba(156, 39, 176, 0.5);
 }
 
 .type-button:hover {
   background: rgba(255, 255, 255, 0.9);
 }
 
-.type-button.active {
-  border-color: #2196f3;
-  background: #2196f3;
+#addition.active {
+  border-color: #4caf50;
+  border-width: thick;
+  color: white;
+}
+
+#subtraction.active {
+  border-color: #f44336;
+  border-width: thick;
+  color: white;
+}
+
+#multiplication.active {
+  border-color: #ff9800;
+  border-width: thick;
+  color: white;
+}
+
+#division.active {
+  border-color: #9c27b0;
+  border-width: thick;
   color: white;
 }

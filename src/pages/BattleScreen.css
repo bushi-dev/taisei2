@@ -14,8 +14,10 @@
 .battle-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
-  padding: 20px;
+  margin-bottom: 0.5rem;
+  padding-left: 20px;
+  padding-right: 40px;
+  font-size: 13px;
 }
 
 .battle-boss {
@@ -101,4 +103,27 @@ margin: 0 auto;
 .battle-button:active {
   transform: translateY(0);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.result-marker {
+  position: absolute;
+  top: 80%;
+  left: calc(50%);
+  transform: translate(-50%, -50%);
+  font-size: 10rem;
+  font-weight: bold;
+  animation: fade 1s ease-out;
+  z-index: 9999;
+  margin-top: -100px;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
 }

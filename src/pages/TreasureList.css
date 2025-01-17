@@ -9,15 +9,22 @@
 
 .treasure-list-heading {
   font-size: 3rem;
+  margin: 0;
+  display: inline-block;
+}
+
+.treasure-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 2rem;
 }
 
 .treasure-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
+  gap: 0.5rem;
   overflow-y: auto;
-  padding: 1rem;
   max-height: 100vh;
   margin-bottom: 5rem;
 }
@@ -43,21 +50,18 @@
 
 .treasure-item {
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 1rem;
+  padding: 0.5rem;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
 }
 
 .treasure-list-image {
-  width: 100px;
+  width: 130px;
   margin-bottom: 0.5rem;
 }
 
 .back-button {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
   padding: 1rem 2rem;
   font-size: 1.5rem;
   background-color: #2196f3;

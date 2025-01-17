@@ -30,8 +30,15 @@ const TreasureList = () => {
 
   return (
     <div className="treasure-list-container">
-      <h1 className="treasure-list-heading">宝物一覧</h1>
-
+      <div className="treasure-list-header">
+        <h1 className="treasure-list-heading">宝物一覧</h1>
+        <SoundButton
+          onClick={() => navigate('/taisei2/')}
+          className="back-button"
+        >
+          タイトル
+        </SoundButton>
+      </div>
       <div className="treasure-grid">
         {treasures.map((treasure, index) => (
           <div
@@ -47,17 +54,9 @@ const TreasureList = () => {
               alt={treasure}
               className="treasure-list-image"
             />
-            <div>宝物 {treasure.replace('takara', '').replace('.png', '')}</div>
           </div>
         ))}
       </div>
-
-      <SoundButton
-        onClick={() => navigate('/taisei2/')}
-        className="back-button"
-      >
-        タイトル
-      </SoundButton>
     </div>
   )
 }
