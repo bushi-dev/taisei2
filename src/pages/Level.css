@@ -1,7 +1,7 @@
 .level-container {
   background-image: url('/image/bg.webp');
   background-size: cover;
-  padding: 40px;
+  padding: 10px;
   color: white;
   text-shadow: 2px 2px 4px black;
   display: flex;
@@ -37,8 +37,9 @@
 .type-buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  width: 100%;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  width: 300px;
 }
 
 .type-button {
@@ -49,8 +50,13 @@
   cursor: pointer;
   transition: all 0.2s;
   color: black;
-  font-size: 1.2rem;
+  font-size: 2rem;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1;
+  width: 100%;
 }
 
 .type-button:hover {

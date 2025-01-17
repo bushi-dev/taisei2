@@ -32,14 +32,14 @@ const TitleScreen = () => {
         className="title-screen__button start"
         onClick={() => navigate('/taisei2/level')}
       >
-        スタート
+        冒険を始める
       </SoundButton>
 
       <SoundButton
         className="title-screen__button treasure"
         onClick={() => navigate('/taisei2/treasure')}
       >
-        宝物一覧
+        秘宝の記録
       </SoundButton>
     </div>
   )

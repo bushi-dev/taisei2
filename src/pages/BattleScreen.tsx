@@ -14,14 +14,8 @@ const BattleScreen = () => {
   const [life, setLife] = useState(3)
   const [enemyCount, setEnemyCount] = useState(1)
   const [bossLife, setBossLife] = useState(5)
-  const [bossImage, setBossImage] = useState(1)
+  const [bossImage] = useState(Math.floor(Math.random() * 4) + 1)
 
-  // クリア時にボス画像をリセット
-  useEffect(() => {
-    if (enemyCount % 5 === 4 && bossLife <= 0) {
-      setBossImage(1)
-    }
-  }, [bossLife, enemyCount])
   const navigate = useNavigate()
 
   // ローカルストレージから設定を取得
@@ -35,11 +29,10 @@ const BattleScreen = () => {
 
         if (enemyCount % 5 === 4) {
           // ボス戦
-          if (bossImage === 0) {
-            setBossImage(Math.floor(Math.random() * 4) + 1)
-          }
+          // ボス戦中は画像を変更しない
           setBossLife((prev) => {
-            if (prev - 1 <= 0) {
+            const newLife = prev - 1
+            if (newLife <= 0) {
               //クリア時の処理
               setTimeout(() => {
                 const clearSound = new Audio(getPath('/sound/clear.mp3'))
@@ -50,8 +43,9 @@ const BattleScreen = () => {
                   return // クリア時は問題更新しない
                 }, 2000)
               }, 500)
+              return 0
             }
-            return prev - 1
+            return newLife
           })
         } else {
           setEnemyCount((prev) => prev + 1)

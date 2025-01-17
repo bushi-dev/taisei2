@@ -37,18 +37,10 @@ const TreasureDetail = () => {
 
       <div className="treasure-content">
         <img
-          src={getPath(`/image/takara${String(treasure)}.png`)}
-          alt={`宝物${treasure}`}
+          src={getPath(`/image/takara${id}.png`)}
+          alt={`宝物${id}`}
           className="treasure-detail-image"
         />
-
-        <div className="treasure-description">
-          <p>
-            これは宝物{treasure}
-            の詳細説明です。忍者たちが長年守り続けてきた貴重な宝物です。
-            特別な力を持っていると言われています。
-          </p>
-        </div>
       </div>
 
       <SoundButton
