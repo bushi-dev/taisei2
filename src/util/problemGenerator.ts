@@ -6,8 +6,24 @@ export interface Problem {
 
 export const generateProblem = (
   gameType: string,
-  gameDifficulty: string
+  gameDifficulty: string,
+  isBossBattle = false
 ): Problem => {
+  // ボス戦の場合、50%で難易度を一時的に1段階上げる
+  if (isBossBattle && Math.random() < 0.25) {
+    const difficultyLevels = [
+      'easy',
+      'medium',
+      'normal',
+      'hard',
+      'very_hard',
+      'extreme',
+    ]
+    const currentIndex = difficultyLevels.indexOf(gameDifficulty)
+    if (currentIndex < difficultyLevels.length - 1) {
+      gameDifficulty = difficultyLevels[currentIndex + 1]
+    }
+  }
   // 難易度に応じた数値範囲を設定
   interface Range {
     min1: number

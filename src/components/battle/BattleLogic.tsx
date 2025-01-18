@@ -97,7 +97,9 @@ export const useBattleLogic = () => {
       }, 2000)
     }
     setTimeout(() => {
-      setProblem(generateProblem(gameType, gameDifficulty))
+      setProblem(
+        generateProblem(gameType, gameDifficulty, enemyCount % 5 === BOSS_COUNT)
+      )
     }, 1000)
   }
 
@@ -115,7 +117,9 @@ export const useBattleLogic = () => {
 
   // 問題生成
   useEffect(() => {
-    setProblem(generateProblem(gameType, gameDifficulty))
+    setProblem(
+      generateProblem(gameType, gameDifficulty, enemyCount % 5 === BOSS_COUNT)
+    )
   }, [enemyCount, gameType, gameDifficulty])
 
   // 敵画像が変更された時に表示

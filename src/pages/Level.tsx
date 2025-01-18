@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getPath } from '../util/util'
+import { getPath, getSavedTreasures, MAX_TREASURES } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './Level.css'
 
@@ -57,16 +57,14 @@ const Level = () => {
             className={`type-button ${type === 'addition' ? 'active' : ''}`}
             onClick={() => setType('addition')}
           >
-            たし算
-            <div className="progress">{progress.addition}%</div>
+            ＋<div className="progress">{progress.addition}%</div>
           </button>
           <button
             id="subtraction"
             className={`type-button ${type === 'subtraction' ? 'active' : ''}`}
             onClick={() => setType('subtraction')}
           >
-            ひき算
-            <div className="progress">{progress.subtraction}%</div>
+            −<div className="progress">{progress.subtraction}%</div>
           </button>
           <button
             id="multiplication"
@@ -75,38 +73,44 @@ const Level = () => {
             }`}
             onClick={() => setType('multiplication')}
           >
-            かけ算
-            <div className="progress">{progress.multiplication}%</div>
+            ×<div className="progress">{progress.multiplication}%</div>
           </button>
           <button
             id="division"
             className={`type-button ${type === 'division' ? 'active' : ''}`}
             onClick={() => setType('division')}
           >
-            わり算
-            <div className="progress">{progress.division}%</div>
+            ÷<div className="progress">{progress.division}%</div>
           </button>
         </div>
       </div>
 
-      <div className="setting-section difficulty-section">
-        <h2>むずかしさ</h2>
-        <div className="difficulty-stars">
-          <select
-            value={difficulty}
-            onChange={(e) => {
-              setDifficulty(e.target.value)
-              new Audio('/sound/click.mp3').play()
-            }}
-            className="difficulty-select"
-          >
-            <option value="easy">⭐</option>
-            <option value="medium">⭐⭐</option>
-            <option value="normal">⭐⭐⭐</option>
-            <option value="hard">⭐⭐⭐⭐</option>
-            <option value="very-hard">⭐⭐⭐⭐⭐</option>
-            <option value="extreme">⭐⭐⭐⭐⭐⭐</option>
-          </select>
+      <div className="difficulty-sections-container">
+        <div className="setting-section difficulty-section">
+          <h2>むずかしさ</h2>
+          <div className="difficulty-stars">
+            <select
+              value={difficulty}
+              onChange={(e) => {
+                setDifficulty(e.target.value)
+                new Audio('/sound/click.mp3').play()
+              }}
+              className="difficulty-select"
+            >
+              <option value="easy">⭐</option>
+              <option value="medium">⭐⭐</option>
+              <option value="normal">⭐⭐⭐</option>
+              <option value="hard">⭐⭐⭐⭐</option>
+              <option value="very-hard">⭐⭐⭐⭐⭐</option>
+              <option value="extreme">⭐⭐⭐⭐⭐⭐</option>
+            </select>
+          </div>
+        </div>
+        <div className="setting-section difficulty-section">
+          <h2>おたから</h2>
+          <div className="treasure-count">
+            {getSavedTreasures().length}/{MAX_TREASURES}
+          </div>
         </div>
       </div>
 

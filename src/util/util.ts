@@ -1,5 +1,7 @@
 import { RefObject } from 'react'
 
+export const MAX_TREASURES = 6
+
 export const getPath = (src: string) => {
   return '/taisei2' + src
 }
