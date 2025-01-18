@@ -50,8 +50,22 @@ export const useBattleLogic = () => {
           // ボス戦
           setBossLife((prev) => {
             const newLife = prev - 1
-            if (newLife <= 0) {
+            if (newLife == 0) {
+              console.log('クリア処理')
               //クリア時の処理
+              // 達成度を加算
+              const progressKey = `${gameType}_progress`
+              const currentProgress = parseInt(
+                localStorage.getItem(progressKey) || '0'
+              )
+              let progressToAdd = 1
+              if (gameDifficulty === 'medium') {
+                progressToAdd = 3
+              } else if (gameDifficulty !== 'easy') {
+                progressToAdd = 5
+              }
+              const newProgress = Math.min(currentProgress + progressToAdd, 100)
+              localStorage.setItem(progressKey, newProgress.toString())
               setTimeout(() => {
                 const clearSound = new Audio(getPath('/sound/clear.mp3'))
                 clearSound.volume = 0.3
@@ -70,6 +84,7 @@ export const useBattleLogic = () => {
         }
       }, 1000)
     } else {
+      //失敗時
       setResult('wrong')
       setTimeout(() => {
         new Audio(getPath('/sound/sippai.mp3')).play()
@@ -91,7 +106,7 @@ export const useBattleLogic = () => {
     const bgm = new Audio(getPath('/sound/bgm3.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
-    bgm.play()
+    bgm.play().catch(() => {})
 
     return () => {
       bgm.pause()

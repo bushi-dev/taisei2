@@ -12,10 +12,10 @@ const Level = () => {
     localStorage.getItem('gameDifficulty') || 'easy'
   )
   const progress = {
-    addition: localStorage.getItem('progress_addition') || '0%',
-    subtraction: localStorage.getItem('progress_subtraction') || '0%',
-    multiplication: localStorage.getItem('progress_multiplication') || '0%',
-    division: localStorage.getItem('progress_division') || '0%',
+    addition: localStorage.getItem('addition_progress') || '0',
+    subtraction: localStorage.getItem('subtraction_progress') || '0',
+    multiplication: localStorage.getItem('multiplication_progress') || '0',
+    division: localStorage.getItem('division_progress') || '0',
   }
   const navigate = useNavigate()
 
@@ -30,7 +30,7 @@ const Level = () => {
     const bgm = new Audio(getPath('/sound/bgm1.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
-    bgm.play()
+    bgm.play().catch(() => {})
 
     return () => {
       bgm.pause()
@@ -58,7 +58,7 @@ const Level = () => {
             onClick={() => setType('addition')}
           >
             たし算
-            <div className="progress">{progress.addition}</div>
+            <div className="progress">{progress.addition}%</div>
           </button>
           <button
             id="subtraction"
@@ -66,7 +66,7 @@ const Level = () => {
             onClick={() => setType('subtraction')}
           >
             ひき算
-            <div className="progress">{progress.subtraction}</div>
+            <div className="progress">{progress.subtraction}%</div>
           </button>
           <button
             id="multiplication"
@@ -76,7 +76,7 @@ const Level = () => {
             onClick={() => setType('multiplication')}
           >
             かけ算
-            <div className="progress">{progress.multiplication}</div>
+            <div className="progress">{progress.multiplication}%</div>
           </button>
           <button
             id="division"
@@ -84,24 +84,30 @@ const Level = () => {
             onClick={() => setType('division')}
           >
             わり算
-            <div className="progress">{progress.division}</div>
+            <div className="progress">{progress.division}%</div>
           </button>
         </div>
       </div>
 
-      <div className="setting-section">
-        <h2>難易度</h2>
-        <select
-          value={difficulty}
-          onChange={(e) => setDifficulty(e.target.value)}
-        >
-          <option value="easy">かんたん（1桁と1桁）</option>
-          <option value="medium">少し難しい（1桁と2桁）</option>
-          <option value="normal">ふつう（2桁と2桁）</option>
-          <option value="hard">むずかしい（2桁と3桁）</option>
-          <option value="very-hard">とてもむずかしい（3桁と3桁）</option>
-          <option value="extreme">最強（4桁と4桁）</option>
-        </select>
+      <div className="setting-section difficulty-section">
+        <h2>むずかしさ</h2>
+        <div className="difficulty-stars">
+          <select
+            value={difficulty}
+            onChange={(e) => {
+              setDifficulty(e.target.value)
+              new Audio('/sound/click.mp3').play()
+            }}
+            className="difficulty-select"
+          >
+            <option value="easy">⭐</option>
+            <option value="medium">⭐⭐</option>
+            <option value="normal">⭐⭐⭐</option>
+            <option value="hard">⭐⭐⭐⭐</option>
+            <option value="very-hard">⭐⭐⭐⭐⭐</option>
+            <option value="extreme">⭐⭐⭐⭐⭐⭐</option>
+          </select>
+        </div>
       </div>
 
       <SoundButton className="start-button" onClick={handleStart}>

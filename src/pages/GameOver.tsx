@@ -12,7 +12,7 @@ const GameOver = () => {
     const bgm = new Audio(getPath('/sound/bgm1.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
-    bgm.play()
+    bgm.play().catch(() => {})
 
     return () => {
       bgm.pause()

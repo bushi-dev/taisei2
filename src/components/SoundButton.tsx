@@ -31,12 +31,12 @@ const SoundButton = ({
       const soundPath = `/sound/ken${randomKen}.mp3`
       const battleSound = new Audio(getPath(soundPath))
       battleSound.volume = 0.5
-      battleSound.play()
+      battleSound.play().catch(() => {})
     } else {
       // 通常時はクリック音再生
       const clickSound = new Audio(getPath('/sound/click.mp3'))
       clickSound.volume = 0.5
-      clickSound.play()
+      clickSound.play().catch(() => {})
     }
 
     if (onClick) {

@@ -1,4 +1,4 @@
-import './BattleScreen.css'
+import './Battle.css'
 import { useBattleLogic, BOSS_COUNT } from '../components/battle/BattleLogic'
 import { BattleHeader } from '../components/battle/BattleHeader'
 import {
@@ -7,7 +7,7 @@ import {
 } from '../components/battle/Enemies'
 import { BattleQuestion } from '../components/battle/BattleQuestion'
 
-const BattleScreen = () => {
+const Battle = () => {
   const {
     problem,
     life,
@@ -43,4 +43,4 @@ const BattleScreen = () => {
   )
 }
 
-export default BattleScreen
+export default Battle

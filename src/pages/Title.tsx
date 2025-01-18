@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath } from '../util/util'
 import SoundButton from '../components/SoundButton'
-import './TitleScreen.css'
+import './Title.css'
 
-const TitleScreen = () => {
+const Title = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -12,7 +12,7 @@ const TitleScreen = () => {
     const bgm = new Audio(getPath('/sound/bgm1.mp3'))
     bgm.volume = 0.1
     bgm.loop = true
-    bgm.play()
+    bgm.play().catch(() => {})
 
     return () => {
       bgm.pause()
@@ -45,4 +45,4 @@ const TitleScreen = () => {
   )
 }
 
-export default TitleScreen
+export default Title

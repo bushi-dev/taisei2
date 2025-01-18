@@ -16,11 +16,40 @@
   margin: 1rem 0;
 }
 
-.setting-section select {
-  font-size: 1rem;
+.difficulty-section {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.difficulty-stars {
+  display: inline-block;
+  position: relative;
   padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 4px;
-  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.difficulty-select {
+  appearance: none;
+  background: transparent;
+  border: 2px solid #ffd700;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #ffd700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.difficulty-select:hover {
+  background: rgba(255, 215, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.difficulty-select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
 }
 
 .start-button {
