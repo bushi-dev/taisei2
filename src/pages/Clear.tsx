@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getPath } from '../util/util'
+import { getPath, saveTreasure } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './Clear.css'
 
@@ -14,12 +14,7 @@ const Clear = () => {
     setTreasure(`takara${randomTreasure}.png`)
 
     // ローカルストレージに保存
-    const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
-    // 既に同じ宝物がなければ追加
-    if (!savedTreasures.includes(randomTreasure)) {
-      savedTreasures.push(randomTreasure)
-      localStorage.setItem('treasures', JSON.stringify(savedTreasures))
-    }
+    saveTreasure(randomTreasure)
 
     // BGM再生
     const bgm = new Audio(getPath('/sound/bgm1.mp3'))

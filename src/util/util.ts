@@ -4,6 +4,18 @@ export const getPath = (src: string) => {
   return '/taisei2' + src
 }
 
+export const saveTreasure = (treasureId: number) => {
+  const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
+  if (!savedTreasures.includes(treasureId)) {
+    savedTreasures.push(treasureId)
+    localStorage.setItem('treasures', JSON.stringify(savedTreasures))
+  }
+}
+
+export const getSavedTreasures = () => {
+  return JSON.parse(localStorage.getItem('treasures') || '[]')
+}
+
 export const playSound = (
   audioRef: RefObject<HTMLAudioElement | null>,
   seikai: boolean

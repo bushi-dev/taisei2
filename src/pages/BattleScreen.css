@@ -24,6 +24,7 @@
   width: 200px;
   margin: 0 auto;
   display: block;
+  max-height: 200px;
 }
 
 .battle-enemy {
@@ -126,4 +127,17 @@ margin: 0 auto;
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.5);
   }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 1s ease-out forwards;
 }
