@@ -25,6 +25,7 @@
   margin: 0 auto;
   display: block;
   max-height: 200px;
+  animation: moveBoss 7s linear infinite;
 }
 
 .battle-enemy {
@@ -52,6 +53,42 @@ margin: 0 auto;
   }
   100% {
     transform: translateY(0px);
+  }
+}
+
+@keyframes moveBoss {
+  0% {
+    transform: translate(0px, 0px);
+  }
+  5% {
+    transform: translate(-3px, -5px);
+  }
+  10% {
+    transform: translate(3px, -10px);
+  }
+  15% {
+    transform: translate(-3px, -5px);
+  }
+  20% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  55% {
+    transform: translate(-7px, -2px);
+  }
+  60% {
+    transform: translate(3px, -10px);
+  }
+  65% {
+    transform: translate(-6px, -5px);
+  }
+  70% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
   }
 }
 

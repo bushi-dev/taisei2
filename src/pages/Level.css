@@ -64,7 +64,6 @@
 }
 
 .start-button {
-  margin-top: 2rem;
   padding: 1rem 2rem;
   font-size: 4rem;
   background-color: #2196f3;
@@ -171,15 +170,32 @@
 }
 
 .treasure-count {
-  font-size: 2rem;
+  font-size: 4rem !important;
   font-weight: bold;
-  color: #ffd700;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding: 0.5rem 1rem;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  text-shadow:
+    0 0 10px #ffff00,
+    0 0 20px #ffff00,
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 8px;
   display: inline-block;
-  margin: 0.5rem 0;
+  margin: 1rem 0;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow:
+      0 0 10px #ffff00,
+      0 0 20px #ffff00;
+  }
+  to {
+    box-shadow:
+      0 0 20px #ffff00,
+      0 0 40px #ffff00;
+  }
 }
 
 @media (max-width: 768px) {

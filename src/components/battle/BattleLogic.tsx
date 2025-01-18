@@ -53,6 +53,12 @@ export const useBattleLogic = () => {
             if (newLife == 0) {
               console.log('クリア処理')
               //クリア時の処理
+
+              // battle-questionを非表示にする
+              const questionElement = document.querySelector('.battle-question')
+              if (questionElement) {
+                questionElement.classList.add('fade-out')
+              }
               // 達成度を加算
               const progressKey = `${gameType}_progress`
               const currentProgress = parseInt(

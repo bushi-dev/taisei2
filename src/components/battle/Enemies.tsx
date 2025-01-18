@@ -26,10 +26,12 @@ export const Boss: React.FC<BossProps> = ({ bossImage, bossLife }) => {
     <>
       <img
         src={getPath(`/image/boss${bossImage}.png`)}
-        alt="ボス"
+        alt="BOSS"
         className="battle-boss"
       />
-      <h2 style={{ paddingLeft: '20px' }}>ボス {'💙'.repeat(bossLife)}</h2>
+      <h2 style={{ paddingLeft: '20px', fontSize: '30px', margin: '0' }}>
+        BOSS {'💙'.repeat(bossLife)}
+      </h2>
     </>
   )
 }

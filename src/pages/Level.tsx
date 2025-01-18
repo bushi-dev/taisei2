@@ -87,7 +87,7 @@ const Level = () => {
 
       <div className="difficulty-sections-container">
         <div className="setting-section difficulty-section">
-          <h2>むずかしさ</h2>
+          <h2 style={{ marginTop: '0', marginBottom: '25px' }}>むずかしさ</h2>
           <div className="difficulty-stars">
             <select
               value={difficulty}
@@ -107,7 +107,7 @@ const Level = () => {
           </div>
         </div>
         <div className="setting-section difficulty-section">
-          <h2>おたから</h2>
+          <h2 style={{ margin: '0' }}>おたから</h2>
           <div className="treasure-count">
             {getSavedTreasures().length}/{MAX_TREASURES}
           </div>
