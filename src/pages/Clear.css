@@ -26,8 +26,8 @@
 }
 
 .clear-heading {
+  margin: 0 0 20px 0;
   font-size: 3rem;
-  margin-bottom: 2rem;
   font-weight: bold;
   color: #ffeb3b;
   text-shadow:

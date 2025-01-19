@@ -24,8 +24,8 @@ a:hover {
 
 body {
   width: 320px;
-  height: 640px;
-  max-height: 640px;
+  height: 600px;
+  max-height: 600px;
   margin: 0;
   overflow: hidden;
 }
