@@ -9,6 +9,7 @@ interface SoundButtonProps {
   onClick?: () => void
   className?: string
   isBattleMode?: boolean
+  id?: string
 }
 
 const SoundButton = ({

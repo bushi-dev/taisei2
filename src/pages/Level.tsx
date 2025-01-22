@@ -52,21 +52,21 @@ const Level = () => {
     <div className="level-container">
       <div className="setting-section">
         <div className="type-buttons">
-          <button
+          <SoundButton
             id="addition"
             className={`type-button ${type === 'addition' ? 'active' : ''}`}
             onClick={() => setType('addition')}
           >
             ＋<div className="progress">{progress.addition}%</div>
-          </button>
-          <button
+          </SoundButton>
+          <SoundButton
             id="subtraction"
             className={`type-button ${type === 'subtraction' ? 'active' : ''}`}
             onClick={() => setType('subtraction')}
           >
             −<div className="progress">{progress.subtraction}%</div>
-          </button>
-          <button
+          </SoundButton>
+          <SoundButton
             id="multiplication"
             className={`type-button ${
               type === 'multiplication' ? 'active' : ''
@@ -74,14 +74,14 @@ const Level = () => {
             onClick={() => setType('multiplication')}
           >
             ×<div className="progress">{progress.multiplication}%</div>
-          </button>
-          <button
+          </SoundButton>
+          <SoundButton
             id="division"
             className={`type-button ${type === 'division' ? 'active' : ''}`}
             onClick={() => setType('division')}
           >
             ÷<div className="progress">{progress.division}%</div>
-          </button>
+          </SoundButton>
         </div>
       </div>
 
@@ -93,7 +93,9 @@ const Level = () => {
               value={difficulty}
               onChange={(e) => {
                 setDifficulty(e.target.value)
-                new Audio('/sound/click.mp3').play()
+                const clickSound = new Audio(getPath('/sound/click.mp3'))
+                clickSound.volume = 0.5
+                clickSound.play().catch(() => {})
               }}
               className="difficulty-select"
             >
