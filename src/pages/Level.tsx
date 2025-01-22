@@ -53,22 +53,23 @@ const Level = () => {
       <div className="setting-section">
         <div className="type-buttons">
           <SoundButton
-            id="addition"
-            className={`type-button ${type === 'addition' ? 'active' : ''}`}
+            className={`type-button addition ${
+              type === 'addition' ? 'active' : ''
+            }`}
             onClick={() => setType('addition')}
           >
             ＋<div className="progress">{progress.addition}%</div>
           </SoundButton>
           <SoundButton
-            id="subtraction"
-            className={`type-button ${type === 'subtraction' ? 'active' : ''}`}
+            className={`type-button subtraction ${
+              type === 'subtraction' ? 'active' : ''
+            }`}
             onClick={() => setType('subtraction')}
           >
             −<div className="progress">{progress.subtraction}%</div>
           </SoundButton>
           <SoundButton
-            id="multiplication"
-            className={`type-button ${
+            className={`type-button multiplication ${
               type === 'multiplication' ? 'active' : ''
             }`}
             onClick={() => setType('multiplication')}
@@ -76,8 +77,9 @@ const Level = () => {
             ×<div className="progress">{progress.multiplication}%</div>
           </SoundButton>
           <SoundButton
-            id="division"
-            className={`type-button ${type === 'division' ? 'active' : ''}`}
+            className={`type-button division ${
+              type === 'division' ? 'active' : ''
+            }`}
             onClick={() => setType('division')}
           >
             ÷<div className="progress">{progress.division}%</div>

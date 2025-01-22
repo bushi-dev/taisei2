@@ -46,7 +46,7 @@ const SoundButton = ({
   }
 
   return (
-    <button className={className} onClick={handleClick}>
+    <button className={`sound-button ${className}`} onClick={handleClick}>
       {children}
     </button>
   )

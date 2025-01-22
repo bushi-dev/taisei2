@@ -103,24 +103,36 @@
   display: none;
 }
 
-#addition {
+.type-button.addition {
   background: rgba(76, 175, 80, 0.5);
 }
 
-#subtraction {
+.type-button.subtraction {
   background: rgba(244, 67, 54, 0.5);
 }
 
-#multiplication {
+.type-button.multiplication {
   background: rgba(255, 152, 0, 0.5);
 }
 
-#division {
+.type-button.division {
   background: rgba(156, 39, 176, 0.5);
 }
 
-.type-button:hover {
-  background: rgba(255, 255, 255, 0.9);
+.type-button.addition:hover {
+  background: rgba(76, 175, 80, 0.9);
+}
+
+.type-button.subtraction:hover {
+  background: rgba(244, 67, 54, 0.9);
+}
+
+.type-button.multiplication:hover {
+  background: rgba(255, 152, 0, 0.9);
+}
+
+.type-button.division:hover {
+  background: rgba(156, 39, 176, 0.9);
 }
 
 @keyframes pulse {
@@ -129,7 +141,7 @@
   100% { transform: scale(1); }
 }
 
-#addition.active {
+.type-button.addition.active {
   border-color: #4caf50;
   border-width: 6px;
   color: white;
@@ -139,7 +151,7 @@
   animation: pulse 0.8s infinite;
 }
 
-#subtraction.active {
+.type-button.subtraction.active {
   border-color: #f44336;
   border-width: 6px;
   color: white;
@@ -149,7 +161,7 @@
   animation: pulse 0.8s infinite;
 }
 
-#multiplication.active {
+.type-button.multiplication.active {
   border-color: #ff9800;
   border-width: 6px;
   color: white;
@@ -159,7 +171,7 @@
   animation: pulse 0.8s infinite;
 }
 
-#division.active {
+.type-button.division.active {
   border-color: #9c27b0;
   border-width: 6px;
   color: white;
