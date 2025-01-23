@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getPath } from '../../util/util'
 import { generateProblem } from '../../util/problemGenerator'
+import { useSoundManager } from '../SoundManager'
 
 export const BOSS_COUNT = 4
 
@@ -21,6 +21,7 @@ export const useBattleLogic = () => {
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null)
 
   const navigate = useNavigate()
+  const { playSound } = useSoundManager()
 
   // ローカルストレージから設定を取得
   const gameType = localStorage.getItem('gameType') || 'addition'
@@ -42,7 +43,7 @@ export const useBattleLogic = () => {
         enemyElement.classList.add('fade-out')
       }
       setTimeout(() => {
-        new Audio(getPath('/sound/seikai.mp3')).play()
+        playSound('/sound/seikai.mp3')
         // 1秒後に別の敵に切り替え
         setEnemyImage(Math.floor(Math.random() * 8) + 1)
 
@@ -73,9 +74,7 @@ export const useBattleLogic = () => {
               const newProgress = Math.min(currentProgress + progressToAdd, 100)
               localStorage.setItem(progressKey, newProgress.toString())
               setTimeout(() => {
-                const clearSound = new Audio(getPath('/sound/clear.mp3'))
-                clearSound.volume = 0.3
-                clearSound.play()
+                playSound('/sound/clear.mp3')
                 setTimeout(() => {
                   navigate('/taisei2/clear')
                   return // クリア時は問題更新しない
@@ -93,7 +92,7 @@ export const useBattleLogic = () => {
       //失敗時
       setResult('wrong')
       setTimeout(() => {
-        new Audio(getPath('/sound/sippai.mp3')).play()
+        playSound('/sound/sippai.mp3')
         setLife((prev) => {
           if (prev - 1 <= 0) {
             navigate('/taisei2/gameover')
@@ -111,14 +110,8 @@ export const useBattleLogic = () => {
 
   // BGM再生
   useEffect(() => {
-    const bgm = new Audio(getPath('/sound/bgm3.mp3'))
-    bgm.volume = 0.1
-    bgm.loop = true
-    bgm.play().catch(() => {})
-
-    return () => {
-      bgm.pause()
-    }
+    playSound('/sound/bgm3.mp3', 0.1)
+    return () => {}
   }, [])
 
   // 問題生成

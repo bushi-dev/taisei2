@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { getPath } from '../util/util'
+import { useSoundManager } from './SoundManager'
 
 // 最大ken数 (ken1からken100まで再生可能)
 const MAX_KEN_COUNT = 24
@@ -19,6 +19,7 @@ const SoundButton = ({
   isBattleMode,
 }: SoundButtonProps) => {
   const lastClickTime = useRef(0)
+  const { playSound } = useSoundManager()
 
   const handleClick = () => {
     const now = Date.now()
@@ -29,15 +30,10 @@ const SoundButton = ({
     if (isBattleMode) {
       // バトルモード時はken1からken100までランダム再生
       const randomKen = Math.floor(Math.random() * MAX_KEN_COUNT) + 1
-      const soundPath = `/sound/ken${randomKen}.mp3`
-      const battleSound = new Audio(getPath(soundPath))
-      battleSound.volume = 0.5
-      battleSound.play().catch(() => {})
+      playSound(`/sound/ken${randomKen}.mp3`)
     } else {
       // 通常時はクリック音再生
-      const clickSound = new Audio(getPath('/sound/click.mp3'))
-      clickSound.volume = 0.5
-      clickSound.play().catch(() => {})
+      playSound('/sound/click.mp3')
     }
 
     if (onClick) {
