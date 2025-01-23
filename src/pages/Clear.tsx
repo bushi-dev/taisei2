@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { getPath, saveTreasure } from '../util/util'
+import { getPath } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './Clear.css'
 
@@ -9,12 +9,11 @@ const Clear = () => {
   const [treasure, setTreasure] = useState('')
 
   useEffect(() => {
-    // ランダムな宝物を選択 (1〜5)
-    const randomTreasure = Math.floor(Math.random() * 5) + 1
-    setTreasure(`takara${randomTreasure}.png`)
-
-    // ローカルストレージに保存
-    saveTreasure(randomTreasure)
+    // ローカルストレージから宝番号を取得 (1〜100)
+    const treasureNumber = parseInt(
+      localStorage.getItem('lastTreasureNumber') || '1'
+    )
+    setTreasure(`takara${treasureNumber}.png`)
 
     // BGM再生
     const bgm = new Audio(getPath('/sound/bgm1.mp3'))

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { generateProblem } from '../../util/problemGenerator'
 import { useSoundManager } from '../SoundManager'
+import { saveTreasure, getPath } from '../../util/util'
 
 export const BOSS_COUNT = 4
 
@@ -71,12 +72,21 @@ export const useBattleLogic = () => {
               } else if (gameDifficulty !== 'easy') {
                 progressToAdd = 5
               }
+              //進捗更新
               const newProgress = Math.min(currentProgress + progressToAdd, 100)
               localStorage.setItem(progressKey, newProgress.toString())
+              //クリア遷移
               setTimeout(() => {
                 playSound('/sound/clear.mp3')
                 setTimeout(() => {
-                  navigate('/taisei2/clear')
+                  const treasureNumber = Math.floor(Math.random() * 100) + 1
+                  localStorage.setItem(
+                    'lastTreasureNumber',
+                    treasureNumber.toString()
+                  )
+                  saveTreasure(treasureNumber)
+
+                  navigate('/taisei2/movie')
                   return // クリア時は問題更新しない
                 }, 2000)
               }, 500)
@@ -110,8 +120,15 @@ export const useBattleLogic = () => {
 
   // BGM再生
   useEffect(() => {
-    playSound('/sound/bgm3.mp3', 0.1)
-    return () => {}
+    const bgm = new Audio(getPath('/sound/bgm3.mp3'))
+    bgm.volume = 0.1
+    bgm.loop = true
+    bgm.play().catch(() => {})
+
+    return () => {
+      bgm.pause()
+      bgm.currentTime = 0
+    }
   }, [])
 
   // 問題生成

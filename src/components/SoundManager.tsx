@@ -5,6 +5,10 @@ const SOUND_FILES = [
   '/sound/click.mp3',
   '/sound/seikai.mp3',
   '/sound/sippai.mp3',
+  '/sound/bgm1.mp3',
+  '/sound/bgm2.mp3',
+  '/sound/bgm3.mp3',
+  '/sound/bgm4.mp3',
   ...Array.from({ length: 18 }, (_, i) => `/sound/ken${i + 1}.mp3`),
 ]
 
