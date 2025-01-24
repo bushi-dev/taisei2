@@ -11,6 +11,8 @@ const EFFECT_FILES = [
   '/sound/click.mp3',
   '/sound/seikai.mp3',
   '/sound/sippai.mp3',
+  '/sound/battleStart.mp3',
+  '/sound/clear.mp3',
   ...Array.from({ length: 5 }, (_, i) => `/sound/ken${i + 1}.mp3`),
 ]
 
@@ -52,17 +54,10 @@ class SoundManager {
     this.bgmAudio.volume = volume
     this.bgmAudio.loop = true
 
-    // ユーザー操作後に再生
-    const playAfterInteraction = () => {
-      this.bgmAudio?.play().catch((err: Error) => {
-        console.error('Error playing BGM:', path, err)
-      })
-      window.removeEventListener('click', playAfterInteraction)
-      window.removeEventListener('keydown', playAfterInteraction)
-    }
-
-    window.addEventListener('click', playAfterInteraction)
-    window.addEventListener('keydown', playAfterInteraction)
+    // BGMを即座に再生
+    this.bgmAudio?.play().catch((err: Error) => {
+      console.error('Error playing BGM:', path, err)
+    })
   }
 
   public playEffect(path: string, volume = 0.5) {
@@ -70,6 +65,7 @@ class SoundManager {
     if (!effect) return
 
     // 効果音を再生
+    console.log('Playing effect:', path)
     effect.volume = volume
     effect.currentTime = 0
     effect.play().catch((err: Error) => {

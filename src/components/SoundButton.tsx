@@ -1,8 +1,7 @@
 import { useRef } from 'react'
 import { useSound } from '../context/SoundContext'
 
-// 最大ken数 (ken1からken100まで再生可能)
-const MAX_KEN_COUNT = 24
+const MAX_KEN_COUNT = 6
 
 interface SoundButtonProps {
   children: React.ReactNode
@@ -30,6 +29,7 @@ const SoundButton = ({
     if (isBattleMode) {
       // バトルモード時はken1からken100までランダム再生
       const randomKen = Math.floor(Math.random() * MAX_KEN_COUNT) + 1
+      console.log(`/sound/ken${randomKen}.mp3`)
       playEffect(`/sound/ken${randomKen}.mp3`)
     } else {
       // 通常時はクリック音再生

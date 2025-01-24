@@ -120,8 +120,11 @@ export const useBattleLogic = () => {
 
   // BGM再生
   useEffect(() => {
-    playBgm('/sound/bgm3.mp3', 0.1)
-  }, [playBgm])
+    playBgm(
+      enemyCount % 5 === BOSS_COUNT ? '/sound/bgm4.mp3' : '/sound/bgm3.mp3',
+      0.1
+    )
+  }, [playBgm, enemyCount])
 
   // 問題生成
   useEffect(() => {
