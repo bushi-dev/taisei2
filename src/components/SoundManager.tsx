@@ -1,37 +1,78 @@
-import { useEffect, useRef } from 'react'
 import { getPath } from '../util/util'
 
-const SOUND_FILES = [
-  '/sound/click.mp3',
-  '/sound/seikai.mp3',
-  '/sound/sippai.mp3',
+const BGM_FILES = [
   '/sound/bgm1.mp3',
   '/sound/bgm2.mp3',
   '/sound/bgm3.mp3',
   '/sound/bgm4.mp3',
-  ...Array.from({ length: 18 }, (_, i) => `/sound/ken${i + 1}.mp3`),
 ]
 
-export const useSoundManager = () => {
-  const sounds = useRef<Record<string, HTMLAudioElement>>({})
+const EFFECT_FILES = [
+  '/sound/click.mp3',
+  '/sound/seikai.mp3',
+  '/sound/sippai.mp3',
+  ...Array.from({ length: 5 }, (_, i) => `/sound/ken${i + 1}.mp3`),
+]
 
-  useEffect(() => {
-    // 音声ファイルを事前読み込み
-    SOUND_FILES.forEach((path) => {
+class SoundManager {
+  private static instance: SoundManager
+  private bgmAudio: HTMLAudioElement | null = null
+  private effectAudios: Record<string, HTMLAudioElement> = {}
+
+  private constructor() {
+    // 効果音を事前読み込み
+    EFFECT_FILES.forEach((path) => {
       const audio = new Audio(getPath(path))
       audio.volume = 0.5
-      sounds.current[path] = audio
+      this.effectAudios[path] = audio
     })
-  }, [])
-
-  const playSound = (path: string, volume = 0.5) => {
-    const sound = sounds.current[path]
-    if (sound) {
-      sound.currentTime = 0
-      sound.volume = volume
-      sound.play().catch(() => {})
-    }
   }
 
-  return { playSound }
+  public static getInstance(): SoundManager {
+    if (!SoundManager.instance) {
+      SoundManager.instance = new SoundManager()
+    }
+    return SoundManager.instance
+  }
+
+  public playBgm(path: string, volume = 0.5) {
+    if (!BGM_FILES.includes(path)) return
+
+    // 既に同じBGMが再生中なら何もしない
+    if (this.bgmAudio && this.bgmAudio.src.endsWith(path)) return
+
+    // 前のBGMを停止
+    if (this.bgmAudio) {
+      this.bgmAudio.pause()
+      this.bgmAudio.currentTime = 0
+    }
+
+    // 新しいBGMを再生
+    this.bgmAudio = new Audio(getPath(path))
+    this.bgmAudio.volume = volume
+    this.bgmAudio.loop = true
+    this.bgmAudio.play().catch((err: Error) => {
+      console.error('Error playing BGM:', path, err)
+    })
+  }
+
+  public playEffect(path: string, volume = 0.5) {
+    const effect = this.effectAudios[path]
+    if (!effect) return
+
+    // 効果音を再生
+    effect.volume = volume
+    effect.currentTime = 0
+    effect.play().catch((err: Error) => {
+      console.error('Error playing effect:', path, err)
+    })
+  }
+}
+
+export const useSoundManager = () => {
+  const manager = SoundManager.getInstance()
+  return {
+    playBgm: manager.playBgm.bind(manager),
+    playEffect: manager.playEffect.bind(manager),
+  }
 }

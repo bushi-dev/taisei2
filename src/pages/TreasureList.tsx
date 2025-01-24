@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useSoundManager } from '../components/SoundManager'
 import { useNavigate } from 'react-router-dom'
-import { getPath } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './TreasureList.css'
 
 const TreasureList = () => {
   const [treasures, setTreasures] = useState<string[]>([])
   const navigate = useNavigate()
+
+  const { playBgm } = useSoundManager()
 
   useEffect(() => {
     // ローカルストレージから宝物データを取得し、画像ファイル名に変換
@@ -18,15 +20,8 @@ const TreasureList = () => {
     setTreasures(formattedTreasures)
 
     // BGM再生
-    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
-    bgm.volume = 0.1
-    bgm.loop = true
-    bgm.play()
-
-    return () => {
-      bgm.pause()
-    }
-  }, [])
+    playBgm('/sound/bgm1.mp3', 0.1)
+  }, [playBgm])
 
   return (
     <div className="treasure-list-container">
@@ -50,7 +45,7 @@ const TreasureList = () => {
             }}
           >
             <img
-              src={getPath(`/image/${treasure}`)}
+              src={`/image/${treasure}`}
               alt={treasure}
               className="treasure-list-image"
             />

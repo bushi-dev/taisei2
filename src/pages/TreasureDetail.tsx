@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useSoundManager } from '../components/SoundManager'
 import { useNavigate, useParams } from 'react-router-dom'
-import { getPath } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './TreasureDetail.css'
 
@@ -8,6 +8,8 @@ const TreasureDetail = () => {
   const { id } = useParams<{ id: string }>()
   const [treasure, setTreasure] = useState<number | null>(null)
   const navigate = useNavigate()
+
+  const { playBgm } = useSoundManager()
 
   useEffect(() => {
     // ローカルストレージから宝物データを取得
@@ -19,15 +21,8 @@ const TreasureDetail = () => {
     }
 
     // BGM再生
-    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
-    bgm.volume = 0.1
-    bgm.loop = true
-    bgm.play()
-
-    return () => {
-      bgm.pause()
-    }
-  }, [id, navigate])
+    playBgm('/sound/bgm1.mp3', 0.1)
+  }, [id, navigate, playBgm])
 
   if (!treasure) return null
 
@@ -35,7 +30,7 @@ const TreasureDetail = () => {
     <div className="treasure-detail-container">
       <div className="treasure-content">
         <img
-          src={getPath(`/image/takara${id}.png`)}
+          src={`/image/takara${id}.png`}
           alt={`宝物${id}`}
           className="treasure-detail-image"
         />

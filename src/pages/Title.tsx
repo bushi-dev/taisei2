@@ -1,23 +1,19 @@
 import { useEffect } from 'react'
+import { useSoundManager } from '../components/SoundManager'
 import { useNavigate } from 'react-router-dom'
-import { getPath } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './Title.css'
+import { getPath } from '../util/util'
 
 const Title = () => {
   const navigate = useNavigate()
 
+  const { playBgm } = useSoundManager()
+
   useEffect(() => {
     // BGM再生
-    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
-    bgm.volume = 0.1
-    bgm.loop = true
-    bgm.play().catch(() => {})
-
-    return () => {
-      bgm.pause()
-    }
-  }, [])
+    playBgm('/sound/bgm1.mp3', 0.1)
+  }, [playBgm])
 
   return (
     <div className="title-screen">

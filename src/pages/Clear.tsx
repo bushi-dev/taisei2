@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react'
+import { useSoundManager } from '../components/SoundManager'
 import { useNavigate } from 'react-router-dom'
-import { getPath } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './Clear.css'
 
 const Clear = () => {
   const navigate = useNavigate()
   const [treasure, setTreasure] = useState('')
+
+  const { playBgm } = useSoundManager()
 
   useEffect(() => {
     // ローカルストレージから宝番号を取得 (1〜100)
@@ -16,15 +18,8 @@ const Clear = () => {
     setTreasure(`takara${treasureNumber}.png`)
 
     // BGM再生
-    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
-    bgm.volume = 0.1
-    bgm.loop = true
-    bgm.play().catch(() => {})
-
-    return () => {
-      bgm.pause()
-    }
-  }, [])
+    playBgm('/sound/bgm1.mp3', 0.1)
+  }, [playBgm])
 
   return (
     <div className="clear-container">
@@ -32,7 +27,7 @@ const Clear = () => {
 
       <div className="clear-subheading">
         <img
-          src={getPath(`/image/${treasure}`)}
+          src={`/image/${treasure}`}
           alt="獲得した宝物"
           className="clear-treasure-image"
         />

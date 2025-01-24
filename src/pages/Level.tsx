@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
+import { useSoundManager } from '../components/SoundManager'
 import { useNavigate } from 'react-router-dom'
-import { getPath, getSavedTreasures, MAX_TREASURES } from '../util/util'
+import { getSavedTreasures, MAX_TREASURES } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './Level.css'
 
@@ -26,23 +27,16 @@ const Level = () => {
     if (savedDifficulty) setDifficulty(savedDifficulty)
   }, [])
 
-  useEffect(() => {
-    const bgm = new Audio(getPath('/sound/bgm1.mp3'))
-    bgm.volume = 0.1
-    bgm.loop = true
-    bgm.play().catch(() => {})
+  const { playBgm, playEffect } = useSoundManager()
 
-    return () => {
-      bgm.pause()
-    }
-  }, [])
+  useEffect(() => {
+    playBgm('/sound/bgm1.mp3', 0.1)
+  }, [playBgm])
 
   const handleStart = () => {
     localStorage.setItem('gameType', type)
     localStorage.setItem('gameDifficulty', difficulty)
-    const clearSound = new Audio(getPath('/sound/battleStart.mp3'))
-    clearSound.volume = 0.1
-    clearSound.play()
+    playEffect('/sound/battleStart.mp3', 0.1)
     setTimeout(() => {
       navigate('/taisei2/battle')
     }, 1000)
@@ -95,9 +89,7 @@ const Level = () => {
               value={difficulty}
               onChange={(e) => {
                 setDifficulty(e.target.value)
-                const clickSound = new Audio(getPath('/sound/click.mp3'))
-                clickSound.volume = 0.5
-                clickSound.play().catch(() => {})
+                playEffect('/sound/click.mp3', 0.5)
               }}
               className="difficulty-select"
             >
