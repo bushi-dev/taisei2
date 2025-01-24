@@ -17,12 +17,17 @@ export const getSavedTreasures = () => {
 }
 
 const DEFAULT_RARITY_RANGES = [
-  { min: 1, max: 20, rarity: 1 },
-  { min: 21, max: 40, rarity: 2 },
-  { min: 41, max: 60, rarity: 3 },
-  { min: 61, max: 80, rarity: 4 },
-  { min: 81, max: 95, rarity: 5 },
-  { min: 96, max: 100, rarity: 6 },
+  { min: 1, max: 1, rarity: 6 },
+  { min: 2, max: 10, rarity: 5 },
+  { min: 11, max: 20, rarity: 2 },
+  { min: 21, max: 30, rarity: 4 },
+  { min: 31, max: 40, rarity: 1 },
+  { min: 41, max: 50, rarity: 2 },
+  { min: 51, max: 60, rarity: 3 },
+  { min: 61, max: 70, rarity: 1 },
+  { min: 71, max: 80, rarity: 2 },
+  { min: 81, max: 90, rarity: 1 },
+  { min: 91, max: 100, rarity: 3 },
 ]
 
 export const getTreasureRarity = (treasureNumber: number): number => {
