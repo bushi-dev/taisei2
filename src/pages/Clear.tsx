@@ -3,6 +3,7 @@ import { useSoundManager } from '../components/SoundManager'
 import { useNavigate } from 'react-router-dom'
 import SoundButton from '../components/SoundButton'
 import './Clear.css'
+import { getPath } from '../util/util'
 
 const Clear = () => {
   const navigate = useNavigate()
@@ -27,7 +28,7 @@ const Clear = () => {
 
       <div className="clear-subheading">
         <img
-          src={`/image/${treasure}`}
+          src={getPath(`/image/${treasure}`)}
           alt="獲得した宝物"
           className="clear-treasure-image"
         />

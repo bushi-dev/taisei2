@@ -22,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "echo 'npm run deploy'"
+      "pre-push": "npm run deploy"
     }
   },
   "devDependencies": {
