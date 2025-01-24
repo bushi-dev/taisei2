@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { getPath, getTreasureLevel, getTreasureRarity } from '../util/util'
-import { useSoundManager } from '../components/SoundManager'
 import './Movie.css'
 
 const Movie = () => {
