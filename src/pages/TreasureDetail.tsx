@@ -3,6 +3,7 @@ import { useSoundManager } from '../components/SoundManager'
 import { useNavigate, useParams } from 'react-router-dom'
 import SoundButton from '../components/SoundButton'
 import './TreasureDetail.css'
+import { getPath } from '../util/util'
 
 const TreasureDetail = () => {
   const { id } = useParams<{ id: string }>()
@@ -30,7 +31,7 @@ const TreasureDetail = () => {
     <div className="treasure-detail-container">
       <div className="treasure-content">
         <img
-          src={`/image/takara${id}.png`}
+          src={getPath(`/image/takara${id}.png`)}
           alt={`宝物${id}`}
           className="treasure-detail-image"
         />
