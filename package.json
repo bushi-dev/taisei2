@@ -10,7 +10,9 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "npm run build && gh-pages-clean && gh-pages -d dist && echo https://bushi-dev.github.io/taisei2/"
+    "deploy": "npm run build && gh-pages-clean && gh-pages -d dist && echo https://bushi-dev.github.io/taisei2/",
+    "prepare": "husky",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "dependencies": {
     "@types/react-router-dom": "^5.3.3",
