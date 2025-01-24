@@ -47,13 +47,22 @@ class SoundManager {
       this.bgmAudio.currentTime = 0
     }
 
-    // 新しいBGMを再生
+    // 新しいBGMを準備
     this.bgmAudio = new Audio(getPath(path))
     this.bgmAudio.volume = volume
     this.bgmAudio.loop = true
-    this.bgmAudio.play().catch((err: Error) => {
-      console.error('Error playing BGM:', path, err)
-    })
+
+    // ユーザー操作後に再生
+    const playAfterInteraction = () => {
+      this.bgmAudio?.play().catch((err: Error) => {
+        console.error('Error playing BGM:', path, err)
+      })
+      window.removeEventListener('click', playAfterInteraction)
+      window.removeEventListener('keydown', playAfterInteraction)
+    }
+
+    window.addEventListener('click', playAfterInteraction)
+    window.addEventListener('keydown', playAfterInteraction)
   }
 
   public playEffect(path: string, volume = 0.5) {
