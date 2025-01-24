@@ -48,3 +48,7 @@ export default tseslint.config({
   },
 })
 ```
+
+## 画像追加時
+
+git lfs push origin main
