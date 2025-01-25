@@ -59,6 +59,7 @@
 }
 
 .clear-subheading {
+  width: 110%;
   font-size: 1.5rem;
   margin-bottom: 2rem;
   display: flex;

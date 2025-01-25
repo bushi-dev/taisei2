@@ -1,5 +1,5 @@
 .battle-container {
-  background-image: url('/image/bg.webp');
+  background-image: var(--bg-image, url('/image/bg.webp'));
   background-size: cover;
   color: white;
   text-shadow: 2px 2px 4px black;

@@ -1,10 +1,12 @@
-export const MAX_TREASURES = 6
+export const MAX_TREASURES = 100
 
 export const getPath = (src: string) => {
   return '/taisei2' + src
 }
 
 export const saveTreasure = (treasureId: number) => {
+  console.log('クリア処理')
+  localStorage.setItem('lastTreasureNumber', treasureId.toString())
   const savedTreasures = JSON.parse(localStorage.getItem('treasures') || '[]')
   if (!savedTreasures.includes(treasureId)) {
     savedTreasures.push(treasureId)

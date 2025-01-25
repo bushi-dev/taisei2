@@ -19,6 +19,9 @@ export const useBattleLogic = () => {
   const [enemyImage, setEnemyImage] = useState(
     Math.floor(Math.random() * 8) + 1
   )
+  const [backgroundImage, setBackgroundImage] = useState(
+    '/taisei2/image/bg1.webp'
+  )
   const [result, setResult] = useState<'correct' | 'wrong' | null>(null)
 
   const navigate = useNavigate()
@@ -36,6 +39,7 @@ export const useBattleLogic = () => {
   }, [result])
 
   const handleAnswer = (selected: number) => {
+    console.log(selected)
     if (selected === problem.answer) {
       setResult('correct')
       // 敵をフェードアウト
@@ -76,20 +80,11 @@ export const useBattleLogic = () => {
               const newProgress = Math.min(currentProgress + progressToAdd, 100)
               localStorage.setItem(progressKey, newProgress.toString())
               //クリア遷移
-              setTimeout(() => {
-                playEffect('/sound/clear.mp3')
-                setTimeout(() => {
-                  const treasureNumber = Math.floor(Math.random() * 100) + 1
-                  localStorage.setItem(
-                    'lastTreasureNumber',
-                    treasureNumber.toString()
-                  )
-                  saveTreasure(treasureNumber)
-
-                  navigate('/taisei2/movie')
-                  return // クリア時は問題更新しない
-                }, 2000)
-              }, 500)
+              setBackgroundImage('bg1.webp')
+              playEffect('/sound/clear.mp3')
+              const treasureNumber = Math.floor(Math.random() * 100) + 1
+              saveTreasure(treasureNumber)
+              navigate('/taisei2/movie')
               return 0
             }
             return newLife
@@ -131,6 +126,11 @@ export const useBattleLogic = () => {
     setProblem(
       generateProblem(gameType, gameDifficulty, enemyCount % 5 === BOSS_COUNT)
     )
+    // 戦闘開始時にランダムな背景を選択
+    if (enemyCount === 1) {
+      const randomBg = Math.floor(Math.random() * 5) + 2 // bg2.webpからbg7.webp
+      setBackgroundImage(`/taisei2/image/bg${randomBg}.webp`)
+    }
   }, [enemyCount, gameType, gameDifficulty])
 
   // 敵画像が変更された時に表示
@@ -148,6 +148,7 @@ export const useBattleLogic = () => {
     bossLife,
     bossImage,
     enemyImage,
+    backgroundImage,
     result,
     handleAnswer,
   }

@@ -15,12 +15,16 @@ const Battle = () => {
     bossLife,
     bossImage,
     enemyImage,
+    backgroundImage,
     result,
     handleAnswer,
   } = useBattleLogic()
 
   return (
-    <div className="battle-container">
+    <div
+      className="battle-container"
+      style={{ backgroundImage: `url(${backgroundImage})` }}
+    >
       <BattleHeader
         enemyCount={enemyCount}
         life={life}
