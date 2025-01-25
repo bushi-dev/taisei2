@@ -15,7 +15,7 @@ export const useBattleLogic = () => {
   const [life, setLife] = useState(3)
   const [enemyCount, setEnemyCount] = useState(1)
   const [bossLife, setBossLife] = useState(5)
-  const [bossImage] = useState(Math.floor(Math.random() * 4) + 1)
+  const [bossImage] = useState(Math.floor(Math.random() * 9) + 1)
   const [enemyImage, setEnemyImage] = useState(
     Math.floor(Math.random() * 8) + 1
   )

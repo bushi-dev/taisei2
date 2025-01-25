@@ -41,7 +41,7 @@ const Clear = () => {
             onClick={() => navigate('/taisei2/battle')}
             className="clear-button clear-button--secondary"
           >
-            そのまま次のバトル
+            次のバトル
           </SoundButton>
 
           <SoundButton
@@ -51,7 +51,7 @@ const Clear = () => {
             }}
             className="clear-button clear-button--secondary"
           >
-            レベルアップして次のバトルへ
+            レベルアップ!
           </SoundButton>
         </div>
         <div className="clear-buttons-top">
@@ -59,7 +59,7 @@ const Clear = () => {
             onClick={() => navigate('/taisei2/')}
             className="clear-button clear-button--primary"
           >
-            タイトル
+            タイトルへ
           </SoundButton>
         </div>
       </div>
