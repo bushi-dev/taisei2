@@ -3,7 +3,7 @@ import { useSoundManager } from '../components/SoundManager'
 import { useNavigate } from 'react-router-dom'
 import SoundButton from '../components/SoundButton'
 import './Clear.css'
-import { getPath } from '../util/util'
+import { getPath, increaseDifficulty } from '../util/util'
 
 const Clear = () => {
   const navigate = useNavigate()
@@ -36,19 +36,32 @@ const Clear = () => {
       </div>
 
       <div className="clear-buttons">
-        <SoundButton
-          onClick={() => navigate('/taisei2/')}
-          className="clear-button clear-button--primary"
-        >
-          タイトル
-        </SoundButton>
+        <div className="clear-buttons-bottom">
+          <SoundButton
+            onClick={() => navigate('/taisei2/battle')}
+            className="clear-button clear-button--secondary"
+          >
+            そのまま次のバトル
+          </SoundButton>
 
-        <SoundButton
-          onClick={() => navigate('/taisei2/battle')}
-          className="clear-button clear-button--secondary"
-        >
-          次へ
-        </SoundButton>
+          <SoundButton
+            onClick={() => {
+              increaseDifficulty()
+              navigate('/taisei2/battle')
+            }}
+            className="clear-button clear-button--secondary"
+          >
+            レベルアップして次のバトルへ
+          </SoundButton>
+        </div>
+        <div className="clear-buttons-top">
+          <SoundButton
+            onClick={() => navigate('/taisei2/')}
+            className="clear-button clear-button--primary"
+          >
+            タイトル
+          </SoundButton>
+        </div>
       </div>
     </div>
   )

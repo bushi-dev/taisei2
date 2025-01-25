@@ -30,15 +30,17 @@ export const generateProblem = (
     max1: number
     min2: number
     max2: number
+    min3?: number
+    max3?: number
   }
 
   const difficultyRanges: Record<string, Range> = {
     easy: { min1: 1, max1: 9, min2: 1, max2: 9 },
-    medium: { min1: 1, max1: 9, min2: 10, max2: 99 },
-    normal: { min1: 10, max1: 99, min2: 10, max2: 99 },
-    hard: { min1: 10, max1: 99, min2: 100, max2: 999 },
-    very_hard: { min1: 100, max1: 999, min2: 100, max2: 999 },
-    extreme: { min1: 1000, max1: 9999, min2: 1000, max2: 9999 },
+    medium: { min1: 1, max1: 9, min2: 1, max2: 9, min3: 1, max3: 9 },
+    normal: { min1: 10, max1: 99, min2: 1, max2: 9 },
+    hard: { min1: 10, max1: 99, min2: 1, max2: 9, min3: 1, max3: 9 },
+    very_hard: { min1: 10, max1: 99, min2: 10, max2: 99 },
+    extreme: { min1: 10, max1: 99, min2: 10, max2: 99, min3: 1, max3: 9 },
   }
 
   const range =
@@ -60,6 +62,10 @@ export const generateProblem = (
     Math.floor(Math.random() * (range.max1 - range.min1 + 1)) + range.min1
   let num2 =
     Math.floor(Math.random() * (range.max2 - range.min2 + 1)) + range.min2
+  let num3 =
+    range.min3 && range.max3
+      ? Math.floor(Math.random() * (range.max3 - range.min3 + 1)) + range.min3
+      : 0
 
   if (shouldSwap) {
     ;[num1, num2] = [num2, num1]
@@ -67,21 +73,52 @@ export const generateProblem = (
 
   let answer = 0
   if (operator === '+') {
-    answer = num1 + num2
+    answer = num3 ? num1 + num2 + num3 : num1 + num2
   } else if (operator === '-') {
-    // 引き算の場合、num1 >= num2 になるように調整
-    if (num1 < num2) {
-      ;[num1, num2] = [num2, num1]
+    if (num3) {
+      if (num1 < num2 + num3) {
+        ;[num1, num2] = [num2 + num3, num1]
+      }
+      answer = num1 - num2 - num3
+    } else {
+      if (num1 < num2) {
+        ;[num1, num2] = [num2, num1]
+      }
+      answer = num1 - num2
     }
-    answer = num1 - num2
   } else if (operator === '×') {
-    answer = num1 * num2
+    if (num3) {
+      // num3の範囲を難易度に応じて調整
+      const num3Range = {
+        easy: { min: 1, max: 3 },
+        medium: { min: 1, max: 5 },
+        normal: { min: 1, max: 7 },
+        hard: { min: 1, max: 9 },
+        very_hard: { min: 2, max: 9 },
+        extreme: { min: 3, max: 9 },
+      }[gameDifficulty] || { min: 1, max: 9 }
+
+      num3 =
+        Math.floor(Math.random() * (num3Range.max - num3Range.min + 1)) +
+        num3Range.min
+      answer = num1 * num2 * num3
+    } else {
+      answer = num1 * num2
+    }
   } else if (operator === '÷') {
-    // 割り算の場合、num1がnum2の倍数になるように調整
     num2 =
       Math.floor(Math.random() * (range.max2 - range.min2 + 1)) + range.min2
-    num1 = num2 * (Math.floor(Math.random() * 10) + 1)
-    answer = num1 / num2
+    if (num3) {
+      // num3を1-9の範囲で生成
+      num3 = Math.floor(Math.random() * 9) + 1
+      // num1をnum2とnum3の倍数にする
+      const multiplier = Math.floor(Math.random() * 9) + 1
+      num1 = num2 * num3 * multiplier
+      answer = multiplier
+    } else {
+      num1 = num2 * (Math.floor(Math.random() * 10) + 1)
+      answer = num1 / num2
+    }
   }
 
   const options = [
@@ -91,7 +128,9 @@ export const generateProblem = (
   ].sort(() => Math.random() - 0.5)
 
   return {
-    question: `${num1} ${operator} ${num2}`,
+    question: num3
+      ? `${num1} ${operator} ${num2} ${operator} ${num3}`
+      : `${num1} ${operator} ${num2}`,
     answer,
     options,
   }

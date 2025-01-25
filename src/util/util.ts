@@ -44,12 +44,29 @@ export const getTreasureRarity = (treasureNumber: number): number => {
   return range ? range.rarity : 1
 }
 
-export const getTreasureLevel = (treasureNumber: number): number => {
-  if (treasureNumber < 1 || treasureNumber > 6) {
-    throw new Error('Treasure number must be between 1 and 6')
-  }
-
-  if (treasureNumber <= 2) return 1
-  if (treasureNumber <= 4) return 2
+export const getTreasureLevel = (rare: number): number => {
+  if (rare == 6) return 4
+  if (rare == 5) return 4
+  if (rare == 4) return 3
+  if (rare == 3) return 2
+  if (rare == 2) return 1
+  if (rare == 1) return 1
   return 3
+}
+
+export const increaseDifficulty = (): string => {
+  const difficulties = [
+    'easy',
+    'medium',
+    'normal',
+    'hard',
+    'very-hard',
+    'extreme',
+  ]
+  const current = localStorage.getItem('gameDifficulty') || 'easy'
+  const currentIndex = difficulties.indexOf(current)
+  const nextIndex = Math.min(currentIndex + 1, difficulties.length - 1)
+  const nextDifficulty = difficulties[nextIndex]
+  localStorage.setItem('gameDifficulty', nextDifficulty)
+  return nextDifficulty
 }
