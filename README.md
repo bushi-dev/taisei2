@@ -56,3 +56,12 @@ export default tseslint.config({
 ## 画像追加時
 
 git lfs push origin main
+
+## 保存方法
+
+ - const treasures = localStorage.getItem("treasures");
+- console.log(treasures);
+
+- メモに保存する
+
+- localStorage.setItem("treasures", JSON.stringify(　　KIROKU ));
