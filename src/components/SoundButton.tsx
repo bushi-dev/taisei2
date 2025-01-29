@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useSound } from '../context/SoundContext'
 
-const MAX_KEN_COUNT = 6
+const MAX_KEN_COUNT = 5
 
 interface SoundButtonProps {
   children: React.ReactNode

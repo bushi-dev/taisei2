@@ -9,8 +9,8 @@ export const generateProblem = (
   gameDifficulty: string,
   isBossBattle = false
 ): Problem => {
-  // ボス戦の場合、50%で難易度を一時的に1段階上げる
-  if (isBossBattle && Math.random() < 0.25) {
+  // ボス戦の場合、10%で難易度を一時的に1段階上げる
+  if (isBossBattle && Math.random() < 0.1) {
     const difficultyLevels = [
       'easy',
       'medium',

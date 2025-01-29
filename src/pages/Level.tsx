@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSoundManager } from '../components/SoundManager'
 import { useNavigate } from 'react-router-dom'
-import { getSavedTreasures, MAX_TREASURES } from '../util/util'
+import { getPath, getSavedTreasures, MAX_TREASURES } from '../util/util'
 import SoundButton from '../components/SoundButton'
 import './Level.css'
 
@@ -110,9 +110,28 @@ const Level = () => {
         </div>
       </div>
 
-      <SoundButton className="start-button" onClick={handleStart}>
-        スタート
-      </SoundButton>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          gap: '20px',
+        }}
+      >
+        <SoundButton className="start-button" onClick={handleStart}>
+          スタート
+        </SoundButton>
+        <SoundButton
+          onClick={() => navigate('/taisei2/')}
+          className="back-button-level"
+        >
+          <img
+            src={getPath('/image/back.png')}
+            alt="戻る"
+            style={{ width: '55px', height: '55px' }}
+          />
+        </SoundButton>
+      </div>
     </div>
   )
 }
