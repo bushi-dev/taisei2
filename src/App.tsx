@@ -7,6 +7,7 @@ import GameOver from './pages/GameOver'
 import Movie from './pages/Movie'
 import TreasureList from './pages/TreasureList'
 import TreasureDetail from './pages/TreasureDetail'
+import KukuLevel from './pages/KukuLevel'
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/taisei2/movie" element={<Movie />} />
         <Route path="/taisei2/treasure" element={<TreasureList />} />
         <Route path="/taisei2/treasure/:id" element={<TreasureDetail />} />
+        <Route path="/taisei2/kuku-level" element={<KukuLevel />} />
       </Routes>
     </BrowserRouter>
   )

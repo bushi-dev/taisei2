@@ -32,6 +32,13 @@ const Title = () => {
       </SoundButton>
 
       <SoundButton
+        className="title-screen__button kuku"
+        onClick={() => navigate('/taisei2/kuku-level')}
+      >
+        九九モード
+      </SoundButton>
+
+      <SoundButton
         className="title-screen__button treasure"
         onClick={() => navigate('/taisei2/treasure')}
       >

@@ -59,6 +59,7 @@ export const useBattleLogic = () => {
             if (newLife == 0) {
               console.log('クリア処理')
               //クリア時の処理
+              localStorage.setItem('kuku', '')
 
               // battle-questionを非表示にする
               const questionElement = document.querySelector('.battle-question')
@@ -101,6 +102,7 @@ export const useBattleLogic = () => {
         setLife((prev) => {
           if (prev - 1 <= 0) {
             navigate('/taisei2/gameover')
+            localStorage.setItem('kuku', '')
           }
           return prev - 1
         })

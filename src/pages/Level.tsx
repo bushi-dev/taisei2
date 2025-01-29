@@ -36,6 +36,10 @@ const Level = () => {
   const handleStart = () => {
     localStorage.setItem('gameType', type)
     localStorage.setItem('gameDifficulty', difficulty)
+    if (type === 'multiplication') {
+      localStorage.setItem('kuku', 'mix')
+    }
+    localStorage.setItem('kuku', 'mix')
     playEffect('/sound/battleStart.mp3', 0.1)
     setTimeout(() => {
       navigate('/taisei2/battle')
