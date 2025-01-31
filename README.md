@@ -1,4 +1,4 @@
-# ゲームURL
+# ゲーム URL
 
 https://bushi-dev.github.io/taisei2/
 
@@ -13,7 +13,7 @@ Currently, two official plugins are available:
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules
 
 - Configure the top-level `parserOptions` property like this:
 
@@ -22,11 +22,11 @@ export default tseslint.config({
   languageOptions: {
     // other options...
     parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
       tsconfigRootDir: import.meta.dirname,
     },
   },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -35,11 +35,11 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from "eslint-plugin-react";
 
 export default tseslint.config({
   // Set the react version
-  settings: { react: { version: '18.3' } },
+  settings: { react: { version: "18.3" } },
   plugins: {
     // Add the react plugin
     react,
@@ -48,9 +48,9 @@ export default tseslint.config({
     // other rules...
     // Enable its recommended rules
     ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
+    ...react.configs["jsx-runtime"].rules,
   },
-})
+});
 ```
 
 ## 画像追加時
@@ -59,9 +59,9 @@ git lfs push origin main
 
 ## 保存方法
 
- - const treasures = localStorage.getItem("treasures");
+- const treasures = localStorage.getItem("treasures");
 - console.log(treasures);
 
 - メモに保存する
 
-- localStorage.setItem("treasures", JSON.stringify(　　KIROKU ));
+- localStorage.setItem("treasures", JSON.stringify(　　 KIROKU ));
