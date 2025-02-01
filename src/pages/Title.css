@@ -1,83 +1,83 @@
 .title-screen {
-  background-image: url('/image/bg.webp');
-  background-size: 120% 120%;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%!important;
-  animation: moveBg 30s linear infinite;
+	background-image: url("/image/bg.webp");
+	background-size: 120% 120%;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100% !important;
+	animation: moveBg 30s linear infinite;
 }
 
 @keyframes moveBg {
-  0% {
-    background-position: 0% 0%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
+	0% {
+		background-position: 0% 0%;
+	}
+	50% {
+		background-position: 100% 100%;
+	}
+	100% {
+		background-position: 0% 0%;
+	}
 }
 
 .title-screen__heading {
-  font-size: 4rem;
-  color: white;
-  text-shadow: 2px 2px 4px black;
-  margin-bottom: 2rem;
+	font-size: 4rem;
+	color: white;
+	text-shadow: 2px 2px 4px black;
+	margin-bottom: 2rem;
 }
 
 .title-screen__ninja {
-  width: 100px;
-  display: block;
-  margin: 0 auto;
-  animation: moveEnemy 4s linear infinite;
+	width: 100px;
+	display: block;
+	margin: 0 auto;
+	animation: moveEnemy 4s linear infinite;
 }
 
 @keyframes moveEnemy {
-  0% {
-    transform: translateY(0px);
-  }
-  5% {
-    transform: translateY(-5px);
-  }
-  10% {
-    transform: translateY(-10px);
-  }
-  15% {
-    transform: translateY(-5px);
-  }
-  20% {
-    transform: translateY(0px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+	0% {
+		transform: translateY(0px);
+	}
+	5% {
+		transform: translateY(-5px);
+	}
+	10% {
+		transform: translateY(-10px);
+	}
+	15% {
+		transform: translateY(-5px);
+	}
+	20% {
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
 }
 
 .title-screen__button {
-  padding: 1rem 3rem;
-  font-size: 1.5rem;
-  width: 200px;
-  text-align: center;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 0 auto 1rem;
+	padding: 1rem 3rem;
+	font-size: 1.5rem;
+	width: 200px;
+	text-align: center;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin: 0 auto 1rem;
 }
 
 .title-screen__button.kuku {
-  color: black;
-  background-color: #2196f3;
+	color: black;
+	background-color: #2196f3;
 }
 
 .title-screen__button.start {
-  background-color: #ff5722;
+	background-color: #ff5722;
 }
 
 .title-screen__button.treasure {
-  background-color: #4caf50;
+	background-color: #4caf50;
 }
