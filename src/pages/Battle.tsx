@@ -1,10 +1,8 @@
 import './Battle.css'
-import { useBattleLogic, BOSS_COUNT } from '../components/battle/BattleLogic'
+import { useBattleLogic } from '../components/battle/BattleLogic'
 import { BattleHeader } from '../components/battle/BattleHeader'
-import {
-  Enemy as BattleEnemy,
-  Boss as BattleBoss,
-} from '../components/battle/Enemies'
+import { Enemy as BattleEnemy } from '../components/battle/Enemies'
+import { Boss as BattleBoss } from '../components/battle/Boss'
 import { BattleQuestion } from '../components/battle/BattleQuestion'
 
 const Battle = () => {
@@ -18,6 +16,7 @@ const Battle = () => {
     backgroundImage,
     result,
     handleAnswer,
+    BOSS_COUNT,
   } = useBattleLogic()
 
   return (
@@ -31,7 +30,7 @@ const Battle = () => {
         isBoss={enemyCount === BOSS_COUNT}
       />
 
-      {enemyCount % 5 === 4 ? (
+      {enemyCount === BOSS_COUNT ? (
         <BattleBoss bossImage={bossImage} bossLife={bossLife} />
       ) : (
         <BattleEnemy enemyImage={enemyImage} bossLife={bossLife} />
@@ -42,6 +41,7 @@ const Battle = () => {
         options={problem.options}
         result={result}
         handleAnswer={handleAnswer}
+        reading={problem.reading}
       />
     </div>
   )

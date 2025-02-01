@@ -2,13 +2,36 @@ export interface Problem {
   question: string
   answer: number
   options: number[]
+  reading?: string
 }
 
-export const generateProblem = (
+interface KukuData {
+  number: number
+  reading: string
+  formula: string
+  answer: number
+}
+
+export const isKukuMode = (gameDifficulty: string): boolean => {
+  const kukuValue = localStorage.getItem('kuku')
+  return gameDifficulty === 'easy' && !!kukuValue
+}
+
+export const getBossCount = (gameDifficulty: string): number => {
+  return isKukuMode(gameDifficulty) ? 9 : 4
+}
+
+export const isBossBattle = (enemyCount: number, gameDifficulty: string): boolean => {
+  const bossCount = getBossCount(gameDifficulty)
+  return enemyCount % 5 === bossCount
+}
+
+export const generateProblem = async (
   gameType: string,
   gameDifficulty: string,
-  isBossBattle = false
-): Problem => {
+  isBossBattle = false,
+  enemyCount = 1
+): Promise<Problem> => {
   // ボス戦の場合、10%で難易度を一時的に1段階上げる
   if (isBossBattle && Math.random() < 0.1) {
     const difficultyLevels = [
@@ -71,7 +94,10 @@ export const generateProblem = (
     ;[num1, num2] = [num2, num1]
   }
 
-  let answer = 0
+  let answer = 0;
+  let currentProblemReading: string | undefined;
+  const kukuLevel = localStorage.getItem('kuku');
+
   if (operator === '+') {
     answer = num3 ? num1 + num2 + num3 : num1 + num2
   } else if (operator === '-') {
@@ -87,8 +113,34 @@ export const generateProblem = (
       answer = num1 - num2
     }
   } else if (operator === '×') {
-    if (num3) {
-      // num3の範囲を難易度に応じて調整
+    if (gameDifficulty === 'easy') {
+      try {
+        // kuku.jsonからデータを取得
+        const response = await fetch('/taisei2/json/kuku.json');
+        const kukuData: KukuData[] = await response.json();
+        
+        // 現在の数字に対応するデータをフィルタリング
+        const currentNumber = parseInt(kukuLevel || '1');
+        const levelData = kukuData.filter((item) => item.number === currentNumber);
+        
+        if (levelData.length > 0) {
+          console.log('Current enemyCount:', enemyCount);
+          // 現在の敵の数に基づいてインデックスを計算(0から8までの範囲)
+          const index = Math.max(0, Math.min(8, (enemyCount - 1) % 9));
+          console.log('Calculated index:', index);
+          
+          // 問題データを設定
+          num1 = currentNumber;
+          num2 = index + 1;
+          answer = levelData[index].answer;
+          currentProblemReading = levelData[index].reading;
+          console.log('Set problem data:', { num1, num2, answer, reading: currentProblemReading });
+        }
+      } catch (error) {
+        console.error('Error loading kuku data:', error);
+      }
+    } else if (num3) {
+      // 通常の3数演算
       const num3Range = {
         easy: { min: 1, max: 3 },
         medium: { min: 1, max: 5 },
@@ -133,5 +185,6 @@ export const generateProblem = (
       : `${num1} ${operator} ${num2}`,
     answer,
     options,
+    reading: currentProblemReading,
   }
 }

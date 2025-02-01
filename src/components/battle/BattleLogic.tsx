@@ -1,16 +1,22 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { generateProblem } from '../../util/problemGenerator'
+import { generateProblem, Problem, getBossCount, isBossBattle } from '../../util/problemGenerator'
 import { useSoundManager } from '../SoundManager'
 import { saveTreasure } from '../../util/util'
 
-export const BOSS_COUNT = 4
-
 export const useBattleLogic = () => {
-  const [problem, setProblem] = useState({
+  // ローカルストレージから設定を取得
+  const gameType = localStorage.getItem('gameType') || 'addition'
+  const gameDifficulty = localStorage.getItem('gameDifficulty') || 'easy'
+  
+  // ボスカウントをutilから取得
+  const BOSS_COUNT = getBossCount(gameDifficulty)
+
+  const [problem, setProblem] = useState<Problem>({
     question: '',
     answer: 0,
     options: [0, 0, 0],
+    reading: undefined
   })
   const [life, setLife] = useState(3)
   const [enemyCount, setEnemyCount] = useState(1)
@@ -27,10 +33,6 @@ export const useBattleLogic = () => {
   const navigate = useNavigate()
   const { playBgm, playEffect } = useSoundManager()
 
-  // ローカルストレージから設定を取得
-  const gameType = localStorage.getItem('gameType') || 'addition'
-  const gameDifficulty = localStorage.getItem('gameDifficulty') || 'easy'
-
   useEffect(() => {
     if (result) {
       const timer = setTimeout(() => setResult(null), 1000)
@@ -38,7 +40,7 @@ export const useBattleLogic = () => {
     }
   }, [result])
 
-  const handleAnswer = (selected: number) => {
+  const handleAnswer = async (selected: number) => {
     console.log(selected)
     if (selected === problem.answer) {
       setResult('correct')
@@ -47,12 +49,12 @@ export const useBattleLogic = () => {
       if (enemyElement) {
         enemyElement.classList.add('fade-out')
       }
-      setTimeout(() => {
+      setTimeout(async () => {
         playEffect('/sound/seikai.mp3')
         // 1秒後に別の敵に切り替え
         setEnemyImage(Math.floor(Math.random() * 8) + 1)
 
-        if (enemyCount % 5 === BOSS_COUNT) {
+        if (isBossBattle(enemyCount, gameDifficulty)) {
           // ボス戦
           setBossLife((prev) => {
             const newLife = prev - 1
@@ -91,7 +93,24 @@ export const useBattleLogic = () => {
             return newLife
           })
         } else {
-          setEnemyCount((prev) => prev + 1)
+          // enemyCountの更新を同期的に処理
+          const nextCount = enemyCount + 1;
+          console.log('Updating enemyCount to:', nextCount);
+          setEnemyCount(nextCount);
+          
+          // 新しい問題を生成
+          try {
+            const newProblem = await generateProblem(
+              gameType,
+              gameDifficulty,
+              isBossBattle(nextCount, gameDifficulty),
+              nextCount
+            );
+            console.log('Generated new problem:', newProblem);
+            setProblem(newProblem);
+          } catch (error) {
+            console.error('Error generating problem:', error);
+          }
         }
       }, 1000)
     } else {
@@ -108,32 +127,42 @@ export const useBattleLogic = () => {
         })
       }, 2000)
     }
-    setTimeout(() => {
-      setProblem(
-        generateProblem(gameType, gameDifficulty, enemyCount % 5 === BOSS_COUNT)
-      )
-    }, 1000)
   }
 
   // BGM再生
   useEffect(() => {
     playBgm(
-      enemyCount % 5 === BOSS_COUNT ? '/sound/bgm4.mp3' : '/sound/bgm3.mp3',
+      isBossBattle(enemyCount, gameDifficulty) ? '/sound/bgm4.mp3' : '/sound/bgm3.mp3',
       0.1
     )
   }, [playBgm, enemyCount])
 
-  // 問題生成
+  // 初期問題生成と背景設定
   useEffect(() => {
-    setProblem(
-      generateProblem(gameType, gameDifficulty, enemyCount % 5 === BOSS_COUNT)
-    )
-    // 戦闘開始時にランダムな背景を選択
-    if (enemyCount === 1) {
-      const randomBg = Math.floor(Math.random() * 5) + 2 // bg2.webpからbg7.webp
-      setBackgroundImage(`/taisei2/image/bg${randomBg}.webp`)
-    }
-  }, [enemyCount, gameType, gameDifficulty])
+    const initializeGame = async () => {
+      if (enemyCount === 1) {
+        try {
+          console.log('Initializing first problem');
+          const newProblem = await generateProblem(
+            gameType,
+            gameDifficulty,
+            false,
+            1
+          );
+          console.log('Initial problem:', newProblem);
+          setProblem(newProblem);
+
+          // 戦闘開始時にランダムな背景を選択
+          const randomBg = Math.floor(Math.random() * 5) + 2 // bg2.webpからbg7.webp
+          setBackgroundImage(`/taisei2/image/bg${randomBg}.webp`)
+        } catch (error) {
+          console.error('Error initializing game:', error);
+        }
+      }
+    };
+
+    initializeGame();
+  }, [])
 
   // 敵画像が変更された時に表示
   useEffect(() => {
@@ -153,5 +182,6 @@ export const useBattleLogic = () => {
     backgroundImage,
     result,
     handleAnswer,
+    BOSS_COUNT,
   }
 }

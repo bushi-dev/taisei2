@@ -105,6 +105,13 @@ margin: 0 auto;
   font-family: 'DIN Alternate', sans-serif;
 }
 
+.battle-reading {
+  font-size: 2rem;
+  color: #ffeb3b;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1rem;
+}
+
 .battle-question h1 {
   font-size: 4rem;
   font-family: 'DIN Alternate', sans-serif;

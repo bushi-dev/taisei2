@@ -6,6 +6,7 @@ type BattleQuestionProps = {
   options: number[]
   result: 'correct' | 'wrong' | null
   handleAnswer: (selected: number) => void
+  reading?: string
 }
 
 export const BattleQuestion: React.FC<BattleQuestionProps> = ({
@@ -13,9 +14,11 @@ export const BattleQuestion: React.FC<BattleQuestionProps> = ({
   options,
   result,
   handleAnswer,
+  reading,
 }) => {
   return (
     <div className="battle-question">
+      {reading && <div className="battle-reading">{reading}</div>}
       <div>{question}</div>
 
       <div className="battle-options">
