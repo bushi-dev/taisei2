@@ -1,5 +1,5 @@
 .battle-container {
-  background-image: var(--bg-image, url('/image/bg.webp'));
+  background-image: var(--bg-image, url("/image/bg.webp"));
   background-size: cover;
   color: white;
   text-shadow: 2px 2px 4px black;
@@ -31,7 +31,7 @@
 .battle-enemy {
   width: 170px;
   display: block;
-margin: 0 auto;
+  margin: 0 auto;
   animation: moveEnemy 4s linear infinite;
 }
 
@@ -102,7 +102,7 @@ margin: 0 auto;
   font-size: 4rem;
   font-weight: 700;
   color: white;
-  font-family: 'DIN Alternate', sans-serif;
+  font-family: "DIN Alternate", sans-serif;
 }
 
 .battle-reading {
@@ -114,7 +114,7 @@ margin: 0 auto;
 
 .battle-question h1 {
   font-size: 4rem;
-  font-family: 'DIN Alternate', sans-serif;
+  font-family: "DIN Alternate", sans-serif;
   font-weight: 700;
 }
 
@@ -171,17 +171,4 @@ margin: 0 auto;
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.5);
   }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.fade-out {
-  animation: fadeOut 1s ease-out forwards;
 }

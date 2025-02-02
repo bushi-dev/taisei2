@@ -1,0 +1,24 @@
+.boss-container {
+  background-image: var(--bg-image, url("/image/bg.webp"));
+  background-size: cover;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* 他のスタイルはBattle.cssのクラスを共有するため、
+   battle-header, battle-boss, battle-question などは
+   そのまま使用できます */
+
+/* ボス戦特有のアニメーション調整 */
+.battle-boss {
+  width: 250px; /* ボスの表示サイズを少し大きく */
+  margin: 0 auto;
+  display: block;
+  max-height: 250px;
+}

@@ -65,3 +65,7 @@ git lfs push origin main
 - メモに保存する
 
 - localStorage.setItem("treasures", JSON.stringify(　　 KIROKU ));
+
+## model
+
+anthropic/claude-3.5-sonnet

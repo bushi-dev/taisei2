@@ -1,13 +1,13 @@
-import React from 'react'
-import SoundButton from '../SoundButton'
+import React from "react";
+import SoundButton from "../SoundButton";
 
 type BattleQuestionProps = {
-  question: string
-  options: number[]
-  result: 'correct' | 'wrong' | null
-  handleAnswer: (selected: number) => void
-  reading?: string
-}
+  question: string;
+  options: number[];
+  result: "correct" | "wrong" | null;
+  handleAnswer: (selected: number) => void;
+  reading?: string;
+};
 
 export const BattleQuestion: React.FC<BattleQuestionProps> = ({
   question,
@@ -37,11 +37,11 @@ export const BattleQuestion: React.FC<BattleQuestionProps> = ({
       {result && (
         <div
           className="result-marker"
-          style={{ color: result === 'correct' ? 'red' : 'blue' }}
+          style={{ color: result === "correct" ? "red" : "blue" }}
         >
-          {result === 'correct' ? '○' : '×'}
+          {result === "correct" ? "○" : "×"}
         </div>
       )}
     </div>
-  )
-}
+  );
+};
