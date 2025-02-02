@@ -1,58 +1,58 @@
 .treasure-detail-container {
-	background-image: url("/image/bg.webp");
-	background-size: cover;
-	min-height: 100vh;
-	color: white;
-	text-shadow: 2px 2px 4px black;
+  background-image: url('/image/bg.webp');
+  background-size: cover;
+  min-height: 100vh;
+  color: white;
+  text-shadow: 2px 2px 4px black;
 }
 
 .treasure-detail-heading {
-	font-size: 3rem;
-	position: absolute;
-	bottom: 2rem;
-	right: 2rem;
-	transform: none;
+  font-size: 3rem;
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  transform: none;
 }
 
 .treasure-content {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 2rem;
-	margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
 }
 
 .treasure-detail-image {
-	max-width: 100%;
-	height: auto;
-	max-height: 70vh;
-	object-fit: contain;
+  max-width: 100%;
+  height: auto;
+  max-height: 70vh;
+  object-fit: contain;
 }
 
 .treasure-description {
-	flex: 1;
+  flex: 1;
 }
 
 .treasure-description h2 {
-	font-size: 2rem;
-	margin-bottom: 1rem;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
 .treasure-description p {
-	font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .back-button {
-	padding: 1rem 2rem;
-	font-size: 1.5rem;
-	background-color: #2196f3;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	margin-left: auto;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
 }
 
 .treasure-item:last-child {
-	padding-bottom: 80px;
+  padding-bottom: 80px;
 }

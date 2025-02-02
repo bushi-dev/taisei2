@@ -1,44 +1,44 @@
 .kuku-container {
-	background-image: url("/image/bg.webp");
-	background-size: cover;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	color: white;
-	text-shadow: 2px 2px 4px black;
-	padding: 40px;
-	box-sizing: border-box;
-	min-height: 100vh;
+  background-image: url('/image/bg.webp');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  padding: 40px;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .kuku-heading {
-	font-size: clamp(1.5rem, 8vw, 3rem);
-	margin-bottom: 2rem;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	max-width: 90vw;
+  font-size: clamp(1.5rem, 8vw, 3rem);
+  margin-bottom: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90vw;
 }
 
 .kuku-buttons {
-	display: flex;
-	gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .kuku-button {
-	padding: 1rem 2rem;
-	font-size: 1.2rem;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .kuku-button--primary {
-	background-color: #2196f3;
+  background-color: #2196f3;
 }
 
 .kuku-button--secondary {
-	background-color: #4caf50;
+  background-color: #4caf50;
 }

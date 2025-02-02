@@ -1,187 +1,187 @@
 .battle-container {
-	background-image: var(--bg-image, url("/image/bg.webp"));
-	background-size: cover;
-	color: white;
-	text-shadow: 2px 2px 4px black;
-	box-sizing: border-box;
-	position: relative;
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  background-image: var(--bg-image, url('/image/bg.webp'));
+  background-size: cover;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .battle-header {
-	display: flex;
-	justify-content: space-between;
-	margin-bottom: 0.5rem;
-	padding-left: 20px;
-	padding-right: 40px;
-	font-size: 13px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding-left: 20px;
+  padding-right: 40px;
+  font-size: 13px;
 }
 
 .battle-boss {
-	width: 200px;
-	margin: 0 auto;
-	display: block;
-	max-height: 200px;
-	animation: moveBoss 7s linear infinite;
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  max-height: 200px;
+  animation: moveBoss 7s linear infinite;
 }
 
 .battle-enemy {
-	width: 170px;
-	display: block;
-	margin: 0 auto;
-	animation: moveEnemy 4s linear infinite;
+  width: 170px;
+  display: block;
+margin: 0 auto;
+  animation: moveEnemy 4s linear infinite;
 }
 
 @keyframes moveEnemy {
-	0% {
-		transform: translateY(0px);
-	}
-	5% {
-		transform: translateY(-5px);
-	}
-	10% {
-		transform: translateY(-10px);
-	}
-	15% {
-		transform: translateY(-5px);
-	}
-	20% {
-		transform: translateY(0px);
-	}
-	100% {
-		transform: translateY(0px);
-	}
+  0% {
+    transform: translateY(0px);
+  }
+  5% {
+    transform: translateY(-5px);
+  }
+  10% {
+    transform: translateY(-10px);
+  }
+  15% {
+    transform: translateY(-5px);
+  }
+  20% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 @keyframes moveBoss {
-	0% {
-		transform: translate(0px, 0px);
-	}
-	5% {
-		transform: translate(-3px, -5px);
-	}
-	10% {
-		transform: translate(3px, -10px);
-	}
-	15% {
-		transform: translate(-3px, -5px);
-	}
-	20% {
-		transform: translate(0px, 0px);
-	}
-	50% {
-		transform: translate(0px, 0px);
-	}
-	55% {
-		transform: translate(-7px, -2px);
-	}
-	60% {
-		transform: translate(3px, -10px);
-	}
-	65% {
-		transform: translate(-6px, -5px);
-	}
-	70% {
-		transform: translate(0px, 0px);
-	}
-	100% {
-		transform: translate(0px, 0px);
-	}
+  0% {
+    transform: translate(0px, 0px);
+  }
+  5% {
+    transform: translate(-3px, -5px);
+  }
+  10% {
+    transform: translate(3px, -10px);
+  }
+  15% {
+    transform: translate(-3px, -5px);
+  }
+  20% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: translate(0px, 0px);
+  }
+  55% {
+    transform: translate(-7px, -2px);
+  }
+  60% {
+    transform: translate(3px, -10px);
+  }
+  65% {
+    transform: translate(-6px, -5px);
+  }
+  70% {
+    transform: translate(0px, 0px);
+  }
+  100% {
+    transform: translate(0px, 0px);
+  }
 }
 
 .battle-question {
-	margin-top: 2rem;
-	text-align: center;
-	background-color: rgba(255, 255, 255, 0.8);
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-	width: 100%;
-	font-size: 4rem;
-	font-weight: 700;
-	color: white;
-	font-family: "DIN Alternate", sans-serif;
+  margin-top: 2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  width: 100%;
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+  font-family: 'DIN Alternate', sans-serif;
 }
 
 .battle-reading {
-	font-size: 2rem;
-	color: #ffeb3b;
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-	margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #ffeb3b;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  margin-bottom: 1rem;
 }
 
 .battle-question h1 {
-	font-size: 4rem;
-	font-family: "DIN Alternate", sans-serif;
-	font-weight: 700;
+  font-size: 4rem;
+  font-family: 'DIN Alternate', sans-serif;
+  font-weight: 700;
 }
 
 .battle-options {
-	display: flex;
-	justify-content: center;
-	gap: 1rem;
-	margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .battle-button {
-	padding: 1.5rem;
-	font-size: 2.5rem;
-	background-color: #2196f3;
-	color: white;
-	border: none;
-	border-radius: 50%;
-	width: 80px;
-	height: 80px;
-	cursor: pointer;
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-	border: 2px solid rgba(255, 255, 255, 0.2);
-	transition: all 0.2s ease;
+  padding: 1.5rem;
+  font-size: 2.5rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
 }
 
 .battle-button:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 }
 
 .battle-button:active {
-	transform: translateY(0);
-	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .result-marker {
-	position: absolute;
-	top: 80%;
-	left: calc(50%);
-	transform: translate(-50%, -50%);
-	font-size: 10rem;
-	font-weight: bold;
-	animation: fade 1s ease-out;
-	z-index: 9999;
-	margin-top: -100px;
+  position: absolute;
+  top: 80%;
+  left: calc(50%);
+  transform: translate(-50%, -50%);
+  font-size: 10rem;
+  font-weight: bold;
+  animation: fade 1s ease-out;
+  z-index: 9999;
+  margin-top: -100px;
 }
 
 @keyframes fade {
-	0% {
-		opacity: 1;
-		transform: translate(-50%, -50%) scale(1);
-	}
-	100% {
-		opacity: 0;
-		transform: translate(-50%, -50%) scale(1.5);
-	}
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.5);
+  }
 }
 
 @keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-	}
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 .fade-out {
-	animation: fadeOut 1s ease-out forwards;
+  animation: fadeOut 1s ease-out forwards;
 }

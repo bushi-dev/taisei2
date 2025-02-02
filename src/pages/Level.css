@@ -1,222 +1,223 @@
 .level-container {
-	background-image: url("/image/bg.webp");
-	background-size: cover;
-	padding: 10px;
-	color: white;
-	text-shadow: 2px 2px 4px black;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	box-sizing: border-box;
-	min-height: 100vh;
+  background-image: url('/image/bg.webp');
+  background-size: cover;
+  padding: 10px;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 .setting-section {
-	margin: 1rem 0;
+  margin: 1rem 0;
 }
 
 .difficulty-section {
-	padding: 1rem 0;
-	background: rgba(255, 255, 255, 0.1);
-	border-radius: 8px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 0 1rem;
+  padding: 1rem 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 1rem;
 }
 
 .difficulty-sections-container {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	margin: 0 1rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 0 1rem;
 }
 
 .difficulty-stars {
-	display: inline-block;
-	position: relative;
-	padding: 0.5rem;
-	background: rgba(0, 0, 0, 0.3);
-	border-radius: 4px;
+  display: inline-block;
+  position: relative;
+  padding: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
 }
 
 .difficulty-select {
-	appearance: none;
-	background: transparent;
-	border: 2px solid #ffd700;
-	border-radius: 4px;
-	padding: 0.5rem 1rem;
-	color: #ffd700;
-	font-size: 1.2rem;
-	cursor: pointer;
-	transition: all 0.2s ease;
+  appearance: none;
+  background: transparent;
+  border: 2px solid #ffd700;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  color: #ffd700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .difficulty-select:hover {
-	background: rgba(255, 215, 0, 0.1);
-	transform: scale(1.05);
+  background: rgba(255, 215, 0, 0.1);
+  transform: scale(1.05);
 }
 
 .difficulty-select:focus {
-	outline: none;
-	box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.5);
 }
 
 .start-button {
-	padding: 1rem 2rem;
-	font-size: 3rem;
-	background-color: #2196f3;
-	color: white;
-	border: none;
-	border-radius: 20px;
-	cursor: pointer;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
 }
 .back-button-level {
-	background-color: unset;
-	cursor: pointer;
+  background-color: unset;
+  cursor: pointer;
 }
 
+
 .type-buttons {
-	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	grid-template-rows: repeat(2, 1fr);
-	gap: 5px;
-	width: 300px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 5px;
+  width: 300px;
 }
 
 .type-button {
-	font-size: 70px;
-	padding: 16px;
-	border: 2px solid #ccc;
-	border-radius: 8px;
-	cursor: pointer;
-	transition: all 0.2s;
-	color: black;
-	font-weight: bold;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 4px;
-	aspect-ratio: 1;
-	width: 100%;
+  font-size: 70px;
+  padding: 16px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: black;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  aspect-ratio: 1;
+  width: 100%;
 }
 
 .progress {
-	display: none;
+  display: none;
 }
 
 .type-button.addition {
-	background: rgba(76, 175, 80, 0.5);
+  background: rgba(76, 175, 80, 0.5);
 }
 
 .type-button.subtraction {
-	background: rgba(244, 67, 54, 0.5);
+  background: rgba(244, 67, 54, 0.5);
 }
 
 .type-button.multiplication {
-	background: rgba(255, 152, 0, 0.5);
+  background: rgba(255, 152, 0, 0.5);
 }
 
 .type-button.division {
-	background: rgba(156, 39, 176, 0.5);
+  background: rgba(156, 39, 176, 0.5);
 }
 
 .type-button.addition:hover {
-	background: rgba(76, 175, 80, 0.9);
+  background: rgba(76, 175, 80, 0.9);
 }
 
 .type-button.subtraction:hover {
-	background: rgba(244, 67, 54, 0.9);
+  background: rgba(244, 67, 54, 0.9);
 }
 
 .type-button.multiplication:hover {
-	background: rgba(255, 152, 0, 0.9);
+  background: rgba(255, 152, 0, 0.9);
 }
 
 .type-button.division:hover {
-	background: rgba(156, 39, 176, 0.9);
+  background: rgba(156, 39, 176, 0.9);
 }
 
 @keyframes pulse {
-	0% {
-		transform: scale(1);
-	}
-	50% {
-		transform: scale(1.05);
-	}
-	100% {
-		transform: scale(1);
-	}
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
 .type-button.addition.active {
-	border-color: #4caf50;
-	border-width: 6px;
-	color: white;
-	background: rgba(76, 175, 80, 0.8);
-	box-shadow: 0 0 20px rgba(76, 175, 80, 1);
-	transform: scale(1.05);
-	animation: pulse 0.8s infinite;
+  border-color: #4caf50;
+  border-width: 6px;
+  color: white;
+  background: rgba(76, 175, 80, 0.8);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 1);
+  transform: scale(1.05);
+  animation: pulse 0.8s infinite;
 }
 
 .type-button.subtraction.active {
-	border-color: #f44336;
-	border-width: 6px;
-	color: white;
-	background: rgba(244, 67, 54, 0.8);
-	box-shadow: 0 0 20px rgba(244, 67, 54, 1);
-	transform: scale(1.05);
-	animation: pulse 0.8s infinite;
+  border-color: #f44336;
+  border-width: 6px;
+  color: white;
+  background: rgba(244, 67, 54, 0.8);
+  box-shadow: 0 0 20px rgba(244, 67, 54, 1);
+  transform: scale(1.05);
+  animation: pulse 0.8s infinite;
 }
 
 .type-button.multiplication.active {
-	border-color: #ff9800;
-	border-width: 6px;
-	color: white;
-	background: rgba(255, 152, 0, 0.8);
-	box-shadow: 0 0 20px rgba(255, 152, 0, 1);
-	transform: scale(1.05);
-	animation: pulse 0.8s infinite;
+  border-color: #ff9800;
+  border-width: 6px;
+  color: white;
+  background: rgba(255, 152, 0, 0.8);
+  box-shadow: 0 0 20px rgba(255, 152, 0, 1);
+  transform: scale(1.05);
+  animation: pulse 0.8s infinite;
 }
 
 .type-button.division.active {
-	border-color: #9c27b0;
-	border-width: 6px;
-	color: white;
-	background: rgba(156, 39, 176, 0.8);
-	box-shadow: 0 0 20px rgba(156, 39, 176, 1);
-	transform: scale(1.05);
-	animation: pulse 0.8s infinite;
+  border-color: #9c27b0;
+  border-width: 6px;
+  color: white;
+  background: rgba(156, 39, 176, 0.8);
+  box-shadow: 0 0 20px rgba(156, 39, 176, 1);
+  transform: scale(1.05);
+  animation: pulse 0.8s infinite;
 }
 
 .treasure-count {
-	font-size: 3rem !important;
-	font-weight: bold;
-	color: #ffffff;
-	background: rgba(255, 255, 255, 0.1);
-	text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00, 2px 2px 4px
-		rgba(0, 0, 0, 0.5);
-	padding: 1rem 2rem;
-	border-radius: 8px;
-	display: inline-block;
-	margin: 1rem 0;
-	animation: glow 2s infinite alternate;
+  font-size: 3rem !important;
+  font-weight: bold;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  text-shadow:
+    0 0 10px #ffff00,
+    0 0 20px #ffff00,
+    2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 1rem 0;
+  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow {
-	from {
-		box-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;
-	}
-	to {
-		box-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00;
-	}
+  from {
+    box-shadow:
+      0 0 10px #ffff00,
+      0 0 20px #ffff00;
+  }
+  to {
+    box-shadow:
+      0 0 20px #ffff00,
+      0 0 40px #ffff00;
+  }
 }
 
 @media (max-width: 768px) {
-	.treasure-count {
-		font-size: 1.5rem;
-		padding: 0.3rem 0.8rem;
-	}
+  .treasure-count {
+    font-size: 1.5rem;
+    padding: 0.3rem 0.8rem;
+  }
 }
