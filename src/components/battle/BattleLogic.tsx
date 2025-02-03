@@ -1,16 +1,16 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   generateProblem,
   Problem,
   getBossCount,
-  isBossBattle,
 } from "../../util/problemGenerator";
 import { useSoundManager } from "../SoundManager";
 
 export const useBattleLogic = (
   enemyCount: number,
-  setEnemyCount: (count: number) => void
+  setEnemyCount: (count: number) => void,
+  setbossLife?: React.Dispatch<React.SetStateAction<number>>
 ) => {
   // ローカルストレージから設定を取得
   const gameType = localStorage.getItem("gameType") || "addition";
@@ -47,7 +47,7 @@ export const useBattleLogic = (
 
         // ボス戦でも問題を更新する
         try {
-          const nextCount = isBossBattle() ? enemyCount : enemyCount + 1;
+          const nextCount = enemyCount + 1;
           const newProblem = await generateProblem(
             gameType,
             gameDifficulty,
@@ -56,10 +56,11 @@ export const useBattleLogic = (
           console.log("Generated new problem:", newProblem);
           setProblem(newProblem);
 
-          // ボス戦以外の場合のみenemyCountを更新
-          if (!isBossBattle()) {
-            console.log("Updating enemyCount to:", nextCount);
-            setEnemyCount(nextCount);
+          setEnemyCount(nextCount);
+
+          // ボスのライフを減らす処理を追加
+          if (setbossLife) {
+            setbossLife((prevLife) => Math.max(0, prevLife - 1));
           }
         } catch (error) {
           console.error("Error generating problem:", error);

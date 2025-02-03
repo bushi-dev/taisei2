@@ -7,6 +7,7 @@ import "./Enemy.css";
 import { useSoundManager } from "../components/SoundManager";
 import { useNavigate } from "react-router-dom";
 import { saveTreasure } from "../util/util";
+import { isKukuMode } from "../util/problemGenerator";
 
 const BossPage = () => {
   const [bossImage] = useState(Math.floor(Math.random() * 10) + 1);
@@ -15,18 +16,21 @@ const BossPage = () => {
   );
 
   const [enemyCount, setEnemyCount] = useState(1);
+  const [bossLife, setbossLife] = useState(5);
   const { problem, life, result, handleAnswer } = useBattleLogic(
     enemyCount,
-    setEnemyCount
+    setEnemyCount,
+    setbossLife
   );
 
   const { playBgm, playEffect } = useSoundManager();
   const navigate = useNavigate();
 
+  const gameDifficulty = localStorage.getItem("gameDifficulty") || "easy";
+
   const handleBossClear = () => {
     // ゲームタイプと難易度を取得
     const gameType = localStorage.getItem("gameType") || "addition";
-    const gameDifficulty = localStorage.getItem("gameDifficulty") || "easy";
 
     // ローカルストレージのクリア
     localStorage.setItem("kuku", "");
@@ -69,7 +73,7 @@ const BossPage = () => {
 
   useEffect(() => {
     // クリア画面に遷移
-    if (enemyCount === 6) {
+    if (bossLife === 0) {
       handleBossClear();
     }
   }, [enemyCount, navigate]);
@@ -81,7 +85,7 @@ const BossPage = () => {
     >
       <BattleHeader enemyCount={enemyCount} life={life} isBoss={true} />
 
-      <BattleBoss bossImage={bossImage} bossLife={6 - enemyCount} />
+      <BattleBoss bossImage={bossImage} bossLife={bossLife} />
 
       <BattleQuestion
         question={problem.question}
