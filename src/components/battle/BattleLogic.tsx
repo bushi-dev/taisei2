@@ -7,7 +7,6 @@ import {
   isBossBattle,
 } from "../../util/problemGenerator";
 import { useSoundManager } from "../SoundManager";
-import { saveTreasure } from "../../util/util";
 
 export const useBattleLogic = (
   enemyCount: number,
@@ -27,12 +26,12 @@ export const useBattleLogic = (
     reading: undefined,
   });
   const [life, setLife] = useState(3);
-  const [bossLife, setBossLife] = useState(5);
   const [result, setResult] = useState<"correct" | "wrong" | null>(null);
 
   const navigate = useNavigate();
-  const { playBgm, playEffect } = useSoundManager();
+  const { playEffect } = useSoundManager();
 
+  // 正解/不正解の結果表示を1秒後に自動的にクリアするuseEffect
   useEffect(() => {
     if (result) {
       const timer = setTimeout(() => setResult(null), 1000);
@@ -41,72 +40,29 @@ export const useBattleLogic = (
   }, [result]);
 
   const handleAnswer = async (selected: number) => {
-    console.log(selected);
     if (selected === problem.answer) {
       setResult("correct");
       setTimeout(async () => {
         playEffect("/sound/seikai.mp3");
 
-        if (isBossBattle(enemyCount, gameDifficulty)) {
-          // ボス戦
-          setBossLife((prev) => {
-            const newLife = prev - 1;
-            if (newLife == 0) {
-              console.log("クリア処理");
-              //クリア時の処理
-              localStorage.setItem("kuku", "");
+        // ボス戦でも問題を更新する
+        try {
+          const nextCount = isBossBattle() ? enemyCount : enemyCount + 1;
+          const newProblem = await generateProblem(
+            gameType,
+            gameDifficulty,
+            nextCount
+          );
+          console.log("Generated new problem:", newProblem);
+          setProblem(newProblem);
 
-              // battle-questionを非表示にする
-              const questionElement =
-                document.querySelector(".battle-question");
-              if (questionElement) {
-                questionElement.classList.add("fade-out");
-              }
-              // 達成度を加算
-              const progressKey = `${gameType}_progress`;
-              const currentProgress = parseInt(
-                localStorage.getItem(progressKey) || "0"
-              );
-              let progressToAdd = 1;
-              if (gameDifficulty === "medium") {
-                progressToAdd = 3;
-              } else if (gameDifficulty !== "easy") {
-                progressToAdd = 5;
-              }
-              //進捗更新
-              const newProgress = Math.min(
-                currentProgress + progressToAdd,
-                100
-              );
-              localStorage.setItem(progressKey, newProgress.toString());
-              //クリア遷移
-              playEffect("/sound/clear.mp3");
-              const treasureNumber = Math.floor(Math.random() * 100) + 1;
-              saveTreasure(treasureNumber);
-              navigate("/taisei2/movie");
-              return 0;
-            }
-            return newLife;
-          });
-        } else {
-          // enemyCountの更新を同期的に処理
-          const nextCount = enemyCount + 1;
-          console.log("Updating enemyCount to:", nextCount);
-          setEnemyCount(nextCount);
-
-          // 新しい問題を生成
-          try {
-            const newProblem = await generateProblem(
-              gameType,
-              gameDifficulty,
-              isBossBattle(nextCount, gameDifficulty),
-              nextCount
-            );
-            console.log("Generated new problem:", newProblem);
-            setProblem(newProblem);
-          } catch (error) {
-            console.error("Error generating problem:", error);
+          // ボス戦以外の場合のみenemyCountを更新
+          if (!isBossBattle()) {
+            console.log("Updating enemyCount to:", nextCount);
+            setEnemyCount(nextCount);
           }
+        } catch (error) {
+          console.error("Error generating problem:", error);
         }
       }, 1000);
     } else {
@@ -125,28 +81,13 @@ export const useBattleLogic = (
     }
   };
 
-  // BGM再生
-  useEffect(() => {
-    playBgm(
-      isBossBattle(enemyCount, gameDifficulty)
-        ? "/sound/bgm4.mp3"
-        : "/sound/bgm3.mp3",
-      0.1
-    );
-  }, [playBgm, enemyCount]);
-
   // 初期問題生成
   useEffect(() => {
     const initializeGame = async () => {
       if (enemyCount === 1) {
         try {
           console.log("Initializing first problem");
-          const newProblem = await generateProblem(
-            gameType,
-            gameDifficulty,
-            false,
-            1
-          );
+          const newProblem = await generateProblem(gameType, gameDifficulty, 1);
           console.log("Initial problem:", newProblem);
           setProblem(newProblem);
         } catch (error) {
@@ -162,7 +103,6 @@ export const useBattleLogic = (
     problem,
     life,
     enemyCount,
-    bossLife,
     result,
     handleAnswer,
     BOSS_COUNT,

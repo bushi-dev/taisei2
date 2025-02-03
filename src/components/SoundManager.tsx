@@ -1,83 +1,82 @@
-import { getPath } from '../util/util'
+import { getPath } from "../util/util";
 
 const BGM_FILES = [
-  '/sound/bgm1.mp3',
-  '/sound/bgm2.mp3',
-  '/sound/bgm3.mp3',
-  '/sound/bgm4.mp3',
-]
+  "/sound/bgm1.mp3",
+  "/sound/bgm2.mp3",
+  "/sound/bgm3.mp3",
+  "/sound/bgm4.mp3",
+];
 
 const EFFECT_FILES = [
-  '/sound/click.mp3',
-  '/sound/seikai.mp3',
-  '/sound/sippai.mp3',
-  '/sound/battleStart.mp3',
-  '/sound/clear.mp3',
+  "/sound/click.mp3",
+  "/sound/seikai.mp3",
+  "/sound/sippai.mp3",
+  "/sound/battleStart.mp3",
+  "/sound/clear.mp3",
   ...Array.from({ length: 5 }, (_, i) => `/sound/ken${i + 1}.mp3`),
-]
+];
 
 class SoundManager {
-  private static instance: SoundManager
-  private bgmAudio: HTMLAudioElement | null = null
-  private effectAudios: Record<string, HTMLAudioElement> = {}
+  private static instance: SoundManager;
+  private bgmAudio: HTMLAudioElement | null = null;
+  private effectAudios: Record<string, HTMLAudioElement> = {};
 
   private constructor() {
     // 効果音を事前読み込み
     EFFECT_FILES.forEach((path) => {
-      const audio = new Audio(getPath(path))
-      audio.volume = 0.5
-      this.effectAudios[path] = audio
-    })
+      const audio = new Audio(getPath(path));
+      audio.volume = 0.5;
+      this.effectAudios[path] = audio;
+    });
   }
 
   public static getInstance(): SoundManager {
     if (!SoundManager.instance) {
-      SoundManager.instance = new SoundManager()
+      SoundManager.instance = new SoundManager();
     }
-    return SoundManager.instance
+    return SoundManager.instance;
   }
 
   public playBgm(path: string, volume = 0.5) {
-    if (!BGM_FILES.includes(path)) return
+    if (!BGM_FILES.includes(path)) return;
 
     // 既に同じBGMが再生中なら何もしない
-    if (this.bgmAudio && this.bgmAudio.src.endsWith(path)) return
+    if (this.bgmAudio && this.bgmAudio.src.endsWith(path)) return;
 
     // 前のBGMを停止
     if (this.bgmAudio) {
-      this.bgmAudio.pause()
-      this.bgmAudio.currentTime = 0
+      this.bgmAudio.pause();
+      this.bgmAudio.currentTime = 0;
     }
 
     // 新しいBGMを準備
-    this.bgmAudio = new Audio(getPath(path))
-    this.bgmAudio.volume = volume
-    this.bgmAudio.loop = true
+    this.bgmAudio = new Audio(getPath(path));
+    this.bgmAudio.volume = volume;
+    this.bgmAudio.loop = true;
 
     // BGMを即座に再生
     this.bgmAudio?.play().catch((err: Error) => {
-      console.error('Error playing BGM:', path, err)
-    })
+      console.error("Error playing BGM:", path, err);
+    });
   }
 
   public playEffect(path: string, volume = 0.5) {
-    const effect = this.effectAudios[path]
-    if (!effect) return
+    const effect = this.effectAudios[path];
+    if (!effect) return;
 
     // 効果音を再生
-    console.log('Playing effect:', path)
-    effect.volume = volume
-    effect.currentTime = 0
+    effect.volume = volume;
+    effect.currentTime = 0;
     effect.play().catch((err: Error) => {
-      console.error('Error playing effect:', path, err)
-    })
+      console.error("Error playing effect:", path, err);
+    });
   }
 }
 
 export const useSoundManager = () => {
-  const manager = SoundManager.getInstance()
+  const manager = SoundManager.getInstance();
   return {
     playBgm: manager.playBgm.bind(manager),
     playEffect: manager.playEffect.bind(manager),
-  }
-}
+  };
+};

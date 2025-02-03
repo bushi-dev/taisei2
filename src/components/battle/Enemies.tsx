@@ -1,10 +1,9 @@
-import React from 'react'
-import { getPath } from '../../util/util'
+import React from "react";
+import { getPath } from "../../util/util";
 
 type EnemyProps = {
-  enemyImage: number
-  bossLife: number
-}
+  enemyImage: number;
+};
 
 export const Enemy: React.FC<EnemyProps> = ({ enemyImage }) => {
   return (
@@ -13,5 +12,5 @@ export const Enemy: React.FC<EnemyProps> = ({ enemyImage }) => {
       alt={`敵${enemyImage}`}
       className="battle-enemy"
     />
-  )
-}
+  );
+};
