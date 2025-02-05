@@ -35,6 +35,19 @@
   animation: moveEnemy 4s linear infinite;
 }
 
+.battle-enemy.fade {
+  animation: fadeOut 1s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 @keyframes moveEnemy {
   0% {
     transform: translateY(0px);

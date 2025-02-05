@@ -199,7 +199,7 @@ export const generateProblem = async (
     ? `${num1} ${operator} ${num2} ${operator} ${num3}`
     : `${num1} ${operator} ${num2}`;
   const kukuValue = localStorage.getItem("kuku");
-  if (kukuValue!.length > 0) {
+  if (ans) {
     question = ans!;
   }
   return {

@@ -18,6 +18,14 @@ const EnemyPage = () => {
   const [enemyImage] = useState<number[]>(
     Array.from({ length: 20 }, () => Math.floor(Math.random() * 8) + 1)
   );
+  const [isFading, setIsFading] = useState(false);
+
+  useEffect(() => {
+    if (result === "correct") {
+      setIsFading(true);
+      setTimeout(() => setIsFading(false), 1000);
+    }
+  }, [result]);
   const [backgroundImage, setBackgroundImage] = useState(
     "/taisei2/image/bg1.webp"
   );
@@ -53,7 +61,10 @@ const EnemyPage = () => {
     >
       <BattleHeader enemyCount={enemyCount} life={life} isBoss={false} />
 
-      <BattleEnemy enemyImage={enemyImage[enemyCount - 1]} />
+      <BattleEnemy
+        enemyImage={enemyImage[enemyCount - 1]}
+        className={isFading ? "fade" : ""}
+      />
 
       <BattleQuestion
         question={problem.question}
