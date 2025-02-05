@@ -2,22 +2,19 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   generateProblem,
+  isBossBattle,
   Problem,
-  getBossCount,
 } from "../../util/problemGenerator";
 import { useSoundManager } from "../SoundManager";
+import { useBattleContext } from "../../context/BattleContext";
 
-export const useBattleLogic = (
-  enemyCount: number,
-  setEnemyCount: (count: number) => void,
-  setbossLife?: React.Dispatch<React.SetStateAction<number>>
-) => {
+export const useBattleLogic = () => {
+  // コンテキストから enemyCount と setEnemyCount を取得
+  const { enemyCount, setEnemyCount, setbossLife } = useBattleContext();
+
   // ローカルストレージから設定を取得
   const gameType = localStorage.getItem("gameType") || "addition";
   const gameDifficulty = localStorage.getItem("gameDifficulty") || "easy";
-
-  // ボスカウントをutilから取得
-  const BOSS_COUNT = getBossCount(gameDifficulty);
 
   const [problem, setProblem] = useState<Problem>({
     question: "",
@@ -59,7 +56,7 @@ export const useBattleLogic = (
           setEnemyCount(nextCount);
 
           // ボスのライフを減らす処理を追加
-          if (setbossLife) {
+          if (isBossBattle()) {
             setbossLife((prevLife) => Math.max(0, prevLife - 1));
           }
         } catch (error) {
@@ -85,15 +82,17 @@ export const useBattleLogic = (
   // 初期問題生成
   useEffect(() => {
     const initializeGame = async () => {
-      if (enemyCount === 1) {
-        try {
-          console.log("Initializing first problem");
-          const newProblem = await generateProblem(gameType, gameDifficulty, 1);
-          console.log("Initial problem:", newProblem);
-          setProblem(newProblem);
-        } catch (error) {
-          console.error("Error initializing game:", error);
-        }
+      try {
+        console.log("Initializing first problem");
+        const newProblem = await generateProblem(
+          gameType,
+          gameDifficulty,
+          enemyCount
+        );
+        console.log("Initial problem:", newProblem);
+        setProblem(newProblem);
+      } catch (error) {
+        console.error("Error initializing game:", error);
       }
     };
 
@@ -106,6 +105,5 @@ export const useBattleLogic = (
     enemyCount,
     result,
     handleAnswer,
-    BOSS_COUNT,
   };
 };

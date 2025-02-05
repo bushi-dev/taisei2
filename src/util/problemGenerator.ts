@@ -31,7 +31,8 @@ export const generateProblem = async (
   enemyCount = 1
 ): Promise<Problem> => {
   // ボス戦の場合、10%で難易度を一時的に1段階上げる
-  if (isBossBattle() && Math.random() < 0.1) {
+  //は一旦廃止
+  if (isBossBattle() && Math.random() < 0) {
     const difficultyLevels = [
       "easy",
       "medium",

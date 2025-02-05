@@ -7,10 +7,14 @@ import { Enemy as BattleEnemy } from "../components/battle/Enemies";
 import { BattleQuestion } from "../components/battle/BattleQuestion";
 import { useSoundManager } from "../components/SoundManager";
 import { isKukuMode } from "../util/problemGenerator";
+import { useBattleContext } from "../context/BattleContext";
 
 const EnemyPage = () => {
   const navigate = useNavigate();
-  const [enemyCount, setEnemyCount] = useState(1);
+  const { enemyCount } = useBattleContext();
+  //戦闘処理
+  const { problem, life, result, handleAnswer } = useBattleLogic();
+
   const [enemyImage] = useState<number[]>(
     Array.from({ length: 20 }, () => Math.floor(Math.random() * 8) + 1)
   );
@@ -35,16 +39,12 @@ const EnemyPage = () => {
     const gameDifficulty = localStorage.getItem("gameDifficulty") || "easy";
     const MOVE_BOSS_COUNT = isKukuMode(gameDifficulty) ? 5 : 2;
     if (enemyCount === MOVE_BOSS_COUNT) {
-      sessionStorage.setItem("fromBattle", "true");
       navigate("/taisei2/boss");
     }
-  }, [enemyCount, navigate]);
 
-  //戦闘処理
-  const { problem, life, result, handleAnswer } = useBattleLogic(
-    enemyCount,
-    setEnemyCount
-  );
+    // enemyCountをログに表示
+    console.log("Enemy Page - Enemy Count:", enemyCount);
+  }, [enemyCount, navigate]);
 
   return (
     <div
