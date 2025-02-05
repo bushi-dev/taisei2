@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from "react";
+import { useEffect } from "react";
 import { useSoundManager } from "../components/SoundManager";
 import { useNavigate } from "react-router-dom";
 import SoundButton from "../components/SoundButton";
