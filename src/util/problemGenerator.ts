@@ -198,7 +198,6 @@ export const generateProblem = async (
   question = num3
     ? `${num1} ${operator} ${num2} ${operator} ${num3}`
     : `${num1} ${operator} ${num2}`;
-  const kukuValue = localStorage.getItem("kuku");
   if (ans) {
     question = ans!;
   }
