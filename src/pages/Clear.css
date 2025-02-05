@@ -1,5 +1,5 @@
 .clear-container {
-  background-image: url('/image/bg.webp');
+  background-image: url("/image/bg.webp");
   background-size: 120% 120%;
   background-position: center;
   display: flex;
@@ -30,31 +30,19 @@
   font-size: 3rem;
   font-weight: bold;
   color: #ffeb3b;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 10px #fff,
-    0 0 20px #ffeb3b,
-    0 0 40px #ffeb3b,
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffeb3b, 0 0 40px #ffeb3b,
     0 0 80px #ffeb3b;
   animation: glow 0.3s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
   from {
-    text-shadow:
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 20px #ffeb3b,
-      0 0 40px #ffeb3b,
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffeb3b, 0 0 40px #ffeb3b,
       0 0 80px #ffeb3b;
   }
   to {
-    text-shadow:
-      0 0 10px #fff,
-      0 0 20px #ffeb3b,
-      0 0 40px #ffeb3b,
-      0 0 80px #ffeb3b,
-      0 0 120px #ffeb3b;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ffeb3b, 0 0 40px #ffeb3b,
+      0 0 80px #ffeb3b, 0 0 120px #ffeb3b;
   }
 }
 
@@ -78,10 +66,7 @@
   font-size: 3rem;
   font-weight: bold;
   color: #ffeb3b;
-  text-shadow:
-    2px 2px 0 #f44336,
-    4px 4px 0 #2196f3,
-    6px 6px 0 #4caf50;
+  text-shadow: 2px 2px 0 #f44336, 4px 4px 0 #2196f3, 6px 6px 0 #4caf50;
   animation: pop 1s ease-in-out infinite;
 }
 
@@ -98,7 +83,7 @@
 }
 
 .clear-treasure-image {
-  max-width: 80%;
+  max-width: 85%;
   max-height: 60vh;
   width: auto;
   height: auto;
