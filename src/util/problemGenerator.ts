@@ -128,6 +128,10 @@ export const generateProblem = async (
           levelData = kukuData.slice().sort(() => Math.random() - 0.5);
         } else {
           levelData = kukuData.filter((item) => item.number === currentNumber);
+          const mix = localStorage.getItem("mix");
+          if (mix === "true") {
+            levelData = levelData.slice().sort(() => Math.random() - 0.5);
+          }
         }
 
         if (levelData.length > 0) {

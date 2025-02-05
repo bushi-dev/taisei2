@@ -23,22 +23,35 @@ const KukuLevel = () => {
 
   return (
     <div className="kuku-container">
-      <SoundButton
-        onClick={() => handleClick("mix")}
-        className="kuku-button kuku-button--primary"
-      >
-        ミックス
-      </SoundButton>
-      {[...Array(9)].map((_, i) => (
+      <div className="kuku-row">
         <SoundButton
-          key={i + 1}
-          onClick={() => handleClick((i + 1).toString())}
-          className={`kuku-button ${
-            i % 2 === 0 ? "kuku-button--primary" : "kuku-button--secondary"
-          }`}
+          onClick={() => handleClick("mix")}
+          className="kuku-button kuku-button--primary"
         >
-          {i + 1}の段
+          ミックス
         </SoundButton>
+      </div>
+      {[...Array(9)].map((_, i) => (
+        <div className="kuku-row" key={i}>
+          <SoundButton
+            onClick={() => {
+              handleClick((i + 1).toString());
+              localStorage.setItem("mix", "false");
+            }}
+            className="kuku-button kuku-button--primary"
+          >
+            {i + 1}の段
+          </SoundButton>
+          <SoundButton
+            onClick={() => {
+              handleClick((i + 1).toString());
+              localStorage.setItem("mix", "true");
+            }}
+            className="kuku-button kuku-button--secondary"
+          >
+            ミックス
+          </SoundButton>
+        </div>
       ))}
     </div>
   );
