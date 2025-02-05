@@ -7,7 +7,10 @@ import { getPath, increaseDifficulty } from "../util/util";
 import { useBattleContext } from "../context/BattleContext";
 
 const Clear = () => {
-  const isKukuMode = localStorage.getItem("kuku") !== null;
+  const isKukuMode = (() => {
+    const value = localStorage.getItem("kuku");
+    return value !== null && /\S/.test(value); // 空白のみの文字列を除外
+  })();
   const navigate = useNavigate();
   const [treasure, setTreasure] = useState("");
 

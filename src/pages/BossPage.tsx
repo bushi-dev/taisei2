@@ -24,8 +24,6 @@ const BossPage = () => {
 
   //⭐️クリア処理start
   const handleBossClear = () => {
-    localStorage.setItem("kuku", "");
-
     // battle-questionを非表示にする
     const questionElement = document.querySelector(".battle-question");
     if (questionElement) {

@@ -30,6 +30,7 @@ export const generateProblem = async (
   gameDifficulty: string,
   enemyCount = 1
 ): Promise<Problem> => {
+  let ans;
   // ボス戦の場合、10%で難易度を一時的に1段階上げる
   //は一旦廃止
   if (isBossBattle() && Math.random() < 0) {
@@ -113,6 +114,8 @@ export const generateProblem = async (
     }
   } else if (operator === "×") {
     if (gameDifficulty === "easy") {
+      console.log("kukujson");
+      const kukuValue = localStorage.getItem("kuku");
       try {
         // kuku.jsonからデータを取得
         const response = await fetch("/taisei2/json/kuku.json");
@@ -120,9 +123,12 @@ export const generateProblem = async (
 
         // 現在の数字に対応するデータをフィルタリング
         const currentNumber = parseInt(kukuLevel || "1");
-        const levelData = kukuData.filter(
-          (item) => item.number === currentNumber
-        );
+        let levelData;
+        if (kukuValue === "mix") {
+          levelData = kukuData.slice().sort(() => Math.random() - 0.5);
+        } else {
+          levelData = kukuData.filter((item) => item.number === currentNumber);
+        }
 
         if (levelData.length > 0) {
           console.log("Current enemyCount:", enemyCount);
@@ -134,6 +140,7 @@ export const generateProblem = async (
           num2 = index + 1;
           answer = levelData[index].answer;
           currentProblemReading = levelData[index].reading;
+          ans = levelData[index].formula;
           console.log("Set problem data:", {
             num1,
             num2,
@@ -183,11 +190,16 @@ export const generateProblem = async (
     answer + Math.floor(Math.random() * 5) + 1,
     answer - Math.floor(Math.random() * 5) - 1,
   ].sort(() => Math.random() - 0.5);
-
+  let question;
+  question = num3
+    ? `${num1} ${operator} ${num2} ${operator} ${num3}`
+    : `${num1} ${operator} ${num2}`;
+  const kukuValue = localStorage.getItem("kuku");
+  if (kukuValue!.length > 0) {
+    question = ans!;
+  }
   return {
-    question: num3
-      ? `${num1} ${operator} ${num2} ${operator} ${num3}`
-      : `${num1} ${operator} ${num2}`,
+    question: question,
     answer,
     options,
     reading: currentProblemReading,
