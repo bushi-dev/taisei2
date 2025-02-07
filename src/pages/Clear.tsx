@@ -51,7 +51,7 @@ const Clear = () => {
         <div className="clear-buttons-bottom">
           {isKukuMode ? null : (
             <SoundButton
-              onClick={() => navigate("/taisei2/battle")}
+              onClick={() => navigate("/battle")}
               className="clear-button clear-button--secondary"
             >
               次のバトル
@@ -62,7 +62,7 @@ const Clear = () => {
             <SoundButton
               onClick={() => {
                 increaseDifficulty();
-                navigate("/taisei2/kuku-level");
+                navigate("/kuku-level");
               }}
               className="clear-button clear-button--secondary"
             >
@@ -70,7 +70,7 @@ const Clear = () => {
             </SoundButton>
           ) : (
             <SoundButton
-              onClick={() => navigate("/taisei2/battle")}
+              onClick={() => navigate("/battle")}
               className="clear-button clear-button--secondary"
             >
               次のバトル
@@ -79,7 +79,7 @@ const Clear = () => {
         </div>
         <div className="clear-buttons-top">
           <SoundButton
-            onClick={() => navigate("/taisei2/")}
+            onClick={() => navigate("/")}
             className="clear-button clear-button--primary"
           >
             タイトルへ

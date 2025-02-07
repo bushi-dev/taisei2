@@ -12,7 +12,7 @@ import { useBattleContext } from "../context/BattleContext";
 const BossPage = () => {
   const [bossImage] = useState(Math.floor(Math.random() * 10) + 1);
   const [backgroundImage] = useState(
-    `/taisei2/image/bg${Math.floor(Math.random() * 5) + 2}.webp`
+    `/image/bg${Math.floor(Math.random() * 5) + 2}.webp`
   );
 
   const { enemyCount, bossLife } = useBattleContext();
@@ -55,7 +55,7 @@ const BossPage = () => {
     saveTreasure(treasureNumber);
 
     // 動画ページに遷移
-    navigate("/taisei2/movie");
+    navigate("/movie");
   }; //⭐️クリア処理end
 
   useEffect(() => {

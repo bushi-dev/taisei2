@@ -26,9 +26,7 @@ const EnemyPage = () => {
       setTimeout(() => setIsFading(false), 1000);
     }
   }, [result]);
-  const [backgroundImage, setBackgroundImage] = useState(
-    "/taisei2/image/bg1.webp"
-  );
+  const [backgroundImage, setBackgroundImage] = useState("/image/bg1.webp");
   const { playBgm } = useSoundManager();
 
   useEffect(() => {
@@ -39,7 +37,7 @@ const EnemyPage = () => {
   // 初期背景設定
   useEffect(() => {
     const randomBg = Math.floor(Math.random() * 5) + 2; // bg2.webpからbg7.webp
-    setBackgroundImage(`/taisei2/image/bg${randomBg}.webp`);
+    setBackgroundImage(`/image/bg${randomBg}.webp`);
   }, []);
 
   useEffect(() => {
@@ -47,7 +45,7 @@ const EnemyPage = () => {
     const gameDifficulty = localStorage.getItem("gameDifficulty") || "easy";
     const MOVE_BOSS_COUNT = isKukuMode(gameDifficulty) ? 5 : 2;
     if (enemyCount === MOVE_BOSS_COUNT) {
-      navigate("/taisei2/boss");
+      navigate("/boss");
     }
 
     // enemyCountをログに表示

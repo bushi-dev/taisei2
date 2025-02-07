@@ -43,7 +43,7 @@ const Level = () => {
     localStorage.setItem("kuku", "mix");
     playEffect("/sound/battleStart.mp3", 0.1);
     setTimeout(() => {
-      navigate("/taisei2/battle");
+      navigate("/battle");
     }, 1000);
   };
 
@@ -127,7 +127,7 @@ const Level = () => {
           スタート
         </SoundButton>
         <SoundButton
-          onClick={() => navigate("/taisei2/")}
+          onClick={() => navigate("/")}
           className="back-button-level"
         >
           <img

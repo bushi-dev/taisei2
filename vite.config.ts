@@ -10,5 +10,4 @@ export default defineConfig({
       typescript: true,
     }),
   ],
-  base: "/taisei2/",
 });

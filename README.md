@@ -1,6 +1,6 @@
 # ゲーム URL
 
-https://bushi-dev.github.io/taisei2/
+https://taisei.pages.dev/
 
 # React + TypeScript + Vite.
 

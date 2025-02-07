@@ -18,7 +18,7 @@ const KukuLevel = () => {
     localStorage.setItem("kuku", level);
     localStorage.setItem("gameDifficulty", "easy");
     localStorage.setItem("gameType", "multiplication");
-    navigate("/taisei2/battle");
+    navigate("/battle");
   };
 
   return (

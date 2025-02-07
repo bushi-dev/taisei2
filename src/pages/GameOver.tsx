@@ -28,14 +28,14 @@ const GameOver = () => {
 
       <div className="game-over-buttons">
         <SoundButton
-          onClick={() => navigate("/taisei2/")}
+          onClick={() => navigate("/")}
           className="game-over-button game-over-button--primary"
         >
           タイトル
         </SoundButton>
 
         <SoundButton
-          onClick={() => navigate("/taisei2/battle")}
+          onClick={() => navigate("/battle")}
           className="game-over-button game-over-button--secondary"
         >
           リトライ

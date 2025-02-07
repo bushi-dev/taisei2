@@ -51,10 +51,7 @@ const TreasureList = () => {
     <div className="treasure-list-container">
       <div className="treasure-list-header">
         <h1 className="treasure-list-heading">宝物一覧</h1>
-        <SoundButton
-          onClick={() => navigate("/taisei2/")}
-          className="back-button"
-        >
+        <SoundButton onClick={() => navigate("/")} className="back-button">
           タイトル
         </SoundButton>
       </div>
@@ -76,7 +73,7 @@ const TreasureList = () => {
             className="treasure-item"
             onClick={() => {
               const treasureNumber = treasure.match(/\d+/)?.[0] || "0";
-              navigate(`/taisei2/treasure/${treasureNumber}`);
+              navigate(`/treasure/${treasureNumber}`);
             }}
           >
             <img

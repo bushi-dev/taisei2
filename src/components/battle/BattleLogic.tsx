@@ -70,7 +70,7 @@ export const useBattleLogic = () => {
         playEffect("/sound/sippai.mp3");
         setLife((prev) => {
           if (prev - 1 <= 0) {
-            navigate("/taisei2/gameover");
+            navigate("/gameover");
             localStorage.setItem("kuku", "");
           }
           return prev - 1;

@@ -16,16 +16,16 @@ function App() {
     <BattleProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/taisei2/" element={<Title />} />
-          <Route path="/taisei2/level" element={<Level />} />
-          <Route path="/taisei2/battle" element={<EnemyPage />} />
-          <Route path="/taisei2/boss" element={<BossPage />} />
-          <Route path="/taisei2/clear" element={<Clear />} />
-          <Route path="/taisei2/gameover" element={<GameOver />} />
-          <Route path="/taisei2/movie" element={<Movie />} />
-          <Route path="/taisei2/treasure" element={<TreasureList />} />
-          <Route path="/taisei2/treasure/:id" element={<TreasureDetail />} />
-          <Route path="/taisei2/kuku-level" element={<KukuLevel />} />
+          <Route path="/" element={<Title />} />
+          <Route path="/level" element={<Level />} />
+          <Route path="/battle" element={<EnemyPage />} />
+          <Route path="/boss" element={<BossPage />} />
+          <Route path="/clear" element={<Clear />} />
+          <Route path="/gameover" element={<GameOver />} />
+          <Route path="/movie" element={<Movie />} />
+          <Route path="/treasure" element={<TreasureList />} />
+          <Route path="/treasure/:id" element={<TreasureDetail />} />
+          <Route path="/kuku-level" element={<KukuLevel />} />
         </Routes>
       </BrowserRouter>
     </BattleProvider>

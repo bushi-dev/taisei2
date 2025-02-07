@@ -118,7 +118,7 @@ export const generateProblem = async (
       const kukuValue = localStorage.getItem("kuku");
       try {
         // kuku.jsonからデータを取得
-        const response = await fetch("/taisei2/json/kuku.json");
+        const response = await fetch("/json/kuku.json");
         const kukuData: KukuData[] = await response.json();
 
         // 現在の数字に対応するデータをフィルタリング
