@@ -27,12 +27,30 @@ const Clear = () => {
     playBgm("/sound/bgm1.mp3", 0.1);
   }, [playBgm]);
 
-  const { reset: contextReset } = useBattleContext();
-
   useEffect(() => {
     //初期化処理
     contextReset();
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          "https://my-cloudflare-worker.ytakeshi-7.workers.dev/add/" +
+            localStorage.getItem("lastTreasureNumber") || "",
+          {
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log("Response:", res);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
   }, []);
+
+  const { reset: contextReset } = useBattleContext();
 
   return (
     <div className="clear-container">
