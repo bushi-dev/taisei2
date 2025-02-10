@@ -15,6 +15,29 @@ const Title = () => {
     playBgm("/sound/bgm1.mp3", 0.1);
   }, [playBgm]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(
+          "https://my-cloudflare-worker.ytakeshi-7.workers.dev/list",
+          {
+            credentials: "include",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        console.log("Response:", res);
+        const text = await res.text();
+        console.log("Text:", text);
+        localStorage.setItem("treasures", text);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="title-screen">
       <h1 className="title-screen__heading">たいせい忍者</h1>
