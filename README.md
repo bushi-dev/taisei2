@@ -2,6 +2,8 @@
 
 https://taisei.pages.dev/
 
+<img width="295" alt="スクリーンショット 2025-02-10 13 47 13" src="https://github.com/user-attachments/assets/e7f231f2-b7fc-4b79-bea1-1dc69791c5cf" />
+
 # React + TypeScript + Vite.
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
