@@ -51,7 +51,27 @@ const BossPage = () => {
     playEffect("/sound/clear.mp3");
 
     // ランダムな宝の保存
-    const treasureNumber = Math.floor(Math.random() * 100) + 1;
+    let treasureNumber: number = Math.floor(Math.random() * 100) + 1;
+    if (treasureNumber === 1) {
+      const savedTreasures: number[] = JSON.parse(
+        localStorage.getItem("treasures") || "[]"
+      );
+
+      const targetNumbers = [2, 3, 4, 5, 6, 7, 8, 9, 10]; // 必要な数字リスト
+      let count = 0;
+
+      for (const num of savedTreasures) {
+        if (targetNumbers.includes(num)) {
+          count++;
+        }
+      }
+
+      if (count === targetNumbers.length) {
+        do {
+          treasureNumber = Math.floor(Math.random() * 100) + 1;
+        } while (treasureNumber === 1); // 1 が出たら再抽選
+      }
+    }
     saveTreasure(treasureNumber);
 
     // 動画ページに遷移
