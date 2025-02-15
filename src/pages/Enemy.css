@@ -5,7 +5,7 @@
   text-shadow: 2px 2px 4px black;
   box-sizing: border-box;
   position: relative;
-  min-height: 100vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,7 +14,6 @@
 .battle-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
   padding-left: 20px;
   padding-right: 40px;
   font-size: 13px;

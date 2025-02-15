@@ -3,6 +3,7 @@ import { useSoundManager } from "../components/SoundManager";
 import { useNavigate } from "react-router-dom";
 import SoundButton from "../components/SoundButton";
 import "./KukuLevel.css";
+import { getPath } from "../util/util";
 
 const KukuLevel = () => {
   const navigate = useNavigate();
@@ -53,6 +54,13 @@ const KukuLevel = () => {
           </SoundButton>
         </div>
       ))}
+      <SoundButton onClick={() => navigate("/")} className="back-button-level">
+        <img
+          src={getPath("/image/back.png")}
+          alt="戻る"
+          style={{ width: "55px", height: "55px" }}
+        />
+      </SoundButton>
     </div>
   );
 };

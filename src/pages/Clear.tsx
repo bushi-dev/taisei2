@@ -67,31 +67,32 @@ const Clear = () => {
 
       <div className="clear-buttons">
         <div className="clear-buttons-bottom">
-          {isKukuMode ? null : (
-            <SoundButton
-              onClick={() => navigate("/battle")}
-              className="clear-button clear-button--secondary"
-            >
-              次のバトル
-            </SoundButton>
-          )}
-
           {isKukuMode ? (
-            <SoundButton
-              onClick={() => {
-                increaseDifficulty();
-                navigate("/kuku-level");
-              }}
-              className="clear-button clear-button--secondary"
-            >
-              次の問題へ!
-            </SoundButton>
+            <span>
+              <SoundButton
+                onClick={() => navigate("/battle")}
+                className="clear-button clear-button--secondary"
+                style={{ padding: "" }}
+              >
+                次の問題へ!
+              </SoundButton>
+
+              <SoundButton
+                onClick={() => {
+                  increaseDifficulty();
+                  navigate("/kuku-level");
+                }}
+                className="clear-button clear-button--primary"
+              >
+                問題をえらぶ
+              </SoundButton>
+            </span>
           ) : (
             <SoundButton
               onClick={() => navigate("/battle")}
               className="clear-button clear-button--secondary"
             >
-              次のバトル
+              次の問題へ!
             </SoundButton>
           )}
         </div>

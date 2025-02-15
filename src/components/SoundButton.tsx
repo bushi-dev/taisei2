@@ -27,7 +27,6 @@ const SoundButton = ({
     }
     lastClickTime.current = now;
     if (isBattleMode) {
-      // バトルモード時はken1からken100までランダム再生
       const randomKen = Math.floor(Math.random() * MAX_KEN_COUNT) + 1;
       playEffect(`/sound/ken${randomKen}.mp3`);
     } else {

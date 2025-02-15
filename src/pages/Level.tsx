@@ -40,7 +40,6 @@ const Level = () => {
     if (type === "multiplication") {
       localStorage.setItem("kuku", "mix");
     }
-    localStorage.setItem("kuku", "mix");
     playEffect("/sound/battleStart.mp3", 0.1);
     setTimeout(() => {
       navigate("/battle");

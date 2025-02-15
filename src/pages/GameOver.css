@@ -1,5 +1,5 @@
 .game-over-container {
-  background-image: url('/image/bg.webp');
+  background-image: url("/image/bg.webp");
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
   text-shadow: 2px 2px 4px black;
   padding: 40px;
   box-sizing: border-box;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .game-over-heading {
