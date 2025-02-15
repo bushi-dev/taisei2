@@ -1,12 +1,12 @@
 .title-screen {
-  background-image: url('/image/bg.webp');
+  background-image: url("/image/bg.webp");
   background-size: 120% 120%;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%!important;
+  height: 100% !important;
   animation: moveBg 30s linear infinite;
 }
 
@@ -72,6 +72,11 @@
 .title-screen__button.kuku {
   color: black;
   background-color: #2196f3;
+}
+
+.title-screen__button.kokugo {
+  color: black;
+  background-color: yellow;
 }
 
 .title-screen__button.start {

@@ -72,7 +72,6 @@ const Clear = () => {
               <SoundButton
                 onClick={() => navigate("/battle")}
                 className="clear-button clear-button--secondary"
-                style={{ padding: "" }}
               >
                 次の問題へ!
               </SoundButton>
