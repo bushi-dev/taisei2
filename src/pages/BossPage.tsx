@@ -98,7 +98,6 @@ const BossPage = () => {
       className="battle-container"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      {enemyCount}
       <BattleHeader enemyCount={enemyCount} life={life} isBoss={true} />
 
       <BattleBoss bossImage={bossImage} bossLife={bossLife} />
