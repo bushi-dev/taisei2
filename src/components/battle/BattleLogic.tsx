@@ -41,6 +41,13 @@ export const useBattleLogic = () => {
         // ボス戦でも問題を更新する
         try {
           const nextCount = enemyCount + 1;
+
+          // 武将クイズモードの場合、10問で終了
+          if (gameType === 'warlord_quiz' && nextCount > 10) {
+            navigate('/clear');
+            return;
+          }
+
           const newProblem = await generateProblem(gameType, gameDifficulty, nextCount);
           console.log('Generated new problem:', newProblem);
           setProblem(newProblem);

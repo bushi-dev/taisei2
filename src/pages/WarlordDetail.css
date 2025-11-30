@@ -1,0 +1,314 @@
+.warlord-detail-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.warlord-detail-heading {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.warlord-loading {
+  color: white;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 50px;
+}
+
+/* 武将選択ボタン */
+.warlord-selector {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 1200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.warlord-selector-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.warlord-selector-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px;
+}
+
+.warlord-selector-btn {
+  padding: 10px 15px;
+  background: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.warlord-selector-btn:hover {
+  background: #e0e0e0;
+  border-color: #999;
+}
+
+.warlord-selector-btn.active {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+  box-shadow: 0 4px 8px rgba(102, 126, 234, 0.4);
+}
+
+/* 地図コンテナ */
+.warlord-map-container {
+  width: 100%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* 生涯情報パネル */
+.warlord-biography-panel {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 1000px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.warlord-biography-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #667eea;
+}
+
+.warlord-stage-info {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.warlord-stage-number {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #667eea;
+  background: #f0f0f0;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.warlord-stage-year {
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: bold;
+}
+
+/* 生涯情報コンテンツ */
+.warlord-biography-content {
+  margin-bottom: 20px;
+}
+
+.warlord-biography-title {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+  border-left: 4px solid #667eea;
+  padding-left: 15px;
+}
+
+.warlord-biography-description {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+/* 関連地名 */
+.warlord-locations {
+  margin-top: 20px;
+}
+
+.warlord-locations-label {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.warlord-locations-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.warlord-location-tag {
+  background: #667eea;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+/* ページネーション */
+.warlord-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.warlord-pagination-btn {
+  padding: 12px 24px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.warlord-pagination-btn:hover:not(:disabled) {
+  background: #764ba2;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.warlord-pagination-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.warlord-pagination-indicator {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #667eea;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* クイズセクション */
+.warlord-quiz-section {
+  margin-bottom: 20px;
+}
+
+.warlord-quiz-btn {
+  padding: 18px 40px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 12px rgba(102, 126, 234, 0.4);
+}
+
+.warlord-quiz-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.6);
+}
+
+.warlord-quiz-btn:active {
+  transform: translateY(-1px);
+}
+
+/* 戻るボタン */
+.back-button-level {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.back-button-level:hover {
+  background: white;
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .warlord-detail-heading {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+
+  .warlord-selector-buttons {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .warlord-biography-panel {
+    padding: 20px;
+  }
+
+  .warlord-biography-title {
+    font-size: 1.3rem;
+  }
+
+  .warlord-biography-description {
+    font-size: 1rem;
+  }
+
+  .warlord-quiz-btn {
+    padding: 15px 30px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .warlord-detail-heading {
+    font-size: 1.5rem;
+  }
+
+  .warlord-selector-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .warlord-pagination {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .warlord-pagination-btn {
+    width: 100%;
+  }
+}

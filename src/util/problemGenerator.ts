@@ -92,11 +92,63 @@ export const generateHistoryProblem = async (enemyCount = 1): Promise<Problem> =
   }
 };
 
+export const generateWarlordQuizProblem = async (
+  warlordId: number,
+  questionIndex: number
+): Promise<Problem> => {
+  try {
+    const response = await fetch('/json/sengoku_warlords.json');
+    const warlords: any[] = await response.json();
+
+    const warlord = warlords.find((w) => w.id === warlordId);
+    if (!warlord) {
+      throw new Error(`Warlord with id ${warlordId} not found`);
+    }
+
+    // questionIndexが0-9の範囲内であることを確認
+    const quizIndex = Math.min(questionIndex, warlord.quiz.length - 1);
+    const quizQuestion = warlord.quiz[quizIndex];
+
+    // 選択肢をシャッフル
+    const shuffledOptions = quizQuestion.options
+      .map((option: string, index: number) => ({ option, originalIndex: index }))
+      .sort(() => Math.random() - 0.5);
+
+    const correctAnswerIndex = shuffledOptions.findIndex(
+      (item: any) => item.originalIndex === quizQuestion.correctAnswer
+    );
+
+    return {
+      question: quizQuestion.question,
+      answer: correctAnswerIndex,
+      options: shuffledOptions.map((item: any) => item.option),
+      reading: warlord.reading,
+    };
+  } catch (error) {
+    console.error('Error generating warlord quiz problem:', error);
+    return {
+      question: 'エラーが発生しました',
+      answer: 0,
+      options: ['エラー', '再読込', '戻る'],
+      reading: '',
+    };
+  }
+};
+
 export const generateProblem = async (
   gameType: string,
   gameDifficulty: string,
   enemyCount = 1
 ): Promise<Problem> => {
+  // 武将クイズモードの場合は専用の問題生成を使用
+  if (gameType === 'warlord_quiz') {
+    const selectedWarlord = localStorage.getItem('selectedWarlord');
+    if (selectedWarlord) {
+      const warlord = JSON.parse(selectedWarlord);
+      return generateWarlordQuizProblem(warlord.id, enemyCount - 1);
+    }
+  }
+
   // 歴史モードの場合は専用の問題生成を使用
   if (gameType === 'history') {
     return generateHistoryProblem(enemyCount);

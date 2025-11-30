@@ -25,11 +25,20 @@ interface SelectedInfo {
   lordData?: SengokuData;
 }
 
+interface Warlord {
+  id: number;
+  name: string;
+  reading: string;
+  image?: string;
+  relatedPrefectures: string[];
+}
+
 const HistoryLevel = () => {
   const navigate = useNavigate();
   const { playBgm } = useSoundManager();
   const [selectedPrefecture, setSelectedPrefecture] = useState<SelectedInfo | null>(null);
   const [sengokuData, setSengokuData] = useState<SengokuData[]>([]);
+  const [warlords, setWarlords] = useState<Warlord[]>([]);
 
   useEffect(() => {
     // BGM再生
@@ -41,6 +50,21 @@ const HistoryLevel = () => {
       .then((res) => res.json())
       .then((data) => setSengokuData(data))
       .catch((err) => console.error('Failed to load sengoku data:', err));
+
+    // 武将データを読み込み
+    fetch('/json/sengoku_warlords.json')
+      .then((res) => res.json())
+      .then((data) => {
+        const warlordList = data.map((w: any) => ({
+          id: w.id,
+          name: w.name,
+          reading: w.reading,
+          image: w.image,
+          relatedPrefectures: w.relatedPrefectures,
+        }));
+        setWarlords(warlordList);
+      })
+      .catch((err) => console.error('Failed to load warlord data:', err));
   }, [playBgm]);
 
   const handlePrefectureClick = (prefectureId: number, prefectureName: string) => {
@@ -59,6 +83,10 @@ const HistoryLevel = () => {
 
   const handleCancelSelection = () => {
     setSelectedPrefecture(null);
+  };
+
+  const handleWarlordSelect = (warlordId: number) => {
+    navigate(`/warlord/${warlordId}`);
   };
 
   // 選択された都道府県の番号を取得（地図のハイライト用）
@@ -128,6 +156,38 @@ const HistoryLevel = () => {
           </SoundButton>
         </div>
       )}
+
+      {/* 武将選択セクション */}
+      <div className="warlord-selection-section">
+        <h2 className="warlord-selection-heading">武将を選択して、その一生を学ぼう！</h2>
+
+        <div className="warlord-selection-grid">
+          {warlords.map((warlord) => (
+            <SoundButton
+              key={warlord.id}
+              onClick={() => handleWarlordSelect(warlord.id)}
+              className="warlord-selection-card"
+            >
+              <div className="warlord-card-content">
+                {warlord.image && (
+                  <img
+                    src={getPath(warlord.image)}
+                    alt={warlord.name}
+                    className="warlord-card-image"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                )}
+                <div className="warlord-card-info">
+                  <div className="warlord-card-name">{warlord.name}</div>
+                  <div className="warlord-card-reading">{warlord.reading}</div>
+                </div>
+              </div>
+            </SoundButton>
+          ))}
+        </div>
+      </div>
 
       <SoundButton onClick={() => navigate('/')} className="back-button-level">
         <img
