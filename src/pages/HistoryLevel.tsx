@@ -6,13 +6,16 @@ import JapanMap, { prefectures } from '../components/JapanMap';
 import './HistoryLevel.css';
 import { getPath } from '../util/util';
 
+interface Lord {
+  name: string;
+  reading: string;
+  description: string;
+}
+
 interface SengokuData {
   id: number;
   prefecture: string;
-  lord: string;
-  lordReading: string;
-  description: string;
-  options: string[];
+  lords: Lord[];
 }
 
 interface SelectedInfo {
@@ -83,12 +86,18 @@ const HistoryLevel = () => {
             </SoundButton>
           </div>
           <div className="lord-content">
-            <div className="lord-name-section">
-              <span className="lord-label">大名</span>
-              <span className="lord-name">{selectedPrefecture.lordData.lord}</span>
-              <span className="lord-reading">（{selectedPrefecture.lordData.lordReading}）</span>
+            <div className="lord-label">有名な大名</div>
+            <div className="lords-list">
+              {selectedPrefecture.lordData.lords.map((lord, index) => (
+                <div key={index} className="lord-item">
+                  <div className="lord-name-row">
+                    <span className="lord-name">{lord.name}</span>
+                    <span className="lord-reading">（{lord.reading}）</span>
+                  </div>
+                  <p className="lord-description">{lord.description}</p>
+                </div>
+              ))}
             </div>
-            <p className="lord-description">{selectedPrefecture.lordData.description}</p>
           </div>
           <SoundButton onClick={handleStartGame} className="lord-start-btn">
             🎲 クイズに挑戦！

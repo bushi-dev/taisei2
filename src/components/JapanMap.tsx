@@ -141,10 +141,17 @@ const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefectu
     ? getEnglishIdByPrefectureId(selectedPrefecture)
     : null;
 
+  // 沖縄以外の都道府県
+  const mainlandLocations = Japan.locations.filter((loc: Location) => loc.id !== 'okinawa');
+  // 沖縄
+  const okinawa = Japan.locations.find((loc: Location) => loc.id === 'okinawa');
+
   return (
     <div className="japan-map-wrapper">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox={Japan.viewBox} className="japan-map-svg">
-        {Japan.locations.map((location: Location) => (
+      {/* viewBoxを調整して本土を大きく表示（沖縄の南部分をカット） */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438 400" className="japan-map-svg">
+        {/* 本土の都道府県 */}
+        {mainlandLocations.map((location: Location) => (
           <path
             key={location.id}
             id={location.id}
@@ -157,6 +164,26 @@ const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefectu
             onMouseLeave={handleMouseLeave}
           />
         ))}
+
+        {/* 沖縄を日本海の位置に移動（縮小して左上に配置） */}
+        {okinawa && (
+          <g transform="translate(-30, -230) scale(0.7)">
+            <path
+              id={okinawa.id}
+              d={okinawa.path}
+              className={`prefecture-path ${getRegionClass(okinawa.id)} ${
+                selectedEnglishId === okinawa.id ? 'selected' : ''
+              }`}
+              onClick={() => handleClick(okinawa.id)}
+              onMouseEnter={() => handleMouseEnter(okinawa.id)}
+              onMouseLeave={handleMouseLeave}
+            />
+            {/* 沖縄ラベル */}
+            <text x="95" y="500" className="okinawa-label">
+              沖縄
+            </text>
+          </g>
+        )}
       </svg>
       {hoveredPrefecture && <div className="prefecture-tooltip">{hoveredPrefecture}</div>}
     </div>

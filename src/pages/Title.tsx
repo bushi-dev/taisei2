@@ -91,15 +91,6 @@ const Title = () => {
         歴史モード
       </SoundButton>
 
-      {window.location.href.includes('local') && (
-        <SoundButton
-          className="title-screen__button kokugo"
-          onClick={() => navigate('/kokugo-level')}
-        >
-          国語モード
-        </SoundButton>
-      )}
-
       <SoundButton className="title-screen__button treasure" onClick={() => navigate('/treasure')}>
         秘宝の記録
       </SoundButton>

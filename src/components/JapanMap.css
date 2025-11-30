@@ -113,6 +113,14 @@
   fill: #fad7a0;
 }
 
+/* 沖縄ラベル */
+.okinawa-label {
+  font-size: 14px;
+  fill: #666;
+  font-weight: bold;
+  pointer-events: none;
+}
+
 /* ツールチップ */
 .prefecture-tooltip {
   position: absolute;

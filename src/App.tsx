@@ -10,7 +10,6 @@ import TreasureDetail from './pages/TreasureDetail';
 import KukuLevel from './pages/KukuLevel';
 import BossPage from './pages/BossPage';
 import { BattleProvider } from './context/BattleContext';
-import KokugoLevel from './pages/KokugoLevel';
 import HistoryLevel from './pages/HistoryLevel';
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
           <Route path="/treasure" element={<TreasureList />} />
           <Route path="/treasure/:id" element={<TreasureDetail />} />
           <Route path="/kuku-level" element={<KukuLevel />} />
-          <Route path="/kokugo-level" element={<KokugoLevel />} />
           <Route path="/history-level" element={<HistoryLevel />} />
         </Routes>
       </BrowserRouter>

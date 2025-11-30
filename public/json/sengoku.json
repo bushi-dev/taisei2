@@ -2,378 +2,355 @@
   {
     "id": 1,
     "prefecture": "北海道",
-    "lord": "蠣崎氏",
-    "lordReading": "かきざきし",
-    "description": "松前藩の祖となった一族",
-    "options": ["蠣崎氏", "武田氏", "伊達氏", "上杉氏"]
+    "lords": [
+      { "name": "蠣崎季広", "reading": "かきざきすえひろ", "description": "松前藩の基礎を築いた蠣崎氏の当主" }
+    ]
   },
   {
     "id": 2,
     "prefecture": "青森県",
-    "lord": "南部氏",
-    "lordReading": "なんぶし",
-    "description": "三戸城を本拠とした大名",
-    "options": ["南部氏", "津軽氏", "伊達氏", "最上氏"]
+    "lords": [
+      { "name": "南部晴政", "reading": "なんぶはるまさ", "description": "南部氏の全盛期を築いた名将" },
+      { "name": "津軽為信", "reading": "つがるためのぶ", "description": "津軽藩の初代藩主、南部氏から独立" }
+    ]
   },
   {
     "id": 3,
     "prefecture": "岩手県",
-    "lord": "南部氏",
-    "lordReading": "なんぶし",
-    "description": "盛岡藩の祖となった一族",
-    "options": ["南部氏", "伊達氏", "上杉氏", "佐竹氏"]
+    "lords": [
+      { "name": "南部信直", "reading": "なんぶのぶなお", "description": "盛岡藩の初代藩主" }
+    ]
   },
   {
     "id": 4,
     "prefecture": "宮城県",
-    "lord": "伊達氏",
-    "lordReading": "だてし",
-    "description": "伊達政宗で有名な大名家",
-    "options": ["伊達氏", "上杉氏", "最上氏", "南部氏"]
+    "lords": [
+      { "name": "伊達政宗", "reading": "だてまさむね", "description": "独眼竜の異名を持つ奥州の覇者" }
+    ]
   },
   {
     "id": 5,
     "prefecture": "秋田県",
-    "lord": "佐竹氏",
-    "lordReading": "さたけし",
-    "description": "関ヶ原後に秋田へ転封された大名",
-    "options": ["佐竹氏", "最上氏", "伊達氏", "上杉氏"]
+    "lords": [
+      { "name": "安東愛季", "reading": "あんどうちかすえ", "description": "出羽北部を支配した安東氏の名将" },
+      { "name": "佐竹義宣", "reading": "さたけよしのぶ", "description": "関ヶ原後に秋田へ転封された大名" }
+    ]
   },
   {
     "id": 6,
     "prefecture": "山形県",
-    "lord": "最上氏",
-    "lordReading": "もがみし",
-    "description": "最上義光で有名な大名家",
-    "options": ["最上氏", "伊達氏", "上杉氏", "佐竹氏"]
+    "lords": [
+      { "name": "最上義光", "reading": "もがみよしあき", "description": "出羽の驍将、伊達政宗の伯父" }
+    ]
   },
   {
     "id": 7,
     "prefecture": "福島県",
-    "lord": "蘆名氏",
-    "lordReading": "あしなし",
-    "description": "会津を治めた大名家",
-    "options": ["蘆名氏", "伊達氏", "上杉氏", "佐竹氏"]
+    "lords": [
+      { "name": "蘆名盛氏", "reading": "あしなもりうじ", "description": "会津の名門・蘆名氏の最盛期を築く" },
+      { "name": "蒲生氏郷", "reading": "がもううじさと", "description": "会津92万石の大名、文武両道の名将" }
+    ]
   },
   {
     "id": 8,
     "prefecture": "茨城県",
-    "lord": "佐竹氏",
-    "lordReading": "さたけし",
-    "description": "常陸国を治めた大名家",
-    "options": ["佐竹氏", "北条氏", "上杉氏", "武田氏"]
+    "lords": [
+      { "name": "佐竹義重", "reading": "さたけよししげ", "description": "鬼義重と呼ばれた常陸の猛将" }
+    ]
   },
   {
     "id": 9,
     "prefecture": "栃木県",
-    "lord": "宇都宮氏",
-    "lordReading": "うつのみやし",
-    "description": "下野国の有力大名",
-    "options": ["宇都宮氏", "北条氏", "上杉氏", "佐竹氏"]
+    "lords": [
+      { "name": "宇都宮広綱", "reading": "うつのみやひろつな", "description": "下野国の有力大名・宇都宮氏の当主" }
+    ]
   },
   {
     "id": 10,
     "prefecture": "群馬県",
-    "lord": "上杉氏",
-    "lordReading": "うえすぎし",
-    "description": "上野国を治めた大名家",
-    "options": ["上杉氏", "北条氏", "武田氏", "真田氏"]
+    "lords": [
+      { "name": "真田昌幸", "reading": "さなだまさゆき", "description": "表裏比興の者と呼ばれた智将" },
+      { "name": "真田幸村", "reading": "さなだゆきむら", "description": "日本一の兵と称された真田昌幸の次男" }
+    ]
   },
   {
     "id": 11,
     "prefecture": "埼玉県",
-    "lord": "北条氏",
-    "lordReading": "ほうじょうし",
-    "description": "後北条氏として関東を支配",
-    "options": ["北条氏", "上杉氏", "武田氏", "今川氏"]
+    "lords": [
+      { "name": "北条氏康", "reading": "ほうじょううじやす", "description": "後北条氏の3代目、関東の覇者" }
+    ]
   },
   {
     "id": 12,
     "prefecture": "千葉県",
-    "lord": "里見氏",
-    "lordReading": "さとみし",
-    "description": "安房国を治めた大名家",
-    "options": ["里見氏", "北条氏", "上杉氏", "佐竹氏"]
+    "lords": [
+      { "name": "里見義堯", "reading": "さとみよしたか", "description": "安房国を統一した里見氏の中興の祖" }
+    ]
   },
   {
     "id": 13,
     "prefecture": "東京都",
-    "lord": "北条氏",
-    "lordReading": "ほうじょうし",
-    "description": "江戸城を支配した後北条氏",
-    "options": ["北条氏", "上杉氏", "武田氏", "今川氏"]
+    "lords": [
+      { "name": "太田道灌", "reading": "おおたどうかん", "description": "江戸城を築城した名将" }
+    ]
   },
   {
     "id": 14,
     "prefecture": "神奈川県",
-    "lord": "北条氏",
-    "lordReading": "ほうじょうし",
-    "description": "小田原城を本拠とした後北条氏",
-    "options": ["北条氏", "上杉氏", "武田氏", "今川氏"]
+    "lords": [
+      { "name": "北条早雲", "reading": "ほうじょうそううん", "description": "戦国大名の先駆け、後北条氏の祖" },
+      { "name": "北条氏政", "reading": "ほうじょううじまさ", "description": "後北条氏4代目、小田原城主" }
+    ]
   },
   {
     "id": 15,
     "prefecture": "新潟県",
-    "lord": "上杉氏",
-    "lordReading": "うえすぎし",
-    "description": "上杉謙信で有名な大名家",
-    "options": ["上杉氏", "武田氏", "北条氏", "伊達氏"]
+    "lords": [
+      { "name": "上杉謙信", "reading": "うえすぎけんしん", "description": "軍神と呼ばれた越後の龍" }
+    ]
   },
   {
     "id": 16,
     "prefecture": "富山県",
-    "lord": "上杉氏",
-    "lordReading": "うえすぎし",
-    "description": "越中国を支配した上杉家",
-    "options": ["上杉氏", "前田氏", "武田氏", "朝倉氏"]
+    "lords": [
+      { "name": "佐々成政", "reading": "さっさなりまさ", "description": "越中を治めた織田家の猛将" }
+    ]
   },
   {
     "id": 17,
     "prefecture": "石川県",
-    "lord": "前田氏",
-    "lordReading": "まえだし",
-    "description": "加賀百万石の前田家",
-    "options": ["前田氏", "上杉氏", "朝倉氏", "柴田氏"]
+    "lords": [
+      { "name": "前田利家", "reading": "まえだとしいえ", "description": "加賀百万石の祖、槍の又左" }
+    ]
   },
   {
     "id": 18,
     "prefecture": "福井県",
-    "lord": "朝倉氏",
-    "lordReading": "あさくらし",
-    "description": "一乗谷城を本拠とした大名",
-    "options": ["朝倉氏", "織田氏", "浅井氏", "上杉氏"]
+    "lords": [
+      { "name": "朝倉義景", "reading": "あさくらよしかげ", "description": "一乗谷を繁栄させた朝倉氏最後の当主" },
+      { "name": "柴田勝家", "reading": "しばたかついえ", "description": "北ノ庄城主、鬼柴田の異名を持つ猛将" }
+    ]
   },
   {
     "id": 19,
     "prefecture": "山梨県",
-    "lord": "武田氏",
-    "lordReading": "たけだし",
-    "description": "武田信玄で有名な大名家",
-    "options": ["武田氏", "上杉氏", "北条氏", "今川氏"]
+    "lords": [
+      { "name": "武田信玄", "reading": "たけだしんげん", "description": "甲斐の虎、風林火山の旗印で有名" }
+    ]
   },
   {
     "id": 20,
     "prefecture": "長野県",
-    "lord": "武田氏",
-    "lordReading": "たけだし",
-    "description": "信濃国を支配した武田家",
-    "options": ["武田氏", "上杉氏", "真田氏", "北条氏"]
+    "lords": [
+      { "name": "武田勝頼", "reading": "たけだかつより", "description": "武田信玄の後継者、長篠で敗北" },
+      { "name": "真田信之", "reading": "さなだのぶゆき", "description": "真田家を存続させた真田昌幸の長男" }
+    ]
   },
   {
     "id": 21,
     "prefecture": "岐阜県",
-    "lord": "斎藤氏",
-    "lordReading": "さいとうし",
-    "description": "稲葉山城を本拠とした大名",
-    "options": ["斎藤氏", "織田氏", "武田氏", "今川氏"]
+    "lords": [
+      { "name": "斎藤道三", "reading": "さいとうどうさん", "description": "美濃のマムシ、下剋上の代表格" },
+      { "name": "明智光秀", "reading": "あけちみつひで", "description": "本能寺の変で信長を討った智将" }
+    ]
   },
   {
     "id": 22,
     "prefecture": "静岡県",
-    "lord": "今川氏",
-    "lordReading": "いまがわし",
-    "description": "今川義元で有名な大名家",
-    "options": ["今川氏", "武田氏", "北条氏", "織田氏"]
+    "lords": [
+      { "name": "今川義元", "reading": "いまがわよしもと", "description": "東海一の弓取り、桶狭間で敗死" },
+      { "name": "徳川家康", "reading": "とくがわいえやす", "description": "戦国を生き抜き天下を取った狸親父" }
+    ]
   },
   {
     "id": 23,
     "prefecture": "愛知県",
-    "lord": "織田氏",
-    "lordReading": "おだし",
-    "description": "織田信長で有名な大名家",
-    "options": ["織田氏", "今川氏", "武田氏", "徳川氏"]
+    "lords": [
+      { "name": "織田信長", "reading": "おだのぶなが", "description": "天下布武を掲げた革命児" },
+      { "name": "豊臣秀吉", "reading": "とよとみひでよし", "description": "農民から天下人に上り詰めた太閤" }
+    ]
   },
   {
     "id": 24,
     "prefecture": "三重県",
-    "lord": "北畠氏",
-    "lordReading": "きたばたけし",
-    "description": "伊勢国を治めた公家大名",
-    "options": ["北畠氏", "織田氏", "六角氏", "浅井氏"]
+    "lords": [
+      { "name": "北畠具教", "reading": "きたばたけとものり", "description": "伊勢国司・北畠氏の当主、剣豪大名" },
+      { "name": "九鬼嘉隆", "reading": "くきよしたか", "description": "鉄甲船を率いた海賊大名" }
+    ]
   },
   {
     "id": 25,
     "prefecture": "滋賀県",
-    "lord": "浅井氏",
-    "lordReading": "あざいし",
-    "description": "浅井長政で有名な大名家",
-    "options": ["浅井氏", "六角氏", "織田氏", "朝倉氏"]
+    "lords": [
+      { "name": "浅井長政", "reading": "あざいながまさ", "description": "信長の妹・お市の夫、姉川で敗北" },
+      { "name": "石田三成", "reading": "いしだみつなり", "description": "関ヶ原で西軍を率いた秀吉の忠臣" }
+    ]
   },
   {
     "id": 26,
     "prefecture": "京都府",
-    "lord": "足利氏",
-    "lordReading": "あしかがし",
-    "description": "室町幕府の将軍家",
-    "options": ["足利氏", "織田氏", "細川氏", "三好氏"]
+    "lords": [
+      { "name": "足利義昭", "reading": "あしかがよしあき", "description": "室町幕府最後の将軍" },
+      { "name": "細川藤孝", "reading": "ほそかわふじたか", "description": "文武両道の名将、細川幽斎とも" }
+    ]
   },
   {
     "id": 27,
     "prefecture": "大阪府",
-    "lord": "三好氏",
-    "lordReading": "みよしし",
-    "description": "畿内を支配した大名家",
-    "options": ["三好氏", "織田氏", "細川氏", "足利氏"]
+    "lords": [
+      { "name": "三好長慶", "reading": "みよしながよし", "description": "畿内を制した最初の天下人" },
+      { "name": "豊臣秀頼", "reading": "とよとみひでより", "description": "大坂城で徳川と戦った秀吉の息子" }
+    ]
   },
   {
     "id": 28,
     "prefecture": "兵庫県",
-    "lord": "赤松氏",
-    "lordReading": "あかまつし",
-    "description": "播磨国を治めた大名家",
-    "options": ["赤松氏", "黒田氏", "織田氏", "毛利氏"]
+    "lords": [
+      { "name": "黒田官兵衛", "reading": "くろだかんべえ", "description": "秀吉の天下取りを支えた名軍師" },
+      { "name": "赤松政秀", "reading": "あかまつまさひで", "description": "播磨の名門・赤松氏の当主" }
+    ]
   },
   {
     "id": 29,
     "prefecture": "奈良県",
-    "lord": "筒井氏",
-    "lordReading": "つついし",
-    "description": "大和国を治めた大名家",
-    "options": ["筒井氏", "織田氏", "三好氏", "松永氏"]
+    "lords": [
+      { "name": "筒井順慶", "reading": "つついじゅんけい", "description": "洞ヶ峠で日和見した大和の大名" },
+      { "name": "松永久秀", "reading": "まつながひさひで", "description": "大仏殿を焼いた梟雄" }
+    ]
   },
   {
     "id": 30,
     "prefecture": "和歌山県",
-    "lord": "畠山氏",
-    "lordReading": "はたけやまし",
-    "description": "紀伊国を治めた大名家",
-    "options": ["畠山氏", "織田氏", "三好氏", "雑賀衆"]
+    "lords": [
+      { "name": "雑賀孫一", "reading": "さいかまごいち", "description": "鉄砲傭兵集団・雑賀衆の頭領" }
+    ]
   },
   {
     "id": 31,
     "prefecture": "鳥取県",
-    "lord": "山名氏",
-    "lordReading": "やまなし",
-    "description": "因幡国を治めた大名家",
-    "options": ["山名氏", "毛利氏", "尼子氏", "宇喜多氏"]
+    "lords": [
+      { "name": "山名豊国", "reading": "やまなとよくに", "description": "因幡の守護大名・山名氏の当主" }
+    ]
   },
   {
     "id": 32,
     "prefecture": "島根県",
-    "lord": "尼子氏",
-    "lordReading": "あまごし",
-    "description": "出雲国を治めた大名家",
-    "options": ["尼子氏", "毛利氏", "山名氏", "大内氏"]
+    "lords": [
+      { "name": "尼子経久", "reading": "あまごつねひさ", "description": "謀聖と呼ばれた尼子氏の全盛期を築く" },
+      { "name": "山中鹿介", "reading": "やまなかしかのすけ", "description": "願わくば我に七難八苦を与えたまえ" }
+    ]
   },
   {
     "id": 33,
     "prefecture": "岡山県",
-    "lord": "宇喜多氏",
-    "lordReading": "うきたし",
-    "description": "備前国を治めた大名家",
-    "options": ["宇喜多氏", "毛利氏", "尼子氏", "浦上氏"]
+    "lords": [
+      { "name": "宇喜多直家", "reading": "うきたなおいえ", "description": "謀略で成り上がった戦国の梟雄" },
+      { "name": "宇喜多秀家", "reading": "うきたひでいえ", "description": "五大老の一人、関ヶ原で西軍" }
+    ]
   },
   {
     "id": 34,
     "prefecture": "広島県",
-    "lord": "毛利氏",
-    "lordReading": "もうりし",
-    "description": "毛利元就で有名な大名家",
-    "options": ["毛利氏", "大内氏", "尼子氏", "宇喜多氏"]
+    "lords": [
+      { "name": "毛利元就", "reading": "もうりもとなり", "description": "三本の矢の逸話で有名な謀神" }
+    ]
   },
   {
     "id": 35,
     "prefecture": "山口県",
-    "lord": "大内氏",
-    "lordReading": "おおうちし",
-    "description": "周防国を治めた大名家",
-    "options": ["大内氏", "毛利氏", "尼子氏", "陶氏"]
+    "lords": [
+      { "name": "大内義隆", "reading": "おおうちよしたか", "description": "西国一の文化人大名" },
+      { "name": "毛利輝元", "reading": "もうりてるもと", "description": "毛利元就の孫、五大老の一人" }
+    ]
   },
   {
     "id": 36,
     "prefecture": "徳島県",
-    "lord": "三好氏",
-    "lordReading": "みよしし",
-    "description": "阿波国を本拠とした大名家",
-    "options": ["三好氏", "長宗我部氏", "細川氏", "一条氏"]
+    "lords": [
+      { "name": "三好義賢", "reading": "みよしよしかた", "description": "阿波を治めた三好氏の実力者" },
+      { "name": "蜂須賀家政", "reading": "はちすかいえまさ", "description": "阿波藩の初代藩主" }
+    ]
   },
   {
     "id": 37,
     "prefecture": "香川県",
-    "lord": "三好氏",
-    "lordReading": "みよしし",
-    "description": "讃岐国を支配した大名家",
-    "options": ["三好氏", "長宗我部氏", "細川氏", "毛利氏"]
+    "lords": [
+      { "name": "十河一存", "reading": "そごうかずまさ", "description": "鬼十河と呼ばれた三好氏の猛将" }
+    ]
   },
   {
     "id": 38,
     "prefecture": "愛媛県",
-    "lord": "河野氏",
-    "lordReading": "こうのし",
-    "description": "伊予国を治めた大名家",
-    "options": ["河野氏", "長宗我部氏", "毛利氏", "一条氏"]
+    "lords": [
+      { "name": "河野通直", "reading": "こうのみちなお", "description": "伊予国を治めた河野氏最後の当主" },
+      { "name": "村上武吉", "reading": "むらかみたけよし", "description": "瀬戸内海を支配した村上水軍の頭領" }
+    ]
   },
   {
     "id": 39,
     "prefecture": "高知県",
-    "lord": "長宗我部氏",
-    "lordReading": "ちょうそかべし",
-    "description": "土佐国を統一した大名家",
-    "options": ["長宗我部氏", "一条氏", "三好氏", "河野氏"]
+    "lords": [
+      { "name": "長宗我部元親", "reading": "ちょうそかべもとちか", "description": "四国統一を果たした土佐の出来人" }
+    ]
   },
   {
     "id": 40,
     "prefecture": "福岡県",
-    "lord": "大友氏",
-    "lordReading": "おおともし",
-    "description": "筑前国を治めた大名家",
-    "options": ["大友氏", "毛利氏", "龍造寺氏", "島津氏"]
+    "lords": [
+      { "name": "大友宗麟", "reading": "おおともそうりん", "description": "キリシタン大名、九州探題" },
+      { "name": "黒田長政", "reading": "くろだながまさ", "description": "福岡藩の初代藩主、官兵衛の子" }
+    ]
   },
   {
     "id": 41,
     "prefecture": "佐賀県",
-    "lord": "龍造寺氏",
-    "lordReading": "りゅうぞうじし",
-    "description": "肥前国を治めた大名家",
-    "options": ["龍造寺氏", "大友氏", "島津氏", "有馬氏"]
+    "lords": [
+      { "name": "龍造寺隆信", "reading": "りゅうぞうじたかのぶ", "description": "肥前の熊と呼ばれた猛将" },
+      { "name": "鍋島直茂", "reading": "なべしまなおしげ", "description": "龍造寺家を乗っ取った知将" }
+    ]
   },
   {
     "id": 42,
     "prefecture": "長崎県",
-    "lord": "大村氏",
-    "lordReading": "おおむらし",
-    "description": "キリシタン大名として有名",
-    "options": ["大村氏", "龍造寺氏", "有馬氏", "島津氏"]
+    "lords": [
+      { "name": "大村純忠", "reading": "おおむらすみただ", "description": "日本初のキリシタン大名" },
+      { "name": "有馬晴信", "reading": "ありまはるのぶ", "description": "南蛮貿易で栄えたキリシタン大名" }
+    ]
   },
   {
     "id": 43,
     "prefecture": "熊本県",
-    "lord": "阿蘇氏",
-    "lordReading": "あそし",
-    "description": "肥後国を治めた大名家",
-    "options": ["阿蘇氏", "島津氏", "大友氏", "相良氏"]
+    "lords": [
+      { "name": "加藤清正", "reading": "かとうきよまさ", "description": "虎退治で有名な賤ヶ岳七本槍の一人" }
+    ]
   },
   {
     "id": 44,
     "prefecture": "大分県",
-    "lord": "大友氏",
-    "lordReading": "おおともし",
-    "description": "大友宗麟で有名な大名家",
-    "options": ["大友氏", "島津氏", "毛利氏", "龍造寺氏"]
+    "lords": [
+      { "name": "大友義鎮", "reading": "おおともよししげ", "description": "大友宗麟の本名、豊後の王" }
+    ]
   },
   {
     "id": 45,
     "prefecture": "宮崎県",
-    "lord": "伊東氏",
-    "lordReading": "いとうし",
-    "description": "日向国を治めた大名家",
-    "options": ["伊東氏", "島津氏", "大友氏", "相良氏"]
+    "lords": [
+      { "name": "伊東義祐", "reading": "いとうよしすけ", "description": "日向国を治めた伊東氏の全盛期を築く" }
+    ]
   },
   {
     "id": 46,
     "prefecture": "鹿児島県",
-    "lord": "島津氏",
-    "lordReading": "しまづし",
-    "description": "薩摩国を治めた大名家",
-    "options": ["島津氏", "大友氏", "龍造寺氏", "伊東氏"]
+    "lords": [
+      { "name": "島津義弘", "reading": "しまづよしひろ", "description": "鬼島津と恐れられた九州最強の武将" },
+      { "name": "島津義久", "reading": "しまづよしひさ", "description": "九州統一を目前にした島津氏の当主" }
+    ]
   },
   {
     "id": 47,
     "prefecture": "沖縄県",
-    "lord": "尚氏",
-    "lordReading": "しょうし",
-    "description": "琉球王国の王家",
-    "options": ["尚氏", "島津氏", "大友氏", "毛利氏"]
+    "lords": [
+      { "name": "尚寧王", "reading": "しょうねいおう", "description": "琉球王国最後の国王、島津に敗れる" }
+    ]
   }
 ]
-
