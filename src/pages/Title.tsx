@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useSoundManager } from '../components/SoundManager';
 import { useNavigate } from 'react-router-dom';
 import SoundButton from '../components/SoundButton';
@@ -7,13 +7,34 @@ import { getPath } from '../util/util';
 
 const Title = () => {
   const navigate = useNavigate();
+  const [isStarted, setIsStarted] = useState(false);
 
-  const { playBgm } = useSoundManager();
+  const { playBgm, tryUnlock } = useSoundManager();
 
-  useEffect(() => {
+  // タップで開始（音声アンロック）
+  const handleStart = useCallback(async () => {
+    if (isStarted) return;
+
+    // 音声をアンロック
+    await tryUnlock();
+
     // BGM再生
     playBgm('/sound/bgm1.mp3', 0.1);
-  }, [playBgm]);
+
+    setIsStarted(true);
+  }, [isStarted, tryUnlock, playBgm]);
+
+  // キー入力でも開始できるように
+  useEffect(() => {
+    const handleKeyDown = () => {
+      handleStart();
+    };
+
+    if (!isStarted) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isStarted, handleStart]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,6 +55,21 @@ const Title = () => {
     };
     fetchData();
   }, []);
+
+  // 開始前はタップ画面を表示
+  if (!isStarted) {
+    return (
+      <div className="title-screen title-screen--start" onClick={handleStart}>
+        <h1 className="title-screen__heading">たいせい忍者</h1>
+        <img
+          src={getPath('/image/nin.png')}
+          alt="ninja"
+          className="title-screen__ninja title-screen__ninja--bounce"
+        />
+        <p className="title-screen__tap-text">画面をタップしてね</p>
+      </div>
+    );
+  }
 
   return (
     <div className="title-screen">

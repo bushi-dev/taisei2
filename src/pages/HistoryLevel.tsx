@@ -1,30 +1,51 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSoundManager } from '../components/SoundManager';
 import { useNavigate } from 'react-router-dom';
 import SoundButton from '../components/SoundButton';
-import JapanMap from '../components/JapanMap';
+import JapanMap, { prefectures } from '../components/JapanMap';
 import './HistoryLevel.css';
 import { getPath } from '../util/util';
+
+interface SengokuData {
+  id: number;
+  prefecture: string;
+  lord: string;
+  lordReading: string;
+  description: string;
+  options: string[];
+}
+
+interface SelectedInfo {
+  id: number;
+  name: string;
+  lordData?: SengokuData;
+}
 
 const HistoryLevel = () => {
   const navigate = useNavigate();
   const { playBgm } = useSoundManager();
+  const [selectedPrefecture, setSelectedPrefecture] = useState<SelectedInfo | null>(null);
+  const [sengokuData, setSengokuData] = useState<SengokuData[]>([]);
 
   useEffect(() => {
     // BGM再生
     playBgm('/sound/bgm1.mp3', 0.1);
     localStorage.setItem('historyMode', 'true');
+
+    // 戦国データを読み込み
+    fetch('/json/sengoku.json')
+      .then((res) => res.json())
+      .then((data) => setSengokuData(data))
+      .catch((err) => console.error('Failed to load sengoku data:', err));
   }, [playBgm]);
 
   const handlePrefectureClick = (prefectureId: number, prefectureName: string) => {
-    localStorage.setItem('selectedPrefecture', prefectureId.toString());
-    localStorage.setItem('selectedPrefectureName', prefectureName);
-    localStorage.setItem('gameDifficulty', 'easy');
-    localStorage.setItem('gameType', 'history');
-    navigate('/battle');
+    const lordData = sengokuData.find((d) => d.id === prefectureId);
+    setSelectedPrefecture({ id: prefectureId, name: prefectureName, lordData });
   };
 
-  const handleMixClick = () => {
+  const handleStartGame = () => {
+    // 全国ミックスモードで開始
     localStorage.setItem('selectedPrefecture', 'mix');
     localStorage.setItem('selectedPrefectureName', '全国ミックス');
     localStorage.setItem('gameDifficulty', 'easy');
@@ -32,22 +53,63 @@ const HistoryLevel = () => {
     navigate('/battle');
   };
 
+  const handleCancelSelection = () => {
+    setSelectedPrefecture(null);
+  };
+
+  // 選択された都道府県の番号を取得（地図のハイライト用）
+  const getPrefectureNumber = () => {
+    if (!selectedPrefecture) return null;
+    const pref = prefectures.find((p) => p.id === selectedPrefecture.id);
+    return pref ? pref.id : null;
+  };
+
   return (
     <div className="history-container">
       <h1 className="history-heading">🏯 戦国時代 都道府県クイズ</h1>
-      <p className="history-description">都道府県を選んで、戦国時代に誰が治めていたか当てよう！</p>
 
-      <SoundButton onClick={handleMixClick} className="history-mix-button">
-        🎲 全国ミックス
-      </SoundButton>
+      <JapanMap
+        onPrefectureClick={handlePrefectureClick}
+        selectedPrefecture={getPrefectureNumber()}
+      />
 
-      <JapanMap onPrefectureClick={handlePrefectureClick} />
+      {/* 大名情報パネル */}
+      {selectedPrefecture && selectedPrefecture.lordData && (
+        <div className="lord-info-panel">
+          <div className="lord-header">
+            <span className="lord-prefecture">{selectedPrefecture.name}</span>
+            <SoundButton onClick={handleCancelSelection} className="lord-close-btn">
+              ✕
+            </SoundButton>
+          </div>
+          <div className="lord-content">
+            <div className="lord-name-section">
+              <span className="lord-label">大名</span>
+              <span className="lord-name">{selectedPrefecture.lordData.lord}</span>
+              <span className="lord-reading">（{selectedPrefecture.lordData.lordReading}）</span>
+            </div>
+            <p className="lord-description">{selectedPrefecture.lordData.description}</p>
+          </div>
+          <SoundButton onClick={handleStartGame} className="lord-start-btn">
+            🎲 クイズに挑戦！
+          </SoundButton>
+        </div>
+      )}
+
+      {/* 選択されていない場合のボタン */}
+      {!selectedPrefecture && (
+        <div className="history-buttons">
+          <SoundButton onClick={handleStartGame} className="history-mix-button">
+            🎲 全国ミックスで開始
+          </SoundButton>
+        </div>
+      )}
 
       <SoundButton onClick={() => navigate('/')} className="back-button-level">
         <img
           src={getPath('/image/back.png')}
           alt="戻る"
-          style={{ width: '55px', height: '55px' }}
+          style={{ width: '45px', height: '45px' }}
         />
       </SoundButton>
     </div>

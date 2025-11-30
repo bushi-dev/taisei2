@@ -13,6 +13,7 @@
     "deploy": "npm run build && npx wrangler pages deploy dist --project-name taisei"
   },
   "dependencies": {
+    "@svg-maps/japan": "^2.0.0",
     "@types/react-router-dom": "^5.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",

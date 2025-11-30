@@ -1,176 +1,163 @@
-.japan-map-container {
+.japan-map-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: clamp(1rem, 3vw, 2rem);
+  justify-content: center;
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
+  flex: 1;
+  position: relative;
 }
 
 .japan-map-svg {
   width: 100%;
-  max-width: 500px;
+  max-width: min(95vw, 85vh);
   height: auto;
-  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(4px 4px 8px rgba(0, 0, 0, 0.4));
 }
 
-.prefecture-group {
+/* 都道府県パスの基本スタイル */
+.prefecture-path {
+  fill: #5c8a4d;
+  stroke: #2d4a25;
+  stroke-width: 0.8;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.2s ease;
 }
 
-.prefecture-group:hover {
-  transform: scale(1.05);
-}
-
-.prefecture-rect {
-  fill: #4a7c59;
-  stroke: #2d4a35;
-  stroke-width: 0.3;
-  transition:
-    fill 0.2s,
-    transform 0.2s;
-}
-
-.prefecture-rect:hover {
-  fill: #6ba373;
+.prefecture-path:hover {
   filter: brightness(1.2);
+  stroke-width: 1.5;
 }
 
-.prefecture-rect.selected {
-  fill: #ff6b6b;
-  stroke: #ff4757;
-  stroke-width: 0.5;
-  animation: pulse-selected 1s infinite;
+/* 選択時のスタイル */
+.prefecture-path.selected {
+  fill: #e05555 !important;
+  stroke: #b03030;
+  stroke-width: 2;
+  animation: pulse-selected 1.2s infinite ease-in-out;
 }
 
 @keyframes pulse-selected {
   0%,
   100% {
-    filter: brightness(1);
+    filter: brightness(1) drop-shadow(0 0 4px rgba(224, 85, 85, 0.6));
   }
   50% {
-    filter: brightness(1.3);
+    filter: brightness(1.25) drop-shadow(0 0 8px rgba(224, 85, 85, 0.9));
   }
 }
 
-.prefecture-text {
-  font-size: 2px;
-  fill: white;
-  text-anchor: middle;
-  dominant-baseline: middle;
+/* 地方ごとの色分け */
+.hokkaido-region {
+  fill: #5dade2;
+}
+
+.tohoku-region {
+  fill: #58d68d;
+}
+
+.kanto-region {
+  fill: #f9e79f;
+}
+
+.chubu-region {
+  fill: #abebc6;
+}
+
+.kinki-region {
+  fill: #f5b7b1;
+}
+
+.chugoku-region {
+  fill: #d7bde2;
+}
+
+.shikoku-region {
+  fill: #a9dfbf;
+}
+
+.kyushu-region {
+  fill: #f8c471;
+}
+
+/* ホバー時のスタイル（地方色を維持しつつ明るく） */
+.hokkaido-region:hover {
+  fill: #85c1e9;
+}
+
+.tohoku-region:hover {
+  fill: #82e0aa;
+}
+
+.kanto-region:hover {
+  fill: #fcf3cf;
+}
+
+.chubu-region:hover {
+  fill: #d5f5e3;
+}
+
+.kinki-region:hover {
+  fill: #fadbd8;
+}
+
+.chugoku-region:hover {
+  fill: #e8daef;
+}
+
+.shikoku-region:hover {
+  fill: #d4efdf;
+}
+
+.kyushu-region:hover {
+  fill: #fad7a0;
+}
+
+/* ツールチップ */
+.prefecture-tooltip {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   pointer-events: none;
-  font-weight: bold;
-  text-shadow: 0.3px 0.3px 0.5px rgba(0, 0, 0, 0.5);
-}
-
-/* 凡例（都道府県リスト） */
-.prefecture-legend {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(clamp(70px, 15vw, 100px), 1fr));
-  gap: clamp(0.3rem, 1vw, 0.5rem);
-  width: 100%;
-  max-height: 40vh;
-  overflow-y: auto;
-  padding: clamp(0.5rem, 2vw, 1rem);
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
-}
-
-.legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: clamp(0.3rem, 1vw, 0.5rem) clamp(0.5rem, 1.5vw, 0.8rem);
-  background: rgba(74, 124, 89, 0.8);
-  border: 2px solid transparent;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: clamp(0.6rem, 2vw, 0.9rem);
-  color: white;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.legend-item:hover {
-  background: rgba(107, 163, 115, 0.9);
-  transform: scale(1.05);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.legend-item.selected {
-  background: #ff6b6b;
-  border-color: #ff4757;
-  animation: pulse-legend 1s infinite;
-}
-
-@keyframes pulse-legend {
-  0%,
-  100% {
-    box-shadow: 0 0 0 0 rgba(255, 107, 107, 0.7);
-  }
-  50% {
-    box-shadow: 0 0 10px 3px rgba(255, 107, 107, 0.5);
-  }
-}
-
-.legend-number {
-  font-weight: bold;
-  min-width: 1.5em;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 3px;
-  padding: 0 0.2em;
-}
-
-.legend-name {
+  animation: fadeIn 0.2s ease;
+  z-index: 100;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-/* スクロールバーのスタイル */
-.prefecture-legend::-webkit-scrollbar {
-  width: 8px;
-}
-
-.prefecture-legend::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
-}
-
-.prefecture-legend::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
-}
-
-.prefecture-legend::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
 }
 
 /* タブレット向け */
 @media (min-width: 768px) {
-  .japan-map-container {
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
   .japan-map-svg {
-    flex: 1;
-    max-width: 400px;
+    max-width: min(80vw, 75vh);
   }
 
-  .prefecture-legend {
-    flex: 1;
-    max-width: 400px;
-    max-height: 60vh;
+  .prefecture-tooltip {
+    font-size: 1.1rem;
+    padding: 0.6rem 1.2rem;
   }
 }
 
 /* デスクトップ向け */
 @media (min-width: 1024px) {
-  .prefecture-legend {
-    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  .japan-map-svg {
+    max-width: min(60vw, 70vh);
   }
 }

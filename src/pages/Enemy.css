@@ -22,15 +22,15 @@
 }
 
 .battle-boss {
-  width: clamp(120px, 30vw, 200px);
+  width: clamp(150px, 40vw, 300px);
   margin: 0 auto;
   display: block;
-  max-height: clamp(150px, 30vh, 250px);
+  max-height: clamp(180px, 35vh, 350px);
   animation: moveBoss 7s linear infinite;
 }
 
 .battle-enemy {
-  width: clamp(120px, 30vw, 200px);
+  width: clamp(150px, 40vw, 300px);
   display: block;
   margin: 0 auto;
   animation: moveEnemy 4s linear infinite;
@@ -142,18 +142,23 @@
 }
 
 .battle-button {
-  padding: clamp(1rem, 3vw, 1.5rem);
   font-size: clamp(1.5rem, 5vw, 2.5rem);
   background-color: #2196f3;
   color: white;
   border: none;
   border-radius: 50%;
-  width: clamp(60px, 15vw, 90px);
-  height: clamp(60px, 15vw, 90px);
+  width: clamp(70px, 18vw, 110px);
+  height: clamp(70px, 18vw, 110px);
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.2);
   transition: all 0.2s ease;
+  /* 中央揃え */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
 }
 
 .battle-button:hover {

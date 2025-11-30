@@ -131,3 +131,43 @@
     padding: 4rem 2rem;
   }
 }
+
+/* タップで開始画面 */
+.title-screen--start {
+  cursor: pointer;
+  user-select: none;
+}
+
+.title-screen__ninja--bounce {
+  animation: bounce 1s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.title-screen__tap-text {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  animation: pulse 1.5s ease-in-out infinite;
+  margin-top: 2rem;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
