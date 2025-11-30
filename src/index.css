@@ -13,7 +13,7 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* レスポンシブなベースフォントサイズ */
-  font-size: clamp(12px, 2vw, 16px);
+  font-size: clamp(16px, 2.5vw, 18px);
 }
 
 a {

@@ -18,7 +18,7 @@
   justify-content: space-between;
   padding-left: clamp(10px, 3vw, 20px);
   padding-right: clamp(20px, 5vw, 40px);
-  font-size: clamp(11px, 2.5vw, 16px);
+  font-size: clamp(14px, 3vw, 18px);
 }
 
 .battle-boss {
