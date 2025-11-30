@@ -11,6 +11,9 @@ const EFFECT_FILES = [
   ...Array.from({ length: 5 }, (_, i) => `/sound/ken${i + 1}.mp3`),
 ];
 
+// アイドル時間（ミリ秒）
+const IDLE_TIMEOUT = 10000;
+
 class SoundManager {
   private static instance: SoundManager;
   private bgmAudio: HTMLAudioElement | null = null;
@@ -18,6 +21,8 @@ class SoundManager {
   private isUnlocked = false;
   private pendingBgm: { path: string; volume: number } | null = null;
   private audioContext: AudioContext | null = null;
+  private idleTimer: ReturnType<typeof setTimeout> | null = null;
+  private isPausedByIdle = false;
 
   private constructor() {
     // 効果音を事前読み込み
@@ -30,6 +35,79 @@ class SoundManager {
 
     // ユーザーインタラクションを検知して音声をアンロック
     this.setupUnlockListener();
+
+    // アイドル検知をセットアップ
+    this.setupIdleDetection();
+  }
+
+  private setupIdleDetection() {
+    let lastActivityTime = 0;
+    const THROTTLE_MS = 1000; // 1秒に1回だけ処理
+
+    const resetIdleTimer = () => {
+      // スロットリング：頻繁なイベント（mousemove等）の負荷を軽減
+      const now = Date.now();
+      if (now - lastActivityTime < THROTTLE_MS) {
+        return;
+      }
+      lastActivityTime = now;
+
+      // アイドルで停止中の場合、BGMを再開
+      if (this.isPausedByIdle && this.bgmAudio) {
+        console.log('Activity detected, resuming BGM...');
+        this.bgmAudio.play().catch((err) => {
+          console.warn('Failed to resume BGM:', err);
+        });
+        this.isPausedByIdle = false;
+      }
+
+      // タイマーをリセット
+      if (this.idleTimer) {
+        clearTimeout(this.idleTimer);
+      }
+
+      // 新しいタイマーを設定
+      this.idleTimer = setTimeout(() => {
+        this.pauseBgmForIdle();
+      }, IDLE_TIMEOUT);
+    };
+
+    // クリック系イベントは即座に処理（スロットリングをスキップ）
+    const resetIdleTimerImmediate = () => {
+      lastActivityTime = 0; // スロットリングをリセット
+      resetIdleTimer();
+    };
+
+    // 頻繁に発火するイベント（スロットリング適用）
+    const throttledEvents = ['mousemove', 'scroll'];
+    // クリック系イベント（即座に処理）
+    const immediateEvents = [
+      'click',
+      'touchstart',
+      'touchend',
+      'keydown',
+      'mousedown',
+      'pointerdown',
+    ];
+
+    throttledEvents.forEach((event) => {
+      document.addEventListener(event, resetIdleTimer, { passive: true });
+    });
+
+    immediateEvents.forEach((event) => {
+      document.addEventListener(event, resetIdleTimerImmediate, { passive: true });
+    });
+
+    // 初回タイマー開始
+    resetIdleTimerImmediate();
+  }
+
+  private pauseBgmForIdle() {
+    if (this.bgmAudio && !this.bgmAudio.paused) {
+      console.log('Idle detected, pausing BGM...');
+      this.bgmAudio.pause();
+      this.isPausedByIdle = true;
+    }
   }
 
   private setupUnlockListener() {

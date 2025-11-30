@@ -10,6 +10,7 @@ interface Lord {
   name: string;
   reading: string;
   description: string;
+  image?: string;
 }
 
 interface SengokuData {
@@ -90,11 +91,25 @@ const HistoryLevel = () => {
             <div className="lords-list">
               {selectedPrefecture.lordData.lords.map((lord, index) => (
                 <div key={index} className="lord-item">
-                  <div className="lord-name-row">
-                    <span className="lord-name">{lord.name}</span>
-                    <span className="lord-reading">（{lord.reading}）</span>
+                  <div className="lord-item-content">
+                    <div className="lord-image-container">
+                      <img
+                        src={getPath(lord.image || '/image/nin.png')}
+                        alt={lord.name}
+                        className="lord-image"
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = getPath('/image/nin.png');
+                        }}
+                      />
+                    </div>
+                    <div className="lord-info">
+                      <div className="lord-name-row">
+                        <span className="lord-name">{lord.name}</span>
+                        <span className="lord-reading">（{lord.reading}）</span>
+                      </div>
+                      <p className="lord-description">{lord.description}</p>
+                    </div>
                   </div>
-                  <p className="lord-description">{lord.description}</p>
                 </div>
               ))}
             </div>

@@ -3,354 +3,714 @@
     "id": 1,
     "prefecture": "北海道",
     "lords": [
-      { "name": "蠣崎季広", "reading": "かきざきすえひろ", "description": "松前藩の基礎を築いた蠣崎氏の当主" }
+      {
+        "name": "蠣崎季広",
+        "reading": "かきざきすえひろ",
+        "description": "北海道をおさめた一族のリーダー。のちの松前藩（まつまえはん）をつくったよ",
+        "image": "/image/busho/hokkaido.png"
+      }
     ]
   },
   {
     "id": 2,
     "prefecture": "青森県",
     "lords": [
-      { "name": "南部晴政", "reading": "なんぶはるまさ", "description": "南部氏の全盛期を築いた名将" },
-      { "name": "津軽為信", "reading": "つがるためのぶ", "description": "津軽藩の初代藩主、南部氏から独立" }
+      {
+        "name": "南部晴政",
+        "reading": "なんぶはるまさ",
+        "description": "南部氏（なんぶし）でいちばん強かった大名。東北をまもったよ",
+        "image": "/image/busho/aomori1.png"
+      },
+      {
+        "name": "津軽為信",
+        "reading": "つがるためのぶ",
+        "description": "南部氏から独立して津軽藩（つがるはん）をつくった勇かんな武将",
+        "image": "/image/busho/aomori2.png"
+      }
     ]
   },
   {
     "id": 3,
     "prefecture": "岩手県",
     "lords": [
-      { "name": "南部信直", "reading": "なんぶのぶなお", "description": "盛岡藩の初代藩主" }
+      {
+        "name": "南部信直",
+        "reading": "なんぶのぶなお",
+        "description": "盛岡（もりおか）の最初のお殿さま。がんばって家をまもったよ",
+        "image": "/image/busho/iwate.png"
+      }
     ]
   },
   {
     "id": 4,
     "prefecture": "宮城県",
     "lords": [
-      { "name": "伊達政宗", "reading": "だてまさむね", "description": "独眼竜の異名を持つ奥州の覇者" }
+      {
+        "name": "伊達政宗",
+        "reading": "だてまさむね",
+        "description": "「独眼竜（どくがんりゅう）」とよばれた片目のかっこいい武将。東北で一番有名！",
+        "image": "/image/busho/miyagi.png"
+      }
     ]
   },
   {
     "id": 5,
     "prefecture": "秋田県",
     "lords": [
-      { "name": "安東愛季", "reading": "あんどうちかすえ", "description": "出羽北部を支配した安東氏の名将" },
-      { "name": "佐竹義宣", "reading": "さたけよしのぶ", "description": "関ヶ原後に秋田へ転封された大名" }
+      {
+        "name": "安東愛季",
+        "reading": "あんどうちかすえ",
+        "description": "秋田の北のほうをおさめたつよい武将",
+        "image": "/image/busho/akita1.png"
+      },
+      {
+        "name": "佐竹義宣",
+        "reading": "さたけよしのぶ",
+        "description": "関ヶ原のあとに秋田にきた大名。秋田をゆたかにしたよ",
+        "image": "/image/busho/akita2.png"
+      }
     ]
   },
   {
     "id": 6,
     "prefecture": "山形県",
     "lords": [
-      { "name": "最上義光", "reading": "もがみよしあき", "description": "出羽の驍将、伊達政宗の伯父" }
+      {
+        "name": "最上義光",
+        "reading": "もがみよしあき",
+        "description": "山形をおさめたつよい武将。伊達政宗のおじさんだよ",
+        "image": "/image/busho/yamagata.png"
+      }
     ]
   },
   {
     "id": 7,
     "prefecture": "福島県",
     "lords": [
-      { "name": "蘆名盛氏", "reading": "あしなもりうじ", "description": "会津の名門・蘆名氏の最盛期を築く" },
-      { "name": "蒲生氏郷", "reading": "がもううじさと", "description": "会津92万石の大名、文武両道の名将" }
+      {
+        "name": "蘆名盛氏",
+        "reading": "あしなもりうじ",
+        "description": "会津（あいづ）の名門一族をいちばん強くした武将",
+        "image": "/image/busho/fukushima1.png"
+      },
+      {
+        "name": "蒲生氏郷",
+        "reading": "がもううじさと",
+        "description": "とても大きな領地をもらった、頭がよくてつよい武将",
+        "image": "/image/busho/fukushima2.png"
+      }
     ]
   },
   {
     "id": 8,
     "prefecture": "茨城県",
     "lords": [
-      { "name": "佐竹義重", "reading": "さたけよししげ", "description": "鬼義重と呼ばれた常陸の猛将" }
+      {
+        "name": "佐竹義重",
+        "reading": "さたけよししげ",
+        "description": "「鬼義重（おによししげ）」とよばれたこわーい武将",
+        "image": "/image/busho/ibaraki.png"
+      }
     ]
   },
   {
     "id": 9,
     "prefecture": "栃木県",
     "lords": [
-      { "name": "宇都宮広綱", "reading": "うつのみやひろつな", "description": "下野国の有力大名・宇都宮氏の当主" }
+      {
+        "name": "宇都宮広綱",
+        "reading": "うつのみやひろつな",
+        "description": "栃木をおさめた宇都宮氏（うつのみやし）のリーダー",
+        "image": "/image/busho/tochigi.png"
+      }
     ]
   },
   {
     "id": 10,
     "prefecture": "群馬県",
     "lords": [
-      { "name": "真田昌幸", "reading": "さなだまさゆき", "description": "表裏比興の者と呼ばれた智将" },
-      { "name": "真田幸村", "reading": "さなだゆきむら", "description": "日本一の兵と称された真田昌幸の次男" }
+      {
+        "name": "真田昌幸",
+        "reading": "さなだまさゆき",
+        "description": "とても頭がよくて、大きな軍にも2回かった天才武将",
+        "image": "/image/busho/gunma1.png"
+      },
+      {
+        "name": "真田幸村",
+        "reading": "さなだゆきむら",
+        "description": "「日本一の兵（つわもの）」とよばれたスーパー武将！真田昌幸の息子",
+        "image": "/image/busho/gunma2.png"
+      }
     ]
   },
   {
     "id": 11,
     "prefecture": "埼玉県",
     "lords": [
-      { "name": "北条氏康", "reading": "ほうじょううじやす", "description": "後北条氏の3代目、関東の覇者" }
+      {
+        "name": "北条氏康",
+        "reading": "ほうじょううじやす",
+        "description": "関東（かんとう）をおさめた後北条氏（ごほうじょうし）の3代目。とてもつよかった！",
+        "image": "/image/busho/saitama.png"
+      }
     ]
   },
   {
     "id": 12,
     "prefecture": "千葉県",
     "lords": [
-      { "name": "里見義堯", "reading": "さとみよしたか", "description": "安房国を統一した里見氏の中興の祖" }
+      {
+        "name": "里見義堯",
+        "reading": "さとみよしたか",
+        "description": "千葉の南をまとめた里見氏（さとみし）のリーダー",
+        "image": "/image/busho/chiba.png"
+      }
     ]
   },
   {
     "id": 13,
     "prefecture": "東京都",
     "lords": [
-      { "name": "太田道灌", "reading": "おおたどうかん", "description": "江戸城を築城した名将" }
+      {
+        "name": "太田道灌",
+        "reading": "おおたどうかん",
+        "description": "江戸城（えどじょう）をつくった武将。東京のはじまりだよ！",
+        "image": "/image/busho/tokyo.png"
+      }
     ]
   },
   {
     "id": 14,
     "prefecture": "神奈川県",
     "lords": [
-      { "name": "北条早雲", "reading": "ほうじょうそううん", "description": "戦国大名の先駆け、後北条氏の祖" },
-      { "name": "北条氏政", "reading": "ほうじょううじまさ", "description": "後北条氏4代目、小田原城主" }
+      {
+        "name": "北条早雲",
+        "reading": "ほうじょうそううん",
+        "description": "戦国時代をはじめた武将。自分の力で大名になったパイオニア！",
+        "image": "/image/busho/kanagawa1.png"
+      },
+      {
+        "name": "北条氏政",
+        "reading": "ほうじょううじまさ",
+        "description": "小田原城（おだわらじょう）をおさめた後北条氏の4代目",
+        "image": "/image/busho/kanagawa2.png"
+      }
     ]
   },
   {
     "id": 15,
     "prefecture": "新潟県",
     "lords": [
-      { "name": "上杉謙信", "reading": "うえすぎけんしん", "description": "軍神と呼ばれた越後の龍" }
+      {
+        "name": "上杉謙信",
+        "reading": "うえすぎけんしん",
+        "description": "「軍神（ぐんしん）」とよばれた戦いの天才！義理がたくてかっこいい武将",
+        "image": "/image/busho/niigata.png"
+      }
     ]
   },
   {
     "id": 16,
     "prefecture": "富山県",
     "lords": [
-      { "name": "佐々成政", "reading": "さっさなりまさ", "description": "越中を治めた織田家の猛将" }
+      {
+        "name": "佐々成政",
+        "reading": "さっさなりまさ",
+        "description": "織田信長（おだのぶなが）の部下で、富山をおさめたつよい武将",
+        "image": "/image/busho/toyama.png"
+      }
     ]
   },
   {
     "id": 17,
     "prefecture": "石川県",
     "lords": [
-      { "name": "前田利家", "reading": "まえだとしいえ", "description": "加賀百万石の祖、槍の又左" }
+      {
+        "name": "前田利家",
+        "reading": "まえだとしいえ",
+        "description": "加賀百万石（かがひゃくまんごく）をつくった大金持ちの大名。やりの名人！",
+        "image": "/image/busho/ishikawa.png"
+      }
     ]
   },
   {
     "id": 18,
     "prefecture": "福井県",
     "lords": [
-      { "name": "朝倉義景", "reading": "あさくらよしかげ", "description": "一乗谷を繁栄させた朝倉氏最後の当主" },
-      { "name": "柴田勝家", "reading": "しばたかついえ", "description": "北ノ庄城主、鬼柴田の異名を持つ猛将" }
+      {
+        "name": "朝倉義景",
+        "reading": "あさくらよしかげ",
+        "description": "一乗谷（いちじょうだに）というキレイな町をつくった大名",
+        "image": "/image/busho/fukui1.png"
+      },
+      {
+        "name": "柴田勝家",
+        "reading": "しばたかついえ",
+        "description": "「鬼柴田（おにしばた）」とよばれたとてもつよい武将",
+        "image": "/image/busho/fukui2.png"
+      }
     ]
   },
   {
     "id": 19,
     "prefecture": "山梨県",
     "lords": [
-      { "name": "武田信玄", "reading": "たけだしんげん", "description": "甲斐の虎、風林火山の旗印で有名" }
+      {
+        "name": "武田信玄",
+        "reading": "たけだしんげん",
+        "description": "「甲斐の虎（かいのとら）」とよばれた天才武将。「風林火山（ふうりんかざん）」の旗がかっこいい！",
+        "image": "/image/busho/yamanashi.png"
+      }
     ]
   },
   {
     "id": 20,
     "prefecture": "長野県",
     "lords": [
-      { "name": "武田勝頼", "reading": "たけだかつより", "description": "武田信玄の後継者、長篠で敗北" },
-      { "name": "真田信之", "reading": "さなだのぶゆき", "description": "真田家を存続させた真田昌幸の長男" }
+      {
+        "name": "武田勝頼",
+        "reading": "たけだかつより",
+        "description": "武田信玄の息子。お父さんのあとをついでがんばった",
+        "image": "/image/busho/nagano1.png"
+      },
+      {
+        "name": "真田信之",
+        "reading": "さなだのぶゆき",
+        "description": "真田家をまもった真田昌幸の長男。とても長生きした",
+        "image": "/image/busho/nagano2.png"
+      }
     ]
   },
   {
     "id": 21,
     "prefecture": "岐阜県",
     "lords": [
-      { "name": "斎藤道三", "reading": "さいとうどうさん", "description": "美濃のマムシ、下剋上の代表格" },
-      { "name": "明智光秀", "reading": "あけちみつひで", "description": "本能寺の変で信長を討った智将" }
+      {
+        "name": "斎藤道三",
+        "reading": "さいとうどうさん",
+        "description": "「美濃のマムシ」とよばれたこわい武将。頭がとてもよかった",
+        "image": "/image/busho/gifu1.png"
+      },
+      {
+        "name": "明智光秀",
+        "reading": "あけちみつひで",
+        "description": "本能寺（ほんのうじ）で織田信長をたおした武将。頭がよかった",
+        "image": "/image/busho/gifu2.png"
+      }
     ]
   },
   {
     "id": 22,
     "prefecture": "静岡県",
     "lords": [
-      { "name": "今川義元", "reading": "いまがわよしもと", "description": "東海一の弓取り、桶狭間で敗死" },
-      { "name": "徳川家康", "reading": "とくがわいえやす", "description": "戦国を生き抜き天下を取った狸親父" }
+      {
+        "name": "今川義元",
+        "reading": "いまがわよしもと",
+        "description": "東海地方でいちばんつよかった大名。けまりが上手だった",
+        "image": "/image/busho/shizuoka1.png"
+      },
+      {
+        "name": "徳川家康",
+        "reading": "とくがわいえやす",
+        "description": "江戸幕府（えどばくふ）をひらいた天下人！がまん強くてすごい",
+        "image": "/image/busho/shizuoka2.png"
+      }
     ]
   },
   {
     "id": 23,
     "prefecture": "愛知県",
     "lords": [
-      { "name": "織田信長", "reading": "おだのぶなが", "description": "天下布武を掲げた革命児" },
-      { "name": "豊臣秀吉", "reading": "とよとみひでよし", "description": "農民から天下人に上り詰めた太閤" }
+      {
+        "name": "織田信長",
+        "reading": "おだのぶなが",
+        "description": "戦国時代をかえた天才！新しいことが大好きだったよ",
+        "image": "/image/busho/aichi1.png"
+      },
+      {
+        "name": "豊臣秀吉",
+        "reading": "とよとみひでよし",
+        "description": "農民から天下人になったすごい人！頭がとてもよかった",
+        "image": "/image/busho/aichi2.png"
+      }
     ]
   },
   {
     "id": 24,
     "prefecture": "三重県",
     "lords": [
-      { "name": "北畠具教", "reading": "きたばたけとものり", "description": "伊勢国司・北畠氏の当主、剣豪大名" },
-      { "name": "九鬼嘉隆", "reading": "くきよしたか", "description": "鉄甲船を率いた海賊大名" }
+      {
+        "name": "北畠具教",
+        "reading": "きたばたけとものり",
+        "description": "剣術（けんじゅつ）がとても強かった大名",
+        "image": "/image/busho/mie1.png"
+      },
+      {
+        "name": "九鬼嘉隆",
+        "reading": "くきよしたか",
+        "description": "鉄でできた船をつくった海の武将。海賊みたいでかっこいい！",
+        "image": "/image/busho/mie2.png"
+      }
     ]
   },
   {
     "id": 25,
     "prefecture": "滋賀県",
     "lords": [
-      { "name": "浅井長政", "reading": "あざいながまさ", "description": "信長の妹・お市の夫、姉川で敗北" },
-      { "name": "石田三成", "reading": "いしだみつなり", "description": "関ヶ原で西軍を率いた秀吉の忠臣" }
+      {
+        "name": "浅井長政",
+        "reading": "あざいながまさ",
+        "description": "織田信長のいもうとと結婚した若い武将",
+        "image": "/image/busho/shiga1.png"
+      },
+      {
+        "name": "石田三成",
+        "reading": "いしだみつなり",
+        "description": "豊臣秀吉のいちばんの部下。関ヶ原（せきがはら）で戦った",
+        "image": "/image/busho/shiga2.png"
+      }
     ]
   },
   {
     "id": 26,
     "prefecture": "京都府",
     "lords": [
-      { "name": "足利義昭", "reading": "あしかがよしあき", "description": "室町幕府最後の将軍" },
-      { "name": "細川藤孝", "reading": "ほそかわふじたか", "description": "文武両道の名将、細川幽斎とも" }
+      {
+        "name": "足利義昭",
+        "reading": "あしかがよしあき",
+        "description": "室町幕府（むろまちばくふ）さいごの将軍",
+        "image": "/image/busho/kyoto1.png"
+      },
+      {
+        "name": "細川藤孝",
+        "reading": "ほそかわふじたか",
+        "description": "戦いも勉強もできるスーパー武将。和歌（わか）が上手",
+        "image": "/image/busho/kyoto2.png"
+      }
     ]
   },
   {
     "id": 27,
     "prefecture": "大阪府",
     "lords": [
-      { "name": "三好長慶", "reading": "みよしながよし", "description": "畿内を制した最初の天下人" },
-      { "name": "豊臣秀頼", "reading": "とよとみひでより", "description": "大坂城で徳川と戦った秀吉の息子" }
+      {
+        "name": "三好長慶",
+        "reading": "みよしながよし",
+        "description": "信長より先に天下をとった武将。とてもつよかった",
+        "image": "/image/busho/osaka1.png"
+      },
+      {
+        "name": "豊臣秀頼",
+        "reading": "とよとみひでより",
+        "description": "豊臣秀吉の息子。大坂城（おおさかじょう）でさいごまで戦った",
+        "image": "/image/busho/osaka2.png"
+      }
     ]
   },
   {
     "id": 28,
     "prefecture": "兵庫県",
     "lords": [
-      { "name": "黒田官兵衛", "reading": "くろだかんべえ", "description": "秀吉の天下取りを支えた名軍師" },
-      { "name": "赤松政秀", "reading": "あかまつまさひで", "description": "播磨の名門・赤松氏の当主" }
+      {
+        "name": "黒田官兵衛",
+        "reading": "くろだかんべえ",
+        "description": "天才軍師（ぐんし）！豊臣秀吉をたすけて天下とりをサポート",
+        "image": "/image/busho/hyogo1.png"
+      },
+      {
+        "name": "赤松政秀",
+        "reading": "あかまつまさひで",
+        "description": "兵庫をおさめた名門一族のリーダー",
+        "image": "/image/busho/hyogo2.png"
+      }
     ]
   },
   {
     "id": 29,
     "prefecture": "奈良県",
     "lords": [
-      { "name": "筒井順慶", "reading": "つついじゅんけい", "description": "洞ヶ峠で日和見した大和の大名" },
-      { "name": "松永久秀", "reading": "まつながひさひで", "description": "大仏殿を焼いた梟雄" }
+      {
+        "name": "筒井順慶",
+        "reading": "つついじゅんけい",
+        "description": "奈良をおさめた大名。おぼうさんでもあった",
+        "image": "/image/busho/nara1.png"
+      },
+      {
+        "name": "松永久秀",
+        "reading": "まつながひさひで",
+        "description": "とてもこわい武将だけど茶道（さどう）が大好きだった",
+        "image": "/image/busho/nara2.png"
+      }
     ]
   },
   {
     "id": 30,
     "prefecture": "和歌山県",
     "lords": [
-      { "name": "雑賀孫一", "reading": "さいかまごいち", "description": "鉄砲傭兵集団・雑賀衆の頭領" }
+      {
+        "name": "雑賀孫一",
+        "reading": "さいかまごいち",
+        "description": "鉄砲（てっぽう）がとても上手な戦士グループのリーダー",
+        "image": "/image/busho/wakayama.png"
+      }
     ]
   },
   {
     "id": 31,
     "prefecture": "鳥取県",
     "lords": [
-      { "name": "山名豊国", "reading": "やまなとよくに", "description": "因幡の守護大名・山名氏の当主" }
+      {
+        "name": "山名豊国",
+        "reading": "やまなとよくに",
+        "description": "鳥取をおさめた山名氏（やまなし）のリーダー",
+        "image": "/image/busho/tottori.png"
+      }
     ]
   },
   {
     "id": 32,
     "prefecture": "島根県",
     "lords": [
-      { "name": "尼子経久", "reading": "あまごつねひさ", "description": "謀聖と呼ばれた尼子氏の全盛期を築く" },
-      { "name": "山中鹿介", "reading": "やまなかしかのすけ", "description": "願わくば我に七難八苦を与えたまえ" }
+      {
+        "name": "尼子経久",
+        "reading": "あまごつねひさ",
+        "description": "「謀聖（ぼうせい）」とよばれた頭のいい武将",
+        "image": "/image/busho/shimane1.png"
+      },
+      {
+        "name": "山中鹿介",
+        "reading": "やまなかしかのすけ",
+        "description": "「苦しいことをください」と月にお願いしたがんばりやの武将",
+        "image": "/image/busho/shimane2.png"
+      }
     ]
   },
   {
     "id": 33,
     "prefecture": "岡山県",
     "lords": [
-      { "name": "宇喜多直家", "reading": "うきたなおいえ", "description": "謀略で成り上がった戦国の梟雄" },
-      { "name": "宇喜多秀家", "reading": "うきたひでいえ", "description": "五大老の一人、関ヶ原で西軍" }
+      {
+        "name": "宇喜多直家",
+        "reading": "うきたなおいえ",
+        "description": "頭をつかって大名になった武将",
+        "image": "/image/busho/okayama1.png"
+      },
+      {
+        "name": "宇喜多秀家",
+        "reading": "うきたひでいえ",
+        "description": "とても位が高かった若い大名",
+        "image": "/image/busho/okayama2.png"
+      }
     ]
   },
   {
     "id": 34,
     "prefecture": "広島県",
     "lords": [
-      { "name": "毛利元就", "reading": "もうりもとなり", "description": "三本の矢の逸話で有名な謀神" }
+      {
+        "name": "毛利元就",
+        "reading": "もうりもとなり",
+        "description": "「三本の矢（さんぼんのや）」のお話で有名！中国地方をまとめた天才",
+        "image": "/image/busho/hiroshima.png"
+      }
     ]
   },
   {
     "id": 35,
     "prefecture": "山口県",
     "lords": [
-      { "name": "大内義隆", "reading": "おおうちよしたか", "description": "西国一の文化人大名" },
-      { "name": "毛利輝元", "reading": "もうりてるもと", "description": "毛利元就の孫、五大老の一人" }
+      {
+        "name": "大内義隆",
+        "reading": "おおうちよしたか",
+        "description": "文化が大好きで、おしゃれな町をつくった大名",
+        "image": "/image/busho/yamaguchi1.png"
+      },
+      {
+        "name": "毛利輝元",
+        "reading": "もうりてるもと",
+        "description": "毛利元就のお孫さん。広島城をつくった",
+        "image": "/image/busho/yamaguchi2.png"
+      }
     ]
   },
   {
     "id": 36,
     "prefecture": "徳島県",
     "lords": [
-      { "name": "三好義賢", "reading": "みよしよしかた", "description": "阿波を治めた三好氏の実力者" },
-      { "name": "蜂須賀家政", "reading": "はちすかいえまさ", "description": "阿波藩の初代藩主" }
+      {
+        "name": "三好義賢",
+        "reading": "みよしよしかた",
+        "description": "徳島をおさめた三好氏（みよしし）のつよい武将",
+        "image": "/image/busho/tokushima1.png"
+      },
+      {
+        "name": "蜂須賀家政",
+        "reading": "はちすかいえまさ",
+        "description": "徳島の最初のお殿さま",
+        "image": "/image/busho/tokushima2.png"
+      }
     ]
   },
   {
     "id": 37,
     "prefecture": "香川県",
     "lords": [
-      { "name": "十河一存", "reading": "そごうかずまさ", "description": "鬼十河と呼ばれた三好氏の猛将" }
+      {
+        "name": "十河一存",
+        "reading": "そごうかずまさ",
+        "description": "「鬼十河（おにそごう）」とよばれたとてもつよい武将",
+        "image": "/image/busho/kagawa.png"
+      }
     ]
   },
   {
     "id": 38,
     "prefecture": "愛媛県",
     "lords": [
-      { "name": "河野通直", "reading": "こうのみちなお", "description": "伊予国を治めた河野氏最後の当主" },
-      { "name": "村上武吉", "reading": "むらかみたけよし", "description": "瀬戸内海を支配した村上水軍の頭領" }
+      {
+        "name": "河野通直",
+        "reading": "こうのみちなお",
+        "description": "愛媛をおさめた河野氏（こうのし）さいごのリーダー",
+        "image": "/image/busho/ehime1.png"
+      },
+      {
+        "name": "村上武吉",
+        "reading": "むらかみたけよし",
+        "description": "海を自由に動きまわった水軍（すいぐん）のリーダー。海賊みたい！",
+        "image": "/image/busho/ehime2.png"
+      }
     ]
   },
   {
     "id": 39,
     "prefecture": "高知県",
     "lords": [
-      { "name": "長宗我部元親", "reading": "ちょうそかべもとちか", "description": "四国統一を果たした土佐の出来人" }
+      {
+        "name": "長宗我部元親",
+        "reading": "ちょうそかべもとちか",
+        "description": "四国ぜんぶをまとめたすごい武将！「土佐の出来人」とよばれた",
+        "image": "/image/busho/kochi.png"
+      }
     ]
   },
   {
     "id": 40,
     "prefecture": "福岡県",
     "lords": [
-      { "name": "大友宗麟", "reading": "おおともそうりん", "description": "キリシタン大名、九州探題" },
-      { "name": "黒田長政", "reading": "くろだながまさ", "description": "福岡藩の初代藩主、官兵衛の子" }
+      {
+        "name": "大友宗麟",
+        "reading": "おおともそうりん",
+        "description": "キリスト教が好きだった大名。外国と貿易した",
+        "image": "/image/busho/fukuoka1.png"
+      },
+      {
+        "name": "黒田長政",
+        "reading": "くろだながまさ",
+        "description": "福岡の最初のお殿さま。黒田官兵衛の息子",
+        "image": "/image/busho/fukuoka2.png"
+      }
     ]
   },
   {
     "id": 41,
     "prefecture": "佐賀県",
     "lords": [
-      { "name": "龍造寺隆信", "reading": "りゅうぞうじたかのぶ", "description": "肥前の熊と呼ばれた猛将" },
-      { "name": "鍋島直茂", "reading": "なべしまなおしげ", "description": "龍造寺家を乗っ取った知将" }
+      {
+        "name": "龍造寺隆信",
+        "reading": "りゅうぞうじたかのぶ",
+        "description": "「肥前の熊（ひぜんのくま）」とよばれたつよい武将",
+        "image": "/image/busho/saga1.png"
+      },
+      {
+        "name": "鍋島直茂",
+        "reading": "なべしまなおしげ",
+        "description": "とても頭がよくて、佐賀をゆたかにした武将",
+        "image": "/image/busho/saga2.png"
+      }
     ]
   },
   {
     "id": 42,
     "prefecture": "長崎県",
     "lords": [
-      { "name": "大村純忠", "reading": "おおむらすみただ", "description": "日本初のキリシタン大名" },
-      { "name": "有馬晴信", "reading": "ありまはるのぶ", "description": "南蛮貿易で栄えたキリシタン大名" }
+      {
+        "name": "大村純忠",
+        "reading": "おおむらすみただ",
+        "description": "日本ではじめてキリスト教を信じた大名",
+        "image": "/image/busho/nagasaki1.png"
+      },
+      {
+        "name": "有馬晴信",
+        "reading": "ありまはるのぶ",
+        "description": "外国と貿易してお金持ちになった大名",
+        "image": "/image/busho/nagasaki2.png"
+      }
     ]
   },
   {
     "id": 43,
     "prefecture": "熊本県",
     "lords": [
-      { "name": "加藤清正", "reading": "かとうきよまさ", "description": "虎退治で有名な賤ヶ岳七本槍の一人" }
+      {
+        "name": "加藤清正",
+        "reading": "かとうきよまさ",
+        "description": "虎（とら）をたおしたつよい武将！熊本城をつくった",
+        "image": "/image/busho/kumamoto.png"
+      }
     ]
   },
   {
     "id": 44,
     "prefecture": "大分県",
     "lords": [
-      { "name": "大友義鎮", "reading": "おおともよししげ", "description": "大友宗麟の本名、豊後の王" }
+      {
+        "name": "大友義鎮",
+        "reading": "おおともよししげ",
+        "description": "九州をおさめた大友氏（おおともし）のリーダー。大友宗麟と同じ人だよ",
+        "image": "/image/busho/oita.png"
+      }
     ]
   },
   {
     "id": 45,
     "prefecture": "宮崎県",
     "lords": [
-      { "name": "伊東義祐", "reading": "いとうよしすけ", "description": "日向国を治めた伊東氏の全盛期を築く" }
+      {
+        "name": "伊東義祐",
+        "reading": "いとうよしすけ",
+        "description": "宮崎をおさめた伊東氏（いとうし）でいちばんつよかった武将",
+        "image": "/image/busho/miyazaki.png"
+      }
     ]
   },
   {
     "id": 46,
     "prefecture": "鹿児島県",
     "lords": [
-      { "name": "島津義弘", "reading": "しまづよしひろ", "description": "鬼島津と恐れられた九州最強の武将" },
-      { "name": "島津義久", "reading": "しまづよしひさ", "description": "九州統一を目前にした島津氏の当主" }
+      {
+        "name": "島津義弘",
+        "reading": "しまづよしひろ",
+        "description": "「鬼島津（おにしまづ）」とよばれた九州いちばんのつよい武将！",
+        "image": "/image/busho/kagoshima1.png"
+      },
+      {
+        "name": "島津義久",
+        "reading": "しまづよしひさ",
+        "description": "九州ぜんぶをまとめようとした島津氏のリーダー",
+        "image": "/image/busho/kagoshima2.png"
+      }
     ]
   },
   {
     "id": 47,
     "prefecture": "沖縄県",
     "lords": [
-      { "name": "尚寧王", "reading": "しょうねいおう", "description": "琉球王国最後の国王、島津に敗れる" }
+      {
+        "name": "尚寧王",
+        "reading": "しょうねいおう",
+        "description": "琉球王国（りゅうきゅうおうこく）の王さま。美しい文化をつくった",
+        "image": "/image/busho/okinawa.png"
+      }
     ]
   }
 ]

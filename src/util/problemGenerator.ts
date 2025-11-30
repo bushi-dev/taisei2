@@ -12,13 +12,17 @@ interface KukuData {
   answer: number;
 }
 
+interface Lord {
+  name: string;
+  reading: string;
+  description: string;
+  image?: string;
+}
+
 interface SengokuData {
   id: number;
   prefecture: string;
-  lord: string;
-  lordReading: string;
-  description: string;
-  options: string[];
+  lords: Lord[];
 }
 
 export const isHistoryMode = (): boolean => {
@@ -45,26 +49,37 @@ export const generateHistoryProblem = async (enemyCount = 1): Promise<Problem> =
     const sengokuData: SengokuData[] = await response.json();
 
     const selectedPrefecture = localStorage.getItem('selectedPrefecture');
-    let problemData: SengokuData;
+    let prefectureData: SengokuData;
 
     if (selectedPrefecture === 'mix') {
       // ミックスモード: ランダムな都道府県を選択
       const shuffled = sengokuData.slice().sort(() => Math.random() - 0.5);
-      problemData = shuffled[(enemyCount - 1) % shuffled.length];
+      prefectureData = shuffled[(enemyCount - 1) % shuffled.length];
     } else {
       // 特定の都道府県
       const prefId = parseInt(selectedPrefecture || '1');
-      problemData = sengokuData.find((d) => d.id === prefId) || sengokuData[0];
+      prefectureData = sengokuData.find((d) => d.id === prefId) || sengokuData[0];
     }
 
-    // 選択肢をシャッフル
-    const shuffledOptions = problemData.options.slice().sort(() => Math.random() - 0.5);
+    // この都道府県の大名からランダムに1人選ぶ
+    const lords = prefectureData.lords;
+    const selectedLord = lords[Math.floor(Math.random() * lords.length)];
+
+    // 選択肢を生成（正解 + 他の都道府県からランダムに2人）
+    const otherLords = sengokuData
+      .filter((d) => d.id !== prefectureData.id)
+      .flatMap((d) => d.lords)
+      .map((l) => l.name)
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2);
+
+    const options = [selectedLord.name, ...otherLords].sort(() => Math.random() - 0.5);
 
     return {
-      question: `${problemData.prefecture}を治めていたのは？`,
-      answer: problemData.lord,
-      options: shuffledOptions,
-      reading: problemData.lordReading,
+      question: `${prefectureData.prefecture}を治めていたのは？`,
+      answer: selectedLord.name,
+      options,
+      reading: selectedLord.reading,
     };
   } catch (error) {
     console.error('Error loading sengoku data:', error);

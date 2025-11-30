@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import "./Enemy.css";
-import { useBattleLogic } from "../components/battle/BattleLogic";
-import { BattleHeader } from "../components/battle/BattleHeader";
-import { Enemy as BattleEnemy } from "../components/battle/Enemies";
-import { BattleQuestion } from "../components/battle/BattleQuestion";
-import { useSoundManager } from "../components/SoundManager";
-import { isKukuMode } from "../util/problemGenerator";
-import { useBattleContext } from "../context/BattleContext";
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Enemy.css';
+import { useBattleLogic } from '../components/battle/BattleLogic';
+import { BattleHeader } from '../components/battle/BattleHeader';
+import { Enemy as BattleEnemy } from '../components/battle/Enemies';
+import { BattleQuestion } from '../components/battle/BattleQuestion';
+import { useSoundManager } from '../components/SoundManager';
+import { isKukuMode } from '../util/problemGenerator';
+import { useBattleContext } from '../context/BattleContext';
+import { getPath } from '../util/util';
 
 const EnemyPage = () => {
   const navigate = useNavigate();
@@ -21,17 +22,17 @@ const EnemyPage = () => {
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    if (result === "correct") {
+    if (result === 'correct') {
       setIsFading(true);
       setTimeout(() => setIsFading(false), 1000);
     }
   }, [result]);
-  const [backgroundImage, setBackgroundImage] = useState("/image/bg1.webp");
+  const [backgroundImage, setBackgroundImage] = useState('/image/bg1.webp');
   const { playBgm } = useSoundManager();
 
   useEffect(() => {
     // BGM再生
-    playBgm("/sound/bgm3.mp3", 0.1);
+    playBgm('/sound/bgm3.mp3', 0.1);
   }, []);
 
   // 初期背景設定
@@ -42,27 +43,24 @@ const EnemyPage = () => {
 
   useEffect(() => {
     //bossに遷移
-    const gameDifficulty = localStorage.getItem("gameDifficulty") || "easy";
+    const gameDifficulty = localStorage.getItem('gameDifficulty') || 'easy';
     const MOVE_BOSS_COUNT = isKukuMode(gameDifficulty) ? 5 : 2;
     if (enemyCount === MOVE_BOSS_COUNT) {
-      navigate("/boss");
+      navigate('/boss');
     }
 
     // enemyCountをログに表示
-    console.log("Enemy Page - Enemy Count:", enemyCount);
+    console.log('Enemy Page - Enemy Count:', enemyCount);
   }, [enemyCount, navigate]);
 
   return (
     <div
       className="battle-container"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      style={{ backgroundImage: `url(${getPath(backgroundImage)})` }}
     >
       <BattleHeader enemyCount={enemyCount} life={life} isBoss={false} />
 
-      <BattleEnemy
-        enemyImage={enemyImage[enemyCount - 1]}
-        className={isFading ? "fade" : ""}
-      />
+      <BattleEnemy enemyImage={enemyImage[enemyCount - 1]} className={isFading ? 'fade' : ''} />
 
       <BattleQuestion
         question={problem.question}
