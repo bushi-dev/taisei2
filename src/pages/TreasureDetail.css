@@ -1,16 +1,19 @@
 .treasure-detail-container {
-  background-image: url("/image/bg.webp");
+  background-image: url('/image/bg.webp');
   background-size: cover;
-  min-height: 80vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   color: white;
   text-shadow: 2px 2px 4px black;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
 }
 
 .treasure-detail-heading {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   position: absolute;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: clamp(1rem, 3vw, 2rem);
+  right: clamp(1rem, 3vw, 2rem);
   transform: none;
 }
 
@@ -18,41 +21,51 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  gap: clamp(1rem, 3vw, 2rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
 }
 
 .treasure-detail-image {
-  max-width: 100%;
+  max-width: min(100%, 600px);
   height: auto;
-  max-height: 70vh;
+  max-height: 60vh;
   object-fit: contain;
 }
 
 .treasure-description {
   flex: 1;
+  width: 100%;
+  max-width: 600px;
 }
 
 .treasure-description h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
 }
 
 .treasure-description p {
-  font-size: 1.2rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
 }
 
 .back-button {
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
+  padding: clamp(0.6rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   background-color: #2196f3;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   margin-left: auto;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .treasure-item:last-child {
-  padding-bottom: 80px;
+  padding-bottom: clamp(60px, 15vw, 100px);
 }

@@ -1,7 +1,7 @@
 export interface Problem {
   question: string;
-  answer: number;
-  options: number[];
+  answer: number | string;
+  options: (number | string)[];
   reading?: string;
 }
 
@@ -12,9 +12,23 @@ interface KukuData {
   answer: number;
 }
 
+interface SengokuData {
+  id: number;
+  prefecture: string;
+  lord: string;
+  lordReading: string;
+  description: string;
+  options: string[];
+}
+
+export const isHistoryMode = (): boolean => {
+  const gameType = localStorage.getItem('gameType');
+  return gameType === 'history';
+};
+
 export const isKukuMode = (gameDifficulty: string): boolean => {
-  const kukuValue = localStorage.getItem("kuku");
-  return gameDifficulty === "easy" && !!kukuValue;
+  const kukuValue = localStorage.getItem('kuku');
+  return gameDifficulty === 'easy' && !!kukuValue;
 };
 
 export const getBossCount = (gameDifficulty: string): number => {
@@ -25,23 +39,59 @@ export const isBossBattle = (): boolean => {
   return !!window.location.href.match(/boss/);
 };
 
+export const generateHistoryProblem = async (enemyCount = 1): Promise<Problem> => {
+  try {
+    const response = await fetch('/json/sengoku.json');
+    const sengokuData: SengokuData[] = await response.json();
+
+    const selectedPrefecture = localStorage.getItem('selectedPrefecture');
+    let problemData: SengokuData;
+
+    if (selectedPrefecture === 'mix') {
+      // ミックスモード: ランダムな都道府県を選択
+      const shuffled = sengokuData.slice().sort(() => Math.random() - 0.5);
+      problemData = shuffled[(enemyCount - 1) % shuffled.length];
+    } else {
+      // 特定の都道府県
+      const prefId = parseInt(selectedPrefecture || '1');
+      problemData = sengokuData.find((d) => d.id === prefId) || sengokuData[0];
+    }
+
+    // 選択肢をシャッフル
+    const shuffledOptions = problemData.options.slice().sort(() => Math.random() - 0.5);
+
+    return {
+      question: `${problemData.prefecture}を治めていたのは？`,
+      answer: problemData.lord,
+      options: shuffledOptions,
+      reading: problemData.lordReading,
+    };
+  } catch (error) {
+    console.error('Error loading sengoku data:', error);
+    return {
+      question: 'エラーが発生しました',
+      answer: 'エラー',
+      options: ['エラー', '再読込', '戻る'],
+      reading: '',
+    };
+  }
+};
+
 export const generateProblem = async (
   gameType: string,
   gameDifficulty: string,
   enemyCount = 1
 ): Promise<Problem> => {
+  // 歴史モードの場合は専用の問題生成を使用
+  if (gameType === 'history') {
+    return generateHistoryProblem(enemyCount);
+  }
+
   let ans;
   // ボス戦の場合、10%で難易度を一時的に1段階上げる
   //は一旦廃止
   if (isBossBattle() && Math.random() < 0) {
-    const difficultyLevels = [
-      "easy",
-      "medium",
-      "normal",
-      "hard",
-      "very_hard",
-      "extreme",
-    ];
+    const difficultyLevels = ['easy', 'medium', 'normal', 'hard', 'very_hard', 'extreme'];
     const currentIndex = difficultyLevels.indexOf(gameDifficulty);
     if (currentIndex < difficultyLevels.length - 1) {
       gameDifficulty = difficultyLevels[currentIndex + 1];
@@ -67,24 +117,21 @@ export const generateProblem = async (
   };
 
   const range =
-    difficultyRanges[gameDifficulty as keyof typeof difficultyRanges] ||
-    difficultyRanges.easy;
+    difficultyRanges[gameDifficulty as keyof typeof difficultyRanges] || difficultyRanges.easy;
 
   // 演算子を設定
   const operators = {
-    addition: "+",
-    subtraction: "-",
-    multiplication: "×",
-    division: "÷",
+    addition: '+',
+    subtraction: '-',
+    multiplication: '×',
+    division: '÷',
   } as const;
-  const operator = operators[gameType as keyof typeof operators] || "+";
+  const operator = operators[gameType as keyof typeof operators] || '+';
 
   // 50%の確率で1桁+2桁 or 2桁+1桁を選択
   const shouldSwap = Math.random() < 0.5;
-  let num1 =
-    Math.floor(Math.random() * (range.max1 - range.min1 + 1)) + range.min1;
-  let num2 =
-    Math.floor(Math.random() * (range.max2 - range.min2 + 1)) + range.min2;
+  let num1 = Math.floor(Math.random() * (range.max1 - range.min1 + 1)) + range.min1;
+  let num2 = Math.floor(Math.random() * (range.max2 - range.min2 + 1)) + range.min2;
   let num3 =
     range.min3 && range.max3
       ? Math.floor(Math.random() * (range.max3 - range.min3 + 1)) + range.min3
@@ -96,11 +143,11 @@ export const generateProblem = async (
 
   let answer = 0;
   let currentProblemReading: string | undefined;
-  const kukuLevel = localStorage.getItem("kuku");
+  const kukuLevel = localStorage.getItem('kuku');
 
-  if (operator === "+") {
+  if (operator === '+') {
     answer = num3 ? num1 + num2 + num3 : num1 + num2;
-  } else if (operator === "-") {
+  } else if (operator === '-') {
     if (num3) {
       if (num1 < num2 + num3) {
         [num1, num2] = [num2 + num3, num1];
@@ -112,32 +159,32 @@ export const generateProblem = async (
       }
       answer = num1 - num2;
     }
-  } else if (operator === "×") {
-    if (gameDifficulty === "easy") {
-      console.log("kukujson");
-      const kukuValue = localStorage.getItem("kuku");
+  } else if (operator === '×') {
+    if (gameDifficulty === 'easy') {
+      console.log('kukujson');
+      const kukuValue = localStorage.getItem('kuku');
       try {
         // kuku.jsonからデータを取得
-        const response = await fetch("/json/kuku.json");
+        const response = await fetch('/json/kuku.json');
         const kukuData: KukuData[] = await response.json();
 
         // 現在の数字に対応するデータをフィルタリング
-        const currentNumber = parseInt(kukuLevel || "1");
+        const currentNumber = parseInt(kukuLevel || '1');
         let levelData;
-        if (kukuValue === "mix") {
+        if (kukuValue === 'mix') {
           levelData = kukuData.slice().sort(() => Math.random() - 0.5);
         } else {
           levelData = kukuData.filter((item) => item.number === currentNumber);
-          const mix = localStorage.getItem("mix");
-          if (mix === "true") {
+          const mix = localStorage.getItem('mix');
+          if (mix === 'true') {
             levelData = levelData.slice().sort(() => Math.random() - 0.5);
           }
         }
 
         if (levelData.length > 0) {
-          console.log("Current enemyCount:", enemyCount);
+          console.log('Current enemyCount:', enemyCount);
           const index = Math.max(0, Math.min(8, (enemyCount - 1) % 9));
-          console.log("Calculated index:", index);
+          console.log('Calculated index:', index);
 
           // 問題データを設定
           num1 = currentNumber;
@@ -145,7 +192,7 @@ export const generateProblem = async (
           answer = levelData[index].answer;
           currentProblemReading = levelData[index].reading;
           ans = levelData[index].formula;
-          console.log("Set problem data:", {
+          console.log('Set problem data:', {
             num1,
             num2,
             answer,
@@ -153,7 +200,7 @@ export const generateProblem = async (
           });
         }
       } catch (error) {
-        console.error("Error loading kuku data:", error);
+        console.error('Error loading kuku data:', error);
       }
     } else if (num3) {
       // 通常の3数演算
@@ -166,16 +213,13 @@ export const generateProblem = async (
         extreme: { min: 3, max: 9 },
       }[gameDifficulty] || { min: 1, max: 9 };
 
-      num3 =
-        Math.floor(Math.random() * (num3Range.max - num3Range.min + 1)) +
-        num3Range.min;
+      num3 = Math.floor(Math.random() * (num3Range.max - num3Range.min + 1)) + num3Range.min;
       answer = num1 * num2 * num3;
     } else {
       answer = num1 * num2;
     }
-  } else if (operator === "÷") {
-    num2 =
-      Math.floor(Math.random() * (range.max2 - range.min2 + 1)) + range.min2;
+  } else if (operator === '÷') {
+    num2 = Math.floor(Math.random() * (range.max2 - range.min2 + 1)) + range.min2;
     if (num3) {
       // num3を1-9の範囲で生成
       num3 = Math.floor(Math.random() * 9) + 1;

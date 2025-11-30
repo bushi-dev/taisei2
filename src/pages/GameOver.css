@@ -1,5 +1,5 @@
 .game-over-container {
-  background-image: url("/image/bg.webp");
+  background-image: url('/image/bg.webp');
   background-size: cover;
   display: flex;
   flex-direction: column;
@@ -7,14 +7,15 @@
   align-items: center;
   color: white;
   text-shadow: 2px 2px 4px black;
-  padding: 40px;
+  padding: clamp(1.5rem, 5vw, 3rem);
   box-sizing: border-box;
-  min-height: 80vh;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .game-over-heading {
-  font-size: clamp(1.5rem, 8vw, 3rem);
-  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 6vw, 3rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -23,16 +24,30 @@
 
 .game-over-buttons {
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .game-over-button {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding: clamp(0.6rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.game-over-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.game-over-button:active {
+  transform: scale(0.98);
 }
 
 .game-over-button--primary {

@@ -1,20 +1,22 @@
 .kuku-container {
-  background-image: url("/image/bg.webp");
+  background-image: url('/image/bg.webp');
   background-size: cover;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   color: white;
   text-shadow: 2px 2px 4px black;
-  padding: 40px;
+  padding: clamp(1rem, 3vw, 2.5rem);
   box-sizing: border-box;
-  min-height: 80vh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-y: auto;
 }
 
 .kuku-heading {
-  font-size: clamp(1.5rem, 8vw, 3rem);
-  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -23,19 +25,32 @@
 
 .kuku-row {
   display: flex;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
   width: 100%;
-  margin-bottom: 0.5rem;
+  max-width: 600px;
+  margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
 }
 
 .kuku-button {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding: clamp(0.6rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   flex: 1;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.kuku-button:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.kuku-button:active {
+  transform: scale(0.98);
 }
 
 .kuku-button--primary {
@@ -44,4 +59,27 @@
 
 .kuku-button--secondary {
   background-color: #4caf50;
+}
+
+/* タブレット向け */
+@media (min-width: 768px) {
+  .kuku-container {
+    padding: 2rem;
+    justify-content: center;
+  }
+
+  .kuku-row {
+    max-width: 500px;
+  }
+}
+
+/* デスクトップ向け */
+@media (min-width: 1024px) {
+  .kuku-container {
+    padding: 3rem;
+  }
+
+  .kuku-row {
+    max-width: 600px;
+  }
 }

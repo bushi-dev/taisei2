@@ -1,7 +1,7 @@
 .level-container {
-  background-image: url("/image/bg.webp");
+  background-image: url('/image/bg.webp');
   background-size: cover;
-  padding: 10px;
+  padding: clamp(1rem, 3vw, 2rem);
   color: white;
   text-shadow: 2px 2px 4px black;
   display: flex;
@@ -9,7 +9,8 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  min-height: 80vh;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .setting-section {
@@ -64,13 +65,25 @@
 }
 
 .start-button {
-  padding: 1rem 2rem;
-  font-size: 3rem;
+  padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1.5rem, 5vw, 3rem);
   background-color: #2196f3;
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.start-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.start-button:active {
+  transform: scale(0.98);
 }
 .back-button-level {
   background-color: unset;
@@ -81,13 +94,14 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
-  gap: 5px;
-  width: 300px;
+  gap: clamp(5px, 2vw, 15px);
+  width: clamp(200px, 80vw, 400px);
+  max-width: 400px;
 }
 
 .type-button {
-  font-size: 70px;
-  padding: 16px;
+  font-size: clamp(40px, 10vw, 70px);
+  padding: clamp(8px, 2vw, 16px);
   border: 2px solid #ccc;
   border-radius: 8px;
   cursor: pointer;
@@ -196,7 +210,9 @@
   font-weight: bold;
   color: #ffffff;
   background: rgba(255, 255, 255, 0.1);
-  text-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00,
+  text-shadow:
+    0 0 10px #ffff00,
+    0 0 20px #ffff00,
     2px 2px 4px rgba(0, 0, 0, 0.5);
   padding: 1rem 2rem;
   border-radius: 8px;
@@ -207,10 +223,14 @@
 
 @keyframes glow {
   from {
-    box-shadow: 0 0 10px #ffff00, 0 0 20px #ffff00;
+    box-shadow:
+      0 0 10px #ffff00,
+      0 0 20px #ffff00;
   }
   to {
-    box-shadow: 0 0 20px #ffff00, 0 0 40px #ffff00;
+    box-shadow:
+      0 0 20px #ffff00,
+      0 0 40px #ffff00;
   }
 }
 

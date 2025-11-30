@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* レスポンシブなベースフォントサイズ */
+  font-size: clamp(12px, 2vw, 16px);
 }
 
 a {
@@ -23,15 +26,18 @@ a:hover {
 }
 
 body {
-  width: 320px;
-  height: 600px;
-  max-height: 600px;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-:root {
-  font-size: 12px;
+#root {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 h1 {

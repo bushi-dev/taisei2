@@ -1,0 +1,378 @@
+[
+  {
+    "id": 1,
+    "prefecture": "北海道",
+    "lord": "蠣崎氏",
+    "lordReading": "かきざきし",
+    "description": "松前藩の祖となった一族",
+    "options": ["蠣崎氏", "武田氏", "伊達氏", "上杉氏"]
+  },
+  {
+    "id": 2,
+    "prefecture": "青森県",
+    "lord": "南部氏",
+    "lordReading": "なんぶし",
+    "description": "三戸城を本拠とした大名",
+    "options": ["南部氏", "津軽氏", "伊達氏", "最上氏"]
+  },
+  {
+    "id": 3,
+    "prefecture": "岩手県",
+    "lord": "南部氏",
+    "lordReading": "なんぶし",
+    "description": "盛岡藩の祖となった一族",
+    "options": ["南部氏", "伊達氏", "上杉氏", "佐竹氏"]
+  },
+  {
+    "id": 4,
+    "prefecture": "宮城県",
+    "lord": "伊達氏",
+    "lordReading": "だてし",
+    "description": "伊達政宗で有名な大名家",
+    "options": ["伊達氏", "上杉氏", "最上氏", "南部氏"]
+  },
+  {
+    "id": 5,
+    "prefecture": "秋田県",
+    "lord": "佐竹氏",
+    "lordReading": "さたけし",
+    "description": "関ヶ原後に秋田へ転封された大名",
+    "options": ["佐竹氏", "最上氏", "伊達氏", "上杉氏"]
+  },
+  {
+    "id": 6,
+    "prefecture": "山形県",
+    "lord": "最上氏",
+    "lordReading": "もがみし",
+    "description": "最上義光で有名な大名家",
+    "options": ["最上氏", "伊達氏", "上杉氏", "佐竹氏"]
+  },
+  {
+    "id": 7,
+    "prefecture": "福島県",
+    "lord": "蘆名氏",
+    "lordReading": "あしなし",
+    "description": "会津を治めた大名家",
+    "options": ["蘆名氏", "伊達氏", "上杉氏", "佐竹氏"]
+  },
+  {
+    "id": 8,
+    "prefecture": "茨城県",
+    "lord": "佐竹氏",
+    "lordReading": "さたけし",
+    "description": "常陸国を治めた大名家",
+    "options": ["佐竹氏", "北条氏", "上杉氏", "武田氏"]
+  },
+  {
+    "id": 9,
+    "prefecture": "栃木県",
+    "lord": "宇都宮氏",
+    "lordReading": "うつのみやし",
+    "description": "下野国の有力大名",
+    "options": ["宇都宮氏", "北条氏", "上杉氏", "佐竹氏"]
+  },
+  {
+    "id": 10,
+    "prefecture": "群馬県",
+    "lord": "上杉氏",
+    "lordReading": "うえすぎし",
+    "description": "上野国を治めた大名家",
+    "options": ["上杉氏", "北条氏", "武田氏", "真田氏"]
+  },
+  {
+    "id": 11,
+    "prefecture": "埼玉県",
+    "lord": "北条氏",
+    "lordReading": "ほうじょうし",
+    "description": "後北条氏として関東を支配",
+    "options": ["北条氏", "上杉氏", "武田氏", "今川氏"]
+  },
+  {
+    "id": 12,
+    "prefecture": "千葉県",
+    "lord": "里見氏",
+    "lordReading": "さとみし",
+    "description": "安房国を治めた大名家",
+    "options": ["里見氏", "北条氏", "上杉氏", "佐竹氏"]
+  },
+  {
+    "id": 13,
+    "prefecture": "東京都",
+    "lord": "北条氏",
+    "lordReading": "ほうじょうし",
+    "description": "江戸城を支配した後北条氏",
+    "options": ["北条氏", "上杉氏", "武田氏", "今川氏"]
+  },
+  {
+    "id": 14,
+    "prefecture": "神奈川県",
+    "lord": "北条氏",
+    "lordReading": "ほうじょうし",
+    "description": "小田原城を本拠とした後北条氏",
+    "options": ["北条氏", "上杉氏", "武田氏", "今川氏"]
+  },
+  {
+    "id": 15,
+    "prefecture": "新潟県",
+    "lord": "上杉氏",
+    "lordReading": "うえすぎし",
+    "description": "上杉謙信で有名な大名家",
+    "options": ["上杉氏", "武田氏", "北条氏", "伊達氏"]
+  },
+  {
+    "id": 16,
+    "prefecture": "富山県",
+    "lord": "上杉氏",
+    "lordReading": "うえすぎし",
+    "description": "越中国を支配した上杉家",
+    "options": ["上杉氏", "前田氏", "武田氏", "朝倉氏"]
+  },
+  {
+    "id": 17,
+    "prefecture": "石川県",
+    "lord": "前田氏",
+    "lordReading": "まえだし",
+    "description": "加賀百万石の前田家",
+    "options": ["前田氏", "上杉氏", "朝倉氏", "柴田氏"]
+  },
+  {
+    "id": 18,
+    "prefecture": "福井県",
+    "lord": "朝倉氏",
+    "lordReading": "あさくらし",
+    "description": "一乗谷城を本拠とした大名",
+    "options": ["朝倉氏", "織田氏", "浅井氏", "上杉氏"]
+  },
+  {
+    "id": 19,
+    "prefecture": "山梨県",
+    "lord": "武田氏",
+    "lordReading": "たけだし",
+    "description": "武田信玄で有名な大名家",
+    "options": ["武田氏", "上杉氏", "北条氏", "今川氏"]
+  },
+  {
+    "id": 20,
+    "prefecture": "長野県",
+    "lord": "武田氏",
+    "lordReading": "たけだし",
+    "description": "信濃国を支配した武田家",
+    "options": ["武田氏", "上杉氏", "真田氏", "北条氏"]
+  },
+  {
+    "id": 21,
+    "prefecture": "岐阜県",
+    "lord": "斎藤氏",
+    "lordReading": "さいとうし",
+    "description": "稲葉山城を本拠とした大名",
+    "options": ["斎藤氏", "織田氏", "武田氏", "今川氏"]
+  },
+  {
+    "id": 22,
+    "prefecture": "静岡県",
+    "lord": "今川氏",
+    "lordReading": "いまがわし",
+    "description": "今川義元で有名な大名家",
+    "options": ["今川氏", "武田氏", "北条氏", "織田氏"]
+  },
+  {
+    "id": 23,
+    "prefecture": "愛知県",
+    "lord": "織田氏",
+    "lordReading": "おだし",
+    "description": "織田信長で有名な大名家",
+    "options": ["織田氏", "今川氏", "武田氏", "徳川氏"]
+  },
+  {
+    "id": 24,
+    "prefecture": "三重県",
+    "lord": "北畠氏",
+    "lordReading": "きたばたけし",
+    "description": "伊勢国を治めた公家大名",
+    "options": ["北畠氏", "織田氏", "六角氏", "浅井氏"]
+  },
+  {
+    "id": 25,
+    "prefecture": "滋賀県",
+    "lord": "浅井氏",
+    "lordReading": "あざいし",
+    "description": "浅井長政で有名な大名家",
+    "options": ["浅井氏", "六角氏", "織田氏", "朝倉氏"]
+  },
+  {
+    "id": 26,
+    "prefecture": "京都府",
+    "lord": "足利氏",
+    "lordReading": "あしかがし",
+    "description": "室町幕府の将軍家",
+    "options": ["足利氏", "織田氏", "細川氏", "三好氏"]
+  },
+  {
+    "id": 27,
+    "prefecture": "大阪府",
+    "lord": "三好氏",
+    "lordReading": "みよしし",
+    "description": "畿内を支配した大名家",
+    "options": ["三好氏", "織田氏", "細川氏", "足利氏"]
+  },
+  {
+    "id": 28,
+    "prefecture": "兵庫県",
+    "lord": "赤松氏",
+    "lordReading": "あかまつし",
+    "description": "播磨国を治めた大名家",
+    "options": ["赤松氏", "黒田氏", "織田氏", "毛利氏"]
+  },
+  {
+    "id": 29,
+    "prefecture": "奈良県",
+    "lord": "筒井氏",
+    "lordReading": "つついし",
+    "description": "大和国を治めた大名家",
+    "options": ["筒井氏", "織田氏", "三好氏", "松永氏"]
+  },
+  {
+    "id": 30,
+    "prefecture": "和歌山県",
+    "lord": "畠山氏",
+    "lordReading": "はたけやまし",
+    "description": "紀伊国を治めた大名家",
+    "options": ["畠山氏", "織田氏", "三好氏", "雑賀衆"]
+  },
+  {
+    "id": 31,
+    "prefecture": "鳥取県",
+    "lord": "山名氏",
+    "lordReading": "やまなし",
+    "description": "因幡国を治めた大名家",
+    "options": ["山名氏", "毛利氏", "尼子氏", "宇喜多氏"]
+  },
+  {
+    "id": 32,
+    "prefecture": "島根県",
+    "lord": "尼子氏",
+    "lordReading": "あまごし",
+    "description": "出雲国を治めた大名家",
+    "options": ["尼子氏", "毛利氏", "山名氏", "大内氏"]
+  },
+  {
+    "id": 33,
+    "prefecture": "岡山県",
+    "lord": "宇喜多氏",
+    "lordReading": "うきたし",
+    "description": "備前国を治めた大名家",
+    "options": ["宇喜多氏", "毛利氏", "尼子氏", "浦上氏"]
+  },
+  {
+    "id": 34,
+    "prefecture": "広島県",
+    "lord": "毛利氏",
+    "lordReading": "もうりし",
+    "description": "毛利元就で有名な大名家",
+    "options": ["毛利氏", "大内氏", "尼子氏", "宇喜多氏"]
+  },
+  {
+    "id": 35,
+    "prefecture": "山口県",
+    "lord": "大内氏",
+    "lordReading": "おおうちし",
+    "description": "周防国を治めた大名家",
+    "options": ["大内氏", "毛利氏", "尼子氏", "陶氏"]
+  },
+  {
+    "id": 36,
+    "prefecture": "徳島県",
+    "lord": "三好氏",
+    "lordReading": "みよしし",
+    "description": "阿波国を本拠とした大名家",
+    "options": ["三好氏", "長宗我部氏", "細川氏", "一条氏"]
+  },
+  {
+    "id": 37,
+    "prefecture": "香川県",
+    "lord": "三好氏",
+    "lordReading": "みよしし",
+    "description": "讃岐国を支配した大名家",
+    "options": ["三好氏", "長宗我部氏", "細川氏", "毛利氏"]
+  },
+  {
+    "id": 38,
+    "prefecture": "愛媛県",
+    "lord": "河野氏",
+    "lordReading": "こうのし",
+    "description": "伊予国を治めた大名家",
+    "options": ["河野氏", "長宗我部氏", "毛利氏", "一条氏"]
+  },
+  {
+    "id": 39,
+    "prefecture": "高知県",
+    "lord": "長宗我部氏",
+    "lordReading": "ちょうそかべし",
+    "description": "土佐国を統一した大名家",
+    "options": ["長宗我部氏", "一条氏", "三好氏", "河野氏"]
+  },
+  {
+    "id": 40,
+    "prefecture": "福岡県",
+    "lord": "大友氏",
+    "lordReading": "おおともし",
+    "description": "筑前国を治めた大名家",
+    "options": ["大友氏", "毛利氏", "龍造寺氏", "島津氏"]
+  },
+  {
+    "id": 41,
+    "prefecture": "佐賀県",
+    "lord": "龍造寺氏",
+    "lordReading": "りゅうぞうじし",
+    "description": "肥前国を治めた大名家",
+    "options": ["龍造寺氏", "大友氏", "島津氏", "有馬氏"]
+  },
+  {
+    "id": 42,
+    "prefecture": "長崎県",
+    "lord": "大村氏",
+    "lordReading": "おおむらし",
+    "description": "キリシタン大名として有名",
+    "options": ["大村氏", "龍造寺氏", "有馬氏", "島津氏"]
+  },
+  {
+    "id": 43,
+    "prefecture": "熊本県",
+    "lord": "阿蘇氏",
+    "lordReading": "あそし",
+    "description": "肥後国を治めた大名家",
+    "options": ["阿蘇氏", "島津氏", "大友氏", "相良氏"]
+  },
+  {
+    "id": 44,
+    "prefecture": "大分県",
+    "lord": "大友氏",
+    "lordReading": "おおともし",
+    "description": "大友宗麟で有名な大名家",
+    "options": ["大友氏", "島津氏", "毛利氏", "龍造寺氏"]
+  },
+  {
+    "id": 45,
+    "prefecture": "宮崎県",
+    "lord": "伊東氏",
+    "lordReading": "いとうし",
+    "description": "日向国を治めた大名家",
+    "options": ["伊東氏", "島津氏", "大友氏", "相良氏"]
+  },
+  {
+    "id": 46,
+    "prefecture": "鹿児島県",
+    "lord": "島津氏",
+    "lordReading": "しまづし",
+    "description": "薩摩国を治めた大名家",
+    "options": ["島津氏", "大友氏", "龍造寺氏", "伊東氏"]
+  },
+  {
+    "id": 47,
+    "prefecture": "沖縄県",
+    "lord": "尚氏",
+    "lordReading": "しょうし",
+    "description": "琉球王国の王家",
+    "options": ["尚氏", "島津氏", "大友氏", "毛利氏"]
+  }
+]

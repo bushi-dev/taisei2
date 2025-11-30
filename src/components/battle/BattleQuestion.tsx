@@ -1,11 +1,11 @@
-import React from "react";
-import SoundButton from "../SoundButton";
+import React from 'react';
+import SoundButton from '../SoundButton';
 
 type BattleQuestionProps = {
   question: string;
-  options: number[];
-  result: "correct" | "wrong" | null;
-  handleAnswer: (selected: number) => void;
+  options: (number | string)[];
+  result: 'correct' | 'wrong' | null;
+  handleAnswer: (selected: number | string) => void;
   reading?: string;
 };
 
@@ -16,17 +16,20 @@ export const BattleQuestion: React.FC<BattleQuestionProps> = ({
   handleAnswer,
   reading,
 }) => {
+  // 文字列の選択肢があるかどうかを判定（歴史モード）
+  const isTextMode = options.some((opt) => typeof opt === 'string');
+
   return (
     <div className="battle-question">
       {reading && <div className="battle-reading">{reading}</div>}
       <div>{question}</div>
 
-      <div className="battle-options">
+      <div className={`battle-options ${isTextMode ? 'text-mode' : ''}`}>
         {options.map((option, i) => (
           <SoundButton
             key={i}
             onClick={() => handleAnswer(option)}
-            className="battle-button"
+            className={`battle-button ${isTextMode ? 'text-button' : ''}`}
             isBattleMode={true}
           >
             {option}
@@ -35,11 +38,8 @@ export const BattleQuestion: React.FC<BattleQuestionProps> = ({
       </div>
 
       {result && (
-        <div
-          className="result-marker"
-          style={{ color: result === "correct" ? "red" : "blue" }}
-        >
-          {result === "correct" ? "○" : "×"}
+        <div className="result-marker" style={{ color: result === 'correct' ? 'red' : 'blue' }}>
+          {result === 'correct' ? '○' : '×'}
         </div>
       )}
     </div>

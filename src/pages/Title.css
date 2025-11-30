@@ -1,12 +1,15 @@
 .title-screen {
-  background-image: url("/image/bg.webp");
+  background-image: url('/image/bg.webp');
   background-size: 120% 120%;
   background-position: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100% !important;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
   animation: moveBg 30s linear infinite;
 }
 
@@ -23,16 +26,16 @@
 }
 
 .title-screen__heading {
-  font-size: 4rem;
+  font-size: clamp(2rem, 8vw, 4rem);
   color: white;
   text-shadow: 2px 2px 4px black;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .title-screen__ninja {
-  width: 100px;
+  width: clamp(80px, 15vw, 120px);
   display: block;
-  margin: 0 auto;
+  margin: 0 auto 1.5rem;
   animation: moveEnemy 4s linear infinite;
 }
 
@@ -58,15 +61,27 @@
 }
 
 .title-screen__button {
-  padding: 1rem 3rem;
-  font-size: 1.5rem;
-  width: 200px;
+  padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  width: clamp(180px, 50vw, 280px);
   text-align: center;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  margin: 0 auto 1rem;
+  margin: 0 auto 0.8rem;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.title-screen__button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.title-screen__button:active {
+  transform: scale(0.98);
 }
 
 .title-screen__button.kuku {
@@ -85,4 +100,34 @@
 
 .title-screen__button.treasure {
   background-color: #4caf50;
+}
+
+.title-screen__button.history {
+  background-color: #9c27b0;
+}
+
+/* タブレット向け */
+@media (min-width: 768px) {
+  .title-screen {
+    padding: 3rem 2rem;
+  }
+
+  .title-screen__heading {
+    margin-bottom: 2rem;
+  }
+
+  .title-screen__ninja {
+    margin-bottom: 2rem;
+  }
+
+  .title-screen__button {
+    margin-bottom: 1rem;
+  }
+}
+
+/* デスクトップ向け */
+@media (min-width: 1024px) {
+  .title-screen {
+    padding: 4rem 2rem;
+  }
 }

@@ -1,15 +1,16 @@
 .clear-container {
-  background-image: url("/image/bg.webp");
+  background-image: url('/image/bg.webp');
   background-size: 120% 120%;
   background-position: center;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   color: white;
   text-shadow: 2px 2px 4px black;
   box-sizing: border-box;
-  min-height: 80vh;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(1rem, 3vw, 2rem);
   animation: moveBg 30s linear infinite;
 }
 
@@ -26,34 +27,47 @@
 }
 
 .clear-heading {
-  margin: 0 0 20px 0;
-  font-size: 3rem;
+  margin: 0 0 clamp(10px, 3vw, 20px) 0;
+  font-size: clamp(1.5rem, 6vw, 3rem);
   font-weight: bold;
   color: #ffeb3b;
-  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffeb3b, 0 0 40px #ffeb3b,
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #ffeb3b,
+    0 0 40px #ffeb3b,
     0 0 80px #ffeb3b;
   animation: glow 0.3s ease-in-out infinite alternate;
 }
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #ffeb3b, 0 0 40px #ffeb3b,
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #ffeb3b,
+      0 0 40px #ffeb3b,
       0 0 80px #ffeb3b;
   }
   to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #ffeb3b, 0 0 40px #ffeb3b,
-      0 0 80px #ffeb3b, 0 0 120px #ffeb3b;
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px #ffeb3b,
+      0 0 40px #ffeb3b,
+      0 0 80px #ffeb3b,
+      0 0 120px #ffeb3b;
   }
 }
 
 .clear-subheading {
-  width: 110%;
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 600px;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: clamp(1rem, 3vw, 2rem);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(0.5rem, 2vw, 1rem);
   text-align: center;
   position: relative;
 }
@@ -63,10 +77,13 @@
   top: 60%;
   left: 70%;
   transform: translate(-50%, -50%) rotate(-15deg);
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
   color: #ffeb3b;
-  text-shadow: 2px 2px 0 #f44336, 4px 4px 0 #2196f3, 6px 6px 0 #4caf50;
+  text-shadow:
+    2px 2px 0 #f44336,
+    4px 4px 0 #2196f3,
+    6px 6px 0 #4caf50;
   animation: pop 1s ease-in-out infinite;
 }
 
@@ -83,8 +100,8 @@
 }
 
 .clear-treasure-image {
-  max-width: 85%;
-  max-height: 60vh;
+  max-width: min(85%, 500px);
+  max-height: 50vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -116,13 +133,25 @@
 }
 
 .clear-button {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
+  padding: clamp(0.6rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   margin: 0 5px;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.clear-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.clear-button:active {
+  transform: scale(0.98);
 }
 
 .clear-button--primary {

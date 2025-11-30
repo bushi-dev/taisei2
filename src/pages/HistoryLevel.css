@@ -1,0 +1,82 @@
+.history-container {
+  background-image: url('/image/bg.webp');
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 4px black;
+  padding: clamp(1rem, 3vw, 2rem);
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow-y: auto;
+}
+
+.history-heading {
+  font-size: clamp(1.2rem, 4vw, 2rem);
+  margin-bottom: clamp(0.5rem, 2vw, 1rem);
+  text-align: center;
+  background: linear-gradient(135deg, #8b4513 0%, #d4a574 50%, #8b4513 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: none;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+}
+
+.history-description {
+  font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  text-align: center;
+  opacity: 0.9;
+}
+
+.history-mix-button {
+  padding: clamp(0.8rem, 2.5vw, 1.2rem) clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  background: linear-gradient(135deg, #9c27b0 0%, #e91e63 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: clamp(1rem, 3vw, 1.5rem);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+}
+
+.history-mix-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(156, 39, 176, 0.6);
+}
+
+.history-mix-button:active {
+  transform: scale(0.98);
+}
+
+/* 戻るボタン */
+.history-container .back-button-level {
+  margin-top: clamp(1rem, 3vw, 2rem);
+  background-color: unset;
+  cursor: pointer;
+}
+
+/* タブレット向け */
+@media (min-width: 768px) {
+  .history-container {
+    padding: 2rem;
+  }
+
+  .history-heading {
+    margin-bottom: 1rem;
+  }
+}
+
+/* デスクトップ向け */
+@media (min-width: 1024px) {
+  .history-container {
+    padding: 2rem 3rem;
+  }
+}

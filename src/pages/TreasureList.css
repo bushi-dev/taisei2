@@ -1,14 +1,16 @@
 .treasure-list-container {
-  background-image: url("/image/bg.webp");
+  background-image: url('/image/bg.webp');
   background-size: cover;
-  min-height: 80vh;
-  padding: 0.5rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: clamp(0.5rem, 2vw, 1.5rem);
   color: white;
   text-shadow: 2px 2px 4px black;
+  box-sizing: border-box;
 }
 
 .treasure-list-heading {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   margin: 0;
   display: inline-block;
 }
@@ -17,16 +19,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .treasure-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(130px, 30vw, 180px), 1fr));
+  gap: clamp(0.5rem, 2vw, 1rem);
   overflow-y: auto;
-  max-height: 100vh;
-  margin-bottom: 5rem;
+  max-height: calc(100vh - 150px);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
 }
 
 /* スクロールバーのスタイル */
@@ -50,23 +54,39 @@
 
 .treasure-item {
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 0.5rem;
-  border-radius: 5px;
+  padding: clamp(0.3rem, 1.5vw, 0.8rem);
+  border-radius: 8px;
   cursor: pointer;
   text-align: center;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.treasure-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .treasure-list-image {
-  width: 130px;
+  width: clamp(80px, 25vw, 130px);
   margin-bottom: 0.5rem;
 }
 
 .back-button {
-  padding: 1rem 2rem;
-  font-size: 1.5rem;
+  padding: clamp(0.6rem, 2vw, 1rem) clamp(1rem, 3vw, 2rem);
+  font-size: clamp(1rem, 3vw, 1.5rem);
   background-color: #2196f3;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.back-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }

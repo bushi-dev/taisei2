@@ -48,6 +48,13 @@ const Title = () => {
         九九モード
       </SoundButton>
 
+      <SoundButton
+        className="title-screen__button history"
+        onClick={() => navigate('/history-level')}
+      >
+        歴史モード
+      </SoundButton>
+
       {window.location.href.includes('local') && (
         <SoundButton
           className="title-screen__button kokugo"
