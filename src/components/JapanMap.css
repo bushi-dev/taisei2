@@ -47,6 +47,24 @@
   }
 }
 
+/* ハイライト時のスタイル（武将関連都道府県） */
+.prefecture-path.highlighted {
+  fill: #ffd700 !important;
+  stroke: #ff8c00;
+  stroke-width: 2;
+  animation: pulse-highlight 1s infinite ease-in-out;
+}
+
+@keyframes pulse-highlight {
+  0%,
+  100% {
+    filter: brightness(1) drop-shadow(0 0 6px rgba(255, 215, 0, 0.7));
+  }
+  50% {
+    filter: brightness(1.3) drop-shadow(0 0 12px rgba(255, 215, 0, 1));
+  }
+}
+
 /* 地方ごとの色分け */
 .hokkaido-region {
   fill: #5dade2;

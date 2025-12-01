@@ -28,7 +28,7 @@ function App() {
           <Route path="/treasure" element={<TreasureList />} />
           <Route path="/treasure/:id" element={<TreasureDetail />} />
           <Route path="/kuku-level" element={<KukuLevel />} />
-          <Route path="/history" element={<HistoryLevel />} />
+          <Route path="/history-level" element={<HistoryLevel />} />
           <Route path="/warlord/:warlordId" element={<WarlordDetail />} />
         </Routes>
       </BrowserRouter>

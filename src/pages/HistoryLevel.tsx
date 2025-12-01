@@ -39,6 +39,7 @@ const HistoryLevel = () => {
   const [selectedPrefecture, setSelectedPrefecture] = useState<SelectedInfo | null>(null);
   const [sengokuData, setSengokuData] = useState<SengokuData[]>([]);
   const [warlords, setWarlords] = useState<Warlord[]>([]);
+  const [hoveredWarlordId, setHoveredWarlordId] = useState<number | null>(null);
 
   useEffect(() => {
     // BGM再生
@@ -96,6 +97,13 @@ const HistoryLevel = () => {
     return pref ? pref.id : null;
   };
 
+  // ホバー中の武将の関連都道府県を取得
+  const getHighlightedPrefectures = () => {
+    if (!hoveredWarlordId) return [];
+    const warlord = warlords.find((w) => w.id === hoveredWarlordId);
+    return warlord?.relatedPrefectures || [];
+  };
+
   return (
     <div className="history-container">
       <h1 className="history-heading">🏯 戦国時代 都道府県クイズ</h1>
@@ -103,6 +111,7 @@ const HistoryLevel = () => {
       <JapanMap
         onPrefectureClick={handlePrefectureClick}
         selectedPrefecture={getPrefectureNumber()}
+        highlightedPrefectures={getHighlightedPrefectures()}
       />
 
       {/* 大名情報パネル */}
@@ -167,6 +176,8 @@ const HistoryLevel = () => {
               key={warlord.id}
               onClick={() => handleWarlordSelect(warlord.id)}
               className="warlord-selection-card"
+              onMouseEnter={() => setHoveredWarlordId(warlord.id)}
+              onMouseLeave={() => setHoveredWarlordId(null)}
             >
               <div className="warlord-card-content">
                 {warlord.image && (
@@ -182,6 +193,9 @@ const HistoryLevel = () => {
                 <div className="warlord-card-info">
                   <div className="warlord-card-name">{warlord.name}</div>
                   <div className="warlord-card-reading">{warlord.reading}</div>
+                  <div className="warlord-card-prefectures">
+                    {warlord.relatedPrefectures.join('・')}
+                  </div>
                 </div>
               </div>
             </SoundButton>

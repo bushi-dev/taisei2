@@ -11,7 +11,7 @@ interface BiographyStage {
   year: string;
   title: string;
   description: string;
-  locations: string[];
+  locations?: string[];
 }
 
 interface Quiz {
@@ -128,16 +128,18 @@ const WarlordDetail = () => {
             <h2 className="warlord-biography-title">{currentBiography.title}</h2>
             <p className="warlord-biography-description">{currentBiography.description}</p>
 
-            <div className="warlord-locations">
-              <div className="warlord-locations-label">関連地名：</div>
-              <div className="warlord-locations-list">
-                {currentBiography.locations.map((location, index) => (
-                  <span key={index} className="warlord-location-tag">
-                    {location}
-                  </span>
-                ))}
+            {currentBiography.locations && currentBiography.locations.length > 0 && (
+              <div className="warlord-locations">
+                <div className="warlord-locations-label">関連地名：</div>
+                <div className="warlord-locations-list">
+                  {currentBiography.locations.map((location, index) => (
+                    <span key={index} className="warlord-location-tag">
+                      {location}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* ページネーションボタン */}
@@ -150,9 +152,7 @@ const WarlordDetail = () => {
               ← 前へ
             </SoundButton>
 
-            <div className="warlord-pagination-indicator">
-              {currentStage} / 10
-            </div>
+            <div className="warlord-pagination-indicator">{currentStage} / 10</div>
 
             <SoundButton
               onClick={handleNextStage}

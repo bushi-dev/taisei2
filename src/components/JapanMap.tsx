@@ -11,6 +11,7 @@ interface Location {
 interface JapanMapProps {
   onPrefectureClick: (prefectureId: number, prefectureName: string) => void;
   selectedPrefecture?: number | null;
+  highlightedPrefectures?: string[]; // 都道府県名の配列（例：["愛知県", "岐阜県"]）
 }
 
 // 都道府県データ（日本語名とID）
@@ -116,7 +117,7 @@ const getRegionClass = (englishId: string): string => {
   return '';
 };
 
-const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefecture }) => {
+const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefecture, highlightedPrefectures = [] }) => {
   const [hoveredPrefecture, setHoveredPrefecture] = useState<string | null>(null);
 
   const handleClick = (englishId: string) => {
@@ -141,6 +142,14 @@ const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefectu
     ? getEnglishIdByPrefectureId(selectedPrefecture)
     : null;
 
+  // ハイライトされた都道府県の英語IDリストを取得
+  const highlightedEnglishIds = highlightedPrefectures
+    .map((name) => prefectures.find((p) => p.name === name)?.englishId)
+    .filter((id): id is string => id !== undefined);
+
+  // 都道府県がハイライト対象かどうかをチェック
+  const isHighlighted = (englishId: string) => highlightedEnglishIds.includes(englishId);
+
   // 沖縄以外の都道府県
   const mainlandLocations = Japan.locations.filter((loc: Location) => loc.id !== 'okinawa');
   // 沖縄
@@ -158,7 +167,7 @@ const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefectu
             d={location.path}
             className={`prefecture-path ${getRegionClass(location.id)} ${
               selectedEnglishId === location.id ? 'selected' : ''
-            }`}
+            } ${isHighlighted(location.id) ? 'highlighted' : ''}`}
             onClick={() => handleClick(location.id)}
             onMouseEnter={() => handleMouseEnter(location.id)}
             onMouseLeave={handleMouseLeave}
@@ -173,7 +182,7 @@ const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefectu
               d={okinawa.path}
               className={`prefecture-path ${getRegionClass(okinawa.id)} ${
                 selectedEnglishId === okinawa.id ? 'selected' : ''
-              }`}
+              } ${isHighlighted(okinawa.id) ? 'highlighted' : ''}`}
               onClick={() => handleClick(okinawa.id)}
               onMouseEnter={() => handleMouseEnter(okinawa.id)}
               onMouseLeave={handleMouseLeave}
