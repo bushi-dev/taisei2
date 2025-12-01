@@ -109,19 +109,16 @@ export const generateWarlordQuizProblem = async (
     const quizIndex = Math.min(questionIndex, warlord.quiz.length - 1);
     const quizQuestion = warlord.quiz[quizIndex];
 
-    // 選択肢をシャッフル
-    const shuffledOptions = quizQuestion.options
-      .map((option: string, index: number) => ({ option, originalIndex: index }))
-      .sort(() => Math.random() - 0.5);
+    // 正解の選択肢を取得
+    const correctAnswer = quizQuestion.options[quizQuestion.correctAnswer];
 
-    const correctAnswerIndex = shuffledOptions.findIndex(
-      (item: any) => item.originalIndex === quizQuestion.correctAnswer
-    );
+    // 選択肢をシャッフル
+    const shuffledOptions = [...quizQuestion.options].sort(() => Math.random() - 0.5);
 
     return {
       question: quizQuestion.question,
-      answer: correctAnswerIndex,
-      options: shuffledOptions.map((item: any) => item.option),
+      answer: correctAnswer,
+      options: shuffledOptions,
       reading: warlord.reading,
     };
   } catch (error) {

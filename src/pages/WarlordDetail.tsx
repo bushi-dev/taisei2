@@ -93,25 +93,13 @@ const WarlordDetail = () => {
     <div className="warlord-detail-container">
       <h1 className="warlord-detail-heading">🏯 {warlord.name}編</h1>
 
-      {/* 武将選択ボタン */}
-      <div className="warlord-selector">
-        <div className="warlord-selector-label">武将を選択：</div>
-        <div className="warlord-selector-buttons">
-          {warlords.map((w) => (
-            <SoundButton
-              key={w.id}
-              onClick={() => handleSelectWarlord(w.id)}
-              className={`warlord-selector-btn ${w.id === warlord.id ? 'active' : ''}`}
-            >
-              {w.name}
-            </SoundButton>
-          ))}
-        </div>
-      </div>
-
       {/* 日本地図 */}
       <div className="warlord-map-container">
-        <JapanMap selectedPrefecture={null} onPrefectureClick={() => {}} />
+        <JapanMap
+          selectedPrefecture={null}
+          onPrefectureClick={() => {}}
+          highlightedPrefectures={warlord.relatedPrefectures}
+        />
       </div>
 
       {/* 生涯情報パネル */}
@@ -170,6 +158,22 @@ const WarlordDetail = () => {
         <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
           🎲 {warlord.name}編に挑戦する
         </SoundButton>
+      </div>
+
+      {/* 武将選択ボタン */}
+      <div className="warlord-selector">
+        <div className="warlord-selector-label">武将を選択：</div>
+        <div className="warlord-selector-buttons">
+          {warlords.map((w) => (
+            <SoundButton
+              key={w.id}
+              onClick={() => handleSelectWarlord(w.id)}
+              className={`warlord-selector-btn ${w.id === warlord.id ? 'active' : ''}`}
+            >
+              {w.name}
+            </SoundButton>
+          ))}
+        </div>
       </div>
 
       {/* 戻るボタン */}
