@@ -31,6 +31,11 @@ interface Warlord {
   quiz: Quiz[];
 }
 
+// 漫画が存在する武将のマッピング
+const mangaMap: { [key: number]: string } = {
+  1: '/image/manga/nobunaga.png', // 織田信長
+};
+
 const WarlordDetail = () => {
   const navigate = useNavigate();
   const { warlordId } = useParams<{ warlordId: string }>();
@@ -38,6 +43,7 @@ const WarlordDetail = () => {
   const [warlord, setWarlord] = useState<Warlord | null>(null);
   const [currentStage, setCurrentStage] = useState(1);
   const [warlords, setWarlords] = useState<Warlord[]>([]);
+  const [showManga, setShowManga] = useState(false);
 
   useEffect(() => {
     // BGM再生
@@ -124,9 +130,20 @@ const WarlordDetail = () => {
               ←
             </SoundButton>
 
-            <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
-              🎲 クイズに挑戦
-            </SoundButton>
+            <div className="warlord-action-buttons">
+              <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
+                🎲 クイズに挑戦
+              </SoundButton>
+
+              {mangaMap[warlord.id] && (
+                <SoundButton
+                  onClick={() => setShowManga(true)}
+                  className="warlord-manga-btn"
+                >
+                  📖 漫画を読む
+                </SoundButton>
+              )}
+            </div>
 
             <SoundButton
               onClick={handleNextStage}
@@ -160,6 +177,27 @@ const WarlordDetail = () => {
           style={{ width: '40px', height: '40px' }}
         />
       </SoundButton>
+
+      {/* 漫画モーダル */}
+      {showManga && mangaMap[warlord.id] && (
+        <div className="manga-modal-overlay" onClick={() => setShowManga(false)}>
+          <div className="manga-modal-content" onClick={(e) => e.stopPropagation()}>
+            <SoundButton
+              onClick={() => setShowManga(false)}
+              className="manga-close-btn"
+            >
+              ✕
+            </SoundButton>
+            <div className="manga-image-container">
+              <img
+                src={getPath(mangaMap[warlord.id])}
+                alt={`${warlord.name}の漫画`}
+                className="manga-image"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

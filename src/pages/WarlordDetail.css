@@ -159,6 +159,99 @@
   box-shadow: 0 6px 12px rgba(233, 30, 99, 0.6);
 }
 
+/* アクションボタンコンテナ */
+.warlord-action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+/* 漫画ボタン */
+.warlord-manga-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #2196f3 0%, #673ab7 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 8px rgba(33, 150, 243, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.warlord-manga-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(33, 150, 243, 0.6);
+}
+
+/* 漫画モーダル */
+.manga-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.manga-modal-content {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.manga-close-btn {
+  position: absolute;
+  top: -50px;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001;
+}
+
+.manga-close-btn:hover {
+  background: white;
+  transform: scale(1.1);
+}
+
+.manga-image-container {
+  max-width: 100%;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  border-radius: 12px;
+  background: white;
+  padding: 4px;
+}
+
+.manga-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
 /* 武将選択ボタン（横スクロール） */
 .warlord-selector {
   display: flex;
@@ -256,9 +349,30 @@
     font-size: 0.9rem;
   }
 
+  .warlord-manga-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .warlord-action-buttons {
+    flex-direction: row;
+    gap: 6px;
+  }
+
   .warlord-selector-btn {
     padding: 6px 12px;
     font-size: 0.8rem;
+  }
+
+  .manga-modal-overlay {
+    padding: 10px;
+  }
+
+  .manga-close-btn {
+    top: -45px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
 }
 
