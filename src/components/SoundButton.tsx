@@ -9,9 +9,20 @@ interface SoundButtonProps {
   className?: string;
   isBattleMode?: boolean;
   id?: string;
+  disabled?: boolean;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
-const SoundButton = ({ children, onClick, className, isBattleMode }: SoundButtonProps) => {
+const SoundButton = ({
+  children,
+  onClick,
+  className,
+  isBattleMode,
+  disabled,
+  onMouseEnter,
+  onMouseLeave,
+}: SoundButtonProps) => {
   const lastClickTime = useRef(0);
   const { playEffect, tryUnlock } = useSound();
 
@@ -39,7 +50,13 @@ const SoundButton = ({ children, onClick, className, isBattleMode }: SoundButton
   };
 
   return (
-    <button className={`sound-button ${className}`} onClick={handleClick}>
+    <button
+      className={`sound-button ${className}`}
+      onClick={handleClick}
+      disabled={disabled}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       {children}
     </button>
   );
