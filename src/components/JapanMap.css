@@ -146,6 +146,31 @@
   pointer-events: none;
 }
 
+/* 都道府県名ラベル */
+.prefecture-label {
+  font-size: 6px;
+  fill: #333;
+  font-weight: bold;
+  text-anchor: middle;
+  pointer-events: none;
+  text-shadow:
+    -0.5px -0.5px 0 #fff,
+    0.5px -0.5px 0 #fff,
+    -0.5px 0.5px 0 #fff,
+    0.5px 0.5px 0 #fff;
+  paint-order: stroke fill;
+  stroke: #fff;
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+}
+
+.prefecture-label.highlighted {
+  fill: #b8860b;
+  font-weight: bold;
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
 /* ツールチップ */
 .prefecture-tooltip {
   position: absolute;

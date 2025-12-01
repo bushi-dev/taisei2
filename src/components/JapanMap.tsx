@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Japan from '@svg-maps/japan';
 import './JapanMap.css';
 
@@ -12,7 +12,63 @@ interface JapanMapProps {
   onPrefectureClick: (prefectureId: number, prefectureName: string) => void;
   selectedPrefecture?: number | null;
   highlightedPrefectures?: string[]; // 都道府県名の配列（例：["愛知県", "岐阜県"]）
+  showLabels?: boolean; // 都道府県名ラベルを表示するかどうか
 }
+
+// ラベル位置の全体オフセット（微調整用）
+const LABEL_OFFSET_X = 0; // 右方向にずらす
+const LABEL_OFFSET_Y = 0; // 下方向にずらす
+
+// 都道府県の短縮名
+const prefectureShortNames: { [key: string]: string } = {
+  hokkaido: '北海道',
+  aomori: '青森',
+  iwate: '岩手',
+  miyagi: '宮城',
+  akita: '秋田',
+  yamagata: '山形',
+  fukushima: '福島',
+  ibaraki: '茨城',
+  tochigi: '栃木',
+  gunma: '群馬',
+  saitama: '埼玉',
+  chiba: '千葉',
+  tokyo: '東京',
+  kanagawa: '神奈川',
+  niigata: '新潟',
+  toyama: '富山',
+  ishikawa: '石川',
+  fukui: '福井',
+  yamanashi: '山梨',
+  nagano: '長野',
+  gifu: '岐阜',
+  shizuoka: '静岡',
+  aichi: '愛知',
+  mie: '三重',
+  shiga: '滋賀',
+  kyoto: '京都',
+  osaka: '大阪',
+  hyogo: '兵庫',
+  nara: '奈良',
+  wakayama: '和歌山',
+  tottori: '鳥取',
+  shimane: '島根',
+  okayama: '岡山',
+  hiroshima: '広島',
+  yamaguchi: '山口',
+  tokushima: '徳島',
+  kagawa: '香川',
+  ehime: '愛媛',
+  kochi: '高知',
+  fukuoka: '福岡',
+  saga: '佐賀',
+  nagasaki: '長崎',
+  kumamoto: '熊本',
+  oita: '大分',
+  miyazaki: '宮崎',
+  kagoshima: '鹿児島',
+  okinawa: '沖縄',
+};
 
 // 都道府県データ（日本語名とID）
 export const prefectures = [
@@ -121,8 +177,49 @@ const JapanMap: React.FC<JapanMapProps> = ({
   onPrefectureClick,
   selectedPrefecture,
   highlightedPrefectures = [],
+  showLabels = false,
 }) => {
   const [hoveredPrefecture, setHoveredPrefecture] = useState<string | null>(null);
+  const [labelPositions, setLabelPositions] = useState<{ [key: string]: { x: number; y: number } }>(
+    {}
+  );
+  const svgRef = useRef<SVGSVGElement>(null);
+
+  // パスのbboxから中心座標を計算
+  useEffect(() => {
+    if (!showLabels || !svgRef.current) return;
+
+    const svg = svgRef.current;
+    const positions: { [key: string]: { x: number; y: number } } = {};
+
+    // 本土の都道府県
+    Japan.locations.forEach((loc: Location) => {
+      if (loc.id === 'okinawa') return;
+      const pathEl = svg.getElementById(loc.id) as SVGPathElement | null;
+      if (pathEl) {
+        const bbox = pathEl.getBBox();
+        positions[loc.id] = {
+          x: bbox.x + bbox.width / 2,
+          y: bbox.y + bbox.height / 2,
+        };
+      }
+    });
+
+    // 沖縄（transformを考慮して計算）
+    const okinawaPath = svg.getElementById('okinawa') as SVGPathElement | null;
+    if (okinawaPath) {
+      const bbox = okinawaPath.getBBox();
+      // transform: translate(-75, -180) scale(0.6) を適用
+      const centerX = bbox.x + bbox.width / 2;
+      const centerY = bbox.y + bbox.height / 2;
+      positions['okinawa'] = {
+        x: centerX * 0.6 - 75,
+        y: centerY * 0.6 - 180,
+      };
+    }
+
+    setLabelPositions(positions);
+  }, [showLabels]);
 
   const handleClick = (englishId: string) => {
     const pref = getPrefectureByEnglishId(englishId);
@@ -161,8 +258,13 @@ const JapanMap: React.FC<JapanMapProps> = ({
 
   return (
     <div className="japan-map-wrapper">
-      {/* viewBoxを正方形に近づけて地図を大きく表示 */}
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438 438" className="japan-map-svg">
+      {/* 本来のviewBoxを使用 */}
+      <svg
+        ref={svgRef}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 438 516"
+        className="japan-map-svg"
+      >
         {/* 本土の都道府県 */}
         {mainlandLocations.map((location: Location) => (
           <path
@@ -191,12 +293,22 @@ const JapanMap: React.FC<JapanMapProps> = ({
               onMouseEnter={() => handleMouseEnter(okinawa.id)}
               onMouseLeave={handleMouseLeave}
             />
-            {/* 沖縄ラベル */}
-            <text x="95" y="500" className="okinawa-label">
-              沖縄
-            </text>
           </g>
         )}
+
+        {/* 都道府県名ラベル（動的に計算された位置に表示） */}
+        {showLabels &&
+          Object.entries(labelPositions).map(([id, pos]) => (
+            <text
+              key={`label-${id}`}
+              x={pos.x + LABEL_OFFSET_X}
+              y={pos.y + LABEL_OFFSET_Y}
+              className={`prefecture-label ${isHighlighted(id) ? 'highlighted' : ''}`}
+              pointerEvents="none"
+            >
+              {prefectureShortNames[id] || id}
+            </text>
+          ))}
       </svg>
       {hoveredPrefecture && <div className="prefecture-tooltip">{hoveredPrefecture}</div>}
     </div>

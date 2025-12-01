@@ -57,6 +57,7 @@ const HistoryLevel = () => {
         onPrefectureClick={() => {}}
         selectedPrefecture={null}
         highlightedPrefectures={getHighlightedPrefectures()}
+        showLabels={true}
       />
 
       {/* 武将選択セクション */}

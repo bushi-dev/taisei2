@@ -97,6 +97,7 @@ const WarlordDetail = () => {
           selectedPrefecture={null}
           onPrefectureClick={() => {}}
           highlightedPrefectures={warlord.relatedPrefectures}
+          showLabels={true}
         />
         <div className="warlord-name-overlay">🏯 {warlord.name}編</div>
       </div>
