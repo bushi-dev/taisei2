@@ -53,8 +53,6 @@ const HistoryLevel = () => {
 
   return (
     <div className="history-container">
-      <h1 className="history-heading">🏯 戦国武将クイズ</h1>
-
       <JapanMap
         onPrefectureClick={() => {}}
         selectedPrefecture={null}
@@ -63,8 +61,6 @@ const HistoryLevel = () => {
 
       {/* 武将選択セクション */}
       <div className="warlord-selection-section">
-        <h2 className="warlord-selection-heading">武将を選択して、その一生を学ぼう！</h2>
-
         <div className="warlord-selection-grid">
           {warlords.map((warlord) => (
             <SoundButton
