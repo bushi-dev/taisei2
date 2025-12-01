@@ -100,10 +100,6 @@ const Title = () => {
       <SoundButton className="title-screen__button treasure" onClick={() => navigate('/treasure')}>
         秘宝の記録
       </SoundButton>
-
-      <SoundButton className="title-screen__button close" onClick={() => window.close()}>
-        画面を閉じる
-      </SoundButton>
     </div>
   );
 };

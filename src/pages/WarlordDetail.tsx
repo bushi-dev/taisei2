@@ -91,89 +91,64 @@ const WarlordDetail = () => {
 
   return (
     <div className="warlord-detail-container">
-      <h1 className="warlord-detail-heading">🏯 {warlord.name}編</h1>
-
-      {/* 日本地図 */}
+      {/* 日本地図（武将名オーバーレイ付き） */}
       <div className="warlord-map-container">
         <JapanMap
           selectedPrefecture={null}
           onPrefectureClick={() => {}}
           highlightedPrefectures={warlord.relatedPrefectures}
         />
+        <div className="warlord-name-overlay">🏯 {warlord.name}編</div>
       </div>
 
-      {/* 生涯情報パネル */}
+      {/* 生涯情報パネル（コンパクト版） */}
       {currentBiography && (
         <div className="warlord-biography-panel">
           <div className="warlord-biography-header">
-            <div className="warlord-stage-info">
-              <span className="warlord-stage-number">ステージ {currentStage}</span>
-              <span className="warlord-stage-year">{currentBiography.year}</span>
-            </div>
-          </div>
-
-          <div className="warlord-biography-content">
+            <span className="warlord-stage-badge">
+              {currentStage}/10 {currentBiography.year}
+            </span>
             <h2 className="warlord-biography-title">{currentBiography.title}</h2>
-            <p className="warlord-biography-description">{currentBiography.description}</p>
-
-            {currentBiography.locations && currentBiography.locations.length > 0 && (
-              <div className="warlord-locations">
-                <div className="warlord-locations-label">関連地名：</div>
-                <div className="warlord-locations-list">
-                  {currentBiography.locations.map((location, index) => (
-                    <span key={index} className="warlord-location-tag">
-                      {location}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
+
+          <p className="warlord-biography-description">{currentBiography.description}</p>
 
           {/* ページネーションボタン */}
           <div className="warlord-pagination">
             <SoundButton
               onClick={handlePrevStage}
               disabled={currentStage === 1}
-              className="warlord-pagination-btn prev"
+              className="warlord-pagination-btn"
             >
-              ← 前へ
+              ←
             </SoundButton>
 
-            <div className="warlord-pagination-indicator">{currentStage} / 10</div>
+            <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
+              🎲 クイズに挑戦
+            </SoundButton>
 
             <SoundButton
               onClick={handleNextStage}
               disabled={currentStage === 10}
-              className="warlord-pagination-btn next"
+              className="warlord-pagination-btn"
             >
-              次へ →
+              →
             </SoundButton>
           </div>
         </div>
       )}
 
-      {/* クイズ開始ボタン */}
-      <div className="warlord-quiz-section">
-        <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
-          🎲 {warlord.name}編に挑戦する
-        </SoundButton>
-      </div>
-
       {/* 武将選択ボタン */}
       <div className="warlord-selector">
-        <div className="warlord-selector-label">武将を選択：</div>
-        <div className="warlord-selector-buttons">
-          {warlords.map((w) => (
-            <SoundButton
-              key={w.id}
-              onClick={() => handleSelectWarlord(w.id)}
-              className={`warlord-selector-btn ${w.id === warlord.id ? 'active' : ''}`}
-            >
-              {w.name}
-            </SoundButton>
-          ))}
-        </div>
+        {warlords.map((w) => (
+          <SoundButton
+            key={w.id}
+            onClick={() => handleSelectWarlord(w.id)}
+            className={`warlord-selector-btn ${w.id === warlord.id ? 'active' : ''}`}
+          >
+            {w.name}
+          </SoundButton>
+        ))}
       </div>
 
       {/* 戻るボタン */}
@@ -181,7 +156,7 @@ const WarlordDetail = () => {
         <img
           src={getPath('/image/back.png')}
           alt="戻る"
-          style={{ width: '45px', height: '45px' }}
+          style={{ width: '40px', height: '40px' }}
         />
       </SoundButton>
     </div>
