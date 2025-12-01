@@ -177,7 +177,7 @@ const WarlordDetail = () => {
       </div>
 
       {/* 戻るボタン */}
-      <SoundButton onClick={() => navigate('/history')} className="back-button-level">
+      <SoundButton onClick={() => navigate('/history-level')} className="back-button-level">
         <img
           src={getPath('/image/back.png')}
           alt="戻る"
