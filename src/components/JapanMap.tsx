@@ -262,7 +262,7 @@ const JapanMap: React.FC<JapanMapProps> = ({
       <svg
         ref={svgRef}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 438 355"
+        viewBox="0 0 438 365"
         className="japan-map-svg"
       >
         {/* 本土の都道府県 */}

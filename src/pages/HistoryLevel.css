@@ -16,16 +16,9 @@
   gap: 4px;
 }
 
-/* 日本地図の高さを大きく表示 */
+/* 日本地図コンテナ */
 .history-container .japan-map-wrapper {
-  max-height: 55vh;
-  min-height: 40vh;
   flex: 1;
-}
-
-.history-container .japan-map-svg {
-  max-height: 55vh;
-  min-height: 35vh;
 }
 
 .history-heading {
