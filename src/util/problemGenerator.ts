@@ -12,24 +12,6 @@ interface KukuData {
   answer: number;
 }
 
-interface Lord {
-  name: string;
-  reading: string;
-  description: string;
-  image?: string;
-}
-
-interface SengokuData {
-  id: number;
-  prefecture: string;
-  lords: Lord[];
-}
-
-export const isHistoryMode = (): boolean => {
-  const gameType = localStorage.getItem('gameType');
-  return gameType === 'history';
-};
-
 export const isKukuMode = (gameDifficulty: string): boolean => {
   const kukuValue = localStorage.getItem('kuku');
   return gameDifficulty === 'easy' && !!kukuValue;
@@ -41,55 +23,6 @@ export const getBossCount = (gameDifficulty: string): number => {
 
 export const isBossBattle = (): boolean => {
   return !!window.location.href.match(/boss/);
-};
-
-export const generateHistoryProblem = async (enemyCount = 1): Promise<Problem> => {
-  try {
-    const response = await fetch('/json/sengoku.json');
-    const sengokuData: SengokuData[] = await response.json();
-
-    const selectedPrefecture = localStorage.getItem('selectedPrefecture');
-    let prefectureData: SengokuData;
-
-    if (selectedPrefecture === 'mix') {
-      // ミックスモード: ランダムな都道府県を選択
-      const shuffled = sengokuData.slice().sort(() => Math.random() - 0.5);
-      prefectureData = shuffled[(enemyCount - 1) % shuffled.length];
-    } else {
-      // 特定の都道府県
-      const prefId = parseInt(selectedPrefecture || '1');
-      prefectureData = sengokuData.find((d) => d.id === prefId) || sengokuData[0];
-    }
-
-    // この都道府県の大名からランダムに1人選ぶ
-    const lords = prefectureData.lords;
-    const selectedLord = lords[Math.floor(Math.random() * lords.length)];
-
-    // 選択肢を生成（正解 + 他の都道府県からランダムに2人）
-    const otherLords = sengokuData
-      .filter((d) => d.id !== prefectureData.id)
-      .flatMap((d) => d.lords)
-      .map((l) => l.name)
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 2);
-
-    const options = [selectedLord.name, ...otherLords].sort(() => Math.random() - 0.5);
-
-    return {
-      question: `${prefectureData.prefecture}を治めていたのは？`,
-      answer: selectedLord.name,
-      options,
-      reading: selectedLord.reading,
-    };
-  } catch (error) {
-    console.error('Error loading sengoku data:', error);
-    return {
-      question: 'エラーが発生しました',
-      answer: 'エラー',
-      options: ['エラー', '再読込', '戻る'],
-      reading: '',
-    };
-  }
 };
 
 export const generateWarlordQuizProblem = async (
@@ -144,11 +77,6 @@ export const generateProblem = async (
       const warlord = JSON.parse(selectedWarlord);
       return generateWarlordQuizProblem(warlord.id, enemyCount - 1);
     }
-  }
-
-  // 歴史モードの場合は専用の問題生成を使用
-  if (gameType === 'history') {
-    return generateHistoryProblem(enemyCount);
   }
 
   let ans;

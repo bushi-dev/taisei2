@@ -7,7 +7,10 @@ import { getPath } from '../util/util';
 
 const Title = () => {
   const navigate = useNavigate();
-  const [isStarted, setIsStarted] = useState(false);
+  // sessionStorageに記録があれば、タップ画面をスキップ
+  const [isStarted, setIsStarted] = useState(() => {
+    return sessionStorage.getItem('appStarted') === 'true';
+  });
 
   const { playBgm, tryUnlock } = useSoundManager();
 
@@ -20,6 +23,9 @@ const Title = () => {
 
     // BGM再生
     playBgm('/sound/bgm1.mp3', 0.1);
+
+    // sessionStorageに記録して、戻るボタンで戻ってきた時はスキップ
+    sessionStorage.setItem('appStarted', 'true');
 
     setIsStarted(true);
   }, [isStarted, tryUnlock, playBgm]);
@@ -93,6 +99,10 @@ const Title = () => {
 
       <SoundButton className="title-screen__button treasure" onClick={() => navigate('/treasure')}>
         秘宝の記録
+      </SoundButton>
+
+      <SoundButton className="title-screen__button close" onClick={() => window.close()}>
+        画面を閉じる
       </SoundButton>
     </div>
   );

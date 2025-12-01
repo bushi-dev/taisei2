@@ -117,7 +117,11 @@ const getRegionClass = (englishId: string): string => {
   return '';
 };
 
-const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefecture, highlightedPrefectures = [] }) => {
+const JapanMap: React.FC<JapanMapProps> = ({
+  onPrefectureClick,
+  selectedPrefecture,
+  highlightedPrefectures = [],
+}) => {
   const [hoveredPrefecture, setHoveredPrefecture] = useState<string | null>(null);
 
   const handleClick = (englishId: string) => {
@@ -157,8 +161,8 @@ const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefectu
 
   return (
     <div className="japan-map-wrapper">
-      {/* viewBoxを調整して本土を大きく表示（沖縄の南部分をカット） */}
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438 400" className="japan-map-svg">
+      {/* viewBoxを正方形に近づけて地図を大きく表示 */}
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 438 438" className="japan-map-svg">
         {/* 本土の都道府県 */}
         {mainlandLocations.map((location: Location) => (
           <path
@@ -174,9 +178,9 @@ const JapanMap: React.FC<JapanMapProps> = ({ onPrefectureClick, selectedPrefectu
           />
         ))}
 
-        {/* 沖縄を日本海の位置に移動（縮小して左上に配置） */}
+        {/* 沖縄を九州の左下に配置 */}
         {okinawa && (
-          <g transform="translate(-30, -230) scale(0.7)">
+          <g transform="translate(-75, -180) scale(0.6)">
             <path
               id={okinawa.id}
               d={okinawa.path}
