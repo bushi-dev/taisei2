@@ -209,11 +209,11 @@ const JapanMap: React.FC<JapanMapProps> = ({
     const okinawaPath = svg.getElementById('okinawa') as SVGPathElement | null;
     if (okinawaPath) {
       const bbox = okinawaPath.getBBox();
-      // transform: translate(-75, -180) scale(0.6) を適用
+      // transform: translate(50, -180) scale(0.6) を適用
       const centerX = bbox.x + bbox.width / 2;
       const centerY = bbox.y + bbox.height / 2;
       positions['okinawa'] = {
-        x: centerX * 0.6 - 75,
+        x: centerX * 0.6 + 50,
         y: centerY * 0.6 - 180,
       };
     }
@@ -280,9 +280,9 @@ const JapanMap: React.FC<JapanMapProps> = ({
           />
         ))}
 
-        {/* 沖縄を九州の左下に配置 */}
+        {/* 沖縄を九州の右下に配置 */}
         {okinawa && (
-          <g transform="translate(-75, -180) scale(0.6)">
+          <g transform="translate(50, -180) scale(0.6)">
             <path
               id={okinawa.id}
               d={okinawa.path}
