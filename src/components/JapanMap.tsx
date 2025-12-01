@@ -258,11 +258,11 @@ const JapanMap: React.FC<JapanMapProps> = ({
 
   return (
     <div className="japan-map-wrapper">
-      {/* 本来のviewBoxを使用 */}
+      {/* viewBoxを調整して沖縄があった左下の空白を削除 */}
       <svg
         ref={svgRef}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 438 516"
+        viewBox="0 0 438 355"
         className="japan-map-svg"
       >
         {/* 本土の都道府県 */}
