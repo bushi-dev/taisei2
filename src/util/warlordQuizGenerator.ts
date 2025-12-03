@@ -20,10 +20,10 @@ export const generateWarlordQuizProblem = async (
   questionIndex: number
 ): Promise<Problem> => {
   try {
-    const response = await fetch('/json/sengoku_warlords.json');
-    const warlords: Warlord[] = await response.json();
+    // 分割ファイルから武将データを読み込み
+    const response = await fetch(`/json/warlords/${warlordId}.json`);
+    const warlord: Warlord = await response.json();
 
-    const warlord = warlords.find((w) => w.id === warlordId);
     if (!warlord) {
       throw new Error(`Warlord with id ${warlordId} not found`);
     }

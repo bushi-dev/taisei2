@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "織田信長",
+    "reading": "おだのぶなが",
+    "image": "/image/busho/oda_nobunaga.png",
+    "relatedPrefectures": ["愛知県", "岐阜県", "京都府"]
+  },
+  {
+    "id": 2,
+    "name": "前田利家",
+    "reading": "まえだとしいえ",
+    "image": "/image/busho/maeda_toshiie.png",
+    "relatedPrefectures": ["愛知県", "福井県", "石川県"]
+  },
+  {
+    "id": 3,
+    "name": "武田信玄",
+    "reading": "たけだしんげん",
+    "image": "/image/busho/takeda_shingen.png",
+    "relatedPrefectures": ["山梨県", "長野県", "静岡県"]
+  },
+  {
+    "id": 4,
+    "name": "本多忠勝",
+    "reading": "ほんだただかつ",
+    "image": "/image/busho/honda_tadakatsu.png",
+    "relatedPrefectures": ["愛知県", "千葉県", "三重県"]
+  },
+  {
+    "id": 5,
+    "name": "榊原康政",
+    "reading": "さかきばらやすまさ",
+    "image": "/image/busho/sakakibara_yasumasa.png",
+    "relatedPrefectures": ["愛知県", "滋賀県", "群馬県"]
+  },
+  {
+    "id": 6,
+    "name": "島津義弘",
+    "reading": "しまづよしひろ",
+    "image": "/image/busho/shimazu_yoshihiro.png",
+    "relatedPrefectures": ["鹿児島県", "宮崎県"]
+  },
+  {
+    "id": 7,
+    "name": "浅井長政",
+    "reading": "あさいながまさ",
+    "image": "/image/busho/asai_nagamasa.png",
+    "relatedPrefectures": ["滋賀県"]
+  },
+  {
+    "id": 8,
+    "name": "佐々成政",
+    "reading": "さっさなりまさ",
+    "image": "/image/busho/sassa_narimasa.png",
+    "relatedPrefectures": ["愛知県", "福井県", "富山県", "熊本県"]
+  },
+  {
+    "id": 9,
+    "name": "斎藤道三",
+    "reading": "さいとうどうさん",
+    "image": "/image/busho/saito_dosan.png",
+    "relatedPrefectures": ["京都府", "岐阜県"]
+  },
+  {
+    "id": 10,
+    "name": "三好三人衆",
+    "reading": "みよしさんにんしゅう",
+    "image": "/image/busho/miyoshi_sannin.png",
+    "relatedPrefectures": ["京都府", "大阪府", "奈良県"]
+  }
+]

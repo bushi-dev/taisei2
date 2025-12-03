@@ -24,18 +24,11 @@ const HistoryLevel = () => {
     // BGM再生
     playBgm('/sound/bgm1.mp3', 0.1);
 
-    // 武将データを読み込み
-    fetch('/json/sengoku_warlords.json')
+    // 武将データを読み込み（インデックスファイルから）
+    fetch('/json/warlords/index.json')
       .then((res) => res.json())
       .then((data) => {
-        const warlordList = data.map((w: any) => ({
-          id: w.id,
-          name: w.name,
-          reading: w.reading,
-          image: w.image,
-          relatedPrefectures: w.relatedPrefectures,
-        }));
-        setWarlords(warlordList);
+        setWarlords(data);
       })
       .catch((err) => console.error('Failed to load warlord data:', err));
   }, [playBgm]);

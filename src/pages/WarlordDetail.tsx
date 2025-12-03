@@ -49,13 +49,15 @@ const WarlordDetail = () => {
     // BGM再生
     playBgm('/sound/bgm1.mp3', 0.1);
 
-    // 武将データを読み込み
-    fetch('/json/sengoku_warlords.json')
-      .then((res) => res.json())
-      .then((data) => {
-        setWarlords(data);
-        const selectedWarlord = data.find((w: Warlord) => w.id === parseInt(warlordId || '1'));
-        setWarlord(selectedWarlord || data[0]);
+    // 武将データを読み込み（分割ファイルから）
+    const id = parseInt(warlordId || '1');
+    Promise.all([
+      fetch('/json/warlords/index.json').then((res) => res.json()),
+      fetch(`/json/warlords/${id}.json`).then((res) => res.json())
+    ])
+      .then(([indexData, warlordData]) => {
+        setWarlords(indexData);
+        setWarlord(warlordData);
       })
       .catch((err) => console.error('Failed to load warlord data:', err));
   }, [warlordId, playBgm]);
@@ -81,12 +83,15 @@ const WarlordDetail = () => {
   };
 
   const handleSelectWarlord = (selectedWarlordId: number) => {
-    const selected = warlords.find((w) => w.id === selectedWarlordId);
-    if (selected) {
-      setWarlord(selected);
-      setCurrentStage(1);
-      navigate(`/warlord/${selectedWarlordId}`);
-    }
+    // 分割ファイルから武将データを読み込み
+    fetch(`/json/warlords/${selectedWarlordId}.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setWarlord(data);
+        setCurrentStage(1);
+        navigate(`/warlord/${selectedWarlordId}`);
+      })
+      .catch((err) => console.error('Failed to load warlord data:', err));
   };
 
   if (!warlord) {
