@@ -21,12 +21,25 @@ interface Quiz {
   explanation: string;
 }
 
-interface Warlord {
+// index.jsonから読み込む基本情報
+interface WarlordIndex {
   id: number;
   name: string;
   reading: string;
   image?: string;
   relatedPrefectures: string[];
+  funFact: string;
+}
+
+// 個別ファイルから読み込む詳細情報
+interface WarlordDetail {
+  id: number;
+  biography: BiographyStage[];
+  quiz: Quiz[];
+}
+
+// 統合された武将情報
+interface Warlord extends WarlordIndex {
   biography: BiographyStage[];
   quiz: Quiz[];
 }
@@ -49,15 +62,19 @@ const WarlordDetail = () => {
     // BGM再生
     playBgm('/sound/bgm1.mp3', 0.1);
 
-    // 武将データを読み込み（分割ファイルから）
+    // 武将データを読み込み（index.json + 個別ファイル）
     const id = parseInt(warlordId || '1');
     Promise.all([
       fetch('/json/warlords/index.json').then((res) => res.json()),
       fetch(`/json/warlords/${id}.json`).then((res) => res.json())
     ])
-      .then(([indexData, warlordData]) => {
-        setWarlords(indexData);
-        setWarlord(warlordData);
+      .then(([indexData, detailData]: [WarlordIndex[], WarlordDetail]) => {
+        setWarlords(indexData as Warlord[]);
+        // index.jsonの基本情報と個別ファイルの詳細情報をマージ
+        const baseInfo = indexData.find((w: WarlordIndex) => w.id === id);
+        if (baseInfo) {
+          setWarlord({ ...baseInfo, ...detailData });
+        }
       })
       .catch((err) => console.error('Failed to load warlord data:', err));
   }, [warlordId, playBgm]);
@@ -83,11 +100,14 @@ const WarlordDetail = () => {
   };
 
   const handleSelectWarlord = (selectedWarlordId: number) => {
-    // 分割ファイルから武将データを読み込み
+    // 個別ファイルから詳細データを読み込み、index.jsonの基本情報とマージ
     fetch(`/json/warlords/${selectedWarlordId}.json`)
       .then((res) => res.json())
-      .then((data) => {
-        setWarlord(data);
+      .then((detailData: WarlordDetail) => {
+        const baseInfo = warlords.find((w) => w.id === selectedWarlordId);
+        if (baseInfo) {
+          setWarlord({ ...baseInfo, ...detailData });
+        }
         setCurrentStage(1);
         navigate(`/warlord/${selectedWarlordId}`);
       })

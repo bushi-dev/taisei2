@@ -1,9 +1,5 @@
 {
   "id": 10,
-  "name": "三好三人衆",
-  "reading": "みよしさんにんしゅう",
-  "image": "/image/busho/miyoshi_sannin.png",
-  "relatedPrefectures": ["京都府", "大阪府", "奈良県"],
   "biography": [
     {
       "stage": 1,
@@ -127,7 +123,5 @@
       "correctAnswer": 1,
       "explanation": "天正年間には岩成友通が戦死しました。"
     }
-  ],
-  "funFact": "この武将についての豆知識はありません。"
+  ]
 }
-

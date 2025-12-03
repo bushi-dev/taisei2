@@ -30,17 +30,23 @@ export const generateWarlordQuizProblem = async (
   questionIndex: number
 ): Promise<Problem> => {
   try {
-    // 分割ファイルから武将データを読み込み
-    const response = await fetch(`/json/warlords/${warlordId}.json`);
-    const warlord: any = await response.json();
+    // index.jsonと個別ファイルを並行して読み込み
+    const [indexResponse, detailResponse] = await Promise.all([
+      fetch('/json/warlords/index.json'),
+      fetch(`/json/warlords/${warlordId}.json`)
+    ]);
+    const indexData: any[] = await indexResponse.json();
+    const detailData: any = await detailResponse.json();
 
-    if (!warlord) {
+    // index.jsonからreadingを取得
+    const warlordBase = indexData.find((w) => w.id === warlordId);
+    if (!warlordBase || !detailData) {
       throw new Error(`Warlord with id ${warlordId} not found`);
     }
 
     // questionIndexが0-9の範囲内であることを確認
-    const quizIndex = Math.min(questionIndex, warlord.quiz.length - 1);
-    const quizQuestion = warlord.quiz[quizIndex];
+    const quizIndex = Math.min(questionIndex, detailData.quiz.length - 1);
+    const quizQuestion = detailData.quiz[quizIndex];
 
     // 正解の選択肢を取得
     const correctAnswer = quizQuestion.options[quizQuestion.correctAnswer];
@@ -52,7 +58,7 @@ export const generateWarlordQuizProblem = async (
       question: quizQuestion.question,
       answer: correctAnswer,
       options: shuffledOptions,
-      reading: warlord.reading,
+      reading: warlordBase.reading,
     };
   } catch (error) {
     console.error('Error generating warlord quiz problem:', error);

@@ -1,9 +1,5 @@
 {
   "id": 7,
-  "name": "浅井長政",
-  "reading": "あさいながまさ",
-  "image": "/image/busho/asai_nagamasa.png",
-  "relatedPrefectures": ["滋賀県"],
   "biography": [
     {
       "stage": 1,
@@ -127,7 +123,5 @@
       "correctAnswer": 0,
       "explanation": "長政の死後、お市の方は豊臣秀吉に嫁ぎました。"
     }
-  ],
-  "funFact": "この武将についての豆知識はありません。"
+  ]
 }
-

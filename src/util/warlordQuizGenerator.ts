@@ -1,11 +1,18 @@
 import { Problem } from './problemGenerator';
 
-interface Warlord {
+// index.jsonの基本情報
+interface WarlordIndex {
   id: number;
   name: string;
   reading: string;
   image?: string;
   relatedPrefectures: string[];
+  funFact: string;
+}
+
+// 個別ファイルの詳細情報
+interface WarlordDetail {
+  id: number;
   biography: any[];
   quiz: {
     question: string;
@@ -20,17 +27,23 @@ export const generateWarlordQuizProblem = async (
   questionIndex: number
 ): Promise<Problem> => {
   try {
-    // 分割ファイルから武将データを読み込み
-    const response = await fetch(`/json/warlords/${warlordId}.json`);
-    const warlord: Warlord = await response.json();
+    // index.jsonと個別ファイルを並行して読み込み
+    const [indexResponse, detailResponse] = await Promise.all([
+      fetch('/json/warlords/index.json'),
+      fetch(`/json/warlords/${warlordId}.json`)
+    ]);
+    const indexData: WarlordIndex[] = await indexResponse.json();
+    const detailData: WarlordDetail = await detailResponse.json();
 
-    if (!warlord) {
+    // index.jsonからreadingを取得
+    const warlordBase = indexData.find((w) => w.id === warlordId);
+    if (!warlordBase || !detailData) {
       throw new Error(`Warlord with id ${warlordId} not found`);
     }
 
     // questionIndexが0-9の範囲内であることを確認
-    const quizIndex = Math.min(questionIndex, warlord.quiz.length - 1);
-    const quizQuestion = warlord.quiz[quizIndex];
+    const quizIndex = Math.min(questionIndex, detailData.quiz.length - 1);
+    const quizQuestion = detailData.quiz[quizIndex];
 
     // 選択肢をシャッフル
     const shuffledOptions = quizQuestion.options
@@ -45,7 +58,7 @@ export const generateWarlordQuizProblem = async (
       question: quizQuestion.question,
       answer: correctAnswerIndex,
       options: shuffledOptions.map((item) => item.option),
-      reading: warlord.reading,
+      reading: warlordBase.reading,
     };
   } catch (error) {
     console.error('Error generating warlord quiz problem:', error);

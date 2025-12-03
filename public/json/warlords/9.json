@@ -1,9 +1,5 @@
 {
   "id": 9,
-  "name": "斎藤道三",
-  "reading": "さいとうどうさん",
-  "image": "/image/busho/saito_dosan.png",
-  "relatedPrefectures": ["京都府", "岐阜県"],
   "biography": [
     {
       "stage": 1,
@@ -127,7 +123,5 @@
       "correctAnswer": 1,
       "explanation": "道三は1556年に討ち死にしました。道三は52歳でした。"
     }
-  ],
-  "funFact": "この武将についての豆知識はありません。"
+  ]
 }
-

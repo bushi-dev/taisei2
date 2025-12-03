@@ -1,9 +1,5 @@
 {
   "id": 6,
-  "name": "島津義弘",
-  "reading": "しまづよしひろ",
-  "image": "/image/busho/shimazu_yoshihiro.png",
-  "relatedPrefectures": ["鹿児島県", "宮崎県"],
   "biography": [
     {
       "stage": 1,
@@ -127,7 +123,5 @@
       "correctAnswer": 2,
       "explanation": "島津義弘は1619年に亡くなりました。"
     }
-  ],
-  "funFact": "義弘（よしひろ）は、とても強い武将だったので、敵から「鬼島津（おにしまづ）」とおそれられていました。特に、関ヶ原（せきがはら）の戦いでの、敵の真ん中を突破して逃げた「島津の退き口（のきぐち）」は有名です。"
+  ]
 }
-

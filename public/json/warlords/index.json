@@ -4,69 +4,79 @@
     "name": "織田信長",
     "reading": "おだのぶなが",
     "image": "/image/busho/oda_nobunaga.png",
-    "relatedPrefectures": ["愛知県", "岐阜県", "京都府"]
+    "relatedPrefectures": ["愛知県", "岐阜県", "京都府"],
+    "funFact": "信長（のぶなが）は、子どものころ、ふつうの武士の子どもとはちがう、かわった行動ばかりしていたので、「うつけ（うつけ）」とよばれていました。でも、それは新しいことを考えるための大切な時間だったのかもしれませんね。"
   },
   {
     "id": 2,
     "name": "前田利家",
     "reading": "まえだとしいえ",
     "image": "/image/busho/maeda_toshiie.png",
-    "relatedPrefectures": ["愛知県", "福井県", "石川県"]
+    "relatedPrefectures": ["愛知県", "福井県", "石川県"],
+    "funFact": "利家（としいえ）は、とても長い槍（やり）を使うのが上手で、「槍（やり）の又左（またざ）」というかっこいいあだ名でよばれていました。戦場では、その長い槍で大かつやくしました。"
   },
   {
     "id": 3,
     "name": "武田信玄",
     "reading": "たけだしんげん",
     "image": "/image/busho/takeda_shingen.png",
-    "relatedPrefectures": ["山梨県", "長野県", "静岡県"]
+    "relatedPrefectures": ["山梨県", "長野県", "静岡県"],
+    "funFact": "信玄（しんげん）の軍隊の旗には、「風林火山（ふうりんかざん）」という文字が書かれていました。これは、「風のようにすばやく、林のように静かに、火のように激しく、山のように動かない」という意味で、信玄の戦い方をあらわしています。"
   },
   {
     "id": 4,
     "name": "本多忠勝",
     "reading": "ほんだただかつ",
     "image": "/image/busho/honda_tadakatsu.png",
-    "relatedPrefectures": ["愛知県", "千葉県", "三重県"]
+    "relatedPrefectures": ["愛知県", "千葉県", "三重県"],
+    "funFact": "忠勝（ただかつ）は、なんと57回もの戦いに参加しましたが、一度もケガをしなかったというすごい伝説があります！これは、彼がとても強かっただけでなく、いつも注意ぶかく戦っていた証拠かもしれません。"
   },
   {
     "id": 5,
     "name": "榊原康政",
     "reading": "さかきばらやすまさ",
     "image": "/image/busho/sakakibara_yasumasa.png",
-    "relatedPrefectures": ["愛知県", "滋賀県", "群馬県"]
+    "relatedPrefectures": ["愛知県", "滋賀県", "群馬県"],
+    "funFact": "康政（やすまさ）は、戦いが強いだけでなく、字を書くことや本を読むことも得意な、かしこい武将でした。文武両道（ぶんぶりょうどう）の武将として、徳川家康（とくがわいえやす）にとても信頼されていました。"
   },
   {
     "id": 6,
     "name": "島津義弘",
     "reading": "しまづよしひろ",
     "image": "/image/busho/shimazu_yoshihiro.png",
-    "relatedPrefectures": ["鹿児島県", "宮崎県"]
+    "relatedPrefectures": ["鹿児島県", "宮崎県"],
+    "funFact": "義弘（よしひろ）は、とても強い武将だったので、敵から「鬼島津（おにしまづ）」とおそれられていました。特に、関ヶ原（せきがはら）の戦いでの、敵の真ん中を突破して逃げた「島津の退き口（のきぐち）」は有名です。"
   },
   {
     "id": 7,
     "name": "浅井長政",
     "reading": "あさいながまさ",
     "image": "/image/busho/asai_nagamasa.png",
-    "relatedPrefectures": ["滋賀県"]
+    "relatedPrefectures": ["滋賀県"],
+    "funFact": "この武将についての豆知識はありません。"
   },
   {
     "id": 8,
     "name": "佐々成政",
     "reading": "さっさなりまさ",
     "image": "/image/busho/sassa_narimasa.png",
-    "relatedPrefectures": ["愛知県", "福井県", "富山県", "熊本県"]
+    "relatedPrefectures": ["愛知県", "福井県", "富山県", "熊本県"],
+    "funFact": "この武将についての豆知識はありません。"
   },
   {
     "id": 9,
     "name": "斎藤道三",
     "reading": "さいとうどうさん",
     "image": "/image/busho/saito_dosan.png",
-    "relatedPrefectures": ["京都府", "岐阜県"]
+    "relatedPrefectures": ["京都府", "岐阜県"],
+    "funFact": "この武将についての豆知識はありません。"
   },
   {
     "id": 10,
     "name": "三好三人衆",
     "reading": "みよしさんにんしゅう",
     "image": "/image/busho/miyoshi_sannin.png",
-    "relatedPrefectures": ["京都府", "大阪府", "奈良県"]
+    "relatedPrefectures": ["京都府", "大阪府", "奈良県"],
+    "funFact": "この武将についての豆知識はありません。"
   }
 ]

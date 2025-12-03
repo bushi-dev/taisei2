@@ -1,9 +1,5 @@
 {
   "id": 8,
-  "name": "佐々成政",
-  "reading": "さっさなりまさ",
-  "image": "/image/busho/sassa_narimasa.png",
-  "relatedPrefectures": ["愛知県", "福井県", "富山県", "熊本県"],
   "biography": [
     {
       "stage": 1,
@@ -127,7 +123,5 @@
       "correctAnswer": 2,
       "explanation": "佐々成政は1588年におなかを切って死にました。"
     }
-  ],
-  "funFact": "この武将についての豆知識はありません。"
+  ]
 }
-

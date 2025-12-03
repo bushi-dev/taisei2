@@ -1,9 +1,5 @@
 {
   "id": 5,
-  "name": "榊原康政",
-  "reading": "さかきばらやすまさ",
-  "image": "/image/busho/sakakibara_yasumasa.png",
-  "relatedPrefectures": ["愛知県", "滋賀県", "群馬県"],
   "biography": [
     {
       "stage": 1,
@@ -127,7 +123,5 @@
       "correctAnswer": 1,
       "explanation": "榊原康政は1606年に亡くなりました。"
     }
-  ],
-  "funFact": "康政（やすまさ）は、戦いが強いだけでなく、字を書くことや本を読むことも得意な、かしこい武将でした。文武両道（ぶんぶりょうどう）の武将として、徳川家康（とくがわいえやす）にとても信頼されていました。"
+  ]
 }
-
