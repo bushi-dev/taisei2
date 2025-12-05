@@ -128,5 +128,315 @@
     "birthYears": [1560],
     "deathYears": [1600],
     "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 14,
+    "name": "豊臣秀吉",
+    "reading": "とよとみひでよし",
+    "image": "/image/busho/toyotomi_hideyoshi.png",
+    "relatedPrefectures": ["愛知県", "大阪府", "京都府"],
+    "birthYears": [1537],
+    "deathYears": [1598],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 15,
+    "name": "明智光秀",
+    "reading": "あけちみつひで",
+    "image": "/image/busho/akechi_mitsuhide.png",
+    "relatedPrefectures": ["岐阜県", "京都府", "滋賀県"],
+    "birthYears": [1528],
+    "deathYears": [1582],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 16,
+    "name": "石川数正",
+    "reading": "いしかわかずまさ",
+    "image": "/image/busho/ishikawa_kazumasa.png",
+    "relatedPrefectures": ["愛知県", "長野県"],
+    "birthYears": [1533],
+    "deathYears": [1593],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 17,
+    "name": "お市",
+    "reading": "おいち",
+    "image": "/image/busho/oichi.png",
+    "relatedPrefectures": ["愛知県", "滋賀県", "福井県"],
+    "birthYears": [1547],
+    "deathYears": [1583],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 18,
+    "name": "斎藤龍興",
+    "reading": "さいとうたつおき",
+    "image": "/image/busho/saito_tatsuoki.png",
+    "relatedPrefectures": ["岐阜県", "福井県"],
+    "birthYears": [1548],
+    "deathYears": [1573],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 19,
+    "name": "柴田勝家",
+    "reading": "しばたかついえ",
+    "image": "/image/busho/shibata_katsuie.png",
+    "relatedPrefectures": ["愛知県", "福井県"],
+    "birthYears": [1522],
+    "deathYears": [1583],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 20,
+    "name": "藤堂高虎",
+    "reading": "とうどうたかとら",
+    "image": "/image/busho/todo_takatora.png",
+    "relatedPrefectures": ["滋賀県", "三重県", "愛媛県"],
+    "birthYears": [1556],
+    "deathYears": [1630],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 21,
+    "name": "徳川家康",
+    "reading": "とくがわいえやす",
+    "image": "/image/busho/tokugawa_ieyasu.png",
+    "relatedPrefectures": ["愛知県", "静岡県", "東京都"],
+    "birthYears": [1543],
+    "deathYears": [1616],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 22,
+    "name": "宮部継潤",
+    "reading": "みやべけいじゅん",
+    "image": "/image/busho/miyabe_keijun.png",
+    "relatedPrefectures": ["滋賀県", "鳥取県"],
+    "birthYears": [1528],
+    "deathYears": [1599],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 23,
+    "name": "森蘭丸",
+    "reading": "もりらんまる",
+    "image": "/image/busho/mori_ranmaru.png",
+    "relatedPrefectures": ["岐阜県", "京都府"],
+    "birthYears": [1565],
+    "deathYears": [1582],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 24,
+    "name": "丹羽長秀",
+    "reading": "にわながひで",
+    "image": "/image/busho/niwa_nagahide.png",
+    "relatedPrefectures": ["愛知県", "滋賀県", "福井県"],
+    "birthYears": [1535],
+    "deathYears": [1585],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 25,
+    "name": "淀殿",
+    "reading": "よどどの",
+    "image": "/image/busho/yododono.png",
+    "relatedPrefectures": ["滋賀県", "大阪府"],
+    "birthYears": [1569],
+    "deathYears": [1615],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 26,
+    "name": "初",
+    "reading": "はつ",
+    "image": "/image/busho/hatsu.png",
+    "relatedPrefectures": ["滋賀県", "福井県"],
+    "birthYears": [1570],
+    "deathYears": [1633],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 27,
+    "name": "江",
+    "reading": "ごう",
+    "image": "/image/busho/gou.png",
+    "relatedPrefectures": ["滋賀県", "東京都"],
+    "birthYears": [1573],
+    "deathYears": [1626],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 28,
+    "name": "豊臣秀頼",
+    "reading": "とよとみひでより",
+    "image": "/image/busho/toyotomi_hideyori.png",
+    "relatedPrefectures": ["大阪府"],
+    "birthYears": [1593],
+    "deathYears": [1615],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 29,
+    "name": "竹中半兵衛",
+    "reading": "たけなかはんべえ",
+    "image": "/image/busho/takenaka_hanbei.png",
+    "relatedPrefectures": ["岐阜県"],
+    "birthYears": [1544],
+    "deathYears": [1579],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 30,
+    "name": "黒田官兵衛",
+    "reading": "くろだかんべえ",
+    "image": "/image/busho/kuroda_kanbei.png",
+    "relatedPrefectures": ["兵庫県", "福岡県", "大分県"],
+    "birthYears": [1546],
+    "deathYears": [1604],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 31,
+    "name": "加藤清正",
+    "reading": "かとうきよまさ",
+    "image": "/image/busho/kato_kiyomasa.png",
+    "relatedPrefectures": ["愛知県", "熊本県"],
+    "birthYears": [1562],
+    "deathYears": [1611],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 32,
+    "name": "福島正則",
+    "reading": "ふくしままさのり",
+    "image": "/image/busho/fukushima_masanori.png",
+    "relatedPrefectures": ["愛知県", "広島県", "長野県"],
+    "birthYears": [1561],
+    "deathYears": [1624],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 33,
+    "name": "前野長康",
+    "reading": "まえのながやす",
+    "image": "/image/busho/maeno_nagayasu.png",
+    "relatedPrefectures": ["愛知県", "兵庫県"],
+    "birthYears": [1528],
+    "deathYears": [1595],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 34,
+    "name": "豊臣秀次",
+    "reading": "とよとみひでつぐ",
+    "image": "/image/busho/toyotomi_hidetsugu.png",
+    "relatedPrefectures": ["愛知県", "滋賀県", "京都府"],
+    "birthYears": [1568],
+    "deathYears": [1595],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 35,
+    "name": "竹中重門",
+    "reading": "たけなかしげかど",
+    "image": "/image/busho/takenaka_shigekado.png",
+    "relatedPrefectures": ["岐阜県"],
+    "birthYears": [1573],
+    "deathYears": [1631],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 36,
+    "name": "小早川隆景",
+    "reading": "こばやかわたかかげ",
+    "image": "/image/busho/kobayakawa_takakage.png",
+    "relatedPrefectures": ["広島県", "福岡県"],
+    "birthYears": [1533],
+    "deathYears": [1597],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 37,
+    "name": "毛利輝元",
+    "reading": "もうりてるもと",
+    "image": "/image/busho/mori_terumoto.png",
+    "relatedPrefectures": ["広島県", "山口県"],
+    "birthYears": [1553],
+    "deathYears": [1625],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 38,
+    "name": "大友宗麟",
+    "reading": "おおともそうりん",
+    "image": "/image/busho/otomo_sorin.png",
+    "relatedPrefectures": ["大分県", "福岡県"],
+    "birthYears": [1530],
+    "deathYears": [1587],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 39,
+    "name": "長宗我部元親",
+    "reading": "ちょうそかべもとちか",
+    "image": "/image/busho/chosokabe_motochika.png",
+    "relatedPrefectures": ["高知県"],
+    "birthYears": [1539],
+    "deathYears": [1599],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 40,
+    "name": "立花宗茂",
+    "reading": "たちばなむねしげ",
+    "image": "/image/busho/tachibana_muneshige.png",
+    "relatedPrefectures": ["福岡県", "大分県"],
+    "birthYears": [1567],
+    "deathYears": [1643],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 41,
+    "name": "片桐且元",
+    "reading": "かたぎりかつもと",
+    "image": "/image/busho/katagiri_katsumoto.png",
+    "relatedPrefectures": ["滋賀県", "大阪府", "奈良県"],
+    "birthYears": [1556],
+    "deathYears": [1615],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 42,
+    "name": "大野治長",
+    "reading": "おおのはるなが",
+    "image": "/image/busho/ono_harunaga.png",
+    "relatedPrefectures": ["大阪府"],
+    "birthYears": [1569],
+    "deathYears": [1615],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 43,
+    "name": "大蔵卿局",
+    "reading": "おおくらきょうのつぼね",
+    "image": "/image/busho/okurakyo_no_tsubone.png",
+    "relatedPrefectures": ["大阪府"],
+    "birthYears": [1545],
+    "deathYears": [1615],
+    "hideyoshiBrothersFlag": false
+  },
+  {
+    "id": 44,
+    "name": "後陽成天皇",
+    "reading": "ごようぜいてんのう",
+    "image": "/image/busho/goyozei_tenno.png",
+    "relatedPrefectures": ["京都府"],
+    "birthYears": [1571],
+    "deathYears": [1617],
+    "hideyoshiBrothersFlag": false
   }
 ]
