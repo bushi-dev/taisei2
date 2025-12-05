@@ -7,7 +7,6 @@ interface WarlordIndex {
   reading: string;
   image?: string;
   relatedPrefectures: string[];
-  funFact: string;
 }
 
 // 個別ファイルの詳細情報

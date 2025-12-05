@@ -4,70 +4,112 @@ https://taisei.pages.dev/
 
 <img width="295" alt="スクリーンショット 2025-02-10 13 47 13" src="https://github.com/user-attachments/assets/e7f231f2-b7fc-4b79-bea1-1dc69791c5cf" />
 
-# React + TypeScript + Vite.
+---
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# AIに武将データを作ってもらう方法
 
-Currently, two official plugins are available:
+Cursorで以下のように入力してください：
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+@README.md @index.json
 
-## Expanding the ESLint configuration
+README.mdの「武将の追加方法」セクションのルールに従って、以下の武将を追加して。
+index.jsonのIDとかぶらないように新しいIDを割り当てて。
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+- 豊臣秀長
+- まつ（利家の正室）
+- 石田三成
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+↑ 武将名を変えて使ってください。
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
+---
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
+# 武将の追加方法
+
+武将のデータは `public/json/warlords` フォルダに入っています。
+
+## ステップ1: index.json に武将を追加する
+
+`index.json` ファイルに、新しい武将の情報を追加します。
+
+```json
+{
+  "id": 11,
+  "name": "豊臣秀吉",
+  "reading": "とよとみひでよし",
+  "image": "/image/busho/toyotomi_hideyoshi.png",
+  "relatedPrefectures": ["愛知県", "大阪府", "京都府"]
+}
 ```
 
-## 画像追加時
+| 項目                 | 説明                                         |
+| -------------------- | -------------------------------------------- |
+| `id`                 | 武将の番号。ほかの武将とかぶらない数字にする |
+| `name`               | 武将の名前                                   |
+| `reading`            | 名前のよみがな（ひらがな）                   |
+| `image`              | 武将の画像のパス                             |
+| `relatedPrefectures` | その武将にかかわりのある都道府県             |
 
-git lfs push origin main
+## ステップ2: {id}.json ファイルを作成する
 
-## 保存方法
+武将の詳しい情報を書いたファイルを作ります。  
+ファイル名は `{id}.json`（例: `11.json`）にします。
 
-- const treasures = localStorage.getItem("treasures");
-- console.log(treasures);
+### 伝記の書き方
 
-- メモに保存する
+```json
+{
+  "id": 11,
+  "biography": [
+    {
+      "stage": 1,
+      "year": "1537年",
+      "title": "誕生と幼少時代",
+      "description": "豊臣秀吉（とよとみひでよし）は1537年、尾張国（おわりのくに）で生まれました。..."
+    }
+  ],
+  "quiz": []
+}
+```
 
-- localStorage.setItem("treasures", JSON.stringify(　　 KIROKU ));
+**ポイント**
 
-## model
+- `biography` には、武将の人生を10ステージで書く
+- `stage` は 1〜10 の順番
+- `year` は、そのできごとがあった年
+- `title` は、そのステージのタイトル
+- `description` は、できごとの説明。**むずかしい言葉にはふりがなをつける**
 
-anthropic/claude-3.5-sonnet
+### クイズの書き方
+
+```json
+"quiz": [
+  {
+    "question": "豊臣秀吉が生まれた国はどこでしょうか？",
+    "options": ["尾張国", "美濃国", "三河国"],
+    "correctAnswer": 0,
+    "explanation": "豊臣秀吉（とよとみひでよし）は1537年、尾張国（おわりのくに）で生まれました。"
+  }
+]
+```
+
+| 項目            | 説明                                        |
+| --------------- | ------------------------------------------- |
+| `question`      | クイズの問題                                |
+| `options`       | 選べる答え。3つ書く                         |
+| `correctAnswer` | 正解の番号。0 = 1番目、1 = 2番目、2 = 3番目 |
+| `explanation`   | 答えの説明。**ふりがなをつける**            |
+
+## 文章を書くときのルール（JSONの中身）
+
+- **小学校3年生がわかる言葉をつかう**
+- **固有名詞には必ずふりがなをつける**
+  - 例: 織田信長（おだのぶなが）、桶狭間（おけはざま）、本能寺（ほんのうじ）
+- むずかしい漢字はひらがなにするか、ふりがなをつける
+- 1文は短めにする
+
+## ステップ3: 画像を追加する
+
+武将の画像を `public/image/busho/` フォルダに追加する。  
+ファイル名は `index.json` の `image` で指定したものと同じにする。
