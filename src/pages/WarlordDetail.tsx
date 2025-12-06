@@ -59,6 +59,14 @@ const getMangaPanelPosition = (stage: number): string => {
   return `${x}% ${y}%`;
 };
 
+type FontSize = 'small' | 'medium' | 'large';
+
+const fontSizeLabels: Record<FontSize, string> = {
+  small: '小',
+  medium: '中',
+  large: '大',
+};
+
 const WarlordDetail = () => {
   const navigate = useNavigate();
   const { warlordId } = useParams<{ warlordId: string }>();
@@ -66,6 +74,15 @@ const WarlordDetail = () => {
   const [warlord, setWarlord] = useState<Warlord | null>(null);
   const [currentStage, setCurrentStage] = useState(1);
   const [warlords, setWarlords] = useState<Warlord[]>([]);
+  const [fontSize, setFontSize] = useState<FontSize>(() => {
+    const saved = localStorage.getItem('mangaFontSize');
+    return (saved as FontSize) || 'medium';
+  });
+
+  const handleFontSizeChange = (size: FontSize) => {
+    setFontSize(size);
+    localStorage.setItem('mangaFontSize', size);
+  };
 
   useEffect(() => {
     // BGM再生
@@ -149,7 +166,7 @@ const WarlordDetail = () => {
           {/* 説明文とナビゲーション */}
           {currentBiography && (
             <div className="manga-biography-panel">
-              <p className="manga-description">{currentBiography.description}</p>
+              <p className={`manga-description manga-description-${fontSize}`}>{currentBiography.description}</p>
 
               <div className="warlord-pagination">
                 <SoundButton
@@ -246,6 +263,22 @@ const WarlordDetail = () => {
           </SoundButton>
         ))}
       </div>
+
+      {/* 文字サイズ選択ボタン（右下） */}
+      {hasManga && (
+        <div className="font-size-selector">
+          <span className="font-size-label">文字</span>
+          {(['small', 'medium', 'large'] as FontSize[]).map((size) => (
+            <SoundButton
+              key={size}
+              onClick={() => handleFontSizeChange(size)}
+              className={`font-size-btn ${fontSize === size ? 'active' : ''}`}
+            >
+              {fontSizeLabels[size]}
+            </SoundButton>
+          ))}
+        </div>
+      )}
 
       {/* 戻るボタン */}
       <SoundButton onClick={() => navigate('/history-level')} className="back-button-level">

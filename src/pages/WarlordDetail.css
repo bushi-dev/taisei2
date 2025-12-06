@@ -61,11 +61,82 @@
 }
 
 .manga-description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.7;
   color: #fff;
   margin: 0 0 12px 0;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: font-size 0.2s ease;
+}
+
+/* 文字サイズバリエーション */
+.manga-description-small {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.manga-description-medium {
+  font-size: 1.2rem;
+  line-height: 1.7;
+}
+
+.manga-description-large {
+  font-size: 1.5rem;
+  line-height: 1.8;
+}
+
+/* 文字サイズ選択ボタン（右下固定） */
+.font-size-selector {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: linear-gradient(145deg, rgba(30, 20, 10, 0.95), rgba(50, 35, 20, 0.95));
+  border: 2px solid #c9a227;
+  border-radius: 25px;
+  padding: 6px 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+}
+
+.font-size-label {
+  font-size: 0.75rem;
+  color: #ccc;
+  margin-right: 4px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.font-size-btn {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, rgba(50, 40, 30, 0.9), rgba(30, 25, 20, 0.9));
+  color: #ddd;
+  border: 2px solid rgba(201, 162, 39, 0.4);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.font-size-btn:hover {
+  border-color: #ffd700;
+  background: linear-gradient(135deg, rgba(70, 55, 40, 0.9), rgba(50, 40, 30, 1));
+  color: #ffd700;
+}
+
+.font-size-btn.active {
+  background: linear-gradient(135deg, #c9a227 0%, #8b6914 100%);
+  color: white;
+  border-color: #ffd700;
+  box-shadow: 0 2px 8px rgba(201, 162, 39, 0.4);
 }
 
 /* 武将名オーバーレイ（右下） */
@@ -406,6 +477,31 @@
     width: 40px;
     height: 40px;
     font-size: 1.2rem;
+  }
+
+  /* 文字サイズバリエーション（モバイル） */
+  .manga-description-small {
+    font-size: 0.9rem;
+  }
+
+  .manga-description-medium {
+    font-size: 1.1rem;
+  }
+
+  .manga-description-large {
+    font-size: 1.35rem;
+  }
+
+  .font-size-selector {
+    bottom: 8px;
+    right: 8px;
+    padding: 4px 8px;
+  }
+
+  .font-size-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
   }
 }
 
