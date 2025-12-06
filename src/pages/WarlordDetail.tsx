@@ -49,6 +49,16 @@ const mangaIds = new Set([1, 2]); // 1: 織田信長, 2: 前田利家
 // 漫画パスを取得する関数
 const getMangaPath = (id: number) => `/image/manga/${id}.png`;
 
+// 漫画コマの背景位置を計算する関数
+// 漫画は5列×2行（上段:1-5, 下段:6-10）
+const getMangaPanelPosition = (stage: number): string => {
+  const col = (stage - 1) % 5;
+  const row = Math.floor((stage - 1) / 5);
+  const x = (col / 4) * 100;
+  const y = row * 100;
+  return `${x}% ${y}%`;
+};
+
 const WarlordDetail = () => {
   const navigate = useNavigate();
   const { warlordId } = useParams<{ warlordId: string }>();
@@ -56,7 +66,6 @@ const WarlordDetail = () => {
   const [warlord, setWarlord] = useState<Warlord | null>(null);
   const [currentStage, setCurrentStage] = useState(1);
   const [warlords, setWarlords] = useState<Warlord[]>([]);
-  const [showManga, setShowManga] = useState(false);
 
   useEffect(() => {
     // BGM再生
@@ -119,66 +128,110 @@ const WarlordDetail = () => {
   }
 
   const currentBiography = warlord.biography.find((b) => b.stage === currentStage);
+  const hasManga = mangaIds.has(warlord.id);
 
   return (
     <div className="warlord-detail-container">
-      {/* 日本地図（武将名オーバーレイ付き） */}
-      <div className="warlord-map-container">
-        <JapanMap
-          selectedPrefecture={null}
-          onPrefectureClick={() => {}}
-          highlightedPrefectures={warlord.relatedPrefectures}
-          showLabels={true}
-        />
-        <div className="warlord-name-overlay">🏯 {warlord.name}編</div>
-      </div>
-
-      {/* 生涯情報パネル（コンパクト版） */}
-      {currentBiography && (
-        <div className="warlord-biography-panel">
-          <div className="warlord-biography-header">
-            <span className="warlord-stage-badge">
-              {currentStage}/10 {currentBiography.year}
-            </span>
-            <h2 className="warlord-biography-title">{currentBiography.title}</h2>
+      {hasManga ? (
+        /* 漫画版レイアウト */
+        <>
+          {/* 漫画コマ */}
+          <div className="warlord-map-container">
+            <div
+              className="manga-panel"
+              style={{
+                backgroundImage: `url(${getPath(getMangaPath(warlord.id))})`,
+                backgroundPosition: getMangaPanelPosition(currentStage),
+              }}
+            />
           </div>
 
-          <p className="warlord-biography-description">{currentBiography.description}</p>
+          {/* 説明文とナビゲーション */}
+          {currentBiography && (
+            <div className="manga-biography-panel">
+              <p className="manga-description">{currentBiography.description}</p>
 
-          {/* ページネーションボタン */}
-          <div className="warlord-pagination">
-            <SoundButton
-              onClick={handlePrevStage}
-              disabled={currentStage === 1}
-              className="warlord-pagination-btn"
-            >
-              ←
-            </SoundButton>
-
-            <div className="warlord-action-buttons">
-              <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
-                🎲 クイズに挑戦
-              </SoundButton>
-
-              {mangaIds.has(warlord.id) && (
+              <div className="warlord-pagination">
                 <SoundButton
-                  onClick={() => setShowManga(true)}
-                  className="warlord-manga-btn"
+                  onClick={handlePrevStage}
+                  disabled={currentStage === 1}
+                  className="warlord-pagination-btn"
                 >
-                  📖 漫画を読む
+                  ←
                 </SoundButton>
-              )}
-            </div>
 
-            <SoundButton
-              onClick={handleNextStage}
-              disabled={currentStage === 10}
-              className="warlord-pagination-btn"
-            >
-              →
-            </SoundButton>
+                <div className="warlord-action-buttons">
+                  <span className="warlord-stage-badge">
+                    {currentStage}/10
+                  </span>
+                  <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
+                    🎲 クイズに挑戦
+                  </SoundButton>
+                </div>
+
+                <SoundButton
+                  onClick={handleNextStage}
+                  disabled={currentStage === 10}
+                  className="warlord-pagination-btn"
+                >
+                  →
+                </SoundButton>
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        /* 通常版レイアウト（地図あり） */
+        <>
+          {/* 日本地図 */}
+          <div className="warlord-map-container">
+            <JapanMap
+              selectedPrefecture={null}
+              onPrefectureClick={() => {}}
+              highlightedPrefectures={warlord.relatedPrefectures}
+              showLabels={true}
+            />
+            <div className="warlord-name-overlay">🏯 {warlord.name}編</div>
           </div>
-        </div>
+
+          {/* 生涯情報パネル */}
+          {currentBiography && (
+            <div className="warlord-biography-panel">
+              <div className="warlord-biography-header">
+                <span className="warlord-stage-badge">
+                  {currentStage}/10 {currentBiography.year}
+                </span>
+                <h2 className="warlord-biography-title">{currentBiography.title}</h2>
+              </div>
+
+              <p className="warlord-biography-description">{currentBiography.description}</p>
+
+              <div className="warlord-pagination">
+                <SoundButton
+                  onClick={handlePrevStage}
+                  disabled={currentStage === 1}
+                  className="warlord-pagination-btn"
+                >
+                  ←
+                </SoundButton>
+
+                <div className="warlord-action-buttons">
+                  <SoundButton onClick={handleStartQuiz} className="warlord-quiz-btn">
+                    🎲 クイズに挑戦
+                  </SoundButton>
+                </div>
+
+                <SoundButton
+                  onClick={handleNextStage}
+                  disabled={currentStage === 10}
+                  className="warlord-pagination-btn"
+                >
+                  →
+                </SoundButton>
+              </div>
+            </div>
+          )}
+        </>
       )}
 
       {/* 武将選択ボタン */}
@@ -202,27 +255,6 @@ const WarlordDetail = () => {
           style={{ width: '40px', height: '40px' }}
         />
       </SoundButton>
-
-      {/* 漫画モーダル */}
-      {showManga && mangaIds.has(warlord.id) && (
-        <div className="manga-modal-overlay" onClick={() => setShowManga(false)}>
-          <div className="manga-modal-content" onClick={(e) => e.stopPropagation()}>
-            <SoundButton
-              onClick={() => setShowManga(false)}
-              className="manga-close-btn"
-            >
-              ✕
-            </SoundButton>
-            <div className="manga-image-container">
-              <img
-                src={getPath(getMangaPath(warlord.id))}
-                alt={`${warlord.name}の漫画`}
-                className="manga-image"
-              />
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
