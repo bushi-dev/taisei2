@@ -15,58 +15,54 @@ const KukuLevel = () => {
     localStorage.setItem("kuku", "");
   }, [playBgm]);
 
-  const handleClick = (level: string) => {
+  const handleClick = (level: string, mix: boolean = false) => {
     localStorage.setItem("kuku", level);
     localStorage.setItem("gameDifficulty", "easy");
     localStorage.setItem("gameType", "multiplication");
+    localStorage.setItem("mix", mix ? "true" : "false");
     navigate("/battle");
   };
 
   return (
     <div className="kuku-container">
       <div className="kuku-header">
-        <h1 className="kuku-title">九九を選択</h1>
-        <p className="kuku-subtitle">学びたい段を選んでください</p>
+        <h1 className="kuku-title">九九道場</h1>
+        <p className="kuku-subtitle">鍛えたき段を選べ</p>
       </div>
 
       <div className="kuku-content">
-        <div className="kuku-section">
-          <div className="kuku-row kuku-row--full">
-            <SoundButton
-              onClick={() => handleClick("mix")}
-              className="kuku-button kuku-button--mix"
-            >
-              <span className="kuku-button-icon">🎲</span>
-              <span className="kuku-button-label">ミックス</span>
-              <span className="kuku-button-desc">全ての段がランダムに出題</span>
-            </SoundButton>
-          </div>
+        {/* 全段挑戦ボタン - 中央配置 */}
+        <div className="kuku-mix-all-wrapper">
+          <SoundButton
+            onClick={() => handleClick("mix", true)}
+            className="kuku-button kuku-button--mix"
+          >
+            <span className="kuku-button-icon">⚔️</span>
+            <span className="kuku-button-label">全段挑戦</span>
+            <span className="kuku-button-desc">一から九までの段が入り乱れる</span>
+          </SoundButton>
         </div>
 
-        <div className="kuku-section">
-          <h2 className="kuku-section-title">各段を選択</h2>
+        {/* 各段のグリッド */}
+        <div className="kuku-grid">
           {[...Array(9)].map((_, i) => (
-            <div className="kuku-row" key={i}>
-              <SoundButton
-                onClick={() => {
-                  handleClick((i + 1).toString());
-                  localStorage.setItem("mix", "false");
-                }}
-                className="kuku-button kuku-button--primary"
-              >
-                <span className="kuku-button-number">{i + 1}</span>
-                <span className="kuku-button-label">{i + 1}の段</span>
-              </SoundButton>
-              <SoundButton
-                onClick={() => {
-                  handleClick((i + 1).toString());
-                  localStorage.setItem("mix", "true");
-                }}
-                className="kuku-button kuku-button--secondary"
-              >
-                <span className="kuku-button-icon">🔀</span>
-                <span className="kuku-button-label">ミックス</span>
-              </SoundButton>
+            <div className="kuku-card" key={i}>
+              <div className="kuku-card-number">{i + 1}</div>
+              <div className="kuku-card-title">{i + 1}の段</div>
+              <div className="kuku-card-buttons">
+                <SoundButton
+                  onClick={() => handleClick((i + 1).toString(), false)}
+                  className="kuku-card-btn kuku-card-btn--order"
+                >
+                  順番
+                </SoundButton>
+                <SoundButton
+                  onClick={() => handleClick((i + 1).toString(), true)}
+                  className="kuku-card-btn kuku-card-btn--mix"
+                >
+                  ミックス
+                </SoundButton>
+              </div>
             </div>
           ))}
         </div>
@@ -76,7 +72,6 @@ const KukuLevel = () => {
         <img
           src={getPath("/image/back.png")}
           alt="戻る"
-          style={{ width: "55px", height: "55px" }}
         />
       </SoundButton>
     </div>

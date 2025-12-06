@@ -1,268 +1,528 @@
+/* 九九レベル選択 - 和風モダンデザイン（タブレット最適化） */
+
 .kuku-container {
-  background-image: url('/image/bg.webp');
+  background: #0d0d0d;
+  background-image: 
+    radial-gradient(ellipse at 20% 30%, rgba(139, 69, 19, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 70%, rgba(180, 50, 50, 0.1) 0%, transparent 50%),
+    url('/image/bg.webp');
   background-size: cover;
+  background-position: center;
   background-attachment: fixed;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  padding: clamp(1rem, 3vw, 2.5rem);
-  box-sizing: border-box;
   min-height: 100vh;
   min-height: 100dvh;
+  padding: 1.5rem;
+  box-sizing: border-box;
   overflow-y: auto;
+  position: relative;
+}
+
+/* 暗いオーバーレイ */
+.kuku-container::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  pointer-events: none;
 }
 
 .kuku-header {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
-  animation: slideDown 0.5s ease-out;
+  margin-bottom: 1.5rem;
 }
 
 .kuku-title {
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  margin: 0 0 0.5rem 0;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  font-size: 2.8rem;
+  margin: 0;
+  color: #f5d78e;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-shadow: 
+    0 0 20px rgba(245, 215, 142, 0.5),
+    3px 3px 0 #2a2a2a;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
 }
 
 .kuku-subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.3rem);
-  margin: 0;
-  opacity: 0.9;
-  font-weight: 500;
+  font-size: 1rem;
+  margin: 0.8rem 0 0 0;
+  color: #a0a0a0;
+  font-weight: 400;
+  letter-spacing: 0.2em;
 }
 
 .kuku-content {
-  width: 100%;
-  max-width: 700px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5rem, 3vw, 2rem);
-  flex: 1;
-}
-
-.kuku-section {
-  display: flex;
-  flex-direction: column;
-  gap: clamp(0.5rem, 1.5vw, 1rem);
-  animation: fadeIn 0.6s ease-out;
-}
-
-.kuku-section-title {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  margin: 0.5rem 0 0.5rem 0;
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-  letter-spacing: 0.5px;
-}
-
-.kuku-row {
-  display: flex;
-  gap: clamp(0.5rem, 2vw, 1rem);
+  gap: 1.5rem;
+  max-width: 900px;
   width: 100%;
-  margin-bottom: clamp(0.2rem, 0.8vw, 0.3rem);
+  margin: 0 auto;
 }
 
-.kuku-row--full {
-  margin-bottom: clamp(0.5rem, 1.5vw, 1rem);
+/* ========================================
+   全段挑戦ボタン - 中央配置
+   ======================================== */
+.kuku-mix-all-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
-.kuku-button {
-  padding: clamp(0.8rem, 2.5vw, 1.2rem) clamp(1rem, 3vw, 1.5rem);
-  font-size: clamp(0.85rem, 2.2vw, 1.1rem);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  flex: 1;
-  font-weight: 600;
+.kuku-button--mix {
+  background: 
+    linear-gradient(135deg, #4a1a1a 0%, #8b2525 30%, #a03030 50%, #8b2525 70%, #4a1a1a 100%);
+  border: 3px solid #8b2525;
+  padding: 1.2rem 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.3rem;
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
   position: relative;
-  overflow: hidden;
+  clip-path: polygon(
+    5% 0%, 95% 0%, 100% 50%, 95% 100%, 
+    5% 100%, 0% 50%
+  );
+  box-shadow: 
+    inset 0 2px 30px rgba(0, 0, 0, 0.4),
+    0 8px 40px rgba(139, 37, 37, 0.4);
 }
 
-.kuku-button::before {
+.kuku-button--mix::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-  transition: left 0.3s ease;
-  z-index: 0;
-}
-
-.kuku-button:hover::before {
-  left: 100%;
-}
-
-.kuku-button > * {
-  position: relative;
-  z-index: 1;
-}
-
-.kuku-button:hover {
-  transform: translateY(-3px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-}
-
-.kuku-button:active {
-  transform: translateY(-1px) scale(0.98);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-.kuku-button-icon {
-  font-size: clamp(1.2rem, 3vw, 1.8rem);
-  display: block;
-}
-
-.kuku-button-number {
-  font-size: clamp(1.3rem, 3.5vw, 2rem);
-  font-weight: 700;
-  display: block;
-}
-
-.kuku-button-label {
-  font-size: clamp(0.8rem, 2vw, 1rem);
-  display: block;
-  font-weight: 600;
-}
-
-.kuku-button-desc {
-  font-size: clamp(0.65rem, 1.5vw, 0.85rem);
-  display: block;
-  opacity: 0.9;
-  font-weight: 500;
-}
-
-.kuku-button--primary {
-  background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
-}
-
-.kuku-button--primary:hover {
-  background: linear-gradient(135deg, #42a5f5 0%, #1e88e5 100%);
-}
-
-.kuku-button--secondary {
-  background: linear-gradient(135deg, #4caf50 0%, #388e3c 100%);
-}
-
-.kuku-button--secondary:hover {
-  background: linear-gradient(135deg, #66bb6a 0%, #43a047 100%);
-}
-
-.kuku-button--mix {
-  background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  padding: clamp(1rem, 3vw, 1.5rem) clamp(1.5rem, 4vw, 2rem);
+  inset: 6px;
+  border: 2px solid rgba(245, 215, 142, 0.3);
+  clip-path: polygon(
+    5% 0%, 95% 0%, 100% 50%, 95% 100%, 
+    5% 100%, 0% 50%
+  );
+  pointer-events: none;
 }
 
 .kuku-button--mix:hover {
-  background: linear-gradient(135deg, #ffb74d 0%, #fb8c00 100%);
+  background: 
+    linear-gradient(135deg, #5a2525 0%, #9b3030 30%, #b04040 50%, #9b3030 70%, #5a2525 100%);
+  border-color: #f5d78e;
+  box-shadow: 
+    inset 0 2px 30px rgba(0, 0, 0, 0.4),
+    0 8px 40px rgba(139, 37, 37, 0.5),
+    0 0 40px rgba(245, 215, 142, 0.2);
 }
 
-/* 戻るボタン */
+.kuku-button--mix:active {
+  transform: scale(0.98);
+}
+
+.kuku-button--mix .kuku-button-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.kuku-button--mix .kuku-button-label {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #f5d78e;
+  letter-spacing: 0.15em;
+  text-shadow: 0 0 10px rgba(245, 215, 142, 0.4);
+}
+
+.kuku-button-desc {
+  font-size: 0.75rem;
+  color: #d0b080;
+  opacity: 0.9;
+  margin-top: 0.2rem;
+  font-family: sans-serif;
+}
+
+/* ========================================
+   3x3グリッドレイアウト
+   ======================================== */
+.kuku-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* ========================================
+   各段のカード
+   ======================================== */
+.kuku-card {
+  background: 
+    linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+  border: 3px solid #4a4a4a;
+  box-shadow: 
+    inset 0 2px 20px rgba(0, 0, 0, 0.5),
+    0 8px 32px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0.5rem 0.8rem;
+  position: relative;
+  clip-path: polygon(
+    10% 0%, 90% 0%, 100% 10%, 100% 90%, 
+    90% 100%, 10% 100%, 0% 90%, 0% 10%
+  );
+}
+
+.kuku-card::before {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border: 1px solid rgba(245, 215, 142, 0.2);
+  clip-path: polygon(
+    10% 0%, 90% 0%, 100% 10%, 100% 90%, 
+    90% 100%, 10% 100%, 0% 90%, 0% 10%
+  );
+  pointer-events: none;
+}
+
+.kuku-card:hover {
+  border-color: #f5d78e;
+  box-shadow: 
+    inset 0 2px 20px rgba(0, 0, 0, 0.5),
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 30px rgba(245, 215, 142, 0.15);
+}
+
+/* カード内の数字 */
+.kuku-card-number {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #f5d78e;
+  text-shadow: 
+    0 0 15px rgba(245, 215, 142, 0.5),
+    2px 2px 0 rgba(0, 0, 0, 0.5);
+  line-height: 1;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+/* カード内のタイトル */
+.kuku-card-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c0c0c0;
+  letter-spacing: 0.1em;
+  margin-top: 0.2rem;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+}
+
+/* カード内のボタンエリア */
+.kuku-card-buttons {
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+  width: 100%;
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+}
+
+/* カード内ボタン共通 */
+.kuku-card-btn {
+  flex: 1;
+  padding: 0.5rem 0.3rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* 順番ボタン */
+.kuku-card-btn--order {
+  background: linear-gradient(135deg, #1e3a5f 0%, #2a5298 100%);
+  color: #b8d4f0;
+  border: 2px solid #2a5298;
+  box-shadow: 
+    inset 0 1px 8px rgba(0, 0, 0, 0.3),
+    0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.kuku-card-btn--order:hover {
+  background: linear-gradient(135deg, #2a5298 0%, #3a6ab8 100%);
+  border-color: #6ab0f0;
+  color: #ffffff;
+}
+
+.kuku-card-btn--order:active {
+  transform: scale(0.95);
+}
+
+/* ミックスボタン */
+.kuku-card-btn--mix {
+  background: linear-gradient(135deg, #5a2020 0%, #8b3030 100%);
+  color: #e8b0b0;
+  border: 2px solid #8b3030;
+  box-shadow: 
+    inset 0 1px 8px rgba(0, 0, 0, 0.3),
+    0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.kuku-card-btn--mix:hover {
+  background: linear-gradient(135deg, #8b3030 0%, #a84040 100%);
+  border-color: #e07070;
+  color: #ffffff;
+}
+
+.kuku-card-btn--mix:active {
+  transform: scale(0.95);
+}
+
+/* ========================================
+   戻るボタン
+   ======================================== */
 .back-button-level {
-  margin-top: clamp(1rem, 3vw, 2rem);
-  padding: 0.5rem;
-  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 100;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  width: clamp(60px, 12vw, 80px);
-  height: clamp(60px, 12vw, 80px);
+  background: rgba(20, 20, 20, 0.9);
+  border: 2px solid #4a4a4a;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    inset 0 1px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
 
 .back-button-level:hover {
-  background: rgba(0, 0, 0, 0.5);
-  transform: scale(1.1);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  border-color: #f5d78e;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(245, 215, 142, 0.2);
 }
 
 .back-button-level:active {
   transform: scale(0.95);
 }
 
-/* アニメーション */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.back-button-level img {
+  width: 35px !important;
+  height: 35px !important;
+  opacity: 0.8;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* タブレット向け */
+/* ========================================
+   タブレット横向き最適化 (768px以上)
+   ======================================== */
 @media (min-width: 768px) {
   .kuku-container {
-    padding: 2rem;
+    padding: 2rem 3rem;
     justify-content: center;
   }
 
-  .kuku-row {
-    max-width: 500px;
+  .kuku-header {
+    margin-bottom: 2rem;
   }
 
-  .kuku-button {
-    padding: 1rem 1.5rem;
-    border-radius: 14px;
+  .kuku-title {
+    font-size: 3.5rem;
+    letter-spacing: 0.4em;
+  }
+
+  .kuku-subtitle {
+    font-size: 1.1rem;
+    letter-spacing: 0.3em;
+  }
+
+  .kuku-content {
+    max-width: 1000px;
+    gap: 2rem;
+  }
+
+  .kuku-button--mix {
+    padding: 1.5rem 4rem;
+  }
+
+  .kuku-button--mix .kuku-button-icon {
+    font-size: 2.2rem;
+  }
+
+  .kuku-button--mix .kuku-button-label {
+    font-size: 1.8rem;
+  }
+
+  .kuku-button-desc {
+    font-size: 0.9rem;
+  }
+
+  .kuku-grid {
+    gap: 1.2rem;
+  }
+
+  .kuku-card {
+    padding: 1.2rem 0.6rem 1rem;
+    border-width: 4px;
+  }
+
+  .kuku-card-number {
+    font-size: 3.5rem;
+  }
+
+  .kuku-card-title {
+    font-size: 1rem;
+  }
+
+  .kuku-card-buttons {
+    margin-top: 1rem;
+    gap: 0.5rem;
+  }
+
+  .kuku-card-btn {
+    padding: 0.6rem 0.4rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  .back-button-level {
+    width: 70px;
+    height: 70px;
+    bottom: 2rem;
+    left: 2rem;
+  }
+
+  .back-button-level img {
+    width: 42px !important;
+    height: 42px !important;
   }
 }
 
-/* デスクトップ向け */
+/* ========================================
+   大型タブレット・デスクトップ (1024px以上)
+   ======================================== */
 @media (min-width: 1024px) {
   .kuku-container {
-    padding: 3rem;
+    padding: 3rem 4rem;
   }
 
-  .kuku-row {
-    max-width: 600px;
+  .kuku-title {
+    font-size: 4rem;
   }
 
-  .kuku-button {
-    padding: 1.2rem 2rem;
-    border-radius: 16px;
+  .kuku-content {
+    max-width: 1100px;
+  }
+
+  .kuku-grid {
+    gap: 1.5rem;
+  }
+
+  .kuku-card {
+    padding: 1.5rem 0.8rem 1.2rem;
+  }
+
+  .kuku-card-number {
+    font-size: 4rem;
+  }
+
+  .kuku-card-title {
     font-size: 1.1rem;
   }
 
-  .kuku-button:hover {
-    transform: translateY(-5px) scale(1.08);
+  .kuku-card-btn {
+    padding: 0.7rem 0.5rem;
+    font-size: 1rem;
+  }
+
+  .kuku-button--mix {
+    padding: 2rem 5rem;
+  }
+
+  .kuku-button--mix .kuku-button-label {
+    font-size: 2rem;
   }
 }
 
-/* ダークモード対応 */
-@media (prefers-color-scheme: dark) {
-  .kuku-button {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+/* ========================================
+   縦向きスマホ対応 (小さい画面)
+   ======================================== */
+@media (max-width: 500px) {
+  .kuku-container {
+    padding: 1rem;
+    padding-bottom: 5rem;
   }
 
-  .kuku-button:hover {
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+  .kuku-title {
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+  }
+
+  .kuku-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .kuku-button--mix {
+    padding: 0.8rem 2rem;
+  }
+
+  .kuku-button--mix .kuku-button-icon {
+    font-size: 1.3rem;
+  }
+
+  .kuku-button--mix .kuku-button-label {
+    font-size: 1.1rem;
+  }
+
+  .kuku-button-desc {
+    font-size: 0.65rem;
+  }
+
+  .kuku-grid {
+    gap: 0.6rem;
+  }
+
+  .kuku-card {
+    padding: 0.7rem 0.3rem 0.5rem;
+    border-width: 2px;
+  }
+
+  .kuku-card-number {
+    font-size: 1.8rem;
+  }
+
+  .kuku-card-title {
+    font-size: 0.7rem;
+  }
+
+  .kuku-card-buttons {
+    margin-top: 0.5rem;
+    gap: 0.3rem;
+    padding: 0 0.3rem;
+  }
+
+  .kuku-card-btn {
+    padding: 0.35rem 0.2rem;
+    font-size: 0.6rem;
+    border-radius: 4px;
+    border-width: 1px;
+  }
+
+  .back-button-level {
+    width: 50px;
+    height: 50px;
+    bottom: 1rem;
+    left: 1rem;
+  }
+
+  .back-button-level img {
+    width: 28px !important;
+    height: 28px !important;
   }
 }
