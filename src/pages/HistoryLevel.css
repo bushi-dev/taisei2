@@ -60,6 +60,95 @@
   transform: scale(0.98);
 }
 
+/* グループ選択タブ */
+.warlord-group-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.warlord-group-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 12px;
+  min-width: 70px;
+  background: linear-gradient(145deg, rgba(40, 35, 30, 0.85), rgba(25, 22, 18, 0.95));
+  border: 2px solid rgba(120, 100, 70, 0.4);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.warlord-group-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.warlord-group-tab:hover {
+  background: linear-gradient(145deg, rgba(60, 50, 40, 0.9), rgba(40, 35, 28, 0.95));
+  border-color: rgba(201, 162, 39, 0.6);
+  transform: translateY(-2px);
+}
+
+.warlord-group-tab.active {
+  background: linear-gradient(145deg, rgba(80, 60, 30, 0.95), rgba(50, 38, 20, 1));
+  border-color: #ffd700;
+  box-shadow: 
+    0 4px 15px rgba(255, 215, 0, 0.3),
+    inset 0 0 20px rgba(255, 215, 0, 0.1);
+}
+
+.warlord-group-tab.active::before {
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+}
+
+.tab-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.tab-label {
+  font-size: clamp(0.65rem, 1.8vw, 0.8rem);
+  font-weight: bold;
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.warlord-group-tab:hover .tab-label,
+.warlord-group-tab.active .tab-label {
+  color: #ffd700;
+}
+
+.tab-count {
+  font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+  color: #999;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 6px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.warlord-group-tab.active .tab-count {
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+}
+
 /* 大名情報パネル */
 .lord-info-panel {
   background: linear-gradient(145deg, rgba(30, 20, 10, 0.95), rgba(50, 35, 20, 0.95));
@@ -254,12 +343,34 @@
   .lord-info-panel {
     max-width: 450px;
   }
+
+  .warlord-group-tab {
+    padding: 10px 18px;
+    min-width: 100px;
+  }
+
+  .tab-icon {
+    font-size: 1.5rem;
+  }
+
+  .tab-label {
+    font-size: 0.85rem;
+  }
 }
 
 /* デスクトップ向け */
 @media (min-width: 1024px) {
   .history-container {
     padding: 1rem 3rem;
+  }
+
+  .warlord-group-tabs {
+    gap: 12px;
+  }
+
+  .warlord-group-tab {
+    padding: 12px 24px;
+    min-width: 120px;
   }
 }
 
@@ -274,6 +385,27 @@
   border: 2px solid rgba(201, 162, 39, 0.3);
 }
 
+.warlord-section-header {
+  text-align: center;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.3);
+}
+
+.warlord-section-title {
+  font-size: clamp(1.1rem, 3vw, 1.6rem);
+  color: #ffd700;
+  margin: 0 0 4px 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+  font-weight: bold;
+}
+
+.warlord-section-description {
+  font-size: clamp(0.75rem, 2vw, 0.9rem);
+  color: #bbb;
+  margin: 0;
+}
+
 .warlord-selection-heading {
   font-size: clamp(1rem, 3vw, 1.5rem);
   color: #ffd700;
@@ -284,43 +416,65 @@
 
 .warlord-selection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .warlord-selection-card {
   background: linear-gradient(135deg, rgba(50, 40, 30, 0.8), rgba(30, 25, 20, 0.9));
   border: 2px solid rgba(201, 162, 39, 0.4);
-  border-radius: 10px;
-  padding: 6px;
+  border-radius: 8px;
+  padding: 4px;
   cursor: pointer;
   transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  position: relative;
 }
 
 .warlord-selection-card:hover {
   border-color: #ffd700;
   background: linear-gradient(135deg, rgba(70, 55, 40, 0.9), rgba(50, 40, 30, 1));
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 6px 15px rgba(255, 215, 0, 0.3);
+}
+
+.warlord-selection-card.selected {
+  border-color: #ff4444;
+  background: linear-gradient(135deg, rgba(100, 50, 50, 0.95), rgba(60, 30, 30, 1));
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(255, 68, 68, 0.5);
+  z-index: 1;
 }
 
 .warlord-card-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
+  gap: 0.3rem;
   width: 100%;
+  position: relative;
 }
 
 .warlord-card-image {
-  width: clamp(70px, 18vw, 90px);
-  height: clamp(70px, 18vw, 90px);
+  width: clamp(50px, 14vw, 70px);
+  height: clamp(50px, 14vw, 70px);
   object-fit: cover;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 2px solid rgba(201, 162, 39, 0.5);
 }
 
@@ -329,15 +483,20 @@
 }
 
 .warlord-card-name {
-  font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
   font-weight: bold;
   color: #ffd700;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0;
 }
 
 .warlord-card-reading {
-  font-size: clamp(0.9rem, 2.2vw, 1.05rem);
+  font-size: clamp(0.5rem, 1.4vw, 0.7rem);
   color: #bbb;
+  order: -1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .warlord-card-prefectures {
@@ -350,16 +509,91 @@
   line-height: 1.3;
 }
 
+/* グループバッジ */
+.warlord-card-badges {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  display: flex;
+  gap: 2px;
+}
+
+.badge {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.badge-concert {
+  background: linear-gradient(135deg, #673ab7, #9c27b0);
+}
+
+.badge-hideyoshi {
+  background: linear-gradient(135deg, #ff5722, #ff9800);
+}
+
 @media (min-width: 768px) {
   .warlord-selection-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+
+  .badge {
+    width: 26px;
+    height: 26px;
+    font-size: 0.85rem;
+  }
+
+  .warlord-card-image {
+    width: clamp(60px, 12vw, 80px);
+    height: clamp(60px, 12vw, 80px);
   }
 }
 
 @media (min-width: 1024px) {
   .warlord-selection-grid {
     grid-template-columns: repeat(5, 1fr);
-    gap: 14px;
+    gap: 12px;
   }
+}
+
+/* 決定ボタン */
+.warlord-confirm-container {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  animation: slideUp 0.3s ease-out;
+}
+
+.warlord-confirm-button {
+  padding: 12px 48px;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: bold;
+  background: linear-gradient(135deg, #e91e63 0%, #ff5722 100%);
+  color: white;
+  border: 3px solid #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 
+    0 6px 20px rgba(233, 30, 99, 0.5),
+    0 0 30px rgba(255, 87, 34, 0.3);
+  transition: all 0.2s ease;
+}
+
+.warlord-confirm-button:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 8px 25px rgba(233, 30, 99, 0.6),
+    0 0 40px rgba(255, 87, 34, 0.4);
+}
+
+.warlord-confirm-button:active {
+  transform: scale(0.98);
 }

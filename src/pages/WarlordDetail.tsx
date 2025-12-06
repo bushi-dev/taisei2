@@ -43,10 +43,11 @@ interface Warlord extends WarlordIndex {
   quiz: Quiz[];
 }
 
-// 漫画が存在する武将のマッピング
-const mangaMap: { [key: number]: string } = {
-  1: '/image/manga/nobunaga.png', // 織田信長
-};
+// 漫画が存在する武将のID一覧（ファイル名はID.pngの形式）
+const mangaIds = new Set([1, 2]); // 1: 織田信長, 2: 前田利家
+
+// 漫画パスを取得する関数
+const getMangaPath = (id: number) => `/image/manga/${id}.png`;
 
 const WarlordDetail = () => {
   const navigate = useNavigate();
@@ -159,7 +160,7 @@ const WarlordDetail = () => {
                 🎲 クイズに挑戦
               </SoundButton>
 
-              {mangaMap[warlord.id] && (
+              {mangaIds.has(warlord.id) && (
                 <SoundButton
                   onClick={() => setShowManga(true)}
                   className="warlord-manga-btn"
@@ -203,7 +204,7 @@ const WarlordDetail = () => {
       </SoundButton>
 
       {/* 漫画モーダル */}
-      {showManga && mangaMap[warlord.id] && (
+      {showManga && mangaIds.has(warlord.id) && (
         <div className="manga-modal-overlay" onClick={() => setShowManga(false)}>
           <div className="manga-modal-content" onClick={(e) => e.stopPropagation()}>
             <SoundButton
@@ -214,7 +215,7 @@ const WarlordDetail = () => {
             </SoundButton>
             <div className="manga-image-container">
               <img
-                src={getPath(mangaMap[warlord.id])}
+                src={getPath(getMangaPath(warlord.id))}
                 alt={`${warlord.name}の漫画`}
                 className="manga-image"
               />
