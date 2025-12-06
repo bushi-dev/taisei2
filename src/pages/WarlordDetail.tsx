@@ -1,10 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSoundManager } from '../components/SoundManager';
 import SoundButton from '../components/SoundButton';
 import JapanMap from '../components/JapanMap';
 import './WarlordDetail.css';
 import { getPath } from '../util/util';
+
+// Fisher-Yatesシャッフル
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+};
 
 interface BiographyStage {
   stage: number;
@@ -74,10 +84,32 @@ const WarlordDetail = () => {
   const [warlord, setWarlord] = useState<Warlord | null>(null);
   const [currentStage, setCurrentStage] = useState(1);
   const [warlords, setWarlords] = useState<Warlord[]>([]);
+  const [shuffledWarlords, setShuffledWarlords] = useState<Warlord[]>([]);
+  const selectorRef = useRef<HTMLDivElement>(null);
   const [fontSize, setFontSize] = useState<FontSize>(() => {
     const saved = localStorage.getItem('mangaFontSize');
     return (saved as FontSize) || 'medium';
   });
+
+  // 選択中の武将を中央にスクロールする関数
+  const scrollToCenter = useCallback((targetId: number) => {
+    if (!selectorRef.current) return;
+    
+    const container = selectorRef.current;
+    const buttons = container.querySelectorAll('.warlord-selector-btn');
+    const targetIndex = shuffledWarlords.findIndex(w => w.id === targetId);
+    
+    if (targetIndex >= 0 && buttons[targetIndex]) {
+      const button = buttons[targetIndex] as HTMLElement;
+      const containerWidth = container.offsetWidth;
+      const buttonLeft = button.offsetLeft;
+      const buttonWidth = button.offsetWidth;
+      
+      // ボタンを中央に配置するスクロール位置
+      const scrollLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+      container.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+    }
+  }, [shuffledWarlords]);
 
   const handleFontSizeChange = (size: FontSize) => {
     setFontSize(size);
@@ -96,6 +128,24 @@ const WarlordDetail = () => {
     ])
       .then(([indexData, detailData]: [WarlordIndex[], WarlordDetail]) => {
         setWarlords(indexData as Warlord[]);
+        
+        // sessionStorageからシャッフル順序を取得、なければ新規作成
+        const savedOrder = sessionStorage.getItem('warlordShuffleOrder');
+        let shuffled: Warlord[];
+        
+        if (savedOrder) {
+          // 保存された順序でソート
+          const orderIds: number[] = JSON.parse(savedOrder);
+          shuffled = orderIds
+            .map(id => indexData.find((w: WarlordIndex) => w.id === id))
+            .filter((w): w is WarlordIndex => w !== undefined) as Warlord[];
+        } else {
+          // 新規シャッフル
+          shuffled = shuffleArray(indexData as Warlord[]);
+          sessionStorage.setItem('warlordShuffleOrder', JSON.stringify(shuffled.map(w => w.id)));
+        }
+        setShuffledWarlords(shuffled);
+        
         // index.jsonの基本情報と個別ファイルの詳細情報をマージ
         const baseInfo = indexData.find((w: WarlordIndex) => w.id === id);
         if (baseInfo) {
@@ -104,6 +154,14 @@ const WarlordDetail = () => {
       })
       .catch((err) => console.error('Failed to load warlord data:', err));
   }, [warlordId, playBgm]);
+
+  // 武将が変わったら中央にスクロール
+  useEffect(() => {
+    if (warlord && shuffledWarlords.length > 0) {
+      // 少し遅延させてDOMが更新されてからスクロール
+      setTimeout(() => scrollToCenter(warlord.id), 100);
+    }
+  }, [warlord, shuffledWarlords, scrollToCenter]);
 
   const handleNextStage = () => {
     if (currentStage < 10) {
@@ -221,7 +279,7 @@ const WarlordDetail = () => {
                 <h2 className="warlord-biography-title">{currentBiography.title}</h2>
               </div>
 
-              <p className="warlord-biography-description">{currentBiography.description}</p>
+              <p className={`warlord-biography-description warlord-biography-description-${fontSize}`}>{currentBiography.description}</p>
 
               <div className="warlord-pagination">
                 <SoundButton
@@ -252,8 +310,8 @@ const WarlordDetail = () => {
       )}
 
       {/* 武将選択ボタン */}
-      <div className="warlord-selector">
-        {warlords.map((w) => (
+      <div className="warlord-selector" ref={selectorRef}>
+        {shuffledWarlords.map((w) => (
           <SoundButton
             key={w.id}
             onClick={() => handleSelectWarlord(w.id)}
@@ -265,20 +323,18 @@ const WarlordDetail = () => {
       </div>
 
       {/* 文字サイズ選択ボタン（右下） */}
-      {hasManga && (
-        <div className="font-size-selector">
-          <span className="font-size-label">文字</span>
-          {(['small', 'medium', 'large'] as FontSize[]).map((size) => (
-            <SoundButton
-              key={size}
-              onClick={() => handleFontSizeChange(size)}
-              className={`font-size-btn ${fontSize === size ? 'active' : ''}`}
-            >
-              {fontSizeLabels[size]}
-            </SoundButton>
-          ))}
-        </div>
-      )}
+      <div className="font-size-selector">
+        <span className="font-size-label">文字</span>
+        {(['small', 'medium', 'large'] as FontSize[]).map((size) => (
+          <SoundButton
+            key={size}
+            onClick={() => handleFontSizeChange(size)}
+            className={`font-size-btn ${fontSize === size ? 'active' : ''}`}
+          >
+            {fontSizeLabels[size]}
+          </SoundButton>
+        ))}
+      </div>
 
       {/* 戻るボタン */}
       <SoundButton onClick={() => navigate('/history-level')} className="back-button-level">

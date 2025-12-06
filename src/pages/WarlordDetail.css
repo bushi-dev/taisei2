@@ -203,6 +203,23 @@
   min-height: 120px;
   overflow-y: auto;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transition: font-size 0.2s ease;
+}
+
+/* 通常版の文字サイズバリエーション */
+.warlord-biography-description-small {
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.warlord-biography-description-medium {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.warlord-biography-description-large {
+  font-size: 1.2rem;
+  line-height: 1.7;
 }
 
 /* ページネーション */
@@ -490,6 +507,19 @@
 
   .manga-description-large {
     font-size: 1.35rem;
+  }
+
+  /* 通常版の文字サイズバリエーション（モバイル） */
+  .warlord-biography-description-small {
+    font-size: 0.75rem;
+  }
+
+  .warlord-biography-description-medium {
+    font-size: 0.9rem;
+  }
+
+  .warlord-biography-description-large {
+    font-size: 1.1rem;
   }
 
   .font-size-selector {
