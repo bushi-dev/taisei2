@@ -78,7 +78,8 @@ index.jsonのIDとかぶらないように新しいIDを割り当てて。重複
   "relatedPrefectures": ["愛知県", "大阪府", "京都府"],
   "birthYears": [1537],
   "deathYears": [1598],
-  "hideyoshiBrothersFlag": false
+  "hideyoshiBrothersFlag": false,
+  "concertFlag": false
 }
 ```
 
@@ -92,6 +93,7 @@ index.jsonのIDとかぶらないように新しいIDを割り当てて。重複
 | `birthYears`            | 生年の配列。複数人（三好三人衆など）の場合は複数の値を入れる |
 | `deathYears`            | 没年の配列。複数人の場合は複数の値を入れる                   |
 | `hideyoshiBrothersFlag` | 秀吉兄弟フラグ。基本は `false`                               |
+| `concertFlag`           | コンチェルトフラグ。基本は `false`                           |
 
 ## ステップ2: {id}.json ファイルを作成する
 
