@@ -12,6 +12,7 @@ interface Warlord {
   reading: string;
   image?: string;
   relatedPrefectures: string[];
+  birthYears: number[];
   concertFlag?: boolean;
   hideyoshiBrothersFlag?: boolean;
 }
@@ -70,16 +71,26 @@ const HistoryLevel = () => {
 
   // グループでフィルタリング
   const getFilteredWarlords = () => {
+    let filtered: Warlord[];
     switch (selectedGroup) {
       case 'concert':
-        return warlords.filter((w) => w.concertFlag === true);
+        filtered = warlords.filter((w) => w.concertFlag === true);
+        break;
       case 'hideyoshi':
-        return warlords.filter((w) => w.hideyoshiBrothersFlag === true);
+        filtered = warlords.filter((w) => w.hideyoshiBrothersFlag === true);
+        break;
       case 'other':
-        return warlords.filter((w) => !w.concertFlag && !w.hideyoshiBrothersFlag);
+        filtered = warlords.filter((w) => !w.concertFlag && !w.hideyoshiBrothersFlag);
+        break;
       default:
-        return warlords;
+        filtered = [...warlords];
     }
+    // 生まれた年順（古い順）にソート
+    return filtered.sort((a, b) => {
+      const yearA = Math.min(...a.birthYears);
+      const yearB = Math.min(...b.birthYears);
+      return yearA - yearB;
+    });
   };
 
   const filteredWarlords = getFilteredWarlords();
@@ -132,6 +143,11 @@ const HistoryLevel = () => {
                 )}
                 <div className="warlord-card-info">
                   <div className="warlord-card-name">{warlord.name}</div>
+                  <div className="warlord-card-birth">
+                    {warlord.birthYears.length === 1 
+                      ? `${warlord.birthYears[0]}年生まれ`
+                      : `${Math.min(...warlord.birthYears)}年〜`}
+                  </div>
                 </div>
               </div>
             </SoundButton>

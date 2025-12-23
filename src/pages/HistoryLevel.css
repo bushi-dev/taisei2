@@ -416,9 +416,10 @@
 
 .warlord-selection-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 6px;
   animation: fadeIn 0.3s ease-out;
+  width: 100%;
 }
 
 @keyframes fadeIn {
@@ -483,20 +484,32 @@
 }
 
 .warlord-card-name {
-  font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+  font-size: clamp(0.75rem, 2.2vw, 1rem);
   font-weight: bold;
   color: #ffd700;
   margin-bottom: 0;
+  word-break: break-all;
+  overflow-wrap: break-word;
+  line-height: 1.2;
+}
+
+.warlord-card-birth {
+  font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+  color: #ff8c00;
+  margin-top: 2px;
+  background: rgba(255, 140, 0, 0.15);
+  padding: 1px 4px;
+  border-radius: 3px;
 }
 
 .warlord-card-reading {
   font-size: clamp(0.5rem, 1.4vw, 0.7rem);
   color: #bbb;
   order: -1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-break: break-all;
+  overflow-wrap: break-word;
   max-width: 100%;
+  line-height: 1.2;
 }
 
 .warlord-card-prefectures {
