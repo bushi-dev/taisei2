@@ -4,7 +4,7 @@ import random
 from PIL import Image, ImageDraw, ImageFont
 
 # 設定
-MD_FILE = 'document/画像生成指示書.md'
+MD_FILE = 'document/画像再生成.md'
 OUTPUT_DIR = 'public/image/busho'
 FONT_PATH = '/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
 IMAGE_SIZE = (512, 512)
