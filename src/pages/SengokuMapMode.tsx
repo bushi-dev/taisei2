@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import JapanMap from '../components/JapanMap';
 import SoundButton from '../components/SoundButton';
