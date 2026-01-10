@@ -13,6 +13,7 @@ interface JapanMapProps {
   selectedPrefecture?: number | null;
   highlightedPrefectures?: string[]; // 都道府県名の配列（例：["愛知県", "岐阜県"]）
   showLabels?: boolean; // 都道府県名ラベルを表示するかどうか
+  customLabelFormatter?: (prefectureName: string) => string; // ラベルのフォーマッタ
 }
 
 // ラベル位置の全体オフセット（微調整用）
@@ -178,6 +179,7 @@ const JapanMap: React.FC<JapanMapProps> = ({
   selectedPrefecture,
   highlightedPrefectures = [],
   showLabels = false,
+  customLabelFormatter,
 }) => {
   const [hoveredPrefecture, setHoveredPrefecture] = useState<string | null>(null);
   const [labelPositions, setLabelPositions] = useState<{ [key: string]: { x: number; y: number } }>(
@@ -271,9 +273,8 @@ const JapanMap: React.FC<JapanMapProps> = ({
             key={location.id}
             id={location.id}
             d={location.path}
-            className={`prefecture-path ${getRegionClass(location.id)} ${
-              selectedEnglishId === location.id ? 'selected' : ''
-            } ${isHighlighted(location.id) ? 'highlighted' : ''}`}
+            className={`prefecture-path ${getRegionClass(location.id)} ${selectedEnglishId === location.id ? 'selected' : ''
+              } ${isHighlighted(location.id) ? 'highlighted' : ''}`}
             onClick={() => handleClick(location.id)}
             onMouseEnter={() => handleMouseEnter(location.id)}
             onMouseLeave={handleMouseLeave}
@@ -286,9 +287,8 @@ const JapanMap: React.FC<JapanMapProps> = ({
             <path
               id={okinawa.id}
               d={okinawa.path}
-              className={`prefecture-path ${getRegionClass(okinawa.id)} ${
-                selectedEnglishId === okinawa.id ? 'selected' : ''
-              } ${isHighlighted(okinawa.id) ? 'highlighted' : ''}`}
+              className={`prefecture-path ${getRegionClass(okinawa.id)} ${selectedEnglishId === okinawa.id ? 'selected' : ''
+                } ${isHighlighted(okinawa.id) ? 'highlighted' : ''}`}
               onClick={() => handleClick(okinawa.id)}
               onMouseEnter={() => handleMouseEnter(okinawa.id)}
               onMouseLeave={handleMouseLeave}
@@ -306,7 +306,9 @@ const JapanMap: React.FC<JapanMapProps> = ({
               className={`prefecture-label ${isHighlighted(id) ? 'highlighted' : ''}`}
               pointerEvents="none"
             >
-              {prefectureShortNames[id] || id}
+              {customLabelFormatter
+                ? customLabelFormatter(prefectureShortNames[id] || id)
+                : prefectureShortNames[id] || id}
             </text>
           ))}
       </svg>
