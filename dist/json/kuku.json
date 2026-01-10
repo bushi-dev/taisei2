@@ -1,0 +1,418 @@
+[
+  {
+    "number": 1,
+    "reading": "いんいち が ？",
+    "formula": "1×1",
+    "answer": 1
+  },
+  { "number": 1, "reading": "いんに が ？", "formula": "1×2", "answer": 2 },
+  {
+    "number": 1,
+    "reading": "いんさん が ？",
+    "formula": "1×3",
+    "answer": 3
+  },
+  { "number": 1, "reading": "いんし が ？", "formula": "1×4", "answer": 4 },
+  { "number": 1, "reading": "いんご が ？", "formula": "1×5", "answer": 5 },
+  {
+    "number": 1,
+    "reading": "いんろく が ？",
+    "formula": "1×6",
+    "answer": 6
+  },
+  {
+    "number": 1,
+    "reading": "いんしち が ？",
+    "formula": "1×7",
+    "answer": 7
+  },
+  {
+    "number": 1,
+    "reading": "いんはち が ？",
+    "formula": "1×8",
+    "answer": 8
+  },
+  { "number": 1, "reading": "いんく が ？", "formula": "1×9", "answer": 9 },
+  { "number": 2, "reading": "にいち が ？", "formula": "2×1", "answer": 2 },
+  { "number": 2, "reading": "ににん が ？", "formula": "2×2", "answer": 4 },
+  { "number": 2, "reading": "にさん が ？", "formula": "2×3", "answer": 6 },
+  { "number": 2, "reading": "にし が ？", "formula": "2×4", "answer": 8 },
+  {
+    "number": 2,
+    "reading": "にご ？",
+    "formula": "2×5",
+    "answer": 10
+  },
+  {
+    "number": 2,
+    "reading": "にろく ？",
+    "formula": "2×6",
+    "answer": 12
+  },
+  {
+    "number": 2,
+    "reading": "にしち ？",
+    "formula": "2×7",
+    "answer": 14
+  },
+  {
+    "number": 2,
+    "reading": "にはち ？",
+    "formula": "2×8",
+    "answer": 16
+  },
+  {
+    "number": 2,
+    "reading": "にく ？",
+    "formula": "2×9",
+    "answer": 18
+  },
+  {
+    "number": 3,
+    "reading": "さんいち が ？",
+    "formula": "3×1",
+    "answer": 3
+  },
+  { "number": 3, "reading": "さんに が ？", "formula": "3×2", "answer": 6 },
+  { "number": 3, "reading": "さざん が ？", "formula": "3×3", "answer": 9 },
+  {
+    "number": 3,
+    "reading": "さんし ？",
+    "formula": "3×4",
+    "answer": 12
+  },
+  {
+    "number": 3,
+    "reading": "さんご ？",
+    "formula": "3×5",
+    "answer": 15
+  },
+  {
+    "number": 3,
+    "reading": "さぶろく ？",
+    "formula": "3×6",
+    "answer": 18
+  },
+  {
+    "number": 3,
+    "reading": "さんしち ？",
+    "formula": "3×7",
+    "answer": 21
+  },
+  {
+    "number": 3,
+    "reading": "さんぱ ？",
+    "formula": "3×8",
+    "answer": 24
+  },
+  {
+    "number": 3,
+    "reading": "さんく ？",
+    "formula": "3×9",
+    "answer": 27
+  },
+  { "number": 4, "reading": "しいち が ？", "formula": "4×1", "answer": 4 },
+  { "number": 4, "reading": "しに が ？", "formula": "4×2", "answer": 8 },
+  {
+    "number": 4,
+    "reading": "しさん ？",
+    "formula": "4×3",
+    "answer": 12
+  },
+  {
+    "number": 4,
+    "reading": "しし ？",
+    "formula": "4×4",
+    "answer": 16
+  },
+  {
+    "number": 4,
+    "reading": "しご ？",
+    "formula": "4×5",
+    "answer": 20
+  },
+  {
+    "number": 4,
+    "reading": "しろく ？",
+    "formula": "4×6",
+    "answer": 24
+  },
+  {
+    "number": 4,
+    "reading": "ししち ？",
+    "formula": "4×7",
+    "answer": 28
+  },
+  {
+    "number": 4,
+    "reading": "しは ？",
+    "formula": "4×8",
+    "answer": 32
+  },
+  {
+    "number": 4,
+    "reading": "しく ？",
+    "formula": "4×9",
+    "answer": 36
+  },
+  { "number": 5, "reading": "ごいち が ？", "formula": "5×1", "answer": 5 },
+  {
+    "number": 5,
+    "reading": "ごに ？",
+    "formula": "5×2",
+    "answer": 10
+  },
+  {
+    "number": 5,
+    "reading": "ごさん ？",
+    "formula": "5×3",
+    "answer": 15
+  },
+  {
+    "number": 5,
+    "reading": "ごし ？",
+    "formula": "5×4",
+    "answer": 20
+  },
+  {
+    "number": 5,
+    "reading": "ごご ？",
+    "formula": "5×5",
+    "answer": 25
+  },
+  {
+    "number": 5,
+    "reading": "ごろく ？",
+    "formula": "5×6",
+    "answer": 30
+  },
+  {
+    "number": 5,
+    "reading": "ごしち ？",
+    "formula": "5×7",
+    "answer": 35
+  },
+  {
+    "number": 5,
+    "reading": "ごは ？",
+    "formula": "5×8",
+    "answer": 40
+  },
+  {
+    "number": 5,
+    "reading": "ごっく ？",
+    "formula": "5×9",
+    "answer": 45
+  },
+  {
+    "number": 6,
+    "reading": "ろくいち が ？",
+    "formula": "6×1",
+    "answer": 6
+  },
+  {
+    "number": 6,
+    "reading": "ろくに ？",
+    "formula": "6×2",
+    "answer": 12
+  },
+  {
+    "number": 6,
+    "reading": "ろくさん ？",
+    "formula": "6×3",
+    "answer": 18
+  },
+  {
+    "number": 6,
+    "reading": "ろくし ？",
+    "formula": "6×4",
+    "answer": 24
+  },
+  {
+    "number": 6,
+    "reading": "ろくご ？",
+    "formula": "6×5",
+    "answer": 30
+  },
+  {
+    "number": 6,
+    "reading": "ろくろく ？",
+    "formula": "6×6",
+    "answer": 36
+  },
+  {
+    "number": 6,
+    "reading": "ろくしち ？",
+    "formula": "6×7",
+    "answer": 42
+  },
+  {
+    "number": 6,
+    "reading": "ろくは ？",
+    "formula": "6×8",
+    "answer": 48
+  },
+  {
+    "number": 6,
+    "reading": "ろっく ？",
+    "formula": "6×9",
+    "answer": 54
+  },
+  {
+    "number": 7,
+    "reading": "しちいち が ？",
+    "formula": "7×1",
+    "answer": 7
+  },
+  {
+    "number": 7,
+    "reading": "しちに ？",
+    "formula": "7×2",
+    "answer": 14
+  },
+  {
+    "number": 7,
+    "reading": "しちさん ？",
+    "formula": "7×3",
+    "answer": 21
+  },
+  {
+    "number": 7,
+    "reading": "しちし ？",
+    "formula": "7×4",
+    "answer": 28
+  },
+  {
+    "number": 7,
+    "reading": "しちご ？",
+    "formula": "7×5",
+    "answer": 35
+  },
+  {
+    "number": 7,
+    "reading": "しちろく ？",
+    "formula": "7×6",
+    "answer": 42
+  },
+  {
+    "number": 7,
+    "reading": "しちしち ？",
+    "formula": "7×7",
+    "answer": 49
+  },
+  {
+    "number": 7,
+    "reading": "しちは ？",
+    "formula": "7×8",
+    "answer": 56
+  },
+  {
+    "number": 7,
+    "reading": "しちく ？",
+    "formula": "7×9",
+    "answer": 63
+  },
+  {
+    "number": 8,
+    "reading": "はちいち が ？",
+    "formula": "8×1",
+    "answer": 8
+  },
+  {
+    "number": 8,
+    "reading": "はちに ？",
+    "formula": "8×2",
+    "answer": 16
+  },
+  {
+    "number": 8,
+    "reading": "はっさん ？",
+    "formula": "8×3",
+    "answer": 24
+  },
+  {
+    "number": 8,
+    "reading": "はちし ？",
+    "formula": "8×4",
+    "answer": 32
+  },
+  {
+    "number": 8,
+    "reading": "はちご ？",
+    "formula": "8×5",
+    "answer": 40
+  },
+  {
+    "number": 8,
+    "reading": "はちろく ？",
+    "formula": "8×6",
+    "answer": 48
+  },
+  {
+    "number": 8,
+    "reading": "はちしち ？",
+    "formula": "8×7",
+    "answer": 56
+  },
+  {
+    "number": 8,
+    "reading": "はっぱ ？",
+    "formula": "8×8",
+    "answer": 64
+  },
+  {
+    "number": 8,
+    "reading": "はっく ？",
+    "formula": "8×9",
+    "answer": 72
+  },
+  { "number": 9, "reading": "くいち が ？", "formula": "9×1", "answer": 9 },
+  {
+    "number": 9,
+    "reading": "くに ？",
+    "formula": "9×2",
+    "answer": 18
+  },
+  {
+    "number": 9,
+    "reading": "くさん ？",
+    "formula": "9×3",
+    "answer": 27
+  },
+  {
+    "number": 9,
+    "reading": "くし ？",
+    "formula": "9×4",
+    "answer": 36
+  },
+  {
+    "number": 9,
+    "reading": "くご ？",
+    "formula": "9×5",
+    "answer": 45
+  },
+  {
+    "number": 9,
+    "reading": "くろく ？",
+    "formula": "9×6",
+    "answer": 54
+  },
+  {
+    "number": 9,
+    "reading": "くしち ？",
+    "formula": "9×7",
+    "answer": 63
+  },
+  {
+    "number": 9,
+    "reading": "くは ？",
+    "formula": "9×8",
+    "answer": 72
+  },
+  {
+    "number": 9,
+    "reading": "くく ？",
+    "formula": "9×9",
+    "answer": 81
+  }
+]
