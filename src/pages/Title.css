@@ -17,9 +17,11 @@
   0% {
     background-position: 0% 0%;
   }
+
   50% {
     background-position: 100% 100%;
   }
+
   100% {
     background-position: 0% 0%;
   }
@@ -43,18 +45,23 @@
   0% {
     transform: translateY(0px);
   }
+
   5% {
     transform: translateY(-5px);
   }
+
   10% {
     transform: translateY(-10px);
   }
+
   15% {
     transform: translateY(-5px);
   }
+
   20% {
     transform: translateY(0px);
   }
+
   100% {
     transform: translateY(0px);
   }
@@ -106,6 +113,10 @@
   background-color: #9c27b0;
 }
 
+.title-screen__button.sengoku-map {
+  background-color: #e91e63;
+}
+
 .title-screen__button.close {
   background-color: #607d8b;
   margin-top: 1rem;
@@ -148,10 +159,12 @@
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-20px);
   }
@@ -166,11 +179,13 @@
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.6;
     transform: scale(1.05);

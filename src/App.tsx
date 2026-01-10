@@ -12,6 +12,7 @@ import BossPage from './pages/BossPage';
 import { BattleProvider } from './context/BattleContext';
 import HistoryLevel from './pages/HistoryLevel';
 import WarlordDetail from './pages/WarlordDetail';
+import SengokuMapMode from './pages/SengokuMapMode';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/kuku-level" element={<KukuLevel />} />
           <Route path="/history-level" element={<HistoryLevel />} />
           <Route path="/warlord/:warlordId" element={<WarlordDetail />} />
+          <Route path="/sengoku-map" element={<SengokuMapMode />} />
         </Routes>
       </BrowserRouter>
     </BattleProvider>

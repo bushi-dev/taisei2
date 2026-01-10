@@ -97,6 +97,13 @@ const Title = () => {
         歴史モード
       </SoundButton>
 
+      <SoundButton
+        className="title-screen__button sengoku-map"
+        onClick={() => navigate('/sengoku-map')}
+      >
+        戦国都道府県モード
+      </SoundButton>
+
       <SoundButton className="title-screen__button treasure" onClick={() => navigate('/treasure')}>
         秘宝の記録
       </SoundButton>
