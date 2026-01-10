@@ -40,12 +40,14 @@
     align-items: center;
     padding: 1rem;
     background-color: #34495e;
+    position: relative;
+    /* Ensure relative for absolute positioned controls */
+    overflow: hidden;
 }
 
 .sengoku-map-wrapper .japan-map-wrapper {
     width: 100%;
     max-width: 900px;
-    /* Slightly larger for labels */
     height: 100%;
 }
 
@@ -160,7 +162,6 @@
 .site-name {
     font-weight: bold;
     color: #e67e22;
-    /* Different color for places */
     margin-bottom: 4px;
 }
 
@@ -205,31 +206,85 @@
     background-color: #7f8c8d;
 }
 
+/* Zoom Controls */
+.zoom-controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 100;
+}
+
+.zoom-controls button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    background-color: #2c3e50;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.zoom-controls button:hover {
+    background-color: #34495e;
+}
+
+.zoom-controls button:active {
+    transform: translateY(1px);
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
+    .sengoku-header {
+        display: none;
+    }
+
     .sengoku-content {
         flex-direction: column;
     }
 
     .sengoku-info-panel {
         width: 100%;
-        height: 45%;
+        height: 25%;
+        max-height: 25%;
+        flex: none;
         position: absolute;
         bottom: 0;
         left: 0;
         z-index: 20;
-        border-radius: 20px 20px 0 0;
+        border-radius: 0;
         box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+        padding: 0;
     }
 
     .sengoku-map-wrapper {
-        height: 55%;
-        padding-bottom: 0;
+        flex: 1;
+        padding: 0;
+        padding-bottom: 25%;
         align-items: flex-start;
-        /* Push map to top */
+        justify-content: center;
+    }
+
+    .sengoku-map-wrapper .japan-map-wrapper {
+        height: auto;
+        width: 100%;
     }
 
     .sengoku-title {
         font-size: 1.2rem;
+    }
+
+    .zoom-controls {
+        top: 10px;
+        right: 10px;
     }
 }

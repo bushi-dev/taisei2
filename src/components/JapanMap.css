@@ -157,19 +157,19 @@
 
 /* 都道府県名ラベル */
 .prefecture-label {
-  font-size: 6px;
+  font-size: 4px;
   fill: #333;
-  font-weight: bold;
+  font-weight: normal;
   text-anchor: middle;
   pointer-events: none;
   text-shadow:
-    -0.5px -0.5px 0 #fff,
-    0.5px -0.5px 0 #fff,
-    -0.5px 0.5px 0 #fff,
-    0.5px 0.5px 0 #fff;
+    -0.3px -0.3px 0 #fff,
+    0.3px -0.3px 0 #fff,
+    -0.3px 0.3px 0 #fff,
+    0.3px 0.3px 0 #fff;
   paint-order: stroke fill;
   stroke: #fff;
-  stroke-width: 1.5px;
+  stroke-width: 1px;
   stroke-linejoin: round;
 }
 
