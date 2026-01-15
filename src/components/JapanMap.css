@@ -82,70 +82,15 @@
 }
 
 /* 地方ごとの色分け */
-.hokkaido-region {
-  fill: #5dade2;
-}
+.hokkaido-region { fill: #5dade2; }
+.tohoku-region { fill: #58d68d; }
+.kanto-region { fill: #f9e79f; }
+.chubu-region { fill: #abebc6; }
+.kinki-region { fill: #f5b7b1; }
+.chugoku-region { fill: #d7bde2; }
+.shikoku-region { fill: #a9dfbf; }
+.kyushu-region { fill: #f8c471; }
 
-.tohoku-region {
-  fill: #58d68d;
-}
-
-.kanto-region {
-  fill: #f9e79f;
-}
-
-.chubu-region {
-  fill: #abebc6;
-}
-
-.kinki-region {
-  fill: #f5b7b1;
-}
-
-.chugoku-region {
-  fill: #d7bde2;
-}
-
-.shikoku-region {
-  fill: #a9dfbf;
-}
-
-.kyushu-region {
-  fill: #f8c471;
-}
-
-/* ホバー時のスタイル（地方色を維持しつつ明るく） */
-.hokkaido-region:hover {
-  fill: #85c1e9;
-}
-
-.tohoku-region:hover {
-  fill: #82e0aa;
-}
-
-.kanto-region:hover {
-  fill: #fcf3cf;
-}
-
-.chubu-region:hover {
-  fill: #d5f5e3;
-}
-
-.kinki-region:hover {
-  fill: #fadbd8;
-}
-
-.chugoku-region:hover {
-  fill: #e8daef;
-}
-
-.shikoku-region:hover {
-  fill: #d4efdf;
-}
-
-.kyushu-region:hover {
-  fill: #fad7a0;
-}
 
 /* 沖縄ラベル */
 .okinawa-label {
@@ -179,6 +124,70 @@
   stroke: #fff;
   stroke-width: 2px;
 }
+
+/* 47都道府県ごとのラベル文字色（鮮やか版） */
+/* 北海道 */
+.prefecture-label.label-hokkaido { fill: #0066cc; }
+
+/* 東北地方 */
+.prefecture-label.label-aomori { fill: #009933; }
+.prefecture-label.label-iwate { fill: #cc3300; }
+.prefecture-label.label-miyagi { fill: #0099cc; }
+.prefecture-label.label-akita { fill: #9933cc; }
+.prefecture-label.label-yamagata { fill: #cc9900; }
+.prefecture-label.label-fukushima { fill: #339966; }
+
+/* 関東地方 */
+.prefecture-label.label-ibaraki { fill: #cc0066; }
+.prefecture-label.label-tochigi { fill: #0066ff; }
+.prefecture-label.label-gunma { fill: #ff6600; }
+.prefecture-label.label-saitama { fill: #00cc99; }
+.prefecture-label.label-chiba { fill: #ff9900; }
+.prefecture-label.label-tokyo { fill: #ff0033; }
+.prefecture-label.label-kanagawa { fill: #00cc00; }
+
+/* 中部地方 */
+.prefecture-label.label-niigata { fill: #6600cc; }
+.prefecture-label.label-toyama { fill: #ff3366; }
+.prefecture-label.label-ishikawa { fill: #009999; }
+.prefecture-label.label-fukui { fill: #cc6600; }
+.prefecture-label.label-yamanashi { fill: #ff0066; }
+.prefecture-label.label-nagano { fill: #33cc33; }
+.prefecture-label.label-gifu { fill: #cccc00; }
+.prefecture-label.label-shizuoka { fill: #00cccc; }
+.prefecture-label.label-aichi { fill: #ffcc00; }
+
+/* 近畿地方 */
+.prefecture-label.label-mie { fill: #9900cc; }
+.prefecture-label.label-shiga { fill: #33cc66; }
+.prefecture-label.label-kyoto { fill: #cc0033; }
+.prefecture-label.label-osaka { fill: #0033cc; }
+.prefecture-label.label-hyogo { fill: #ff6633; }
+.prefecture-label.label-nara { fill: #00cc66; }
+.prefecture-label.label-wakayama { fill: #ff3333; }
+
+/* 中国地方 */
+.prefecture-label.label-tottori { fill: #9933ff; }
+.prefecture-label.label-shimane { fill: #33cc99; }
+.prefecture-label.label-okayama { fill: #ffcc33; }
+.prefecture-label.label-hiroshima { fill: #00cc33; }
+.prefecture-label.label-yamaguchi { fill: #ff9933; }
+
+/* 四国地方 */
+.prefecture-label.label-tokushima { fill: #3366ff; }
+.prefecture-label.label-kagawa { fill: #ff3366; }
+.prefecture-label.label-ehime { fill: #33ff66; }
+.prefecture-label.label-kochi { fill: #cc33ff; }
+
+/* 九州・沖縄地方 */
+.prefecture-label.label-fukuoka { fill: #ff6600; }
+.prefecture-label.label-saga { fill: #00ff66; }
+.prefecture-label.label-nagasaki { fill: #ffcc00; }
+.prefecture-label.label-kumamoto { fill: #ff0000; }
+.prefecture-label.label-oita { fill: #0066ff; }
+.prefecture-label.label-miyazaki { fill: #00ffcc; }
+.prefecture-label.label-kagoshima { fill: #cc00ff; }
+.prefecture-label.label-okinawa { fill: #ffff00; }
 
 /* ツールチップ */
 .prefecture-tooltip {

@@ -204,9 +204,9 @@ const SengokuMapMode = () => {
             <div className="sengoku-content">
                 <div className="sengoku-map-wrapper">
                     <TransformWrapper
-                        initialScale={1}
-                        initialPositionX={0}
-                        initialPositionY={0}
+                        initialScale={window.innerWidth <= 768 ? 3 : 1}
+                        initialPositionX={window.innerWidth <= 768 ? -580 : 0}
+                        initialPositionY={window.innerWidth <= 768 ? -320 : 0}
                         minScale={1}
                         maxScale={8}
                         centerOnInit={window.innerWidth > 768}
@@ -239,18 +239,14 @@ const SengokuMapMode = () => {
                 <div className={`sengoku-info-panel ${!selectedPrefecture ? '' : ''}`}>
                     {selectedPrefecture ? (
                         <>
-                            <h2 className="prefecture-title">{selectedPrefecture.name}</h2>
-                            {provinceMapping[selectedPrefecture.name] && (
-                                <div className="province-name">
-                                    <ruby>
-                                        旧国名: {provinceMapping[selectedPrefecture.name].name}
-                                        <rt>{provinceMapping[selectedPrefecture.name].reading}</rt>
-                                    </ruby>
-                                </div>
-                            )}
-
+                            <div className="prefecture-header">
+                                <span className="province-reading">
+                                    {provinceMapping[selectedPrefecture.name.replace(/県|府|都|道$/, '')]?.reading.split('・')[0] || ''}
+                                </span>
+                                <span className="prefecture-name-compact">{selectedPrefecture.name.replace(/県|府|都|道$/, '')}</span>
+                                <span className="warlord-count">武将{activeWarlords.length}人</span>
+                            </div>
                             <div className="info-section">
-                                <h3>活躍した武将 ({activeWarlords.length})</h3>
                                 {activeWarlords.length > 0 ? (
                                     <div className="warlord-list">
                                         {activeWarlords.map((w) => (

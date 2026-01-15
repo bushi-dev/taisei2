@@ -20,6 +20,12 @@ interface JapanMapProps {
 const LABEL_OFFSET_X = 0; // 右方向にずらす
 const LABEL_OFFSET_Y = 0; // 下方向にずらす
 
+// 被りを避けるための個別オフセット
+const LABEL_ADJUSTMENTS: { [key: string]: { x: number; y: number } } = {
+  fukui: { x: 0, y: -4 },     // 福井を上に
+  gifu: { x: 0, y: 4 },       // 岐阜を下に
+};
+
 // 都道府県の短縮名
 const prefectureShortNames: { [key: string]: string } = {
   hokkaido: '北海道',
@@ -138,30 +144,11 @@ const getRegionClass = (englishId: string): string => {
   const hokkaido = ['hokkaido'];
   const tohoku = ['aomori', 'iwate', 'miyagi', 'akita', 'yamagata', 'fukushima'];
   const kanto = ['ibaraki', 'tochigi', 'gunma', 'saitama', 'chiba', 'tokyo', 'kanagawa'];
-  const chubu = [
-    'niigata',
-    'toyama',
-    'ishikawa',
-    'fukui',
-    'yamanashi',
-    'nagano',
-    'gifu',
-    'shizuoka',
-    'aichi',
-  ];
+  const chubu = ['niigata', 'toyama', 'ishikawa', 'fukui', 'yamanashi', 'nagano', 'gifu', 'shizuoka', 'aichi'];
   const kinki = ['mie', 'shiga', 'kyoto', 'osaka', 'hyogo', 'nara', 'wakayama'];
   const chugoku = ['tottori', 'shimane', 'okayama', 'hiroshima', 'yamaguchi'];
   const shikoku = ['tokushima', 'kagawa', 'ehime', 'kochi'];
-  const kyushu = [
-    'fukuoka',
-    'saga',
-    'nagasaki',
-    'kumamoto',
-    'oita',
-    'miyazaki',
-    'kagoshima',
-    'okinawa',
-  ];
+  const kyushu = ['fukuoka', 'saga', 'nagasaki', 'kumamoto', 'oita', 'miyazaki', 'kagoshima', 'okinawa'];
 
   if (hokkaido.includes(englishId)) return 'hokkaido-region';
   if (tohoku.includes(englishId)) return 'tohoku-region';
@@ -172,6 +159,11 @@ const getRegionClass = (englishId: string): string => {
   if (shikoku.includes(englishId)) return 'shikoku-region';
   if (kyushu.includes(englishId)) return 'kyushu-region';
   return '';
+};
+
+// 都道府県ごとのラベル色クラス
+const getLabelColorClass = (englishId: string): string => {
+  return `label-${englishId}`;
 };
 
 const JapanMap: React.FC<JapanMapProps> = ({
@@ -298,19 +290,22 @@ const JapanMap: React.FC<JapanMapProps> = ({
 
         {/* 都道府県名ラベル（動的に計算された位置に表示） */}
         {showLabels &&
-          Object.entries(labelPositions).map(([id, pos]) => (
-            <text
-              key={`label-${id}`}
-              x={pos.x + LABEL_OFFSET_X}
-              y={pos.y + LABEL_OFFSET_Y}
-              className={`prefecture-label ${isHighlighted(id) ? 'highlighted' : ''}`}
-              pointerEvents="none"
-            >
-              {customLabelFormatter
-                ? customLabelFormatter(prefectureShortNames[id] || id)
-                : prefectureShortNames[id] || id}
-            </text>
-          ))}
+          Object.entries(labelPositions).map(([id, pos]) => {
+            const adj = LABEL_ADJUSTMENTS[id] || { x: 0, y: 0 };
+            return (
+              <text
+                key={`label-${id}`}
+                x={pos.x + LABEL_OFFSET_X + adj.x}
+                y={pos.y + LABEL_OFFSET_Y + adj.y}
+                className={`prefecture-label ${getLabelColorClass(id)} ${isHighlighted(id) ? 'highlighted' : ''}`}
+                pointerEvents="none"
+              >
+                {customLabelFormatter
+                  ? customLabelFormatter(prefectureShortNames[id] || id)
+                  : prefectureShortNames[id] || id}
+              </text>
+            );
+          })}
       </svg>
       {hoveredPrefecture && <div className="prefecture-tooltip">{hoveredPrefecture}</div>}
     </div>

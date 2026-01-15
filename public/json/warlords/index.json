@@ -4,9 +4,17 @@
     "name": "織田信長",
     "reading": "おだのぶなが",
     "image": "/image/busho/oda_nobunaga.png",
-    "relatedPrefectures": ["愛知県", "岐阜県", "京都府"],
-    "birthYears": [1534],
-    "deathYears": [1582],
+    "relatedPrefectures": [
+      "愛知県",
+      "岐阜県",
+      "京都府"
+    ],
+    "birthYears": [
+      1534
+    ],
+    "deathYears": [
+      1582
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -15,9 +23,17 @@
     "name": "前田利家",
     "reading": "まえだとしいえ",
     "image": "/image/busho/maeda_toshiie.png",
-    "relatedPrefectures": ["愛知県", "福井県", "石川県"],
-    "birthYears": [1539],
-    "deathYears": [1599],
+    "relatedPrefectures": [
+      "愛知県",
+      "福井県",
+      "石川県"
+    ],
+    "birthYears": [
+      1539
+    ],
+    "deathYears": [
+      1599
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -26,9 +42,17 @@
     "name": "武田信玄",
     "reading": "たけだしんげん",
     "image": "/image/busho/takeda_shingen.png",
-    "relatedPrefectures": ["山梨県", "長野県", "静岡県"],
-    "birthYears": [1521],
-    "deathYears": [1573],
+    "relatedPrefectures": [
+      "山梨県",
+      "長野県",
+      "静岡県"
+    ],
+    "birthYears": [
+      1521
+    ],
+    "deathYears": [
+      1573
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -37,9 +61,17 @@
     "name": "本多忠勝",
     "reading": "ほんだただかつ",
     "image": "/image/busho/honda_tadakatsu.png",
-    "relatedPrefectures": ["愛知県", "千葉県", "三重県"],
-    "birthYears": [1548],
-    "deathYears": [1610],
+    "relatedPrefectures": [
+      "愛知県",
+      "千葉県",
+      "三重県"
+    ],
+    "birthYears": [
+      1548
+    ],
+    "deathYears": [
+      1610
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -48,9 +80,17 @@
     "name": "榊原康政",
     "reading": "さかきばらやすまさ",
     "image": "/image/busho/sakakibara_yasumasa.png",
-    "relatedPrefectures": ["愛知県", "滋賀県", "群馬県"],
-    "birthYears": [1548],
-    "deathYears": [1606],
+    "relatedPrefectures": [
+      "愛知県",
+      "滋賀県",
+      "群馬県"
+    ],
+    "birthYears": [
+      1548
+    ],
+    "deathYears": [
+      1606
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -59,9 +99,16 @@
     "name": "島津義弘",
     "reading": "しまづよしひろ",
     "image": "/image/busho/shimazu_yoshihiro.png",
-    "relatedPrefectures": ["鹿児島県", "宮崎県"],
-    "birthYears": [1535],
-    "deathYears": [1619],
+    "relatedPrefectures": [
+      "鹿児島県",
+      "宮崎県"
+    ],
+    "birthYears": [
+      1535
+    ],
+    "deathYears": [
+      1619
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -70,9 +117,15 @@
     "name": "浅井長政",
     "reading": "あさいながまさ",
     "image": "/image/busho/asai_nagamasa.png",
-    "relatedPrefectures": ["滋賀県"],
-    "birthYears": [1545],
-    "deathYears": [1573],
+    "relatedPrefectures": [
+      "滋賀県"
+    ],
+    "birthYears": [
+      1545
+    ],
+    "deathYears": [
+      1573
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -81,9 +134,18 @@
     "name": "佐々成政",
     "reading": "さっさなりまさ",
     "image": "/image/busho/sassa_narimasa.png",
-    "relatedPrefectures": ["愛知県", "福井県", "富山県", "熊本県"],
-    "birthYears": [1536],
-    "deathYears": [1588],
+    "relatedPrefectures": [
+      "愛知県",
+      "福井県",
+      "富山県",
+      "熊本県"
+    ],
+    "birthYears": [
+      1536
+    ],
+    "deathYears": [
+      1588
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -92,9 +154,16 @@
     "name": "斎藤道三",
     "reading": "さいとうどうさん",
     "image": "/image/busho/saito_dosan.png",
-    "relatedPrefectures": ["京都府", "岐阜県"],
-    "birthYears": [1494],
-    "deathYears": [1556],
+    "relatedPrefectures": [
+      "京都府",
+      "岐阜県"
+    ],
+    "birthYears": [
+      1494
+    ],
+    "deathYears": [
+      1556
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -103,9 +172,21 @@
     "name": "三好三人衆",
     "reading": "みよしさんにんしゅう",
     "image": "/image/busho/miyoshi_sannin.png",
-    "relatedPrefectures": ["京都府", "大阪府", "奈良県"],
-    "birthYears": [1528, 1527, 1530],
-    "deathYears": [1573, 1615, 1573],
+    "relatedPrefectures": [
+      "京都府",
+      "大阪府",
+      "奈良県"
+    ],
+    "birthYears": [
+      1528,
+      1527,
+      1530
+    ],
+    "deathYears": [
+      1573,
+      1615,
+      1573
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": false
   },
@@ -114,9 +195,17 @@
     "name": "豊臣秀長",
     "reading": "とよとみひでなが",
     "image": "/image/busho/toyotomi_hidenaga.png",
-    "relatedPrefectures": ["愛知県", "奈良県", "和歌山県"],
-    "birthYears": [1540],
-    "deathYears": [1591],
+    "relatedPrefectures": [
+      "愛知県",
+      "奈良県",
+      "和歌山県"
+    ],
+    "birthYears": [
+      1540
+    ],
+    "deathYears": [
+      1591
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -125,9 +214,16 @@
     "name": "まつ",
     "reading": "まつ",
     "image": "/image/busho/matsu.png",
-    "relatedPrefectures": ["愛知県", "石川県"],
-    "birthYears": [1547],
-    "deathYears": [1617],
+    "relatedPrefectures": [
+      "愛知県",
+      "石川県"
+    ],
+    "birthYears": [
+      1547
+    ],
+    "deathYears": [
+      1617
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": false
   },
@@ -136,9 +232,17 @@
     "name": "石田三成",
     "reading": "いしだみつなり",
     "image": "/image/busho/ishida_mitsunari.png",
-    "relatedPrefectures": ["滋賀県", "大阪府", "岐阜県"],
-    "birthYears": [1560],
-    "deathYears": [1600],
+    "relatedPrefectures": [
+      "滋賀県",
+      "大阪府",
+      "岐阜県"
+    ],
+    "birthYears": [
+      1560
+    ],
+    "deathYears": [
+      1600
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -147,9 +251,17 @@
     "name": "豊臣秀吉",
     "reading": "とよとみひでよし",
     "image": "/image/busho/toyotomi_hideyoshi.png",
-    "relatedPrefectures": ["愛知県", "大阪府", "京都府"],
-    "birthYears": [1537],
-    "deathYears": [1598],
+    "relatedPrefectures": [
+      "愛知県",
+      "大阪府",
+      "京都府"
+    ],
+    "birthYears": [
+      1537
+    ],
+    "deathYears": [
+      1598
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -158,9 +270,17 @@
     "name": "明智光秀",
     "reading": "あけちみつひで",
     "image": "/image/busho/akechi_mitsuhide.png",
-    "relatedPrefectures": ["岐阜県", "京都府", "滋賀県"],
-    "birthYears": [1528],
-    "deathYears": [1582],
+    "relatedPrefectures": [
+      "岐阜県",
+      "京都府",
+      "滋賀県"
+    ],
+    "birthYears": [
+      1528
+    ],
+    "deathYears": [
+      1582
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -169,9 +289,16 @@
     "name": "石川数正",
     "reading": "いしかわかずまさ",
     "image": "/image/busho/ishikawa_kazumasa.png",
-    "relatedPrefectures": ["愛知県", "長野県"],
-    "birthYears": [1533],
-    "deathYears": [1593],
+    "relatedPrefectures": [
+      "愛知県",
+      "長野県"
+    ],
+    "birthYears": [
+      1533
+    ],
+    "deathYears": [
+      1593
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -180,9 +307,17 @@
     "name": "お市",
     "reading": "おいち",
     "image": "/image/busho/oichi.png",
-    "relatedPrefectures": ["愛知県", "滋賀県", "福井県"],
-    "birthYears": [1547],
-    "deathYears": [1583],
+    "relatedPrefectures": [
+      "愛知県",
+      "滋賀県",
+      "福井県"
+    ],
+    "birthYears": [
+      1547
+    ],
+    "deathYears": [
+      1583
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -191,9 +326,16 @@
     "name": "斎藤龍興",
     "reading": "さいとうたつおき",
     "image": "/image/busho/saito_tatsuoki.png",
-    "relatedPrefectures": ["岐阜県", "福井県"],
-    "birthYears": [1548],
-    "deathYears": [1573],
+    "relatedPrefectures": [
+      "岐阜県",
+      "福井県"
+    ],
+    "birthYears": [
+      1548
+    ],
+    "deathYears": [
+      1573
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -202,9 +344,16 @@
     "name": "柴田勝家",
     "reading": "しばたかついえ",
     "image": "/image/busho/shibata_katsuie.png",
-    "relatedPrefectures": ["愛知県", "福井県"],
-    "birthYears": [1522],
-    "deathYears": [1583],
+    "relatedPrefectures": [
+      "愛知県",
+      "福井県"
+    ],
+    "birthYears": [
+      1522
+    ],
+    "deathYears": [
+      1583
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -213,9 +362,17 @@
     "name": "藤堂高虎",
     "reading": "とうどうたかとら",
     "image": "/image/busho/todo_takatora.png",
-    "relatedPrefectures": ["滋賀県", "三重県", "愛媛県"],
-    "birthYears": [1556],
-    "deathYears": [1630],
+    "relatedPrefectures": [
+      "滋賀県",
+      "三重県",
+      "愛媛県"
+    ],
+    "birthYears": [
+      1556
+    ],
+    "deathYears": [
+      1630
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -224,9 +381,17 @@
     "name": "徳川家康",
     "reading": "とくがわいえやす",
     "image": "/image/busho/tokugawa_ieyasu.png",
-    "relatedPrefectures": ["愛知県", "静岡県", "東京都"],
-    "birthYears": [1543],
-    "deathYears": [1616],
+    "relatedPrefectures": [
+      "愛知県",
+      "静岡県",
+      "東京都"
+    ],
+    "birthYears": [
+      1543
+    ],
+    "deathYears": [
+      1616
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -235,9 +400,16 @@
     "name": "宮部継潤",
     "reading": "みやべけいじゅん",
     "image": "/image/busho/miyabe_keijun.png",
-    "relatedPrefectures": ["滋賀県", "鳥取県"],
-    "birthYears": [1528],
-    "deathYears": [1599],
+    "relatedPrefectures": [
+      "滋賀県",
+      "鳥取県"
+    ],
+    "birthYears": [
+      1528
+    ],
+    "deathYears": [
+      1599
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -246,9 +418,16 @@
     "name": "森蘭丸",
     "reading": "もりらんまる",
     "image": "/image/busho/mori_ranmaru.png",
-    "relatedPrefectures": ["岐阜県", "京都府"],
-    "birthYears": [1565],
-    "deathYears": [1582],
+    "relatedPrefectures": [
+      "岐阜県",
+      "京都府"
+    ],
+    "birthYears": [
+      1565
+    ],
+    "deathYears": [
+      1582
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -257,9 +436,17 @@
     "name": "丹羽長秀",
     "reading": "にわながひで",
     "image": "/image/busho/niwa_nagahide.png",
-    "relatedPrefectures": ["愛知県", "滋賀県", "福井県"],
-    "birthYears": [1535],
-    "deathYears": [1585],
+    "relatedPrefectures": [
+      "愛知県",
+      "滋賀県",
+      "福井県"
+    ],
+    "birthYears": [
+      1535
+    ],
+    "deathYears": [
+      1585
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -268,9 +455,16 @@
     "name": "淀殿",
     "reading": "よどどの",
     "image": "/image/busho/yododono.png",
-    "relatedPrefectures": ["滋賀県", "大阪府"],
-    "birthYears": [1569],
-    "deathYears": [1615],
+    "relatedPrefectures": [
+      "滋賀県",
+      "大阪府"
+    ],
+    "birthYears": [
+      1569
+    ],
+    "deathYears": [
+      1615
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -279,9 +473,16 @@
     "name": "初",
     "reading": "はつ",
     "image": "/image/busho/hatsu.png",
-    "relatedPrefectures": ["滋賀県", "福井県"],
-    "birthYears": [1570],
-    "deathYears": [1633],
+    "relatedPrefectures": [
+      "滋賀県",
+      "福井県"
+    ],
+    "birthYears": [
+      1570
+    ],
+    "deathYears": [
+      1633
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -290,9 +491,16 @@
     "name": "江",
     "reading": "ごう",
     "image": "/image/busho/gou.png",
-    "relatedPrefectures": ["滋賀県", "東京都"],
-    "birthYears": [1573],
-    "deathYears": [1626],
+    "relatedPrefectures": [
+      "滋賀県",
+      "東京都"
+    ],
+    "birthYears": [
+      1573
+    ],
+    "deathYears": [
+      1626
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -301,9 +509,15 @@
     "name": "豊臣秀頼",
     "reading": "とよとみひでより",
     "image": "/image/busho/toyotomi_hideyori.png",
-    "relatedPrefectures": ["大阪府"],
-    "birthYears": [1593],
-    "deathYears": [1615],
+    "relatedPrefectures": [
+      "大阪府"
+    ],
+    "birthYears": [
+      1593
+    ],
+    "deathYears": [
+      1615
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -312,9 +526,15 @@
     "name": "竹中半兵衛",
     "reading": "たけなかはんべえ",
     "image": "/image/busho/takenaka_hanbei.png",
-    "relatedPrefectures": ["岐阜県"],
-    "birthYears": [1544],
-    "deathYears": [1579],
+    "relatedPrefectures": [
+      "岐阜県"
+    ],
+    "birthYears": [
+      1544
+    ],
+    "deathYears": [
+      1579
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -323,9 +543,17 @@
     "name": "黒田官兵衛",
     "reading": "くろだかんべえ",
     "image": "/image/busho/kuroda_kanbei.png",
-    "relatedPrefectures": ["兵庫県", "福岡県", "大分県"],
-    "birthYears": [1546],
-    "deathYears": [1604],
+    "relatedPrefectures": [
+      "兵庫県",
+      "福岡県",
+      "大分県"
+    ],
+    "birthYears": [
+      1546
+    ],
+    "deathYears": [
+      1604
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -334,9 +562,16 @@
     "name": "加藤清正",
     "reading": "かとうきよまさ",
     "image": "/image/busho/kato_kiyomasa.png",
-    "relatedPrefectures": ["愛知県", "熊本県"],
-    "birthYears": [1562],
-    "deathYears": [1611],
+    "relatedPrefectures": [
+      "愛知県",
+      "熊本県"
+    ],
+    "birthYears": [
+      1562
+    ],
+    "deathYears": [
+      1611
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -345,9 +580,17 @@
     "name": "福島正則",
     "reading": "ふくしままさのり",
     "image": "/image/busho/fukushima_masanori.png",
-    "relatedPrefectures": ["愛知県", "広島県", "長野県"],
-    "birthYears": [1561],
-    "deathYears": [1624],
+    "relatedPrefectures": [
+      "愛知県",
+      "広島県",
+      "長野県"
+    ],
+    "birthYears": [
+      1561
+    ],
+    "deathYears": [
+      1624
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -356,9 +599,16 @@
     "name": "前野長康",
     "reading": "まえのながやす",
     "image": "/image/busho/maeno_nagayasu.png",
-    "relatedPrefectures": ["愛知県", "兵庫県"],
-    "birthYears": [1528],
-    "deathYears": [1595],
+    "relatedPrefectures": [
+      "愛知県",
+      "兵庫県"
+    ],
+    "birthYears": [
+      1528
+    ],
+    "deathYears": [
+      1595
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -367,9 +617,17 @@
     "name": "豊臣秀次",
     "reading": "とよとみひでつぐ",
     "image": "/image/busho/toyotomi_hidetsugu.png",
-    "relatedPrefectures": ["愛知県", "滋賀県", "京都府"],
-    "birthYears": [1568],
-    "deathYears": [1595],
+    "relatedPrefectures": [
+      "愛知県",
+      "滋賀県",
+      "京都府"
+    ],
+    "birthYears": [
+      1568
+    ],
+    "deathYears": [
+      1595
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -378,9 +636,15 @@
     "name": "竹中重門",
     "reading": "たけなかしげかど",
     "image": "/image/busho/takenaka_shigekado.png",
-    "relatedPrefectures": ["岐阜県"],
-    "birthYears": [1573],
-    "deathYears": [1631],
+    "relatedPrefectures": [
+      "岐阜県"
+    ],
+    "birthYears": [
+      1573
+    ],
+    "deathYears": [
+      1631
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -389,9 +653,16 @@
     "name": "小早川隆景",
     "reading": "こばやかわたかかげ",
     "image": "/image/busho/kobayakawa_takakage.png",
-    "relatedPrefectures": ["広島県", "福岡県"],
-    "birthYears": [1533],
-    "deathYears": [1597],
+    "relatedPrefectures": [
+      "広島県",
+      "福岡県"
+    ],
+    "birthYears": [
+      1533
+    ],
+    "deathYears": [
+      1597
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -400,9 +671,16 @@
     "name": "毛利輝元",
     "reading": "もうりてるもと",
     "image": "/image/busho/mori_terumoto.png",
-    "relatedPrefectures": ["広島県", "山口県"],
-    "birthYears": [1553],
-    "deathYears": [1625],
+    "relatedPrefectures": [
+      "広島県",
+      "山口県"
+    ],
+    "birthYears": [
+      1553
+    ],
+    "deathYears": [
+      1625
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -411,9 +689,16 @@
     "name": "大友宗麟",
     "reading": "おおともそうりん",
     "image": "/image/busho/otomo_sorin.png",
-    "relatedPrefectures": ["大分県", "福岡県"],
-    "birthYears": [1530],
-    "deathYears": [1587],
+    "relatedPrefectures": [
+      "大分県",
+      "福岡県"
+    ],
+    "birthYears": [
+      1530
+    ],
+    "deathYears": [
+      1587
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -422,9 +707,15 @@
     "name": "長宗我部元親",
     "reading": "ちょうそかべもとちか",
     "image": "/image/busho/chosokabe_motochika.png",
-    "relatedPrefectures": ["高知県"],
-    "birthYears": [1539],
-    "deathYears": [1599],
+    "relatedPrefectures": [
+      "高知県"
+    ],
+    "birthYears": [
+      1539
+    ],
+    "deathYears": [
+      1599
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": true
   },
@@ -433,9 +724,16 @@
     "name": "立花宗茂",
     "reading": "たちばなむねしげ",
     "image": "/image/busho/tachibana_muneshige.png",
-    "relatedPrefectures": ["福岡県", "大分県"],
-    "birthYears": [1567],
-    "deathYears": [1643],
+    "relatedPrefectures": [
+      "福岡県",
+      "大分県"
+    ],
+    "birthYears": [
+      1567
+    ],
+    "deathYears": [
+      1643
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -444,9 +742,17 @@
     "name": "片桐且元",
     "reading": "かたぎりかつもと",
     "image": "/image/busho/katagiri_katsumoto.png",
-    "relatedPrefectures": ["滋賀県", "大阪府", "奈良県"],
-    "birthYears": [1556],
-    "deathYears": [1615],
+    "relatedPrefectures": [
+      "滋賀県",
+      "大阪府",
+      "奈良県"
+    ],
+    "birthYears": [
+      1556
+    ],
+    "deathYears": [
+      1615
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -455,9 +761,15 @@
     "name": "大野治長",
     "reading": "おおのはるなが",
     "image": "/image/busho/ono_harunaga.png",
-    "relatedPrefectures": ["大阪府"],
-    "birthYears": [1569],
-    "deathYears": [1615],
+    "relatedPrefectures": [
+      "大阪府"
+    ],
+    "birthYears": [
+      1569
+    ],
+    "deathYears": [
+      1615
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -466,9 +778,15 @@
     "name": "大蔵卿局",
     "reading": "おおくらきょうのつぼね",
     "image": "/image/busho/okurakyo_no_tsubone.png",
-    "relatedPrefectures": ["大阪府"],
-    "birthYears": [1545],
-    "deathYears": [1615],
+    "relatedPrefectures": [
+      "大阪府"
+    ],
+    "birthYears": [
+      1545
+    ],
+    "deathYears": [
+      1615
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -477,9 +795,15 @@
     "name": "後陽成天皇",
     "reading": "ごようぜいてんのう",
     "image": "/image/busho/goyozei_tenno.png",
-    "relatedPrefectures": ["京都府"],
-    "birthYears": [1571],
-    "deathYears": [1617],
+    "relatedPrefectures": [
+      "京都府"
+    ],
+    "birthYears": [
+      1571
+    ],
+    "deathYears": [
+      1617
+    ],
     "hideyoshiBrothersFlag": true,
     "concertFlag": false
   },
@@ -488,9 +812,15 @@
     "name": "織田信行",
     "reading": "おだのぶゆき",
     "image": "/image/busho/oda_nobuyuki.png",
-    "relatedPrefectures": ["愛知県"],
-    "birthYears": [1536],
-    "deathYears": [1557],
+    "relatedPrefectures": [
+      "愛知県"
+    ],
+    "birthYears": [
+      1536
+    ],
+    "deathYears": [
+      1557
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -499,9 +829,16 @@
     "name": "織田信雄",
     "reading": "おだのぶかつ",
     "image": "/image/busho/oda_nobukatsu.png",
-    "relatedPrefectures": ["愛知県", "三重県"],
-    "birthYears": [1558],
-    "deathYears": [1630],
+    "relatedPrefectures": [
+      "愛知県",
+      "三重県"
+    ],
+    "birthYears": [
+      1558
+    ],
+    "deathYears": [
+      1630
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -510,9 +847,16 @@
     "name": "織田信孝",
     "reading": "おだのぶたか",
     "image": "/image/busho/oda_nobutaka.png",
-    "relatedPrefectures": ["愛知県", "岐阜県"],
-    "birthYears": [1558],
-    "deathYears": [1583],
+    "relatedPrefectures": [
+      "愛知県",
+      "岐阜県"
+    ],
+    "birthYears": [
+      1558
+    ],
+    "deathYears": [
+      1583
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -521,9 +865,17 @@
     "name": "滝川一益",
     "reading": "たきがわかずます",
     "image": "/image/busho/takigawa_kazumasu.png",
-    "relatedPrefectures": ["愛知県", "三重県", "群馬県"],
-    "birthYears": [1525],
-    "deathYears": [1586],
+    "relatedPrefectures": [
+      "愛知県",
+      "三重県",
+      "群馬県"
+    ],
+    "birthYears": [
+      1525
+    ],
+    "deathYears": [
+      1586
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -532,9 +884,16 @@
     "name": "堀秀政",
     "reading": "ほりひでまさ",
     "image": "/image/busho/hori_hidemasa.png",
-    "relatedPrefectures": ["愛知県", "福井県"],
-    "birthYears": [1553],
-    "deathYears": [1590],
+    "relatedPrefectures": [
+      "愛知県",
+      "福井県"
+    ],
+    "birthYears": [
+      1553
+    ],
+    "deathYears": [
+      1590
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -543,9 +902,16 @@
     "name": "池田恒興",
     "reading": "いけだつねおき",
     "image": "/image/busho/ikeda_tsuneoki.png",
-    "relatedPrefectures": ["愛知県", "岐阜県"],
-    "birthYears": [1536],
-    "deathYears": [1584],
+    "relatedPrefectures": [
+      "愛知県",
+      "岐阜県"
+    ],
+    "birthYears": [
+      1536
+    ],
+    "deathYears": [
+      1584
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -554,9 +920,16 @@
     "name": "蜂須賀小六",
     "reading": "はちすかころく",
     "image": "/image/busho/hachisuka_koroku.png",
-    "relatedPrefectures": ["愛知県", "徳島県"],
-    "birthYears": [1526],
-    "deathYears": [1586],
+    "relatedPrefectures": [
+      "愛知県",
+      "徳島県"
+    ],
+    "birthYears": [
+      1526
+    ],
+    "deathYears": [
+      1586
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -565,9 +938,17 @@
     "name": "森可成",
     "reading": "もりよしなり",
     "image": "/image/busho/mori_yoshinari.png",
-    "relatedPrefectures": ["愛知県", "岐阜県", "滋賀県"],
-    "birthYears": [1523],
-    "deathYears": [1570],
+    "relatedPrefectures": [
+      "愛知県",
+      "岐阜県",
+      "滋賀県"
+    ],
+    "birthYears": [
+      1523
+    ],
+    "deathYears": [
+      1570
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -576,9 +957,15 @@
     "name": "酒井忠次",
     "reading": "さかいただつぐ",
     "image": "/image/busho/sakai_tadatsugu.png",
-    "relatedPrefectures": ["愛知県"],
-    "birthYears": [1527],
-    "deathYears": [1596],
+    "relatedPrefectures": [
+      "愛知県"
+    ],
+    "birthYears": [
+      1527
+    ],
+    "deathYears": [
+      1596
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -587,9 +974,17 @@
     "name": "井伊直政",
     "reading": "いいなおまさ",
     "image": "/image/busho/ii_naomasa.png",
-    "relatedPrefectures": ["静岡県", "滋賀県", "群馬県"],
-    "birthYears": [1561],
-    "deathYears": [1602],
+    "relatedPrefectures": [
+      "静岡県",
+      "滋賀県",
+      "群馬県"
+    ],
+    "birthYears": [
+      1561
+    ],
+    "deathYears": [
+      1602
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -598,9 +993,15 @@
     "name": "朝倉義景",
     "reading": "あさくらよしかげ",
     "image": "/image/busho/asakura_yoshikage.png",
-    "relatedPrefectures": ["福井県"],
-    "birthYears": [1533],
-    "deathYears": [1573],
+    "relatedPrefectures": [
+      "福井県"
+    ],
+    "birthYears": [
+      1533
+    ],
+    "deathYears": [
+      1573
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -609,9 +1010,16 @@
     "name": "武田勝頼",
     "reading": "たけだかつより",
     "image": "/image/busho/takeda_katsuyori.png",
-    "relatedPrefectures": ["山梨県", "長野県"],
-    "birthYears": [1546],
-    "deathYears": [1582],
+    "relatedPrefectures": [
+      "山梨県",
+      "長野県"
+    ],
+    "birthYears": [
+      1546
+    ],
+    "deathYears": [
+      1582
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -620,9 +1028,16 @@
     "name": "山県昌景",
     "reading": "やまがたまさかげ",
     "image": "/image/busho/yamagata_masakage.png",
-    "relatedPrefectures": ["山梨県", "長野県"],
-    "birthYears": [1529],
-    "deathYears": [1575],
+    "relatedPrefectures": [
+      "山梨県",
+      "長野県"
+    ],
+    "birthYears": [
+      1529
+    ],
+    "deathYears": [
+      1575
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -631,9 +1046,16 @@
     "name": "馬場信房",
     "reading": "ばばのぶふさ",
     "image": "/image/busho/baba_nobufusa.png",
-    "relatedPrefectures": ["山梨県", "長野県"],
-    "birthYears": [1515],
-    "deathYears": [1575],
+    "relatedPrefectures": [
+      "山梨県",
+      "長野県"
+    ],
+    "birthYears": [
+      1515
+    ],
+    "deathYears": [
+      1575
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -642,9 +1064,16 @@
     "name": "内藤昌豊",
     "reading": "ないとうまさとよ",
     "image": "/image/busho/naito_masatoyo.png",
-    "relatedPrefectures": ["山梨県", "長野県"],
-    "birthYears": [1522],
-    "deathYears": [1575],
+    "relatedPrefectures": [
+      "山梨県",
+      "長野県"
+    ],
+    "birthYears": [
+      1522
+    ],
+    "deathYears": [
+      1575
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -653,9 +1082,16 @@
     "name": "高坂昌信",
     "reading": "こうさかまさのぶ",
     "image": "/image/busho/kosaka_masanobu.png",
-    "relatedPrefectures": ["山梨県", "長野県"],
-    "birthYears": [1527],
-    "deathYears": [1578],
+    "relatedPrefectures": [
+      "山梨県",
+      "長野県"
+    ],
+    "birthYears": [
+      1527
+    ],
+    "deathYears": [
+      1578
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -664,9 +1100,16 @@
     "name": "上杉謙信",
     "reading": "うえすぎけんしん",
     "image": "/image/busho/uesugi_kenshin.png",
-    "relatedPrefectures": ["新潟県", "長野県"],
-    "birthYears": [1530],
-    "deathYears": [1578],
+    "relatedPrefectures": [
+      "新潟県",
+      "長野県"
+    ],
+    "birthYears": [
+      1530
+    ],
+    "deathYears": [
+      1578
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -675,9 +1118,15 @@
     "name": "斎藤義龍",
     "reading": "さいとうよしたつ",
     "image": "/image/busho/saito_yoshitatsu.png",
-    "relatedPrefectures": ["岐阜県"],
-    "birthYears": [1527],
-    "deathYears": [1561],
+    "relatedPrefectures": [
+      "岐阜県"
+    ],
+    "birthYears": [
+      1527
+    ],
+    "deathYears": [
+      1561
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -686,9 +1135,16 @@
     "name": "本願寺顕如",
     "reading": "ほんがんじけんにょ",
     "image": "/image/busho/honganji_kennyo.png",
-    "relatedPrefectures": ["大阪府", "和歌山県"],
-    "birthYears": [1543],
-    "deathYears": [1592],
+    "relatedPrefectures": [
+      "大阪府",
+      "和歌山県"
+    ],
+    "birthYears": [
+      1543
+    ],
+    "deathYears": [
+      1592
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -697,9 +1153,16 @@
     "name": "毛利元就",
     "reading": "もうりもとなり",
     "image": "/image/busho/mori_motonari.png",
-    "relatedPrefectures": ["広島県", "山口県"],
-    "birthYears": [1497],
-    "deathYears": [1571],
+    "relatedPrefectures": [
+      "広島県",
+      "山口県"
+    ],
+    "birthYears": [
+      1497
+    ],
+    "deathYears": [
+      1571
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -708,9 +1171,16 @@
     "name": "島津義久",
     "reading": "しまづよしひさ",
     "image": "/image/busho/shimazu_yoshihisa.png",
-    "relatedPrefectures": ["鹿児島県", "宮崎県"],
-    "birthYears": [1533],
-    "deathYears": [1611],
+    "relatedPrefectures": [
+      "鹿児島県",
+      "宮崎県"
+    ],
+    "birthYears": [
+      1533
+    ],
+    "deathYears": [
+      1611
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -719,9 +1189,17 @@
     "name": "伊達政宗",
     "reading": "だてまさむね",
     "image": "/image/busho/date_masamune.png",
-    "relatedPrefectures": ["宮城県", "山形県", "福島県"],
-    "birthYears": [1567],
-    "deathYears": [1636],
+    "relatedPrefectures": [
+      "宮城県",
+      "山形県",
+      "福島県"
+    ],
+    "birthYears": [
+      1567
+    ],
+    "deathYears": [
+      1636
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
   },
@@ -730,10 +1208,154 @@
     "name": "足利義昭",
     "reading": "あしかがよしあき",
     "image": "/image/busho/ashikaga_yoshiaki.png",
-    "relatedPrefectures": ["京都府", "山口県"],
-    "birthYears": [1537],
-    "deathYears": [1597],
+    "relatedPrefectures": [
+      "京都府",
+      "山口県"
+    ],
+    "birthYears": [
+      1537
+    ],
+    "deathYears": [
+      1597
+    ],
     "hideyoshiBrothersFlag": false,
     "concertFlag": true
+  },
+  {
+    "id": 68,
+    "name": "北条氏康",
+    "reading": "ほうじょううじやす",
+    "image": "/image/busho/hojo_ujiyasu.png",
+    "relatedPrefectures": [
+      "神奈川県"
+    ],
+    "birthYears": [
+      1515
+    ],
+    "deathYears": [
+      1571
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": true
+  },
+  {
+    "id": 69,
+    "name": "朽木元綱",
+    "reading": "くつきもとつな",
+    "image": "/image/busho/kuchiki_mototsuna.png",
+    "relatedPrefectures": [
+      "滋賀県"
+    ],
+    "birthYears": [
+      1549
+    ],
+    "deathYears": [
+      1632
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": false
+  },
+  {
+    "id": 70,
+    "name": "佐竹義重",
+    "reading": "さたけよししげ",
+    "image": "/image/busho/satake_yoshishige.png",
+    "relatedPrefectures": [
+      "茨城県",
+      "秋田県"
+    ],
+    "birthYears": [
+      1547
+    ],
+    "deathYears": [
+      1612
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": true
+  },
+  {
+    "id": 71,
+    "name": "龍造寺隆信",
+    "reading": "りゅうぞうじたかのぶ",
+    "image": "/image/busho/ryuzoji_takanobu.png",
+    "relatedPrefectures": [
+      "佐賀県"
+    ],
+    "birthYears": [
+      1529
+    ],
+    "deathYears": [
+      1584
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": true
+  },
+  {
+    "id": 72,
+    "name": "宇喜多直家",
+    "reading": "うきたなおいえ",
+    "image": "/image/busho/ukita_naoie.png",
+    "relatedPrefectures": [
+      "岡山県"
+    ],
+    "birthYears": [
+      1529
+    ],
+    "deathYears": [
+      1581
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": true
+  },
+  {
+    "id": 73,
+    "name": "尼子義久",
+    "reading": "あまごよしひさ",
+    "image": "/image/busho/amago_yoshihisa.png",
+    "relatedPrefectures": [
+      "島根県"
+    ],
+    "birthYears": [
+      1540
+    ],
+    "deathYears": [
+      1610
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": false
+  },
+  {
+    "id": 74,
+    "name": "太田資正",
+    "reading": "おおたすけまさ",
+    "image": "/image/busho/ota_sukemasa.png",
+    "relatedPrefectures": [
+      "埼玉県"
+    ],
+    "birthYears": [
+      1519
+    ],
+    "deathYears": [
+      1591
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": false
+  },
+  {
+    "id": 75,
+    "name": "松前慶広",
+    "reading": "まつまえよしひろ",
+    "image": "/image/busho/matsumae_yoshihiro.png",
+    "relatedPrefectures": [
+      "北海道"
+    ],
+    "birthYears": [
+      1548
+    ],
+    "deathYears": [
+      1616
+    ],
+    "hideyoshiBrothersFlag": false,
+    "concertFlag": false
   }
 ]
