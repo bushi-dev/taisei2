@@ -179,6 +179,12 @@ const SengokuMapMode = () => {
         navigate(`/warlord/${warlordId}`);
     };
 
+    // 都道府県名から末尾の「県」「府」「都」「道」を削除（北海道は例外）
+    const removePrefectureSuffix = (name: string): string => {
+        if (name === '北海道') return '北海道';
+        return name.replace(/県|府|都|道$/, '');
+    };
+
     // 都道府県名と旧国名を結合してラベルを作成
     const getLabelWithProvince = (prefectureName: string) => {
         const province = provinceMapping[prefectureName];
@@ -241,9 +247,9 @@ const SengokuMapMode = () => {
                         <>
                             <div className="prefecture-header">
                                 <span className="province-reading">
-                                    {provinceMapping[selectedPrefecture.name.replace(/県|府|都|道$/, '')]?.reading.split('・')[0] || ''}
+                                    {provinceMapping[removePrefectureSuffix(selectedPrefecture.name)]?.reading.split('・')[0] || ''}
                                 </span>
-                                <span className="prefecture-name-compact">{selectedPrefecture.name.replace(/県|府|都|道$/, '')}</span>
+                                <span className="prefecture-name-compact">{removePrefectureSuffix(selectedPrefecture.name)}</span>
                                 <span className="warlord-count">武将{activeWarlords.length}人</span>
                             </div>
                             <div className="info-section">
