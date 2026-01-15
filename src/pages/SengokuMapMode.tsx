@@ -199,12 +199,15 @@ const SengokuMapMode = () => {
 
     return (
         <div className="sengoku-map-container">
+            <SoundButton onClick={() => navigate('/')} className="back-button">
+                <img
+                    src={getPath('/image/back.png')}
+                    alt="戻る"
+                    style={{ width: '45px', height: '45px' }}
+                />
+            </SoundButton>
             <header className="sengoku-header">
-                <SoundButton onClick={() => navigate('/')} className="back-button">
-                    戻る
-                </SoundButton>
                 <h1 className="sengoku-title">戦国都道府県モード</h1>
-                <div style={{ width: '60px' }}></div>
             </header>
 
             <div className="sengoku-content">
